@@ -13,4 +13,4 @@ if ($conn->connect_error) {
 $stmt = $conn->prepare("INSERT INTO MyGuests (firstname, lastname, email) VALUES (?, ?, ?)");
 $stmt->bind_param("sss", $firstname, $lastname, $email);
 }
-// funkcja ma zwracac tablice asocjacyjną
+// funkcja ma zwracac tablice asocjacyjną no elo
