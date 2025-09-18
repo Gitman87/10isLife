@@ -1,0 +1,57 @@
+.tile {
+  width: 27.5rem;
+  background-color: aquamarine;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  cursor: pointer;
+  border: 0.4rem solid transparent;
+  border-image: $outline-granat;
+  border-image-slice: 1;
+
+  &-discount {
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    color: $white;
+    font-size: $font-small;
+    background-color: $orange;
+    padding: 0.2rem 0.5rem;
+    transform: skewX(-10deg);
+  }
+  &-details {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0.8rem;
+    padding: 0rem 0.8rem 0.8rem 0.8rem;
+
+    &-name {
+      color: $granat;
+      font-size: $font-medium;
+      overflow-x: scroll;
+      margin-bottom: 0.8rem;
+    }
+    &-price {
+      display: flex;
+      gap: 0.8rem;
+      &-new {
+        font-size: $font-large;
+        color: $orange;
+        font-weight: $font-weight-thick;
+      }
+      &-old {
+        font-size: $font-small;
+        color: gray;
+      }
+    }
+    &-rate {
+      display: flex;
+      gap: 0.8rem;
+      align-items: center;
+      &-balls {
+        display: flex;
+        gap: 0.2rem;
+      }
+    }
+  }
+}

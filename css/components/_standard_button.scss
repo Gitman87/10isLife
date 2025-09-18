@@ -1,0 +1,26 @@
+.standard_button {
+  background-color: $orange;
+  font-size: $font-medium;
+  padding: 1em 2em;
+  transform: skewX(-10deg);
+  box-shadow: $box-shadow;
+
+  &-wrapper {
+    transform: skewX(10deg);
+    &-link {
+      color: $white;
+      font-weight: $font-weight-thick;
+    }
+  }
+}
+.standard_button:hover {
+  transform: skewX(0deg);
+  transition-duration: 150ms;
+  transition-timing-function: ease-out;
+  .standard_button-wrapper {
+    transform: skewX(0deg);
+    .standard_button-wrapper-link {
+      color: $granat;
+    }
+  }
+}

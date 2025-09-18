@@ -1,0 +1,652 @@
+/* 1. Use a more-intuitive box-sizing model */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,800;1,400&display=swap");
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Poppins", Arial, sans-serif;
+  margin: 0;
+  background-image: url(../res/icon/square-tile.svg);
+  background-repeat: repeat;
+}
+
+/* 3. Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+body {
+  /* 4. Add accessible line-height */
+  line-height: 1.5;
+  /* 5. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 6. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 7. Inherit fonts for form controls */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* 8. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+  -webkit-hyphens: auto;
+          hyphens: auto;
+}
+
+/* 9. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*
+  10. Create a root stacking context
+*/
+#root,
+#__next {
+  isolation: isolate;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+.hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.breakpoint {
+  width: 1280px;
+  margin: auto;
+}
+
+.header {
+  top: 0;
+  background-color: rgb(202, 202, 202);
+  position: sticky;
+  width: 100%;
+  padding: 0.8rem 0;
+  background-color: rgba(255, 255, 255, 0.2);
+  -webkit-backdrop-filter: blur(10rem);
+  backdrop-filter: blur(1rem);
+  box-shadow: 0 0.4rem 3rem rgba(0, 0, 0, 0.1);
+  border-bottom: 0.1rem solid rgba(255, 255, 255, 0.3);
+  z-index: 10;
+}
+.header-content {
+  background-color: gray;
+  width: 100%;
+  max-width: 152rem;
+  padding: 0 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header-content-logo {
+  height: 8rem;
+  cursor: pointer;
+}
+.header-content-search {
+  background-color: #002b5b;
+  max-width: 47ch;
+  display: flex;
+  border: 0.4rem solid #002b5b;
+  transform: skewX(-10deg);
+}
+.header-content-search-input {
+  padding-right: 0.5rem;
+  font-size: 1.6rem;
+  text-align: right;
+  color: #808080;
+  border: none;
+}
+.header-content-search-input:focus {
+  outline: 0.1rem solid #ff6600;
+}
+.header-content-search-input:focus {
+  outline: 0.1rem solid #ff6600;
+}
+.header-content-search-button {
+  background-color: #002b5b;
+  width: 2.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header-content-search-button-img {
+  width: 1.9rem;
+  transform: skewX(10deg);
+}
+.header-content-search-button:hover {
+  background-color: #ff6600;
+}
+.header-content-search-button:hover .header-content-search-button-img {
+  transform: rotate(-15deg);
+}
+.header-content-search-button:active {
+  background-color: #ff6600;
+}
+.header-content-search-button:active .header-content-search-button-img {
+  transform: rotate(15deg);
+}
+.header-content-burger {
+  width: 4rem;
+  visibility: collapse;
+}
+.header-content-nav-list {
+  display: flex;
+  background-color: burlywood;
+}
+.header-content-account {
+  background-color: beige;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header-content-account-user {
+  background-color: bisque;
+  padding: 0 1rem;
+}
+.header-content-account-user-person {
+  width: 4rem;
+  position: relative;
+  top: 0.4rem;
+  left: 0.2rem;
+}
+.header-content-account-user-login {
+  color: #002b5b;
+  font-size: 1.6rem;
+  position: relative;
+  bottom: 0.4rem;
+  max-width: 100%;
+  overflow-x: scroll;
+}
+.header-content-account-user-login:hover {
+  color: #ff6600;
+}
+.header-content-account-shopping {
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  order: 0;
+  justify-content: center;
+  align-items: center;
+}
+.header-content-account-shopping-basket {
+  width: 4rem;
+  position: relative;
+  top: 1.2rem;
+}
+.header-content-account-shopping-ball {
+  background-color: #ff6600;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50% 50%;
+  position: relative;
+  bottom: 3.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header-content-account-shopping-ball-counter {
+  color: white;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+.header-content-account-shopping-ball:hover {
+  transform: scale(1.2);
+}
+.header-content-account-shopping-ball:active {
+  transform: scale(0.8);
+}
+
+@media (max-width: 128em) {
+  .header-content {
+    flex-wrap: wrap;
+  }
+  .header-content-nav {
+    width: 100%;
+    order: 1;
+    margin-top: 0.8rem;
+  }
+  .header-content-nav .header-content-nav-list {
+    width: 100%;
+    justify-content: space-evenly;
+  }
+}
+@media (pointer: coarse) {
+  .button {
+    padding: 2em 3em;
+  }
+  .header-content-burger {
+    visibility: visible;
+  }
+}
+.footer {
+  background-color: gray;
+}
+.footer-address {
+  width: 50%;
+  background-color: chartreuse;
+}
+
+.header_link {
+  background-color: orchid;
+  padding: 0.4rem 2.2rem;
+}
+.header_link-link {
+  font-size: 2rem;
+  font-weight: 400;
+  color: #002b5b;
+  text-decoration: none;
+}
+.header_link-link:hover {
+  color: #ff6600;
+}
+
+.slideshow {
+  width: 100%;
+  min-height: 50rem;
+  background-color: darkolivegreen;
+  overflow-x: hidden;
+  position: relative;
+}
+.slideshow-list {
+  background-color: rgb(108, 138, 55);
+  display: flex;
+  width: -moz-fit-content;
+  width: fit-content;
+  flex-wrap: nowrap;
+  margin-left: 36rem;
+  transition-duration: 250ms;
+  transition-timing-function: ease-in-out;
+}
+.slideshow-nav {
+  background-color: rgb(162, 228, 48);
+  position: absolute;
+  top: 45%;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 5%;
+}
+.slideshow-nav-left_button-ball {
+  transform: rotate(-180deg);
+}
+
+.slideshow-nav button {
+  scale: 0.8;
+  border-radius: 50%;
+  box-shadow: 0.7rem 0.7rem 0.5rem -0.4rem rgba(0, 0, 0, 0.3882352941);
+}
+
+.slideshow-nav button:hover {
+  animation: bounce 0.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translate(0, 0.5rem);
+  }
+  50% {
+    transform: translate(0, -1rem);
+  }
+  100% {
+    transform: translate(0, 1rem);
+  }
+}
+.slideshow-list-slide {
+  background-color: rgb(142, 184, 68);
+  width: 72rem;
+  height: 50rem;
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  flex-shrink: 0;
+  overflow: hidden;
+  transition-duration: 250ms;
+  transition-timing-function: ease-in-out;
+}
+.slideshow-list-slide-img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.slideshow-list-slide-details {
+  background-color: rgb(170, 224, 76);
+  position: absolute;
+  max-width: 45ch;
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: 0 1.6rem 1.6rem 0;
+}
+.slideshow-list-slide-details button {
+  align-self: end;
+}
+
+.inactive_slide {
+  scale: 0.8;
+  filter: sepia(0.65);
+  transition-duration: 250ms;
+  transition-timing-function: ease-in-out;
+}
+
+.tile_browser {
+  margin-top: 1.6rem;
+  padding-top: 1rem;
+  width: 100%;
+  overflow-x: hidden;
+}
+.tile_browser-head {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.tile_browser-head-hr {
+  max-width: 30rem;
+}
+.tile_browser-head-header {
+  display: flex;
+  flex-direction: column;
+}
+.tile_browser-head-header-title {
+  color: #002b5b;
+}
+.tile_browser-head-header-hr {
+  width: 27.5rem;
+  color: #ff6600;
+  border: 0.2rem solid #ff6600;
+}
+.tile_browser-head-nav {
+  display: flex;
+  gap: 1.6rem;
+}
+.tile_browser-head-nav button {
+  scale: 0.8;
+}
+.tile_browser-head-nav button img {
+  border-radius: 50%;
+  box-shadow: 0.7rem 0.7rem 0.5rem -0.4rem rgba(0, 0, 0, 0.3882352941);
+}
+.tile_browser-head-nav-left_button-ball {
+  transform: rotate(-180deg);
+}
+.tile_browser-head-nav-left_button:hover {
+  transform: rotate(-180deg);
+}
+.tile_browser-head-nav button:hover {
+  animation: bounce 0.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+.tile_browser-list {
+  display: flex;
+  gap: 1.6rem;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translate(0, 0.5rem);
+  }
+  50% {
+    transform: translate(0, -1rem);
+  }
+  100% {
+    transform: translate(0, 1rem);
+  }
+}
+.tile {
+  width: 27.5rem;
+  background-color: aquamarine;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  cursor: pointer;
+  border: 0.4rem solid transparent;
+  -o-border-image: linear-gradient(to right, rgba(0, 42, 91, 0), #002b5b);
+     border-image: linear-gradient(to right, rgba(0, 42, 91, 0), #002b5b);
+  border-image-slice: 1;
+}
+.tile-discount {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  color: white;
+  font-size: 1.4rem;
+  background-color: #ff6600;
+  padding: 0.2rem 0.5rem;
+  transform: skewX(-10deg);
+}
+.tile-details {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.8rem;
+  padding: 0rem 0.8rem 0.8rem 0.8rem;
+}
+.tile-details-name {
+  color: #002b5b;
+  font-size: 1.6rem;
+  overflow-x: scroll;
+  margin-bottom: 0.8rem;
+}
+.tile-details-price {
+  display: flex;
+  gap: 0.8rem;
+}
+.tile-details-price-new {
+  font-size: 2rem;
+  color: #ff6600;
+  font-weight: 600;
+}
+.tile-details-price-old {
+  font-size: 1.4rem;
+  color: gray;
+}
+.tile-details-rate {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}
+.tile-details-rate-balls {
+  display: flex;
+  gap: 0.2rem;
+}
+
+.standard_button {
+  background-color: #ff6600;
+  font-size: 1.6rem;
+  padding: 1em 2em;
+  transform: skewX(-10deg);
+  box-shadow: 0.7rem 0.7rem 0.5rem -0.4rem rgba(0, 0, 0, 0.3882352941);
+}
+.standard_button-wrapper {
+  transform: skewX(10deg);
+}
+.standard_button-wrapper-link {
+  color: white;
+  font-weight: 600;
+}
+
+.standard_button:hover {
+  transform: skewX(0deg);
+  transition-duration: 150ms;
+  transition-timing-function: ease-out;
+}
+.standard_button:hover .standard_button-wrapper {
+  transform: skewX(0deg);
+}
+.standard_button:hover .standard_button-wrapper .standard_button-wrapper-link {
+  color: #002b5b;
+}
+
+.main {
+  background-color: yellow;
+  margin: 1.6rem auto;
+  max-width: 152rem;
+  padding: 1.6rem 4rem;
+}
+
+.recommendation {
+  width: 100%;
+  max-height: 60rem;
+  position: relative;
+  overflow: hidden;
+  margin-top: 2rem;
+}
+.recommendation-animation {
+  position: absolute;
+  line-height: 2rem;
+  top: 25%;
+  left: 32.5%;
+  transform: scale(1.5);
+}
+.recommendation-animation-text {
+  position: relative;
+}
+.recommendation-animation-text span {
+  display: inline-block;
+  color: white;
+  text-transform: uppercase;
+  font-size: 10rem;
+  animation: wavy 1.5s ease-in-out infinite;
+  animation-delay: calc(0.1s * var(--i));
+}
+.recommendation-animation-container {
+  width: 100%;
+  height: 6rem;
+  position: relative;
+  overflow-x: hidden;
+  margin-top: -1.6rem;
+  scrollbar-width: none;
+}
+.recommendation-animation-container-ball {
+  width: 10%;
+  margin-left: 2rem;
+  animation: ball_move 1.5s ease-in-out infinite, ball-roll 1.5s ease-in-out infinite;
+}
+.recommendation-paragraph {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 100rem;
+  position: absolute;
+  top: 40%;
+  left: 26%;
+}
+.recommendation-paragraph-text {
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  gap: 33rem;
+  font-size: 6rem;
+}
+.recommendation-paragraph-signature {
+  max-width: 20rem;
+  align-self: flex-end;
+}
+.recommendation-background {
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes ball_move {
+  0% {
+    margin-left: -2rem;
+  }
+  100% {
+    margin-left: 100%;
+  }
+}
+@keyframes ball-roll {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(1000deg);
+  }
+}
+@keyframes wavy {
+  0%, 100% {
+    transform: translateY(0vw);
+  }
+  20% {
+    transform: translateY(-2vw);
+  }
+  40% {
+    transform: translateY(0vw);
+  }
+}/*# sourceMappingURL=index.css.map */

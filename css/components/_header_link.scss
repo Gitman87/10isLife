@@ -1,0 +1,13 @@
+.header_link {
+  background-color: orchid;
+  padding: 0.4rem 2.2rem;
+  &-link {
+    font-size: $font-large;
+    font-weight: $font-weight-normal;
+    color: $granat;
+    text-decoration: none;
+  }
+  &-link:hover {
+    color: $orange;
+  }
+}
