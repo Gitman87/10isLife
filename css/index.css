@@ -290,11 +290,44 @@ button {
   }
 }
 .footer {
-  background-color: gray;
+  position: relative;
+  bottom: 0;
+  margin: 1.6rem auto;
+  max-width: 152rem;
+  padding: 1.6rem 4rem;
+  background-color: rgba(127.5, 127.5, 127.5, 0.8);
 }
-.footer-address {
-  width: 50%;
-  background-color: chartreuse;
+.footer-wrapper {
+  color: white;
+}
+.footer-wrapper-address {
+  font-size: 1.4rem;
+  text-align: right;
+}
+.footer-wrapper-categories {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.footer-wrapper-categories-category-list-row-link {
+  color: white;
+}
+.footer-wrapper-categories-category-list-row-link-image {
+  width: 3.2rem;
+  margin-bottom: 1rem;
+}
+.footer-wrapper-categories-category-list-row-link:hover {
+  text-decoration-line: underline;
+}
+
+.footer-wrapper-categories-category:last-child .footer-wrapper-categories-category-list-row:first-child {
+  align-self: first baseline;
+  margin-bottom: 0.5rem;
+}
+.footer-wrapper-categories-category:last-child .footer-wrapper-categories-category-list-row:nth-child(2) {
+  display: flex;
+  flex-direction: row;
+  gap: 1.2rem;
 }
 
 .header_link {
@@ -558,6 +591,13 @@ button {
   margin: 1.6rem auto;
   max-width: 152rem;
   padding: 1.6rem 4rem;
+}
+
+body {
+  position: relative;
+  bottom: 0;
+  margin-bottom: 0;
+  padding: 0;
 }
 
 .recommendation {

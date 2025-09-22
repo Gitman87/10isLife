@@ -20,6 +20,12 @@
   max-width: 152rem;
   padding: 1.6rem 4rem;
 }
+body {
+  position: relative;
+  bottom: 0;
+  margin-bottom: 0;
+  padding: 0;
+}
 .recommendation {
   width: 100%;
   max-height: 60rem;
