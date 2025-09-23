@@ -586,6 +586,22 @@ button {
   color: #002b5b;
 }
 
+.breadcrumbs_wrapper {
+  background-color: pink;
+  margin: 1.6rem auto;
+  max-width: 152rem;
+  padding: 0rem 4rem;
+}
+.breadcrumbs_wrapper-breadcrumbs {
+  display: flex;
+}
+.breadcrumbs_wrapper-breadcrumbs-crumb-link {
+  color: #002b5b;
+}
+.breadcrumbs_wrapper-breadcrumbs-crumb-link:hover {
+  color: #ff6600;
+}
+
 .main {
   background-color: yellow;
   margin: 1.6rem auto;

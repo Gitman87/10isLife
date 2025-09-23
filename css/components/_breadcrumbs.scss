@@ -1,0 +1,17 @@
+.breadcrumbs_wrapper {
+  background-color: pink;
+  margin: 1.6rem auto;
+  max-width: 152rem;
+  padding: 0rem 4rem;
+  &-breadcrumbs {
+    display: flex;
+    &-crumb {
+      &-link {
+        color: $granat;
+      }
+      &-link:hover {
+        color: $orange;
+      }
+    }
+  }
+}
