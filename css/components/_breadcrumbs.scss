@@ -1,8 +1,8 @@
 .breadcrumbs_wrapper {
   background-color: pink;
   margin: 1.6rem auto;
-  max-width: 152rem;
-  padding: 0rem 4rem;
+  max-width: $main-view-max-width;
+  padding: $main-view-padding;
   &-breadcrumbs {
     display: flex;
     &-crumb {

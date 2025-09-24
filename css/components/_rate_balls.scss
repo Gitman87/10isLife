@@ -1,0 +1,10 @@
+.rate {
+  display: flex;
+  align-items: center;
+  &-balls {
+    display: flex;
+
+    flex-direction: row;
+    gap: 0.2rem;
+  }
+}

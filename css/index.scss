@@ -1,5 +1,6 @@
 @import "_variables";
 @import "_globals";
+@import "_product";
 
 @import "layouts/header";
 @import "layouts/footer";
@@ -12,20 +13,22 @@
 @import "components/_tile_browser";
 @import "components/_tile";
 
+@import "components/rate_balls";
+
 @import "components/standard_button";
 @import "components/_breadcrumbs";
 
-.main {
-  background-color: yellow;
-  margin: 1.6rem auto;
-  max-width: 152rem;
-  padding: 1.6rem 4rem;
-}
 body {
   position: relative;
   bottom: 0;
   margin-bottom: 0;
   padding: 0;
+}
+.main {
+  background-color: yellow;
+  margin: 1.6rem auto;
+  max-width: $main-view-max-width;
+  padding: $main-view-padding;
 }
 .recommendation {
   width: 100%;

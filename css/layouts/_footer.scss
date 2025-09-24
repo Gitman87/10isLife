@@ -2,8 +2,8 @@
   position: relative;
   bottom: 0;
   margin: 1.6rem auto;
-  max-width: 152rem;
-  padding: 1.6rem 4rem;
+  max-width: $main-view-max-width;
+  padding: $main-view-padding;
   background-color: rgba(127.5, 127.5, 127.5, 0.8);
 
   &-wrapper {
