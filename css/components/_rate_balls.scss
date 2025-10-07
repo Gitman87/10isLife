@@ -7,4 +7,15 @@
     flex-direction: row;
     gap: 0.2rem;
   }
+  &-opinions {
+    &-number {
+      color: $granat;
+    }
+    &-link {
+      color: $granat;
+    }
+    &-link:hover {
+      color: $orange;
+    }
+  }
 }

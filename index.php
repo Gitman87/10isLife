@@ -12,6 +12,11 @@ include './php/components/standard_button.php';
 include './php/components/tile_browser.php';
 include './php/components/tile.php';
 include './php/components/rate_balls.php';
+include './php/components/product_preview.php';
+include './php/product.php';
+
+
+
 ?>
 
   

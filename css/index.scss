@@ -1,22 +1,24 @@
 @import "_variables";
 @import "_globals";
-@import "_product";
+@import "product";
 
-@import "layouts/header";
-@import "layouts/footer";
-@import "layouts/hero";
+@import "layouts/_header";
+@import "layouts/_footer";
+@import "layouts/_hero";
 
-@import "components/header_link";
-@import "components/slideshow";
-@import "components/slide";
+@import "components/_header_link";
+@import "components/_slideshow";
+@import "components/_slide";
 
 @import "components/_tile_browser";
 @import "components/_tile";
 
-@import "components/rate_balls";
+@import "components/_rate_balls";
 
-@import "components/standard_button";
+@import "components/_standard_button";
 @import "components/_breadcrumbs";
+@import "components/_product_preview";
+// @import "product";
 
 body {
   position: relative;

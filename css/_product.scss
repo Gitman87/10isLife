@@ -1,37 +1,130 @@
+@import "_variables";
+@import "_globals";
+
+@import "layouts/_header";
+@import "layouts/_footer";
+@import "layouts/_hero";
+
+@import "components/_header_link";
+@import "components/_slideshow";
+@import "components/_slide";
+
+@import "components/_tile_browser";
+@import "components/_tile";
+
+@import "components/_rate_balls";
+
+@import "components/_standard_button";
+@import "components/_breadcrumbs";
+@import "components/_product_preview";
+
 .dashboard {
   background-color: $faded-orange;
   width: 100%;
   display: flex;
   flex-direction: row;
-  &-view {
-    background-color: rgb(66, 35, 12);
-    width: 50%;
-    display: flex;
-    flex-direction: row;
-    position: relative;
-    &-main {
-      background-color: rgb(74, 73, 73);
-    }
-    &-slideshow {
-      position: absolute;
-      &-list {
-        background-color: $gray;
-        padding: 1rem;
-        max-height: 61rem;
-        overflow-y: scroll;
-        position: relative;
-        top: 5.4rem;
-        left: 1.6rem;
+  gap: 1rem;
+
+  &-pulpit {
+    background-color: bisque;
+    width: 100%;
+    &-header {
+      background-color: burlywood;
+      &-title {
         display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        opacity: 0.8;
-        &-slide {
-          &-image {
-            height: 10rem;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        &-name {
+          color: $granat;
+        }
+        &-manufacturer {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          &-name {
+            &-link {
+              text-decoration: none;
+              color: $granat;
+            }
+            &-link:hover {
+              color: $orange;
+            }
           }
         }
       }
+      &-price {
+        &-value {
+          font-size: $font-large;
+        }
+        &-percent {
+          color: $white;
+          font-size: $font-small;
+          background-color: $orange;
+          padding: 0.2rem 0.5rem;
+          transform: skewX(-10deg);
+        }
+      }
+    }
+    &-variants {
+      background-color: teal;
+      &-slideshow {
+        width: 100%;
+        &-list {
+          display: flex;
+          gap: 1rem;
+          &-variant {
+            &-link {
+              &-image {
+                max-width: 8rem;
+                border: 0.2rem solid $gray;
+              }
+            }
+          }
+        }
+      }
+      &-sizes {
+        background-color: rgb(88, 151, 147);
+        width: 100%;
+        &-show {
+          color: $granat;
+          &-table {
+            text-decoration: underline;
+            cursor: pointer;
+          }
+          &-table:hover {
+            text-decoration: none;
+            cursor: pointer;
+          }
+        }
+        &-list {
+          display: flex;
+          gap: 0.8rem;
+          &-size {
+            // padding: 0.8em;
+            width: 4rem;
+            height: 4rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            background-color: $gray;
+            background-color: rgb(17, 7, 222);
+            border-radius: 50%;
+            &-number {
+              color: $white;
+            }
+          }
+          &-size:hover {
+            background-color: $orange;
+          }
+        }
+      }
+    }
+
+    &-add {
+      background-color: goldenrod;
+      display: flex;
     }
   }
 }
