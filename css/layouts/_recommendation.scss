@@ -1,0 +1,95 @@
+.recommendation {
+  width: 100%;
+  max-height: 60rem;
+  position: relative;
+  overflow: hidden;
+  margin-top: 2rem;
+  &-animation {
+    // background-color: blueviolet;
+    position: absolute;
+    line-height: 2rem;
+    top: 25%;
+    left: 32.5%;
+    transform: scale(1.5);
+    &-text {
+      position: relative;
+      span {
+        display: inline-block;
+        color: $white;
+        text-transform: uppercase;
+        font-size: 10rem;
+        animation: wavy 1.5s ease-in-out infinite;
+        animation-delay: calc(0.1s * var(--i));
+      }
+    }
+    &-container {
+      width: 100%;
+      height: 6rem;
+      position: relative;
+      overflow-x: hidden;
+      margin-top: -1.6rem;
+      scrollbar-width: none;
+      &-ball {
+        width: 10%;
+        margin-left: 2rem;
+        animation: ball_move 1.5s ease-in-out infinite,
+          ball-roll 1.5s ease-in-out infinite;
+      }
+    }
+  }
+  &-paragraph {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 100rem;
+    position: absolute;
+    top: 40%;
+    left: 26%;
+    &-text {
+      color: $white;
+      display: flex;
+      justify-content: space-between;
+      gap: 33rem;
+      font-size: 6rem;
+    }
+    &-signature {
+      max-width: 20rem;
+      align-self: flex-end;
+    }
+  }
+  &-background {
+    width: 100%;
+    height: 100%;
+  }
+}
+// .recommendation-paragraph-text {
+//   width: 5rem;
+// }
+@keyframes ball_move {
+  0% {
+    margin-left: -2rem;
+  }
+  100% {
+    margin-left: 100%;
+  }
+}
+@keyframes ball-roll {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(1000deg);
+  }
+}
+@keyframes wavy {
+  0%,
+  100% {
+    transform: translateY(0vw);
+  }
+  20% {
+    transform: translateY(-2vw);
+  }
+  40% {
+    transform: translateY(0vw);
+  }
+}

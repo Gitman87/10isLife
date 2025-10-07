@@ -1076,6 +1076,96 @@ button {
   gap: 1.2rem;
 }
 
+.recommendation {
+  width: 100%;
+  max-height: 60rem;
+  position: relative;
+  overflow: hidden;
+  margin-top: 2rem;
+}
+.recommendation-animation {
+  position: absolute;
+  line-height: 2rem;
+  top: 25%;
+  left: 32.5%;
+  transform: scale(1.5);
+}
+.recommendation-animation-text {
+  position: relative;
+}
+.recommendation-animation-text span {
+  display: inline-block;
+  color: white;
+  text-transform: uppercase;
+  font-size: 10rem;
+  animation: wavy 1.5s ease-in-out infinite;
+  animation-delay: calc(0.1s * var(--i));
+}
+.recommendation-animation-container {
+  width: 100%;
+  height: 6rem;
+  position: relative;
+  overflow-x: hidden;
+  margin-top: -1.6rem;
+  scrollbar-width: none;
+}
+.recommendation-animation-container-ball {
+  width: 10%;
+  margin-left: 2rem;
+  animation: ball_move 1.5s ease-in-out infinite, ball-roll 1.5s ease-in-out infinite;
+}
+.recommendation-paragraph {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 100rem;
+  position: absolute;
+  top: 40%;
+  left: 26%;
+}
+.recommendation-paragraph-text {
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  gap: 33rem;
+  font-size: 6rem;
+}
+.recommendation-paragraph-signature {
+  max-width: 20rem;
+  align-self: flex-end;
+}
+.recommendation-background {
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes ball_move {
+  0% {
+    margin-left: -2rem;
+  }
+  100% {
+    margin-left: 100%;
+  }
+}
+@keyframes ball-roll {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(1000deg);
+  }
+}
+@keyframes wavy {
+  0%, 100% {
+    transform: translateY(0vw);
+  }
+  20% {
+    transform: translateY(-2vw);
+  }
+  40% {
+    transform: translateY(0vw);
+  }
+}
 .header_link {
   background-color: orchid;
   padding: 0.4rem 2.2rem;
@@ -1402,95 +1492,4 @@ body {
   margin: 1.6rem auto;
   max-width: 152rem;
   padding: 0rem 4rem;
-}
-
-.recommendation {
-  width: 100%;
-  max-height: 60rem;
-  position: relative;
-  overflow: hidden;
-  margin-top: 2rem;
-}
-.recommendation-animation {
-  position: absolute;
-  line-height: 2rem;
-  top: 25%;
-  left: 32.5%;
-  transform: scale(1.5);
-}
-.recommendation-animation-text {
-  position: relative;
-}
-.recommendation-animation-text span {
-  display: inline-block;
-  color: white;
-  text-transform: uppercase;
-  font-size: 10rem;
-  animation: wavy 1.5s ease-in-out infinite;
-  animation-delay: calc(0.1s * var(--i));
-}
-.recommendation-animation-container {
-  width: 100%;
-  height: 6rem;
-  position: relative;
-  overflow-x: hidden;
-  margin-top: -1.6rem;
-  scrollbar-width: none;
-}
-.recommendation-animation-container-ball {
-  width: 10%;
-  margin-left: 2rem;
-  animation: ball_move 1.5s ease-in-out infinite, ball-roll 1.5s ease-in-out infinite;
-}
-.recommendation-paragraph {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  max-width: 100rem;
-  position: absolute;
-  top: 40%;
-  left: 26%;
-}
-.recommendation-paragraph-text {
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  gap: 33rem;
-  font-size: 6rem;
-}
-.recommendation-paragraph-signature {
-  max-width: 20rem;
-  align-self: flex-end;
-}
-.recommendation-background {
-  width: 100%;
-  height: 100%;
-}
-
-@keyframes ball_move {
-  0% {
-    margin-left: -2rem;
-  }
-  100% {
-    margin-left: 100%;
-  }
-}
-@keyframes ball-roll {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(1000deg);
-  }
-}
-@keyframes wavy {
-  0%, 100% {
-    transform: translateY(0vw);
-  }
-  20% {
-    transform: translateY(-2vw);
-  }
-  40% {
-    transform: translateY(0vw);
-  }
 }/*# sourceMappingURL=index.css.map */
