@@ -703,7 +703,7 @@ button {
   font-size: 1.6rem;
   padding: 1em 2em;
   transform: skewX(-10deg);
-  box-shadow: 0rem 0rem 0.6rem 0.1rem rgba(0, 0, 0, 0.3882352941);
+  box-shadow: 0.2rem solid 0rem 0rem 0.6rem 0.1rem rgba(0, 0, 0, 0.3882352941);
 }
 .standard_button-wrapper {
   transform: skewX(10deg);
@@ -1180,9 +1180,42 @@ button {
   color: #ff6600;
 }
 
-.log_dialog {
-  background-color: dimgrey;
-  width: 15rem;
+.log_modal {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 65rem;
+  border: none;
+  padding: 4rem;
+  box-shadow: 0rem 0rem 0.6rem 0.1rem rgba(0, 0, 0, 0.3882352941);
+}
+.log_modal-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.log_modal-wrapper-nav {
+  display: flex;
+}
+.log_modal-wrapper-nav button {
+  width: 50%;
+  border-bottom: 0.5rem solid gray;
+  font-size: 2rem;
+  color: #808080;
+}
+.log_modal-wrapper-nav button:hover {
+  color: #002b5b;
+}
+.log_modal-cancel {
+  color: pink;
+}
+
+.log_modal::backdrop {
+  background: rgba(255, 234, 223, 0.5);
+}
+
+.light_button {
+  margin: 0 auto;
 }
 
 .slideshow {
@@ -1415,7 +1448,7 @@ button {
   font-size: 1.6rem;
   padding: 1em 2em;
   transform: skewX(-10deg);
-  box-shadow: 0rem 0rem 0.6rem 0.1rem rgba(0, 0, 0, 0.3882352941);
+  box-shadow: 0.2rem solid 0rem 0rem 0.6rem 0.1rem rgba(0, 0, 0, 0.3882352941);
 }
 .standard_button-wrapper {
   transform: skewX(10deg);
@@ -1434,6 +1467,37 @@ button {
   transform: skewX(0deg);
 }
 .standard_button:hover .standard_button-wrapper .standard_button-wrapper-link {
+  color: #002b5b;
+}
+
+.light_button {
+  background-color: transparent;
+  font-size: 1.6rem;
+  padding: 1em 2em;
+  transform: skewX(-10deg);
+  box-shadow: 0rem 0rem 0.6rem 0.1rem rgba(0, 0, 0, 0.3882352941);
+  border: 0.4rem solid transparent;
+  -o-border-image: linear-gradient(to right, rgba(128, 128, 128, 0), #808080);
+     border-image: linear-gradient(to right, rgba(128, 128, 128, 0), #808080);
+  border-image-slice: 1;
+}
+.light_button-wrapper {
+  transform: skewX(10deg);
+}
+.light_button-wrapper-link {
+  color: #808080;
+  font-weight: 600;
+}
+
+.light_button:hover {
+  transform: skewX(0deg);
+  transition-duration: 150ms;
+  transition-timing-function: ease-out;
+}
+.light_button:hover .light_button-wrapper {
+  transform: skewX(0deg);
+}
+.light_button:hover .light_button-wrapper .light_button-wrapper-link {
   color: #002b5b;
 }
 

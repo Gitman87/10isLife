@@ -28,7 +28,7 @@ function genHeader()
     </head>
 
     <body>
-        <script src='./js/components/toggle_modal.js'></script>
+        <script src='./js/components/toggle_log_modal.js'></script>
         <header class="header">
             <div class="header-content breakpoint">
                 <img src="./res/icon/Logo 1.0.svg" class="header-content-logo" alt="10islife" title="10isLife logo">

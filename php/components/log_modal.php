@@ -2,13 +2,25 @@
 function genLogModal()
 {
 ?>
-    <dialog class="log_dialog">
+    <dialog class="log_modal">
+        <div class="log_modal-wrapper">
+            <nav class="log_modal-wrapper-nav">
+                <button class="log_modal-wrapper-nav-register">Rejestracja</button>
+                <button class="log_modal-wrapper-nav-log">Logowanie</button>
 
-        <h2>This is my modal</h2>
-        <button class="log_dialog-cancel" onclick="closeModal()">Anuluj</button>
+            </nav>
+            <main class="log_modal-wrapper">
+                <!-- form -->
+            </main>
+            <!-- cancel button component -->
+            <?php genLightButton("Anuluj", TRUE, '', 'closeModal()') ?>
+            <!-- <button class="log_modal-cancel" onclick="closeModal()">Anuluj</button> -->
+
+        </div>
+
+
 
 
     </dialog>
-    <!-- <script src='./js/components/toggle_modal.js'></script> -->
 <?php
 }

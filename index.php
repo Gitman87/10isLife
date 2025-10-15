@@ -7,9 +7,12 @@ include './php/layouts/recommendation.php';
 
 include './php/components/header_link.php';
 include './php/components/log_modal.php';
+
 include './php/components/slideshow.php';
 include './php/components/slide.php';
+
 include './php/components/standard_button.php';
+include './php/components/light_button.php';
 include './php/components/tile_browser.php';
 include './php/components/tile.php';
 include './php/components/rate_balls.php';

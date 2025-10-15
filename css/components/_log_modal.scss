@@ -1,4 +1,42 @@
-.log_dialog {
-  background-color: dimgrey;
-  width: 15rem;
+.log_modal {
+  //   background-color: rgb(205, 51, 51);
+  //   position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  //   display: flex;
+  width: 65rem;
+  border: none;
+  padding: 4rem;
+  box-shadow: $box-shadow;
+  &-wrapper {
+    // background-color: rgb(219, 76, 76);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    &-nav {
+      //   background-color: rgb(233, 185, 81);
+      display: flex;
+      button {
+        // background-color: rgb(207, 231, 52);
+        width: 50%;
+        border-bottom: 0.5rem solid gray;
+        font-size: $font-large;
+        color: $gray;
+      }
+      button:hover {
+        color: $granat;
+      }
+    }
+  }
+  &-cancel {
+    color: pink;
+  }
+}
+.log_modal::backdrop {
+  background: transparentize($faded-orange, 0.5);
+}
+.light_button {
+  margin: 0 auto;
 }

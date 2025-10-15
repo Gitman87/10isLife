@@ -1,25 +1,29 @@
-.standard_button {
-  background-color: $orange;
+.light_button {
+  background-color: transparent;
   font-size: $font-medium;
   padding: 1em 2em;
   transform: skewX(-10deg);
-  box-shadow: 0.2rem solid $box-shadow;
+  box-shadow: $box-shadow;
+  //   border: 0.2rem solid $granat;
+  border: 0.4rem solid transparent;
+  border-image: $outline-gray;
+  border-image-slice: 1;
 
   &-wrapper {
     transform: skewX(10deg);
     &-link {
-      color: $white;
+      color: $gray;
       font-weight: $font-weight-thick;
     }
   }
 }
-.standard_button:hover {
+.light_button:hover {
   transform: skewX(0deg);
   transition-duration: 150ms;
   transition-timing-function: ease-out;
-  .standard_button-wrapper {
+  .light_button-wrapper {
     transform: skewX(0deg);
-    .standard_button-wrapper-link {
+    .light_button-wrapper-link {
       color: $granat;
     }
   }
