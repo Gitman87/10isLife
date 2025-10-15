@@ -7,6 +7,7 @@ include './php/layouts/recommendation.php';
 
 include './php/components/header_link.php';
 include './php/components/log_modal.php';
+include './php/components/tab_nav.php';
 
 include './php/components/slideshow.php';
 include './php/components/slide.php';

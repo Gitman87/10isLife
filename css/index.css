@@ -1194,18 +1194,6 @@ button {
   display: flex;
   flex-direction: column;
 }
-.log_modal-wrapper-nav {
-  display: flex;
-}
-.log_modal-wrapper-nav button {
-  width: 50%;
-  border-bottom: 0.5rem solid gray;
-  font-size: 2rem;
-  color: #808080;
-}
-.log_modal-wrapper-nav button:hover {
-  color: #002b5b;
-}
 .log_modal-cancel {
   color: pink;
 }
@@ -1216,6 +1204,19 @@ button {
 
 .light_button {
   margin: 0 auto;
+}
+
+.tab_nav {
+  display: flex;
+}
+.tab_nav-button {
+  width: 50%;
+  border-bottom: 0.5rem solid gray;
+  font-size: 2rem;
+  color: #808080;
+}
+.tab_nav-button:hover {
+  color: #002b5b;
 }
 
 .slideshow {

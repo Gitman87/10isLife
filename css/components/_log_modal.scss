@@ -14,21 +14,6 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-
-    &-nav {
-      //   background-color: rgb(233, 185, 81);
-      display: flex;
-      button {
-        // background-color: rgb(207, 231, 52);
-        width: 50%;
-        border-bottom: 0.5rem solid gray;
-        font-size: $font-large;
-        color: $gray;
-      }
-      button:hover {
-        color: $granat;
-      }
-    }
   }
   &-cancel {
     color: pink;
