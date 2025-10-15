@@ -1,4 +1,3 @@
-
 <?php
 include './php/layouts/footer.php';
 include './php/layouts/header.php';
@@ -7,6 +6,7 @@ include './php/layouts/discounts.php';
 include './php/layouts/recommendation.php';
 
 include './php/components/header_link.php';
+include './php/components/log_modal.php';
 include './php/components/slideshow.php';
 include './php/components/slide.php';
 include './php/components/standard_button.php';
@@ -20,16 +20,15 @@ include './php/product.php';
 
 ?>
 
-  
-  <?php genHeader()?>
- <main class="main">
+
+<?php genHeader() ?>
+<main class="main">
 
   <?php genHero() ?>
   <?php genRecommendation() ?>
-   <?php genDiscounts() ?>
+  <?php genDiscounts() ?>
 
-  
+
 </main>
-  
-  <?php genFooter() ?>
 
+<?php genFooter() ?>

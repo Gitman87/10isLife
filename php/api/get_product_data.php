@@ -66,12 +66,12 @@ WHERE
     $stmt->execute();
     $result = $stmt->get_result();
 
-    $prodArray['images']=[];
+    $prodArray['images'] = [];
 
-    while($row=$result->fetch_assoc()){
-      print_r($row);
-      $prodArray['images'][]=$row;
-
+    while ($row = $result->fetch_assoc()) {
+        // print_r($row);
+        $prodArray['images'][] = $row;
+        print_r($prodArray['images'][0]);
     };
     return $prodArray;
 }

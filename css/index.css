@@ -1180,6 +1180,11 @@ button {
   color: #ff6600;
 }
 
+.log_dialog {
+  background-color: dimgrey;
+  width: 15rem;
+}
+
 .slideshow {
   width: 100%;
   min-height: 50rem;
