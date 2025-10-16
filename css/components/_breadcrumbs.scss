@@ -11,6 +11,8 @@
       }
       &-link:hover {
         color: $orange;
+        transition: color 0.6s;
+        transition-timing-function: ease-in-out;
       }
     }
   }

@@ -9,5 +9,7 @@
   }
   &-link:hover {
     color: $orange;
+    transition: color 0.25s;
+    transition-timing-function: ease-in;
   }
 }

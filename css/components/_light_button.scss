@@ -13,6 +13,7 @@
     transform: skewX(10deg);
     &-link {
       color: $gray;
+      letter-spacing: $letter-spacing-wide;
       font-weight: $font-weight-thick;
     }
   }
@@ -25,6 +26,8 @@
     transform: skewX(0deg);
     .light_button-wrapper-link {
       color: $granat;
+      transition: color 0.4s;
+      transition-timing-function: ease-in-out;
     }
   }
 }

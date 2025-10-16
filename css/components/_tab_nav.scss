@@ -4,11 +4,17 @@
   &-button {
     // background-color: rgb(207, 231, 52);
     width: 50%;
-    border-bottom: 0.5rem solid gray;
+    border-bottom: 0.5rem solid $gray;
     font-size: $font-large;
     color: $gray;
   }
   &-button:hover {
     color: $granat;
+    transition: color 0.4s;
+    transition-timing-function: ease-in-out;
   }
 }
+// .tab_nav_active {
+//   border-bottom: 0.5rem solid $granat;
+//   color: $granat;
+// } // addnig this style doesn't work, replace by inline styling

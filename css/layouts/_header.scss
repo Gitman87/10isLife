@@ -100,6 +100,8 @@
         }
         &-login:hover {
           color: $orange;
+          transition: color 0.25s;
+          transition-timing-function: ease-in;
         }
       }
       &-shopping {
@@ -132,9 +134,13 @@
         }
         &-ball:hover {
           transform: scale(1.2);
+          transition: transform 0.25s;
+          transition-timing-function: ease-in;
         }
         &-ball:active {
           transform: scale(0.8);
+          transition: transform 0.25s;
+          transition-timing-function: ease-in;
         }
       }
     }

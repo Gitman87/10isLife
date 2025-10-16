@@ -359,6 +359,8 @@ button {
 }
 .header-content-account-user-login:hover {
   color: #ff6600;
+  transition: color 0.25s;
+  transition-timing-function: ease-in;
 }
 .header-content-account-shopping {
   padding: 0 1rem;
@@ -391,9 +393,13 @@ button {
 }
 .header-content-account-shopping-ball:hover {
   transform: scale(1.2);
+  transition: transform 0.25s;
+  transition-timing-function: ease-in;
 }
 .header-content-account-shopping-ball:active {
   transform: scale(0.8);
+  transition: transform 0.25s;
+  transition-timing-function: ease-in;
 }
 
 @media (max-width: 128em) {
@@ -471,6 +477,8 @@ button {
 }
 .header_link-link:hover {
   color: #ff6600;
+  transition: color 0.25s;
+  transition-timing-function: ease-in;
 }
 
 .slideshow {
@@ -715,14 +723,16 @@ button {
 
 .standard_button:hover {
   transform: skewX(0deg);
-  transition-duration: 150ms;
-  transition-timing-function: ease-out;
+  transition-duration: 350ms;
+  transition-timing-function: ease-in-out;
 }
 .standard_button:hover .standard_button-wrapper {
   transform: skewX(0deg);
 }
 .standard_button:hover .standard_button-wrapper .standard_button-wrapper-link {
   color: #002b5b;
+  transition: color 0.6s;
+  transition-timing-function: ease-in-out;
 }
 
 .breadcrumbs_wrapper {
@@ -739,6 +749,8 @@ button {
 }
 .breadcrumbs_wrapper-breadcrumbs-crumb-link:hover {
   color: #ff6600;
+  transition: color 0.6s;
+  transition-timing-function: ease-in-out;
 }
 
 .product_preview {
@@ -976,6 +988,8 @@ button {
 }
 .header-content-account-user-login:hover {
   color: #ff6600;
+  transition: color 0.25s;
+  transition-timing-function: ease-in;
 }
 .header-content-account-shopping {
   padding: 0 1rem;
@@ -1008,9 +1022,13 @@ button {
 }
 .header-content-account-shopping-ball:hover {
   transform: scale(1.2);
+  transition: transform 0.25s;
+  transition-timing-function: ease-in;
 }
 .header-content-account-shopping-ball:active {
   transform: scale(0.8);
+  transition: transform 0.25s;
+  transition-timing-function: ease-in;
 }
 
 @media (max-width: 128em) {
@@ -1178,6 +1196,8 @@ button {
 }
 .header_link-link:hover {
   color: #ff6600;
+  transition: color 0.25s;
+  transition-timing-function: ease-in;
 }
 
 .log_modal {
@@ -1211,12 +1231,14 @@ button {
 }
 .tab_nav-button {
   width: 50%;
-  border-bottom: 0.5rem solid gray;
+  border-bottom: 0.5rem solid #808080;
   font-size: 2rem;
   color: #808080;
 }
 .tab_nav-button:hover {
   color: #002b5b;
+  transition: color 0.4s;
+  transition-timing-function: ease-in-out;
 }
 
 .slideshow {
@@ -1461,14 +1483,16 @@ button {
 
 .standard_button:hover {
   transform: skewX(0deg);
-  transition-duration: 150ms;
-  transition-timing-function: ease-out;
+  transition-duration: 350ms;
+  transition-timing-function: ease-in-out;
 }
 .standard_button:hover .standard_button-wrapper {
   transform: skewX(0deg);
 }
 .standard_button:hover .standard_button-wrapper .standard_button-wrapper-link {
   color: #002b5b;
+  transition: color 0.6s;
+  transition-timing-function: ease-in-out;
 }
 
 .light_button {
@@ -1487,6 +1511,7 @@ button {
 }
 .light_button-wrapper-link {
   color: #808080;
+  letter-spacing: 0.2rem;
   font-weight: 600;
 }
 
@@ -1500,6 +1525,8 @@ button {
 }
 .light_button:hover .light_button-wrapper .light_button-wrapper-link {
   color: #002b5b;
+  transition: color 0.4s;
+  transition-timing-function: ease-in-out;
 }
 
 .breadcrumbs_wrapper {
@@ -1516,6 +1543,8 @@ button {
 }
 .breadcrumbs_wrapper-breadcrumbs-crumb-link:hover {
   color: #ff6600;
+  transition: color 0.6s;
+  transition-timing-function: ease-in-out;
 }
 
 .product_preview {

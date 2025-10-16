@@ -2,7 +2,7 @@
 function genLogModal()
 {
     $titleArray = ["Rejestracja", "Logowanie"];
-    $callbackArray = ["elo", "mordo"];
+    $callbackArray = ["setActive(this)", "setActive(this)"];
 ?>
     <dialog class="log_modal">
         <div class="log_modal-wrapper">
