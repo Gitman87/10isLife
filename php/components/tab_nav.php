@@ -17,7 +17,8 @@ function genTabNav($titleArray, $is_button = false, $callbackArray = [], $urlArr
                 // genTabbutton();
 
         ?>
-                <button class="tab_nav-button" type="button" data-tab_nav-button-number="<?= $i ?>" onclick="<?= $callbackArray[$i] ?>">
+                <button class="tab_nav-button" type="button" data-tab_nav-button-number="<?= $i ?>" onclick="<?= $callbackArray[0] ?>;<?= $callbackArray[1] ?>">
+
                     <?= $titleArray[$i] ?>
 
                 </button>
@@ -36,6 +37,8 @@ function genTabNav($titleArray, $is_button = false, $callbackArray = [], $urlArr
         ?>
     </nav>
     <script src="./js/components/toggle_tab_nav.js"></script>
+    <script src="./js/components/toggle_log_reg.js"></script>
+
 <?php
 
 }

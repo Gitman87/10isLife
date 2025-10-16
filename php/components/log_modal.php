@@ -2,7 +2,8 @@
 function genLogModal()
 {
     $titleArray = ["Rejestracja", "Logowanie"];
-    $callbackArray = ["setActive(this)", "setActive(this)"];
+    $callbackArray = ["setActive(this)", "toggleLogReg(this)"];
+
 ?>
     <dialog class="log_modal">
         <div class="log_modal-wrapper">
@@ -14,6 +15,12 @@ function genLogModal()
             </nav> -->
             <main class="log_modal-wrapper">
                 <!-- form -->
+
+                <?php genLogging() ?>
+                <?php genRegister() ?>
+
+
+
             </main>
             <!-- cancel button component -->
             <?php genLightButton("Anuluj", TRUE, '', 'closeModal()') ?>

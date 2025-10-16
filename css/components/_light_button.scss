@@ -1,11 +1,11 @@
 .light_button {
   background-color: transparent;
   font-size: $font-medium;
-  padding: 1em 2em;
+  padding: 0.45em 1.25em;
   transform: skewX(-10deg);
   box-shadow: $box-shadow;
   //   border: 0.2rem solid $granat;
-  border: 0.4rem solid transparent;
+  border: 0.3rem solid transparent;
   border-image: $outline-gray;
   border-image-slice: 1;
 

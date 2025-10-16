@@ -13,7 +13,9 @@
     // background-color: rgb(219, 76, 76);
     width: 100%;
     display: flex;
+    padding: 1rem;
     flex-direction: column;
+    overflow: hidden;
   }
   &-cancel {
     color: pink;

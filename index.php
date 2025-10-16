@@ -9,6 +9,12 @@ include './php/components/header_link.php';
 include './php/components/log_modal.php';
 include './php/components/tab_nav.php';
 
+
+//logging /registration
+require './php/layouts/gen_register.php';
+require './php/components/input.php';
+require './php/components/logging.php';
+
 include './php/components/slideshow.php';
 include './php/components/slide.php';
 

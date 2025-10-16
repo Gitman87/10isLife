@@ -14,7 +14,7 @@
     transition-timing-function: ease-in-out;
   }
 }
-// .tab_nav_active {
-//   border-bottom: 0.5rem solid $granat;
-//   color: $granat;
-// } // addnig this style doesn't work, replace by inline styling
+.tab_nav_active {
+  border-bottom: 0.5rem solid $granat;
+  color: $granat;
+}

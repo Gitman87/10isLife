@@ -709,7 +709,7 @@ button {
 .standard_button {
   background-color: #ff6600;
   font-size: 1.6rem;
-  padding: 1em 2em;
+  padding: 0.6em 1.4em;
   transform: skewX(-10deg);
   box-shadow: 0.2rem solid 0rem 0rem 0.6rem 0.1rem rgba(0, 0, 0, 0.3882352941);
 }
@@ -1212,7 +1212,9 @@ button {
 .log_modal-wrapper {
   width: 100%;
   display: flex;
+  padding: 1rem;
   flex-direction: column;
+  overflow: hidden;
 }
 .log_modal-cancel {
   color: pink;
@@ -1239,6 +1241,11 @@ button {
   color: #002b5b;
   transition: color 0.4s;
   transition-timing-function: ease-in-out;
+}
+
+.tab_nav_active {
+  border-bottom: 0.5rem solid #002b5b;
+  color: #002b5b;
 }
 
 .slideshow {
@@ -1469,7 +1476,7 @@ button {
 .standard_button {
   background-color: #ff6600;
   font-size: 1.6rem;
-  padding: 1em 2em;
+  padding: 0.6em 1.4em;
   transform: skewX(-10deg);
   box-shadow: 0.2rem solid 0rem 0rem 0.6rem 0.1rem rgba(0, 0, 0, 0.3882352941);
 }
@@ -1498,10 +1505,10 @@ button {
 .light_button {
   background-color: transparent;
   font-size: 1.6rem;
-  padding: 1em 2em;
+  padding: 0.45em 1.25em;
   transform: skewX(-10deg);
   box-shadow: 0rem 0rem 0.6rem 0.1rem rgba(0, 0, 0, 0.3882352941);
-  border: 0.4rem solid transparent;
+  border: 0.3rem solid transparent;
   -o-border-image: linear-gradient(to right, rgba(128, 128, 128, 0), #808080);
      border-image: linear-gradient(to right, rgba(128, 128, 128, 0), #808080);
   border-image-slice: 1;
