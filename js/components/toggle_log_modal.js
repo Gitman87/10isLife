@@ -13,5 +13,17 @@ function closeModal() {
   console.log("modal closed");
   modal.close();
 }
+function setStartForm(form) {
+  const container = document.querySelector(".log_modal-wrapper");
+  const register = container.querySelector(".register");
+  const logging = container.querySelector(".logging");
+  if (form === "logging") {
+    logging.style.visibility = "visible";
+    register.style.visibility = "collapse";
+  } else {
+    logging.style.visibility = "collapse";
+    register.style.visibility = "visible";
+  }
+}
 // openModal();
 // closeModal();

@@ -731,7 +731,7 @@ button {
 }
 .standard_button:hover .standard_button-wrapper .standard_button-wrapper-link {
   color: #002b5b;
-  transition: color 0.6s;
+  transition: color 0.4s;
   transition-timing-function: ease-in-out;
 }
 
@@ -1498,7 +1498,7 @@ button {
 }
 .standard_button:hover .standard_button-wrapper .standard_button-wrapper-link {
   color: #002b5b;
-  transition: color 0.6s;
+  transition: color 0.4s;
   transition-timing-function: ease-in-out;
 }
 

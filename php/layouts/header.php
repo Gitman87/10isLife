@@ -29,6 +29,7 @@ function genHeader()
 
     <body>
         <script src='./js/components/toggle_log_modal.js'></script>
+
         <header class="header">
             <div class="header-content breakpoint">
                 <img src="./res/icon/Logo 1.0.svg" class="header-content-logo" alt="10islife" title="10isLife logo">
@@ -55,7 +56,7 @@ function genHeader()
                 <div class="header-content-account">
                     <div class="header-content-account-user">
                         <img src="./res/icon/person.svg" class="header-content-account-user-person" alt="user">
-                        <button class="header-content-account-user-login" onclick="openModal()">Login</button>
+                        <button class="header-content-account-user-login" onclick="openModal();setStartForm('logging')">Login</button>
                     </div>
                     <?php genLogModal() ?>
                     <div class="header-content-account-shopping">
@@ -70,6 +71,7 @@ function genHeader()
             </div>
 
         </header>
+
 
     <?php
 }

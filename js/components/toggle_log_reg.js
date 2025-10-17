@@ -7,6 +7,12 @@ function toggleLogReg(element) {
     "dataset number of the lement is : ",
     element.dataset.tab_navButtonNumber
   );
+
+  //start position
+  console.log("toggl_log-reg engaged");
+  logging.style.visibility = "visible";
+  register.style.visibility = "collapse";
+
   if (element.dataset.tab_navButtonNumber == 0) {
     register.style.visibility = "visible";
     logging.style.visibility = "collapse";
