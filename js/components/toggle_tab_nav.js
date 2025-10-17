@@ -3,7 +3,6 @@ function setActive(element) {
   const tabNavButtons = tabNav.querySelectorAll(".tab_nav-button");
 
   tabNavButtons.forEach((button) => {
-    console.log("changed to gray");
     button.style.borderBottom = " 0.5rem solid #808080";
     button.style.color = "#808080";
   });

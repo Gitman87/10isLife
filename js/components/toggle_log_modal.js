@@ -1,6 +1,5 @@
 function openModal() {
   const modal = document.querySelector(".log_modal");
-  console.log("modal opened");
   modal.showModal();
 
   const activeTab = document.querySelector(".tab_nav-button:nth-child(2)");
@@ -10,7 +9,6 @@ function openModal() {
 function closeModal() {
   const modal = document.querySelector(".log_modal");
 
-  console.log("modal closed");
   modal.close();
 }
 function setStartForm(form) {

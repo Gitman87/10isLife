@@ -1586,6 +1586,10 @@ button {
   height: 10rem;
 }
 
+.input {
+  display: flex;
+}
+
 body {
   position: relative;
   bottom: 0;

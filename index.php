@@ -11,7 +11,7 @@ include './php/components/tab_nav.php';
 
 
 //logging /registration
-require './php/layouts/gen_register.php';
+require './php/layouts/register.php';
 require './php/components/input.php';
 require './php/components/logging.php';
 
