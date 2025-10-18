@@ -29,10 +29,19 @@ function genRegister()
 
         </div>
         <div class="register-summary">
-            <h3>Check your data and submit</h3>
-            <?php genInput('Email', 'email', 'email', 'email') ?>
-            <?php genInput('Hasło', 'password', 'password', 'password') ?>
-            <h4>Zaakceptuj regulaminy</h4>
+            <h3 class="register-summary">Check your data and submit</h3>
+            <ul class="register-summary-list">
+                <li class="register-summary-list-item"><span class="register-summary-list-item-check">email</span></li>
+                <li class="register-summary-list-item"><span class="register-summary-list-item-check">password</span></li>
+                <li class="register-summary-list-item"><span class="register-summary-list-item-check">first name</span></li>
+                <li class="register-summary-list-item"><span class="register-summary-list-item-check">last name</span></li>
+                <li class="register-summary-list-item"><span class="register-summary-list-item-check"></span></li>
+
+            </ul>
+            <?php genInput('Płeć', 'radio', 'sex', 'sex') ?>
+            <?php genInput('Twój NIP', 'text', 'first_name', 'first_name') ?>
+            <!--zrób checkbpxpa do zaakceptowani regulaminu-->
+            <h4>Zakceptuj regulaminy</h4>
 
 
             <?php genStandardButton("Zarejestruj", true, '', '') ?>

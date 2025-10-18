@@ -5,7 +5,7 @@
   font-size: $font-medium;
   padding: 0.2em 0em;
   border: 0.2rem solid transparent;
-  box-shadow: 0.2rem solid $box-shadow;
+  box-shadow: $box-shadow;
   box-sizing: content-box;
 
   &-wrapper {

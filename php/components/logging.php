@@ -3,19 +3,18 @@ function genLogging()
 {
 ?>
 
-    <section class="logging">
-        <h1 class="logging-header">Logowanie użytkownika</h1>
 
-        <form action="./php/api/registration.php" method='POST'>
 
-            <?php genInput('Email', 'email', 'email', 'email') ?>
-            <?php genInput('Hasło', 'password', 'password', 'password') ?>
+    <form action="./php/api/registration.php" class="logging" method='POST'>
 
-            <?php genStandardButton("Zaloguj się", true, '', '') ?>
+        <?php genInput('Email', 'email', 'email', 'email') ?>
+        <?php genInput('Hasło', 'password', 'password', 'password') ?>
 
-        </form>
+        <?php genStandardButton("Zaloguj się", true, '', '') ?>
 
-    </section>
+    </form>
+
+
 
 
 <?php

@@ -710,8 +710,9 @@ button {
   background-color: #ff6600;
   font-size: 1.6rem;
   padding: 0.6em 1.4em;
+  margin: 0 auto;
   transform: skewX(-10deg);
-  box-shadow: 0.2rem solid 0rem 0rem 0.6rem 0.1rem rgba(0, 0, 0, 0.3882352941);
+  box-shadow: 0rem 0rem 0.6rem 0.1rem rgba(0, 0, 0, 0.3882352941);
 }
 .standard_button-wrapper {
   transform: skewX(10deg);
@@ -1494,8 +1495,9 @@ button {
   background-color: #ff6600;
   font-size: 1.6rem;
   padding: 0.6em 1.4em;
+  margin: 0 auto;
   transform: skewX(-10deg);
-  box-shadow: 0.2rem solid 0rem 0rem 0.6rem 0.1rem rgba(0, 0, 0, 0.3882352941);
+  box-shadow: 0rem 0rem 0.6rem 0.1rem rgba(0, 0, 0, 0.3882352941);
 }
 .standard_button-wrapper {
   transform: skewX(10deg);
@@ -1560,7 +1562,7 @@ button {
   font-size: 1.6rem;
   padding: 0.2em 0em;
   border: 0.2rem solid transparent;
-  box-shadow: 0.2rem solid 0rem 0rem 0.6rem 0.1rem rgba(0, 0, 0, 0.3882352941);
+  box-shadow: 0rem 0rem 0.6rem 0.1rem rgba(0, 0, 0, 0.3882352941);
   box-sizing: content-box;
 }
 .wide_button-wrapper {
