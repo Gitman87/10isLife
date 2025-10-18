@@ -1,5 +1,4 @@
 function toggleLogReg(element) {
-  console.log("toggle_log_reg here!");
   const container = document.querySelector(".log_modal-wrapper");
   const register = container.querySelector(".register");
   const logging = container.querySelector(".logging");

@@ -1,3 +1,12 @@
-.input {
+.input_wrapper {
   display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  label {
+    font-size: $font-medium;
+    color: gray;
+  }
+  input {
+    border: 0.2rem solid $gray;
+  }
 }

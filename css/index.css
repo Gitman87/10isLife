@@ -1586,8 +1586,17 @@ button {
   height: 10rem;
 }
 
-.input {
+.input_wrapper {
   display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.input_wrapper label {
+  font-size: 1.6rem;
+  color: gray;
+}
+.input_wrapper input {
+  border: 0.2rem solid #808080;
 }
 
 body {
