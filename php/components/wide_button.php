@@ -1,10 +1,10 @@
 <?php
-function wideButton($title, $type = "button", $callback = '')
+function genWideButton($title, $type = "button", $callback = '')
 {
 ?>
-    <button class="standard_button" type="<?= $type ?>" onclick="<?= $callback ?>">
-        <div class="standard_button-wrapper">
-            <span class="standard_button-wrapper-link"><?= $title ?></span>
+    <button class="wide_button" type="<?= $type ?>" onclick="<?= $callback ?>">
+        <div class="wide_button-wrapper">
+            <span class="wide_button-wrapper-link"><?= $title ?></span>
         </div>
 
     </button>

@@ -3,25 +3,29 @@ function genRegister()
 {
 ?>
 
-
+    <script src="./js/components/collapse_chain.js"></script>
 
     <form action="./php/api/registration.php" class="register" method='POST'>
         <div class="register-email_wrapper">
 
             <?php genInput('Email', 'email', 'email', 'email') ?>
-            <?php genStandardButton("Przejdź dalej", TRUE, '', '') ?>;
+            <?php genWideButton("Przejdź dalej", "button", "collapseChain(this, 'register')") ?>
 
         </div>
         <div class="register-password_wrapper">
 
             <?php genInput('Hasło', 'password', 'password', 'password') ?>
             <?php genInput('Potwierdź hasło', 'confirm_password', 'confirm_password', 'confirm_password') ?>
-            <?php genStandardButton("Przejdź dalej", TRUE, '', '') ?>;
+            <?php genWideButton("Przejdź dalej", "button", "collapseChain(this, 'register')") ?>
+
+
         </div>
         <div class="register-name_wrapper">
             <?php genInput('Imię', 'text', 'first_name', 'first_name') ?>
             <?php genInput('Nazwisko', 'text', 'last_name', 'last_name') ?>
-            <?php genStandardButton("Przejdź dalej", TRUE, '', '') ?>;
+            <?php genWideButton("Przejdź dalej", "button", "collapseChain(this, 'register')") ?>
+
+
 
         </div>
         <div class="register-summary">
@@ -35,7 +39,6 @@ function genRegister()
         </div>
 
     </form>
-
 
 
 

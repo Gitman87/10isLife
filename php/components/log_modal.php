@@ -5,6 +5,8 @@ function genLogModal()
     $callbackArray = ["setActive(this)", "toggleLogReg(this)"];
 
 ?>
+    <!-- <script src="./js/components/collapse_chain.js"></script> -->
+
     <dialog class="log_modal">
         <div class="log_modal-wrapper">
             <?php genTabNav($titleArray, TRUE, $callbackArray) ?>

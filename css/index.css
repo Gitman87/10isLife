@@ -1215,6 +1215,7 @@ button {
   padding: 1rem;
   flex-direction: column;
   overflow: hidden;
+  padding: 2.4rem 1rem;
 }
 .log_modal-cancel {
   color: pink;
@@ -1246,6 +1247,22 @@ button {
 .tab_nav_active {
   border-bottom: 0.5rem solid #002b5b;
   color: #002b5b;
+}
+
+.register {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.register > * {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.wide_button div:last-child {
+  margin-top: 1rem;
 }
 
 .slideshow {
@@ -1533,6 +1550,39 @@ button {
 .light_button:hover .light_button-wrapper .light_button-wrapper-link {
   color: #002b5b;
   transition: color 0.4s;
+  transition-timing-function: ease-in-out;
+}
+
+.wide_button {
+  width: 60%;
+  margin: 0 auto;
+  background-color: #002b5b;
+  font-size: 1.6rem;
+  padding: 0.2em 0em;
+  border: 0.2rem solid transparent;
+  box-shadow: 0.2rem solid 0rem 0rem 0.6rem 0.1rem rgba(0, 0, 0, 0.3882352941);
+  box-sizing: content-box;
+}
+.wide_button-wrapper {
+  position: relative;
+  bottom: 0.25em;
+}
+.wide_button-wrapper-link {
+  color: white;
+  font-weight: 600;
+  letter-spacing: 0.2rem;
+}
+
+.wide_button:hover {
+  background-color: transparent;
+  transition: background-color 0.4s;
+  transition-timing-function: ease-in-out;
+  border-color: #002b5b;
+}
+.wide_button:hover .wide_button-wrapper .wide_button-wrapper-link {
+  color: #002b5b;
+  transition: color 0.4s;
+  transition: border 0.4s;
   transition-timing-function: ease-in-out;
 }
 

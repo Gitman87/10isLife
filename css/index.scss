@@ -11,6 +11,8 @@
 @import "components/_log_modal";
 @import "components/_tab_nav";
 
+@import "components/_register.scss";
+
 @import "components/_slideshow";
 @import "components/_slide";
 
@@ -21,7 +23,7 @@
 
 @import "components/_standard_button";
 @import "components/_light_button";
-
+@import "components/wide_button";
 @import "components/_breadcrumbs";
 @import "components/_product_preview";
 
