@@ -52,8 +52,8 @@ function genRegister()
             </div>
             <!--zrób checkbpxpa do zaakceptowani regulaminu-->
             <div class="register-summary-policy">
-                <h4>Zakceptuj regulamin</h4>
                 <?php genInput('Zaakceptuj regulamin', 'checkbox', 'first_name', 'first_name') ?>
+                <?php genRegPolicy() ?>
 
             </div>
 

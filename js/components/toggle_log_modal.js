@@ -42,15 +42,17 @@ function setStartForm(form) {
   const logging = document.querySelector(".logging");
   if (form === "logging") {
     console.log("setStartForm set on logging");
-    logging.style.visibility = "visible";
+    logging.style.display = " flex";
+
     // register.style.visibility = "hidden";
     register.style.display = "none";
   } else {
     console.log("setStartForm set on nothing");
 
-    logging.style.visibility = "collapse";
-    register.style.visibility = "visible";
+    logging.style.display = "none";
+
+    register.style.display = "flex ";
   }
 }
 // openModal();
-// closeModal();
+// closeModal()

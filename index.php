@@ -14,6 +14,7 @@ include './php/components/tab_nav.php';
 require './php/layouts/register.php';
 require './php/components/input.php';
 require './php/components/logging.php';
+require './php/components/reg_policy.php';
 
 include './php/components/slideshow.php';
 include './php/components/slide.php';

@@ -9,11 +9,11 @@ function toggleLogReg(element) {
 
   if (element.dataset.tab_navButtonNumber == 0) {
     // register.style.visibility = "visible";
-    register.style.display = "";
+    register.style.display = "flex";
 
-    logging.style.visibility = "collapse";
+    logging.style.display = "none";
   } else {
-    logging.style.visibility = "visible";
+    logging.style.display = " flex";
     // register.style.visibility = "collapse";
     register.style.display = "none";
   }
