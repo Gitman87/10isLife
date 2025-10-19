@@ -1207,27 +1207,19 @@ button {
   transform: translate(-50%, -50%);
   width: 65rem;
   border: none;
-  padding: 4rem;
+  padding: 2rem 4rem;
   box-shadow: 0rem 0rem 0.6rem 0.1rem rgba(0, 0, 0, 0.3882352941);
 }
 .log_modal-wrapper {
   width: 100%;
   display: flex;
-  padding: 1rem;
   flex-direction: column;
   overflow: hidden;
-  padding: 2.4rem 1rem;
-}
-.log_modal-cancel {
-  color: pink;
+  padding: 1.6rem 1rem;
 }
 
 .log_modal::backdrop {
   background: rgba(255, 234, 223, 0.5);
-}
-
-.light_button {
-  margin: 0 auto;
 }
 
 .tab_nav {
@@ -1253,7 +1245,17 @@ button {
 .register {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  color: #002b5b;
+}
+.register-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+.register-summary-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
 }
 
 .register > * {
@@ -1586,6 +1588,22 @@ button {
   transition: color 0.4s;
   transition: border 0.4s;
   transition-timing-function: ease-in-out;
+}
+
+.ugly_button {
+  font-size: 1.6rem;
+  padding: 0.6em 1.4em;
+  margin: 0 auto;
+}
+.ugly_button-wrapper-link {
+  color: #808080;
+  font-weight: 600;
+  letter-spacing: 0.2rem;
+  text-decoration: none;
+}
+
+.ugly_button-wrapper-link:hover {
+  text-decoration: underline;
 }
 
 .breadcrumbs_wrapper {

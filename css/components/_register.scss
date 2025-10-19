@@ -1,7 +1,17 @@
 .register {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  color: $granat;
+  &-summary {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+    &-inputs {
+      display: flex;
+      flex-direction: column;
+      gap: 2.4rem;
+    }
+  }
 }
 .register > * {
   display: flex;

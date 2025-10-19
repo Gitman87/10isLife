@@ -1,30 +1,19 @@
 .log_modal {
-  //   background-color: rgb(205, 51, 51);
-  //   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  //   display: flex;
   width: 65rem;
   border: none;
-  padding: 4rem;
+  padding: 2rem 4rem;
   box-shadow: $box-shadow;
   &-wrapper {
-    // background-color: rgb(219, 76, 76);
     width: 100%;
     display: flex;
-    padding: 1rem;
     flex-direction: column;
     overflow: hidden;
-    padding: 2.4rem 1rem;
-  }
-  &-cancel {
-    color: pink;
+    padding: 1.6rem 1rem;
   }
 }
 .log_modal::backdrop {
   background: transparentize($faded-orange, 0.5);
-}
-.light_button {
-  margin: 0 auto;
 }

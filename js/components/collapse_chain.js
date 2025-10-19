@@ -9,6 +9,7 @@ function collapseChain(element, chainContainerClass) {
   keysChain.forEach((key) => {
     const link = chain[key];
     link.style.visibility = "collapse";
+    // link.style.marginTop = " -.5rem";
   });
   //mak visibile hit object
   if (element.parentElement.nextElementSibling) {

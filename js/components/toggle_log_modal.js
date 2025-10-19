@@ -36,13 +36,18 @@ function closeModal() {
 }
 
 function setStartForm(form) {
-  const container = document.querySelector(".log_modal-wrapper");
-  const register = container.querySelector(".register");
-  const logging = container.querySelector(".logging");
+  console.log("In setStarForm loggin is : ", form);
+  // const container = document.querySelector(".log_modal-wrapper");
+  const register = document.querySelector(".register");
+  const logging = document.querySelector(".logging");
   if (form === "logging") {
+    console.log("setStartForm set on logging");
     logging.style.visibility = "visible";
-    register.style.visibility = "collapse";
+    // register.style.visibility = "hidden";
+    register.style.display = "none";
   } else {
+    console.log("setStartForm set on nothing");
+
     logging.style.visibility = "collapse";
     register.style.visibility = "visible";
   }

@@ -1,0 +1,17 @@
+.ugly_button {
+  font-size: $font-medium;
+  padding: 0.6em 1.4em;
+  margin: 0 auto;
+
+  &-wrapper {
+    &-link {
+      color: $gray;
+      font-weight: $font-weight-thick;
+      letter-spacing: $letter-spacing-wide;
+      text-decoration: none;
+    }
+  }
+}
+.ugly_button-wrapper-link:hover {
+  text-decoration: underline;
+}

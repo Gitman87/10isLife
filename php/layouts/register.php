@@ -4,45 +4,58 @@ function genRegister()
 ?>
 
     <script src="./js/components/collapse_chain.js"></script>
-
-    <form action="./php/api/registration.php" class="register" method='POST'>
+    <script src="./js/components/move_input_value.js"></script>
+    <form action="./php/api/registration.php" class="register" id="register" method='POST'>
         <div class="register-email_wrapper">
 
-            <?php genInput('Email', 'email', 'email', 'email') ?>
-            <?php genWideButton("Przejdź dalej", "button", "collapseChain(this, 'register')") ?>
+            <?php genInput('Email', 'email', 'pre_email', 'email') ?>
+            <?php genWideButton("Przejdź dalej", "button", "collapseChain(this, 'register');inputMoveValue('register', 'pre_email', 'email')") ?>
 
         </div>
         <div class="register-password_wrapper">
 
-            <?php genInput('Hasło', 'password', 'password', 'password') ?>
-            <?php genInput('Potwierdź hasło', 'confirm_password', 'confirm_password', 'confirm_password') ?>
-            <?php genWideButton("Przejdź dalej", "button", "collapseChain(this, 'register')") ?>
-
-
+            <?php genInput('Hasło', 'password', 'pre_password', 'password') ?>
+            <?php genInput('Potwierdź hasło', 'password', 'confirm_password', 'confirm_password') ?>
+            <?php genWideButton("Przejdź dalej", "button", "collapseChain(this, 'register');inputMoveValue('register', 'pre_password', 'password')") ?>
         </div>
         <div class="register-name_wrapper">
-            <?php genInput('Imię', 'text', 'first_name', 'first_name') ?>
-            <?php genInput('Nazwisko', 'text', 'last_name', 'last_name') ?>
-            <?php genWideButton("Przejdź dalej", "button", "collapseChain(this, 'register')") ?>
+            <?php genInput('Imię', 'text', 'pre_first_name', 'first_name') ?>
+            <?php genInput('Nazwisko', 'text', 'pre_last_name', 'last_name') ?>
+            <?php genWideButton("Przejdź dalej", "button", "collapseChain(this, 'register');inputMoveValue('register', 'pre_first_name', 'first_name');inputMoveValue('register', 'pre_last_name', 'last_name')") ?>
 
 
 
         </div>
         <div class="register-summary">
-            <h3 class="register-summary">Check your data and submit</h3>
-            <ul class="register-summary-list">
-                <li class="register-summary-list-item"><span class="register-summary-list-item-check">email</span></li>
-                <li class="register-summary-list-item"><span class="register-summary-list-item-check">password</span></li>
-                <li class="register-summary-list-item"><span class="register-summary-list-item-check">first name</span></li>
-                <li class="register-summary-list-item"><span class="register-summary-list-item-check">last name</span></li>
-                <li class="register-summary-list-item"><span class="register-summary-list-item-check"></span></li>
+            <h3 class="register-summary">Sprawdź swoje dane:</h3>
+            <div class="register-summary-inputs">
+                <?php genInput('Imię', 'text', 'first_name', 'first_name') ?>
+                <?php genInput('Nazwisko', 'text', 'last_name', 'last_name') ?>
+                <?php genInput('Email', 'email', 'email', 'email') ?>
+                <?php genInput('Hasło', 'password', 'password', 'password') ?>
 
-            </ul>
-            <?php genInput('Płeć', 'radio', 'sex', 'sex') ?>
-            <?php genInput('Twój NIP', 'text', 'first_name', 'first_name') ?>
+            </div>
+            <div class="register-summary-sex">
+                <p class="register-summary-sex-ask">
+                    Jak mamy się do Ciebie zwracać?
+                </p>
+                <?php genInput('Pan', 'radio', 'sex', 'sex') ?>
+                <?php genInput('Pani', 'radio', 'sex', 'sex') ?>
+
+            </div>
+
+            <div class="register-summary-company">
+                <p class="register-summary-company-ask">
+                    Prowadzisz firmę?
+                </p>
+                <?php genInput('Twój NIP', 'text', 'tax_number', 'tax_number') ?>
+            </div>
             <!--zrób checkbpxpa do zaakceptowani regulaminu-->
-            <h4>Zakceptuj regulaminy</h4>
+            <div class="register-summary-policy">
+                <h4>Zakceptuj regulamin</h4>
+                <?php genInput('Zaakceptuj regulamin', 'checkbox', 'first_name', 'first_name') ?>
 
+            </div>
 
             <?php genStandardButton("Zarejestruj", true, '', '') ?>
         </div>
