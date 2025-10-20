@@ -13,6 +13,7 @@ include './php/components/tab_nav.php';
 //logging /registration
 require './php/layouts/register.php';
 require './php/components/input.php';
+require './php/components/password_input.php';
 require './php/components/logging.php';
 require './php/components/reg_policy.php';
 
@@ -23,6 +24,7 @@ include './php/components/standard_button.php';
 include './php/components/light_button.php';
 include './php/components/wide_button.php';
 include './php/components/ugly_button.php';
+include './php/components/show_password.php';
 
 include './php/components/tile_browser.php';
 include './php/components/tile.php';

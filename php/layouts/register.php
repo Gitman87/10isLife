@@ -5,6 +5,8 @@ function genRegister()
 
     <script src="./js/components/collapse_chain.js"></script>
     <script src="./js/components/move_input_value.js"></script>
+    <script src="./js/components/toggle_password.js"></script>
+
     <form action="./php/api/registration.php" class="register" id="register" method='POST'>
         <div class="register-email_wrapper">
 
@@ -14,7 +16,11 @@ function genRegister()
         </div>
         <div class="register-password_wrapper">
 
-            <?php genInput('Hasło', 'password', 'pre_password', 'password') ?>
+            <div class="register-password_wrapper-password_show_input">
+
+                <?php genPasswordInput('Hasło', 'password', 'pre_password', 'password') ?>
+
+            </div>
             <?php genInput('Potwierdź hasło', 'password', 'confirm_password', 'confirm_password') ?>
             <?php genWideButton("Przejdź dalej", "button", "collapseChain(this, 'register');inputMoveValue('register', 'pre_password', 'password')") ?>
         </div>
