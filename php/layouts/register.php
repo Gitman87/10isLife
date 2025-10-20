@@ -6,8 +6,11 @@ function genRegister()
     <script src="./js/components/collapse_chain.js"></script>
     <script src="./js/components/move_input_value.js"></script>
     <script src="./js/components/toggle_password.js"></script>
+    <script src="./js/components/show_hide.js"></script>
+
 
     <form action="./php/api/registration.php" class="register" id="register" method='POST'>
+        <button type="submit" style="display: none;" disabled aria-hidden="true"></button><!-- prevents Enter from submitting-->
         <div class="register-email_wrapper">
 
             <?php genInput('Email', 'email', 'pre_email', 'email') ?>
@@ -43,13 +46,16 @@ function genRegister()
 
             <div class="register-summary-company">
                 <p class="register-summary-company-ask">
-                    Prowadzisz firmę?
+                    Prowadzisz firmę?<span><?php genShow("Tak", "showHide(this, 'Tak','Zwiń','tax_number')") ?></span>
                 </p>
                 <?php genInput('Twój NIP', 'text', 'tax_number', 'tax_number') ?>
             </div>
             <!--zrób checkbpxpa do zaakceptowani regulaminu-->
             <div class="register-summary-policy">
-                <?php genInput('Zaakceptuj regulamin', 'checkbox', 'first_name', 'first_name') ?>
+                <div class="register-summary-policy-wrapper">
+                    <?php genInput('Zaakceptuj regulamin', 'checkbox', 'first_name', 'first_name') ?>
+                    <span><?php genShow("Przeczytaj", "showHide(this, 'Przeczytaj','Zwiń','reg_policy')") ?></span>
+                </div>
                 <?php genRegPolicy() ?>
 
             </div>

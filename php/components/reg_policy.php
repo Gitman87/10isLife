@@ -4,7 +4,7 @@ function genRegPolicy()
 ?>
 
     <!-- <label for="registration_policy">Regulamin Rejestracji:</label> -->
-    <textarea class="reg_policy" name="policy_text" rows="20" cols="80" readonly>
+    <textarea class="reg_policy" id="reg_policy" name="policy_text" rows="20" cols="80" readonly>
 REGULAMIN REJESTRACJI I KONTO UŻYTKOWNIKA 10isLife
 
 1. Postanowienia Ogólne

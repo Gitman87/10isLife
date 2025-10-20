@@ -10,7 +10,7 @@ function genPasswordInput($label, $type, $id, $name)
 
         <div class="password_input-wrapper">
             <input type="<?= $type ?>" id="<?= $id ?>" name="<?= $name ?>" />
-            <?php genShowPassword('Pokaż', "togglePassword(this,'Pokaż','UKRYJ','$id')") ?>
+            <?php genShow('Pokaż', "togglePassword(this,'Pokaż','UKRYJ','$id')") ?>
         </div>
     </div>
 

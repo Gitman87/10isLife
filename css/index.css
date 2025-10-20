@@ -1265,15 +1265,28 @@ button {
   display: flex;
   flex-direction: row;
 }
+.register-summary-company .show {
+  margin-left: 1rem;
+}
+.register-summary-company #tax_number {
+  display: none;
+}
 .register-summary-policy {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
-.register-summary-policy .input_wrapper {
+.register-summary-policy-wrapper {
+  display: flex;
+  gap: 1rem;
+}
+.register-summary-policy-wrapper .input_wrapper {
   display: flex;
   flex-direction: row;
   gap: 1.6rem;
+}
+.register-summary-policy .reg_policy {
+  display: none;
 }
 
 .register > * {
@@ -1636,12 +1649,12 @@ button {
   text-decoration: underline;
 }
 
-.show_password {
+.show {
   font-size: 1.4rem;
   color: #808080;
 }
 
-.show_password:hover {
+.show:hover {
   color: #002b5b;
   transition: color 0.4s;
 }
@@ -1728,7 +1741,7 @@ button {
   padding-right: 6rem;
   width: 100%;
 }
-.password_input-wrapper .show_password {
+.password_input-wrapper .show {
   position: absolute;
   top: 50%;
   right: 1rem;

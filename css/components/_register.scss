@@ -19,14 +19,30 @@
         flex-direction: row;
       }
     }
+    &-company {
+      .show {
+        margin-left: 1rem;
+      }
+      #tax_number {
+        display: none;
+      }
+    }
     &-policy {
       display: flex;
       flex-direction: column;
       gap: 1rem;
-      .input_wrapper {
+      &-wrapper {
         display: flex;
-        flex-direction: row;
-        gap: 1.6rem;
+        gap: 1rem;
+        .input_wrapper {
+          display: flex;
+          flex-direction: row;
+          gap: 1.6rem;
+        }
+      }
+
+      .reg_policy {
+        display: none;
       }
     }
   }
