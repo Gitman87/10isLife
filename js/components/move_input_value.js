@@ -6,5 +6,5 @@ function inputMoveValue(formId, inputId, outputId) {
   const output = form.querySelector("#" + outputId);
 
   output.value = input.value;
-  console.log("input value trasferred>input value is ", input.value);
+  // console.log("input value trasferred>input value is ", input.value);
 }

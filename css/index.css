@@ -1706,6 +1706,7 @@ button {
   color: #002b5b;
 }
 .input_wrapper input {
+  padding: 0.1rem 0.5rem;
   border: 0.2rem solid #808080;
 }
 
@@ -1723,6 +1724,7 @@ button {
 }
 .password_input-wrapper input {
   border: 0.2rem solid #808080;
+  padding: 0.1rem 0.5rem;
   padding-right: 6rem;
   width: 100%;
 }

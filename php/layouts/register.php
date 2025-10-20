@@ -15,22 +15,14 @@ function genRegister()
 
         </div>
         <div class="register-password_wrapper">
-
-            <div class="register-password_wrapper-password_show_input">
-
-                <?php genPasswordInput('Hasło', 'password', 'pre_password', 'password') ?>
-
-            </div>
-            <?php genInput('Potwierdź hasło', 'password', 'confirm_password', 'confirm_password') ?>
+            <?php genPasswordInput('Hasło', 'password', 'pre_password', 'pre_password') ?>
+            <?php genPasswordInput('Potwierdź hasło', 'password', 'confirm_password', 'confirm_password') ?>
             <?php genWideButton("Przejdź dalej", "button", "collapseChain(this, 'register');inputMoveValue('register', 'pre_password', 'password')") ?>
         </div>
         <div class="register-name_wrapper">
             <?php genInput('Imię', 'text', 'pre_first_name', 'first_name') ?>
             <?php genInput('Nazwisko', 'text', 'pre_last_name', 'last_name') ?>
             <?php genWideButton("Przejdź dalej", "button", "collapseChain(this, 'register');inputMoveValue('register', 'pre_first_name', 'first_name');inputMoveValue('register', 'pre_last_name', 'last_name')") ?>
-
-
-
         </div>
         <div class="register-summary">
             <h3 class="register-summary">Sprawdź swoje dane:</h3>
@@ -38,8 +30,7 @@ function genRegister()
                 <?php genInput('Imię', 'text', 'first_name', 'first_name') ?>
                 <?php genInput('Nazwisko', 'text', 'last_name', 'last_name') ?>
                 <?php genInput('Email', 'email', 'email', 'email') ?>
-                <?php genInput('Hasło', 'password', 'password', 'password') ?>
-
+                <?php genPasswordInput('Hasło', 'password', 'password', 'password') ?>
             </div>
             <div class="register-summary-sex">
                 <p class="register-summary-sex-ask">
