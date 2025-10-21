@@ -10,8 +10,9 @@ function genRegister()
 
 
     <form action="./php/api/registration.php" class="register" id="register" method='POST'>
-        <!-- <button type="submit" style="display: none;" disabled aria-hidden="true"></button>prevents Enter from submitting -->
         <div class="register-email_wrapper">
+            <!-- dummy button to prevent Enter from submitting the form -->
+            <button type="submit" style="display: none;" disabled aria-hidden="true"></button>
 
             <?php genInput('Email', 'email', 'pre_email', 'pre_email') ?>
             <?php genWideButton("Przejdź dalej", "button", "collapseChain(this, 'register');inputMoveValue('register', 'pre_email', 'email')") ?>
@@ -39,8 +40,8 @@ function genRegister()
                 <p class="register-summary-sex-ask">
                     Jak mamy się do Ciebie zwracać?
                 </p>
-                <?php genInput('Pan', 'radio', 'sex', 'sex') ?>
-                <?php genInput('Pani', 'radio', 'sex', 'sex') ?>
+                <?php genInput('Pan', 'radio', 'man', 'sex') ?>
+                <?php genInput('Pani', 'radio', 'woman', 'sex') ?>
 
             </div>
 
@@ -59,7 +60,7 @@ function genRegister()
                 <?php genRegPolicy() ?>
 
             </div>
-            <button type="submit">Submit</button>
+
             <?php genStandardButton("Zarejestruj", true, '', '') ?>
         </div>
 

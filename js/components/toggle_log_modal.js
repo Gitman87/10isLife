@@ -19,6 +19,10 @@ function openModal() {
   const inActiveTab = document.querySelector(".tab_nav-button:first-child");
   // inActiveTab.style.borderBottom = " 0.5rem solid #808080";
   inActiveTab.classList.add("inactive");
+
+  //set the deafult radio (sex) ccheck
+  const manCheckBox = modal.querySelector("#man");
+  manCheckBox.checked = true;
 }
 function closeModal() {
   const modal = document.querySelector(".log_modal");
