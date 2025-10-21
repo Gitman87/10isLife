@@ -1,20 +1,20 @@
 .tab_nav {
-  //   background-color: rgb(233, 185, 81);
+  // background-color: rgb(233, 185, 81);
   display: flex;
   &-button {
     // background-color: rgb(207, 231, 52);
     width: 50%;
-    border-bottom: 0.5rem solid $gray;
+    border-bottom: 0.5rem solid $granat;
     font-size: $font-large;
-    color: $gray;
-  }
-  &-button:hover {
     color: $granat;
-    transition: color 0.4s;
-    transition-timing-function: ease-in-out;
   }
 }
-.tab_nav_active {
-  border-bottom: 0.5rem solid $granat;
+.inactive {
+  border-bottom: 0.5rem solid $gray;
+  color: $gray;
+}
+.tab_nav-button:hover {
   color: $granat;
+  transition: color 0.4s;
+  transition-timing-function: ease-in-out;
 }

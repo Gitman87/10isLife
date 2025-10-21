@@ -10,10 +10,10 @@ function genRegister()
 
 
     <form action="./php/api/registration.php" class="register" id="register" method='POST'>
-        <button type="submit" style="display: none;" disabled aria-hidden="true"></button><!-- prevents Enter from submitting-->
+        <!-- <button type="submit" style="display: none;" disabled aria-hidden="true"></button>prevents Enter from submitting -->
         <div class="register-email_wrapper">
 
-            <?php genInput('Email', 'email', 'pre_email', 'email') ?>
+            <?php genInput('Email', 'email', 'pre_email', 'pre_email') ?>
             <?php genWideButton("Przejdź dalej", "button", "collapseChain(this, 'register');inputMoveValue('register', 'pre_email', 'email')") ?>
 
         </div>
@@ -23,8 +23,8 @@ function genRegister()
             <?php genWideButton("Przejdź dalej", "button", "collapseChain(this, 'register');inputMoveValue('register', 'pre_password', 'password')") ?>
         </div>
         <div class="register-name_wrapper">
-            <?php genInput('Imię', 'text', 'pre_first_name', 'first_name') ?>
-            <?php genInput('Nazwisko', 'text', 'pre_last_name', 'last_name') ?>
+            <?php genInput('Imię', 'text', 'pre_first_name', 'pre_first_name') ?>
+            <?php genInput('Nazwisko', 'text', 'pre_last_name', 'pre_last_name') ?>
             <?php genWideButton("Przejdź dalej", "button", "collapseChain(this, 'register');inputMoveValue('register', 'pre_first_name', 'first_name');inputMoveValue('register', 'pre_last_name', 'last_name')") ?>
         </div>
         <div class="register-summary">
@@ -59,7 +59,7 @@ function genRegister()
                 <?php genRegPolicy() ?>
 
             </div>
-
+            <button type="submit">Submit</button>
             <?php genStandardButton("Zarejestruj", true, '', '') ?>
         </div>
 

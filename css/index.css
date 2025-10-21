@@ -1227,19 +1227,20 @@ button {
 }
 .tab_nav-button {
   width: 50%;
-  border-bottom: 0.5rem solid #808080;
+  border-bottom: 0.5rem solid #002b5b;
   font-size: 2rem;
+  color: #002b5b;
+}
+
+.inactive {
+  border-bottom: 0.5rem solid #808080;
   color: #808080;
 }
+
 .tab_nav-button:hover {
   color: #002b5b;
   transition: color 0.4s;
   transition-timing-function: ease-in-out;
-}
-
-.tab_nav_active {
-  border-bottom: 0.5rem solid #002b5b;
-  color: #002b5b;
 }
 
 .register {

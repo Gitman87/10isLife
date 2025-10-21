@@ -14,11 +14,11 @@ function openModal() {
   modal.showModal();
   //set tabs start style
   const activeTab = document.querySelector(".tab_nav-button:nth-child(2)");
-  activeTab.style.borderBottom = " 0.5rem solid #002b5b";
-  activeTab.style.color = "#002b5b";
+  // activeTab.style.borderBottom = " 0.5rem solid #002b5b";
+  activeTab.classList.remove("inactive");
   const inActiveTab = document.querySelector(".tab_nav-button:first-child");
-  inActiveTab.style.borderBottom = " 0.5rem solid #808080";
-  inActiveTab.style.color = "#808080";
+  // inActiveTab.style.borderBottom = " 0.5rem solid #808080";
+  inActiveTab.classList.add("inactive");
 }
 function closeModal() {
   const modal = document.querySelector(".log_modal");
