@@ -2,7 +2,6 @@ function collapseChain(element, chainContainerClass) {
   console.log("collapse chain start");
   const chainContainer = document.querySelector(`.${chainContainerClass}`);
   const chain = chainContainer.children;
-  console.log("chain length is ", chain);
   //collapse all elements
   const keysChain = Object.keys(chain);
   //collapse everything

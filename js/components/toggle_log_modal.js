@@ -14,15 +14,21 @@ function openModal() {
   modal.showModal();
   //set tabs start style
   const activeTab = document.querySelector(".tab_nav-button:nth-child(2)");
-  // activeTab.style.borderBottom = " 0.5rem solid #002b5b";
   activeTab.classList.remove("inactive");
   const inActiveTab = document.querySelector(".tab_nav-button:first-child");
-  // inActiveTab.style.borderBottom = " 0.5rem solid #808080";
   inActiveTab.classList.add("inactive");
-
   //set the deafult radio (sex) ccheck
   const manCheckBox = modal.querySelector("#man");
+  const womanCheckBox = modal.querySelector("#woman");
   manCheckBox.checked = true;
+  manCheckBox.value = "man";
+  womanCheckBox.value = "woman";
+  //set default value of tax-number to NULL
+  const taxNumber = modal.querySelector("#tax_number");
+  taxNumber.value = null;
+  // disable some inputs from submitting
+  // const emailInput = modal.querySelector("#pre_email");
+  // emailInput.setAttribute[("disabled", "true")];
 }
 function closeModal() {
   const modal = document.querySelector(".log_modal");
@@ -40,19 +46,15 @@ function closeModal() {
 }
 
 function setStartForm(form) {
-  console.log("In setStarForm loggin is : ", form);
   // const container = document.querySelector(".log_modal-wrapper");
   const register = document.querySelector(".register");
   const logging = document.querySelector(".logging");
   if (form === "logging") {
-    console.log("setStartForm set on logging");
     logging.style.display = " flex";
 
     // register.style.visibility = "hidden";
     register.style.display = "none";
   } else {
-    console.log("setStartForm set on nothing");
-
     logging.style.display = "none";
 
     register.style.display = "flex ";
