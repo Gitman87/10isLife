@@ -1290,6 +1290,11 @@ button {
   display: none;
 }
 
+.error_output {
+  color: #b51818;
+  font-size: 1.4rem;
+}
+
 .register > * {
   display: flex;
   flex-direction: column;
@@ -1722,8 +1727,22 @@ button {
 .input_wrapper input {
   padding: 0.1rem 0.5rem;
   border: 0.2rem solid #808080;
+  transition: all 0.3s ease-in-out;
 }
 
+.error_blinking {
+  border-color: #b51818 !important;
+  animation: blinking 1s infinite alternate;
+}
+
+@keyframes blinking {
+  from {
+    box-shadow: 0rem 0rem 0.2rem 0.1rem rgba(255, 255, 255, 0);
+  }
+  to {
+    box-shadow: 0rem 0rem 0.6rem 0.1rem rgba(121, 1, 1, 0.3882352941);
+  }
+}
 .password_input {
   display: flex;
   flex-direction: column;

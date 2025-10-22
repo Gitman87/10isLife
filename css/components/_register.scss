@@ -46,20 +46,25 @@
       }
     }
   }
-  // &-password_wrapper {
-  //   &-password_show_input {
-  //     position: relative;
-  //     .input_wrapper input {
-  //       padding-right: 4rem;
-  //     }
-  //     .show_password {
-  //       position: absolute;
-  //       top: 50%;
-  //       right: 50%;
-  //       transform: translateY(-50%);
-  //     }
-  //   }
-  // }
+}
+
+// &-password_wrapper {
+//   &-password_show_input {
+//     position: relative;
+//     .input_wrapper input {
+//       padding-right: 4rem;
+//     }
+//     .show_password {
+//       position: absolute;
+//       top: 50%;
+//       right: 50%;
+//       transform: translateY(-50%);
+//     }
+//   }
+// }
+.error_output {
+  color: $error-color;
+  font-size: $font-small;
 }
 .register > * {
   display: flex;

@@ -18,4 +18,5 @@ function collapseChain(element, chainContainerClass) {
   } else {
     console.log("End of chain");
   }
+  return true;
 }
