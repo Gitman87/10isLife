@@ -110,8 +110,13 @@ function validateName(firstNameInputId, lastNameInputId, errorOutputId) {
 }
 function nipCheckSum(value) {
   const onlyDigitsNIP = value.replace(/-/g, "");
+
   console.log("trimmed nip is ", onlyDigitsNIP);
   const digitsArrayNIP = onlyDigitsNIP.split("");
+  if (digitsArrayNIP.length != 10) {
+    console.log("NIP must be 10 digits long. Now is:  ", digitsArrayNIP.length);
+    return false;
+  }
   const lastDigitNIP = digitsArrayNIP[digitsArrayNIP.length - 1];
   console.log("Last NIP digit is ", lastDigitNIP);
   console.log("Arrayed nip is ", digitsArrayNIP);
