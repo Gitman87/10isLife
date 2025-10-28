@@ -5,7 +5,7 @@ function genLogging()
 
 
 
-    <form action="./php/api/registration.php" class="logging" method='POST'>
+    <form action="./php/api/logination.php" class="logging" id="logging" method='POST'>
 
         <?php genInput('Email', 'email', 'email', 'email') ?>
         <?php genPasswordInput('Hasło', 'password', 'log_password', 'log_password') ?>

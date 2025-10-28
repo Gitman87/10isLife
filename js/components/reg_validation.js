@@ -195,7 +195,7 @@ function submitForm() {
       !checkTaxNumber("#tax_number", ".register-summary-company-output") ||
       !checkPolicy("#policy", ".register-summary-policy-wrapper-output")
     ) {
-      console.log("Submitting stopped,.input error ");
+      console.log("Submitting stopped. Input error ");
     } else {
       const formData = new FormData(form);
       try {

@@ -27,23 +27,51 @@ function setCustomerData()
     }
     $stmt->bind_param("ssssss", $_POST['first_name'], $_POST['last_name'], $_POST['email'], $hashedPassword, $_POST['sex'], $taxNumber);
 
-    $stmt->execute();
-    header('Content-Type: application/json; charset=utf-8');
-    echo '
+    if ($stmt->execute()) {
+      echo '
 {
  "success":true,
  "message":"registered"
 
 }  ';
-    $stmt->close();
-    $conn->close();
+      //automatic logging
+      session_start();
+      //user id will be his id from db, the last insert
+      $newestId = $conn->insert_id;
+      $_SESSION['user_id'] = $newestId;
+      $_SESSION['user_name'] = $_POST['first_name'];
+      $stmt->close();
+      $conn->close();
+      header('Location: registered.php'); //redirect to my congratulations page
+      exit; //close reg form
+    } else {
+      error_log("DB Execution Error: " . $stmt->error);
+
+      header('Content-Type: application/json; charset=utf-8');
+      //since email should be unique...
+      $responseMessage = ['dbError' => "Rejestracja nieudana. Prawdopodobnie adres email jest już zajęty."];
+
+      $stmt->close();
+      $conn->close();
+
+      echo '
+{
+ "success":false,
+ "message":' . json_encode($responseMessage) . '
+}  ';
+      exit;
+    };
   } else {
 
+    header('Content-Type: application/json; charset=utf-8');
+
+    $stmt->close();
+    $conn->close();
     //read the errorMessages array??? put to message json...
-    $errors = [];
-    foreach ($errorMessages as $error) {
-      $errors[] = $error;
-    }
+    // $errors = [];
+    // foreach ($errorMessages as $error) {
+    //   $errors[] = $error;
+    // }
     echo '
 {
  "success":false,
