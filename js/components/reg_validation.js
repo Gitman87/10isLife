@@ -214,14 +214,19 @@ function submitForm() {
         if (result["success"]) {
           console.log("zalogowao");
         } else {
-          errorContainer.innerText = result["message"];
+          const errorMessagesObject = result["message"];
+          let errorMessages = [];
+          for (const message in errorMessagesObject) {
+            if (errorMessagesObject.hasOwnProperty(message)) {
+              errorMessages.push(errorMessagesObject[message]);
+            }
+          }
+          errorContainer.innerText = errorMessages.join("<br>");
         }
-
         console.log("result is ", result);
       } catch (error) {
         console.error(error);
       }
-
       console.log("submitted!");
     }
   });

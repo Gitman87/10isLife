@@ -15,7 +15,7 @@ function setCustomerData()
   $stmt = $conn->prepare("INSERT INTO customers(first_name, last_name, email, password_hash,gender,  tax_number,is_registered) VALUES (?, ?, ?,?,?,?,1)");
 
   $errorMessages = validate(); //validating email, first/lastname, password, tax_numver (if not empoty)
-  if (!empty($errorMessages) && $_SERVER["REQUEST_METHOD"] == "POST") {
+  if (empty($errorMessages) && $_SERVER["REQUEST_METHOD"] == "POST") {
 
     $hashedPassword = password_hash($_POST['password'], PASSWORD_DEFAULT);
     $taxNumber = '';
@@ -47,7 +47,7 @@ function setCustomerData()
     echo '
 {
  "success":false,
- "message":$errors
+ "message":' . json_encode($errorMessages) . '
 
 }  ';
   }
@@ -81,6 +81,7 @@ function NipCheckSum($taxNumber)
 }
 function validate()
 {
+  // echo 'backend validating started';
   $errorMessages = [];
   //check mail
   if ($_SERVER["REQUEST_METHOD"] !== "POST") {
