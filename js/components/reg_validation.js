@@ -196,6 +196,7 @@ function submitForm() {
       !checkPolicy("#policy", ".register-summary-policy-wrapper-output")
     ) {
       console.log("Submitting stopped. Input error ");
+      return;
     } else {
       const formData = new FormData(form);
       try {
@@ -213,21 +214,25 @@ function submitForm() {
         const result = await response.json();
         if (result["success"]) {
           console.log("zalogowao");
+          if (result["redirect"]) {
+            window.location.href = result["redirect"];
+            console.log("User should be redirected now");
+          }
         } else {
-          const errorMessagesObject = result["message"];
           let errorMessages = [];
+          const errorMessagesObject = result["message"];
           for (const message in errorMessagesObject) {
             if (errorMessagesObject.hasOwnProperty(message)) {
               errorMessages.push(errorMessagesObject[message]);
             }
           }
-          errorContainer.innerText = errorMessages.join("<br>");
+          errorContainer.innerHTML = errorMessages.join("<br>");
         }
         console.log("result is ", result);
       } catch (error) {
         console.error(error);
       }
-      console.log("submitted!");
+      // console.log("submitted!");
     }
   });
 }

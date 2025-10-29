@@ -21,46 +21,50 @@ function setCustomerData()
     $sanitizedLastName = sanitizeInputValue($_POST['last_name']);
     $sanitizedEmail = sanitizeInputValue($_POST['email']);
     $hashedPassword = password_hash(trim($_POST['password']), PASSWORD_DEFAULT);
-    $taxNumber = '';
-    if ($_POST['tax_number'] === '') {
-      $taxNumber = NULL;
-    } else {
-      $taxNumber = trim($_POST['tax_number']);
+    $sanitizedGender = sanitizeInputValue($_POST['sex']);
+    $taxNumber = NULL;
+    if (!empty($_POST['tax_number'])) {
+      $taxNumber = sanitizeInputValue($_POST['tax_number']);
     }
-    $stmt->bind_param("ssssss",  $sanitizedFirstName, $sanitizedLastName, $sanitizedEmail, $hashedPassword, $_POST['sex'], $taxNumber);
+
+
+    $stmt->bind_param("ssssss",  $sanitizedFirstName, $sanitizedLastName, $sanitizedEmail, $hashedPassword, $sanitizedGender, $taxNumber);
 
     if ($stmt->execute()) {
-      echo '
-{
- "success":true,
- "message":"registered"
+      //       echo '
+      // {
+      //  "success":true,
+      //  "message":"registered"
 
-}  ';
+      // }  ';
       //automatic logging
       session_start();
       //user id will be his id from db, the last insert
       $newestId = $conn->insert_id;
       $_SESSION['user_id'] = $newestId;
-      $_SESSION['user_name'] = $_POST['first_name'];
+      $_SESSION['user_name'] = $sanitizedFirstName;
       $stmt->close();
       $conn->close();
-      header('Location: registered.php'); //redirect to my congratulations page
+      // header('Location: registered.php'); //redirect to my congratulations page
+      header('Content-Type: application/json; charset=utf-8');
+      echo json_encode([
+        "success" => true,
+        "message" => "registered",
+        "redirect" => "registered.php"
+      ]);
       exit; //close reg form
     } else {
       error_log("DB Execution Error: " . $stmt->error);
-
       header('Content-Type: application/json; charset=utf-8');
       //since email should be unique...
-      $responseMessage = ['dbError' => "Rejestracja nieudana. Prawdopodobnie adres email jest już zajęty."];
-
+      $responseMessage = ['dataBaseError' => "Rejestracja nieudana. Prawdopodobnie adres email jest już zajęty."];
       $stmt->close();
       $conn->close();
+      echo json_encode([
 
-      echo '
-{
- "success":false,
- "message":' . json_encode($responseMessage) . '
-}  ';
+        "success" => false,
+        "message" => $responseMessage
+      ]);
       exit;
     };
   } else {
@@ -74,12 +78,11 @@ function setCustomerData()
     // foreach ($errorMessages as $error) {
     //   $errors[] = $error;
     // }
-    echo '
-{
- "success":false,
- "message":' . json_encode($errorMessages) . '
+    echo json_encode([
 
-}  ';
+      "success" => false,
+      "message" => $errorMessages
+    ]);
   }
 }
 function sanitizeInputValue($inputValue)
