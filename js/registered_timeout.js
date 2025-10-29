@@ -1,7 +1,15 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const time = 4000;
+  const counter = document.querySelector(".registered-para-counter");
+  let countStartNumber = 4;
+  const interval = 1000;
+  const timeout = countStartNumber * interval;
+
+  setInterval(() => {
+    countStartNumber--;
+    counter.innerText = countStartNumber;
+  }, interval);
   setTimeout(() => {
     window.location.href = "index.php";
-  }, time);
+  }, timeout);
+  // window.location.href = "index.php";
 });
-///make countdown???

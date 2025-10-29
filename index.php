@@ -1,4 +1,5 @@
 <?php
+include './php/layouts/head.php';
 include './php/layouts/footer.php';
 include './php/layouts/header.php';
 include './php/layouts/hero.php';

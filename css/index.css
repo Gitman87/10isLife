@@ -886,6 +886,36 @@ button {
   display: flex;
 }
 
+.registered {
+  margin: 10rem auto;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  position: relative;
+}
+.registered-success {
+  position: absolute;
+  transform: translateX(50%);
+  top: 30%;
+  left: 25%;
+  color: #ff6600;
+}
+.registered-member {
+  background-color: #ffeadf;
+  box-shadow: 0rem 0rem 0.6rem 0.1rem rgba(0, 0, 0, 0.3882352941);
+  text-align: center;
+  color: #002b5b;
+  margin: 0 auto;
+  padding: 2rem 0rem;
+}
+.registered-member-ten {
+  color: #ff6600;
+}
+.registered-para {
+  background-color: pink;
+  color: #002b5b;
+  text-align: center;
+}
+
 .header {
   top: 0;
   background-color: rgb(202, 202, 202);

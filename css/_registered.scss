@@ -1,0 +1,29 @@
+.registered {
+  margin: 10rem auto;
+  max-width: fit-content;
+  position: relative;
+
+  &-success {
+    position: absolute;
+    transform: translateX(50%);
+    top: 30%;
+    left: 25%;
+    color: $orange;
+  }
+  &-member {
+    background-color: $faded-orange;
+    box-shadow: $box-shadow;
+    text-align: center;
+    color: $granat;
+    margin: 0 auto;
+    padding: 2rem 0rem;
+    &-ten {
+      color: $orange;
+    }
+  }
+  &-para {
+    background-color: pink;
+    color: $granat;
+    text-align: center;
+  }
+}
