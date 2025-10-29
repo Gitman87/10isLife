@@ -8,24 +8,26 @@ function setCustomerData()
   $conn = new mysqli($host, $user, $password, $db_name);
   // Check connection
   if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+    http_response_code(500);
+    die(json_encode(["success" => false, "message" => "Database connection failed: " . $conn->connect_error]));
   }
 
   // prepare and bind
   $stmt = $conn->prepare("INSERT INTO customers(first_name, last_name, email, password_hash,gender,  tax_number,is_registered) VALUES (?, ?, ?,?,?,?,1)");
 
-  $errorMessages = validate(); //validating email, first/lastname, password, tax_numver (if not empoty)
+  $errorMessages = validate();; //validating email, first/lastname, password, tax_numver (if not empoty)
   if (empty($errorMessages) && $_SERVER["REQUEST_METHOD"] == "POST") {
-
-    $hashedPassword = password_hash($_POST['password'], PASSWORD_DEFAULT);
+    $sanitizedFirstName = sanitizeInputValue($_POST['first_name']);
+    $sanitizedLastName = sanitizeInputValue($_POST['last_name']);
+    $sanitizedEmail = sanitizeInputValue($_POST['email']);
+    $hashedPassword = password_hash(trim($_POST['password']), PASSWORD_DEFAULT);
     $taxNumber = '';
     if ($_POST['tax_number'] === '') {
-      global $taxNumber;
       $taxNumber = NULL;
     } else {
-      $taxNumber = $_POST['tax_number'];
+      $taxNumber = trim($_POST['tax_number']);
     }
-    $stmt->bind_param("ssssss", $_POST['first_name'], $_POST['last_name'], $_POST['email'], $hashedPassword, $_POST['sex'], $taxNumber);
+    $stmt->bind_param("ssssss",  $sanitizedFirstName, $sanitizedLastName, $sanitizedEmail, $hashedPassword, $_POST['sex'], $taxNumber);
 
     if ($stmt->execute()) {
       echo '
@@ -112,31 +114,31 @@ function validate()
   // echo 'backend validating started';
   $errorMessages = [];
   //check mail
-  if ($_SERVER["REQUEST_METHOD"] !== "POST") {
-    return;
-  };
+  // if ($_SERVER["REQUEST_METHOD"] !== "POST") {
+  //   return $errorMessages;;
+  // };
   if (empty($_POST['email'])) {
     $errorMessages['emailError'] = "Email jest wymagany";
   } else {
-    $email = sanitizeInputValue($_POST['email']);
+    $email = trim($_POST['email']);
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-      $errorMessages['emailError'] = "Hasło musi się składać z conajmniej: 8 znaków, 1 dużej litery, 1 cyfry, 1 ze znaków [@$!%*?&]. Nie może mieć mieć odstępów między znakami. ";
+      $errorMessages['emailError'] = "Proszę podać właściwy format email (np.: nazwa@domena.com)";
     };
   }
   //check name
   if (empty($_POST['first_name'])) {
     $errorMessages['firstNameError'] = "Imię jest wymagane.";
   } else {
-    $firstName = sanitizeInputValue($_POST['first_name']);
+    $firstName = trim($_POST['first_name']);
     if (!preg_match("/^\p{Lu}\p{Ll}+$/u", $firstName)) {
       $errorMessages['firstNameError'] = "Podaj poprawną formę swojego imienia (np. Piotr, Łukasz, Anna)";
     }
   }
   //check last name
   if (empty($_POST['last_name'])) {
-    $errorMessages['lastNameError'] = "Imię jest wymagane.";
+    $errorMessages['lastNameError'] = "Nazwisko jest wymagane.";
   } else {
-    $lastName = sanitizeInputValue($_POST['first_name']);
+    $lastName = trim($_POST['last_name']);
     if (!preg_match("/^\p{Lu}\p{Ll}+(-\p{Lu}\p{Ll}+)?$/u", $lastName)) {
       $errorMessages['lastNameError'] = "Podaj poprawną forme swojego nazwiska";
     }
@@ -145,14 +147,14 @@ function validate()
   if (empty($_POST['password'])) {
     $errorMessages['passwordError'] = "Hasło jest wymagane";
   } else {
-    $password = sanitizeInputValue($_POST['password']);
+    $password = trim($_POST['password']);
     if (!preg_match("/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/", $password)) {
       $errorMessages['passwordError'] = "Hasło musi się składać z conajmniej: 8 znaków, 1 dużej litery, 1 cyfry, 1 ze znaków [@$!%*?&]. Nie może mieć mieć odstępów między znakami. ";
     }
   }
   //check tax number , if not empty
   if (!empty($_POST["tax_number"])) {
-    $taxNumber = sanitizeInputValue($_POST["tax_number"]);
+    $taxNumber = trim($_POST["tax_number"]);
     if (!preg_match("/^\d{3}-\d{3}-\d{2}-\d{2}$/", $taxNumber)) {
       $errorMessages['tax_number'] = "Tylko polski NIP. Musi się składać z 10 cyfr, np 123-456-78-90";
     } elseif (!nipCheckSum($taxNumber)) {
