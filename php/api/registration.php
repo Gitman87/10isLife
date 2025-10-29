@@ -30,36 +30,38 @@ function setCustomerData()
 
     $stmt->bind_param("ssssss",  $sanitizedFirstName, $sanitizedLastName, $sanitizedEmail, $hashedPassword, $sanitizedGender, $taxNumber);
 
-    if ($stmt->execute()) {
-      //       echo '
-      // {
-      //  "success":true,
-      //  "message":"registered"
+    try {
+      if ($stmt->execute()) {
+        //       echo '
+        // {
+        //  "success":true,
+        //  "message":"registered"
 
-      // }  ';
-      //automatic logging
-      session_start();
-      //user id will be his id from db, the last insert
-      $newestId = $conn->insert_id;
-      $_SESSION['user_id'] = $newestId;
-      $_SESSION['user_name'] = $sanitizedFirstName;
-      $stmt->close();
-      $conn->close();
-      // header('Location: registered.php'); //redirect to my congratulations page
-      header('Content-Type: application/json; charset=utf-8');
-      echo json_encode([
-        "success" => true,
-        "message" => "registered",
-        "redirect" => "registered.php"
-      ]);
-      exit; //close reg form
-    } else {
+        // }  ';
+        //automatic logging
+        session_start();
+        //user id will be his id from db, the last insert
+        $newestId = $conn->insert_id;
+        $_SESSION['user_id'] = $newestId;
+        $_SESSION['user_name'] = $sanitizedFirstName;
+        $stmt->close();
+        $conn->close();
+        // header('Location: registered.php'); //redirect to my congratulations page
+        header('Content-Type: application/json; charset=utf-8');
+        echo json_encode([
+          "success" => true,
+          "message" => "registered",
+          "redirect" => "registered.php"
+        ]);
+        exit; //close reg form
+      }
+    } catch (mysqli_sql_exception $e) { //catches db error, np double email entry
       error_log("DB Execution Error: " . $stmt->error);
-      header('Content-Type: application/json; charset=utf-8');
       //since email should be unique...
       $responseMessage = ['dataBaseError' => "Rejestracja nieudana. Prawdopodobnie adres email jest już zajęty."];
-      $stmt->close();
-      $conn->close();
+      if (isset($stmt)) $stmt->close();
+      if (isset($conn)) $conn->close();
+      header('Content-Type: application/json; charset=utf-8');
       echo json_encode([
 
         "success" => false,
