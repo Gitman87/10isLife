@@ -44,6 +44,15 @@ function genHeader()
 
                     </ul>
                 </nav>
+                <?php
+                if ($_SESSION['user_id']) {
+                ?>
+                    <a href="/logout.php">Logout</a>
+                <?php
+                }
+
+
+                ?>
                 <div class="header-content-account">
                     <div class="header-content-account-user">
                         <img src="./res/icon/person.svg" class="header-content-account-user-person" alt="user">

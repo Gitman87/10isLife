@@ -13,9 +13,9 @@ function logIn()
         die(json_encode(["success" => false, "message" => "Database connection failed: " . $conn->connect_error]));
     }
     $sanitizedInputEmail = sanitizeInputValue($_POST['email']);
-    $inputPassword = trim($_POST['password']);
+    $inputPassword = trim($_POST['log_password']);
     // prepare and bind
-    $stmt = $conn->prepare("SELECT * FROM customers WHERE email = ?");
+    $stmt = $conn->prepare("SELECT customer_id, first_name, last_name,gender, email, password_hash, tax_number  FROM customers WHERE email = ?");
     $stmt->bind_param("s",  $sanitizedInputEmail);
     try {
         if ($stmt->execute()) {
@@ -28,12 +28,17 @@ function logIn()
                 //now I can start session
                 session_start();
                 $_SESSION['user_id'] = $userData['customer_id'];
-                $_SESSION['user_name'] = $userData['customer_name'];
+                $_SESSION['user_name'] = $userData['first_name'];
 
                 $stmt->close();
                 $conn->close();
                 //redirect to main page
-                header('Location: index.php');
+                echo json_encode([
+                    "success" => true,
+                    "message" => "logged",
+                    "redirect" => "index.php"
+                ]);
+                // header('Location: /index.php');
             }
         } else {
             $stmt->close();

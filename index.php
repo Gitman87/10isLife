@@ -33,7 +33,7 @@ include './php/components/rate_balls.php';
 include './php/components/product_preview.php';
 include './php/product.php';
 
-
+session_start();
 
 ?>
 
