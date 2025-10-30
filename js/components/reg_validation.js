@@ -228,7 +228,7 @@ function submitForm() {
           }
           errorContainer.innerHTML = errorMessages.join("<br>");
         }
-        console.log("result is ", result);
+        // console.log("result is ", result);
       } catch (error) {
         console.error(error);
       }

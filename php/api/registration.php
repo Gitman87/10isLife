@@ -56,7 +56,9 @@ function setCustomerData()
         exit; //close reg form
       }
     } catch (mysqli_sql_exception $e) { //catches db error, np double email entry
-      error_log("DB Execution Error: " . $stmt->error);
+      error_log("e is ", $e->getCode());
+      error_log("Database execution error: " . $stmt->error);
+      error_log("Error: ", $conn->errno);
       //since email should be unique...
       $responseMessage = ['dataBaseError' => "Rejestracja nieudana. Prawdopodobnie adres email jest już zajęty."];
       if (isset($stmt)) $stmt->close();

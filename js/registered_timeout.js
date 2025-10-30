@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+  console.log("Timeout triggered");
   const counter = document.querySelector(".registered-para-counter");
   let countStartNumber = 4;
   const interval = 1000;
