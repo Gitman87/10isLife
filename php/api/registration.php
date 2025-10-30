@@ -1,5 +1,6 @@
 <?php
 require './connection.php';
+require '../utilities/reg_log_util.php';
 function setCustomerData()
 {
   // print_r($_POST);
@@ -89,13 +90,7 @@ function setCustomerData()
     ]);
   }
 }
-function sanitizeInputValue($inputValue)
-{
-  $inputValue = trim($inputValue);
-  $inputValue = stripslashes($inputValue);
-  $inputValue = htmlspecialchars(($inputValue));
-  return $inputValue;
-}
+
 function NipCheckSum($taxNumber)
 {
   $onlyDigitsNIP = preg_replace('/[^0-9]/', '', $taxNumber);

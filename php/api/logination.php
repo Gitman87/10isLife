@@ -1,6 +1,7 @@
 <?php
 require './connection.php';
-require './registration.php'; //i have useful functions there
+require '../utilities/reg_log_util.php';
+//i have useful functions there
 function logIn()
 {
 

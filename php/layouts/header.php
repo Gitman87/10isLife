@@ -20,6 +20,9 @@ function genHeader()
 
     <body>
         <script src='./js/components/toggle_log_modal.js'></script>
+        <script src='./js/components/open_profile.js'></script>
+
+
 
         <header class="header">
             <div class="header-content breakpoint">
@@ -56,7 +59,18 @@ function genHeader()
                 <div class="header-content-account">
                     <div class="header-content-account-user">
                         <img src="./res/icon/person.svg" class="header-content-account-user-person" alt="user">
-                        <button class="header-content-account-user-login" onclick="openModal();setStartForm('logging')">Login</button>
+                        <?php
+                        if ($_SESSION['user_name']) {
+                        ?>
+                            <button class="header-content-account-user-login" onclick="openProfile()"><?= $_SESSION['user_name'] ?></button>
+                        <?php
+                        } else {
+                        ?>
+                            <button class="header-content-account-user-login" onclick="openModal();setStartForm('logging')">Login</button>
+                        <?php
+                        }
+                        ?>
+
                     </div>
                     <?php genLogModal() ?>
                     <div class="header-content-account-shopping">
