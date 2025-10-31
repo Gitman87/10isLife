@@ -30,6 +30,9 @@ function logIn()
                 session_start();
                 $_SESSION['user_id'] = $userData['customer_id'];
                 $_SESSION['user_name'] = $userData['first_name'];
+                $_SESSION['user_last_name'] = $userData['last_name'];
+                $_SESSION['user_email'] = $userData['email'];
+
 
                 $stmt->close();
                 $conn->close();

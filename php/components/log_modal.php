@@ -29,10 +29,6 @@ function genLogModal()
             <!-- <button class="log_modal-cancel" onclick="closeModal()">Anuluj</button> -->
 
         </div>
-
-
-
-
     </dialog>
 <?php
 }

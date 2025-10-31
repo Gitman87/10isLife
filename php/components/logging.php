@@ -13,9 +13,5 @@ function genLogging()
         <?php genStandardButton("Zaloguj się", true, '', 'validateLogging()') ?>
 
     </form>
-
-
-
-
 <?php
 }

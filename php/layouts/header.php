@@ -21,6 +21,8 @@ function genHeader()
     <body>
         <script src='./js/components/toggle_log_modal.js'></script>
         <script src='./js/components/open_profile.js'></script>
+        <script src="./js/components/profile.js"></script>
+
 
 
 
@@ -47,15 +49,7 @@ function genHeader()
 
                     </ul>
                 </nav>
-                <?php
-                if ($_SESSION['user_id']) {
-                ?>
-                    <a href="/logout.php">Logout</a>
-                <?php
-                }
 
-
-                ?>
                 <div class="header-content-account">
                     <div class="header-content-account-user">
                         <img src="./res/icon/person.svg" class="header-content-account-user-person" alt="user">
@@ -72,6 +66,7 @@ function genHeader()
                         ?>
 
                     </div>
+                    <?php genProfile() ?>
                     <?php genLogModal() ?>
                     <div class="header-content-account-shopping">
                         <img src="./res/icon/basket.svg" class="header-content-account-shopping-basket" alt="basket">

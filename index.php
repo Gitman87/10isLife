@@ -17,6 +17,7 @@ require './php/components/input.php';
 require './php/components/password_input.php';
 require './php/components/logging.php';
 require './php/components/reg_policy.php';
+require './php/components/profile.php';
 
 include './php/components/slideshow.php';
 include './php/components/slide.php';
