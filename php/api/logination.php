@@ -37,21 +37,23 @@ function logIn()
                 $stmt->close();
                 $conn->close();
                 //redirect to main page
+                header('Content-Type: application/json; charset=utf-8');
                 echo json_encode([
                     "success" => true,
                     "message" => "logged",
                     "redirect" => "index.php"
                 ]);
                 // header('Location: /index.php');
-            }
-        } else {
-            $stmt->close();
-            $conn->close();
-            header('Content-Type: application/json; charset=utf-8');
-            echo json_encode(["success" => false, "message" => "Nieprawidłowy email lub hasło."]); //for security purposes
-            exit;
-            // Invalid email or password - for security reason
+                exit;
+            } else {
+                if (isset($stmt)) $stmt->close();
+                if (isset($conn)) $conn->close();
+                header('Content-Type: application/json; charset=utf-8');
+                echo json_encode(["success" => false, "message" => "Nieprawidłowy email lub hasło."]); //for security purposes
+                exit;
+                // Invalid email or password - for security reason
 
+            }
         }
     } catch (mysqli_sql_exception $e) {
         error_log("Database execution error:  " . $stmt->error);

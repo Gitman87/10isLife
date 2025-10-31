@@ -21,14 +21,15 @@ function validateLogging() {
           console.log("User should be redirected now");
         }
       } else {
-        let errorMessages = [];
-        const errorMessagesObject = result["message"];
-        for (const message in errorMessagesObject) {
-          if (errorMessagesObject.hasOwnProperty(message)) {
-            errorMessages.push(errorMessagesObject[message]);
-          }
-        }
-        errorContainer.innerHTML = errorMessages.join("<br>");
+        // let errorMessages = [];
+        // const errorMessagesObject = result["message"];
+        // for (const message in errorMessagesObject) {
+        //   if (errorMessagesObject.hasOwnProperty(message)) {
+        //     errorMessages.push(errorMessagesObject[message]);
+        //   }
+        // }
+        errorContainer.innerHTML = result["message"];
+        // errorContainer.innerHTML = errorMessages.join("<br>");
       }
       // console.log("result is ", result);
     } catch (error) {

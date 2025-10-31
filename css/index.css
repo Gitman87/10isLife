@@ -1346,6 +1346,9 @@ button {
   flex-direction: column;
   gap: 1.6rem;
 }
+.logging-error_output {
+  color: #b51818;
+}
 
 .reg_policy {
   width: 100%;
