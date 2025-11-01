@@ -1,19 +1,29 @@
 <?php
+include './php/layouts/head.php';
+
 include './php/layouts/footer.php';
 include './php/layouts/header.php';
-include './php/layouts/hero.php';
 include './php/layouts/discounts.php';
 
 include './php/components/header_link.php';
 include './php/components/log_modal.php';
 include './php/components/tab_nav.php';
 
-include './php/components/slideshow.php';
-include './php/components/slide.php';
+// include './php/components/slideshow.php';
+// include './php/components/slide.php';
 include './php/components/standard_button.php';
 require './php/components/light_button.php';
 include './php/components/wide_button.php';
 include './php/components/ugly_button.php';
+include './php/components/show.php';
+
+//logging /registration
+require './php/layouts/register.php';
+require './php/components/input.php';
+require './php/components/password_input.php';
+require './php/components/logging.php';
+require './php/components/reg_policy.php';
+require './php/components/profile.php';
 
 
 include './php/components/tile_browser.php';
@@ -23,14 +33,10 @@ include './php/components/rate_balls.php';
 include './php/components/product_preview.php';
 
 require './php/api/connection.php';
-
 require './php/api/get_product_data.php';
 
-require './php/components/input.php';
-require './php/components/logging.php';
-require './php/layouts/register.php';
 
-
+session_start();
 $prodData = getProductData(1);
 ?>
 
@@ -47,10 +53,10 @@ $prodData = getProductData(1);
     <div class="dashboard-pulpit">
       <div class="dashboard-pulpit-header">
         <div class="dashboard-pulpit-header-title">
-          <h3 class="dashboard-pulpit-header-title-name">products.name</h3>
+          <h3 class="dashboard-pulpit-header-title-name"><?= $prodData['manufacturer'][0]['name'] ?></h3>
           <div class="dashboard-pulpit-header-title-manufacturer">
-            <img src="./res/img/brands/logo-babolat.webp" alt="" class="dashboard-pulpit-header-title-manufacturer-image">
-            <h4 class="dashboard-pulpit-header-title-manufacturer-name"><a href="" class="dashboard-pulpit-header-title-manufacturer-name-link"> manufafturer.name</a></h4>
+            <img src="<?= $prodData['manufacturer'][0]['url'] ?>" alt="" class="dashboard-pulpit-header-title-manufacturer-image">
+            <h4 class="dashboard-pulpit-header-title-manufacturer-name"><a href="" class="dashboard-pulpit-header-title-manufacturer-name-link"><?= $prodData['manufacturer'][0] ?>/a></h4>
           </div>
 
         </div>
