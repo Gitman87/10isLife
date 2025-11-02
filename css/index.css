@@ -865,6 +865,10 @@ button {
   display: flex;
 }
 
+.description {
+  width: 100%;
+}
+
 .registered {
   margin: 10rem auto;
   max-width: -moz-fit-content;

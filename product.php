@@ -31,18 +31,15 @@ include './php/components/tile.php';
 include './php/components/breadcrumbs.php';
 include './php/components/rate_balls.php';
 include './php/components/product_preview.php';
-
+// api
 require './php/api/connection.php';
 require './php/api/get_product_data.php';
-
 //prod info
 require './php/components/digit_balls.php';
-
 
 session_start();
 $prodData = getProductData(1);
 ?>
-
 
 <?php genHeader() ?>
 <?php genBreadCrumbs() ?>
@@ -76,51 +73,28 @@ $prodData = getProductData(1);
         </div>
         <div class="dashboard-pulpit-variants-sizes">
           <div class="dashboard-pulpit-variants-sizes-show">Rozmiar:<span class="dashboard-pulpit-variants-sizes-show-table">Tabela rozmiarów</span></div>
-          <?= genDigitBalls(count($prodData['grip_size'])) ?>
+          <?= genDigitBalls($prodData['grip_size']) ?>
 
         </div>
         <div class="dashboard-pulpit-variants-length">
           <label for="length" class="dashboard-pulpit-variants-length-label">Długość [cm]:</label>
-          <select name="length" id="" class="dashboard-pulpit-variants-length-select">
-            <option value="67.3" class="dashboard-pulpit-variants-length-select-option">67.3</option>
-            <option value="68.5" class="dashboard-pulpit-variants-length-select-option">68.5</option>
-            <option value="69" class="dashboard-pulpit-variants-length-select-option">69</option>
-            <option value="69.2" class="dashboard-pulpit-variants-length-select-option">69.2</option>
-            <option value="69.5" class="dashboard-pulpit-variants-length-select-option">69.5</option>
-            <option value="69.8" class="dashboard-pulpit-variants-length-select-option">69.8</option>
-            <option value="70" class="dashboard-pulpit-variants-length-select-option">70</option>
-          </select>
+          <?= genDigitBalls($prodData['length']) ?>
+
 
         </div>
         <div class="dashboard-pulpit-variants-pattern">
           <label for="pattern" class="dashboard-pulpit-variants-pattern-label">Układ strun:</label>
-          <select name="pattern" id="" class="dashboard-pulpit-variants-pattern-select">
-            <option value="16x17" class="dashboard-pulpit-variants-pattern-select-option">16x17</option>
-            <option value="16x18" class="dashboard-pulpit-variants-pattern-select-option">16x18</option>
-            <option value="16x19" class="dashboard-pulpit-variants-pattern-select-option">18x19</option>
-            <option value="18x16" class="dashboard-pulpit-variants-pattern-select-option">18x16</option>
-            <option value="18x19" class="dashboard-pulpit-variants-pattern-select-option">18x19</option>
-            <option value="18x20" class="dashboard-pulpit-variants-pattern-select-option">18x20</option>
-          </select>
-
+          <p class="dashboard-pulpit-variants-pattern-value"><?= $prodData['grid_pattern']['value'] ?></p>
         </div>
 
         <div class="dashboard-pulpit-variants-material">
           <label for="material" class="dashboard-pulpit-variants-material-label">Materiał:</label>
-          <select name="material" id="" class="dashboard-pulpit-variants-material-select">
-            <option value="aluminium" class="dashboard-pulpit-variants-material-select-option">Aluminium</option>
-            <option value="grafit" class="dashboard-pulpit-variants-material-select-option">Grafit</option>
-            <option value="kompozyt" class="dashboard-pulpit-variants-material-select-option">Kompozyt</option>
-
-          </select>
+          <p class="dashboard-pulpit-variants-material-value"><?= $prodData['material']['value'] ?></p>
 
         </div>
         <div class="dashboard-pulpit-variants-cover">
           <label for="cover" class="dashboard-pulpit-variants-cover-label">Pokrowiec:</label>
-          <select name="cover" id="" class="dashboard-pulpit-variants-cover-select">
-            <option value="brak" class="dashboard-pulpit-variants-cover-select-option">brak</option>
-            <option value="3/4" class="dashboard-pulpit-variants-cover-select-option">3/4</option>
-            <option value="pełny" class="dashboard-pulpit-variants-cover-select-option">Pełny</option>
+          <p class="dashboard-pulpit-variants-cover-value"><?= $prodData['material']['value'] ?></p>
 
           </select>
 
@@ -137,6 +111,7 @@ $prodData = getProductData(1);
           <?php genStandardButton('Do koszyka', true,  '', '') ?>
 
         </div>
+
       </div>
 
 
@@ -144,6 +119,11 @@ $prodData = getProductData(1);
 
 
   </section>
+  <section class="description">
+    <h2 class="description-tile">Opis</h2>
+    <p class="description-text"><?= $prodData['description']['description'] ?></p>
+  </section>
+
 
 
 </main>
