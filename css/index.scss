@@ -11,7 +11,9 @@
 @import "components/_header_link";
 @import "components/_log_modal";
 @import "components/_tab_nav";
-
+//Rreg & log
+@import "components/input";
+@import "components/_password_input";
 @import "components/_register.scss";
 @import "components/_logging.scss";
 @import "components/_reg_policy.scss";
@@ -30,12 +32,10 @@
 @import "components/wide_button";
 @import "components/_ugly_button";
 @import "components/show";
-
+//product
 @import "components/_breadcrumbs";
 @import "components/_product_preview";
-
-@import "components/input";
-@import "components/_password_input";
+@import "components/digit_balls";
 
 // @import "product";
 

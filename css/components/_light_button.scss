@@ -8,6 +8,7 @@
   border: 0.3rem solid transparent;
   border-image: $outline-gray;
   border-image-slice: 1;
+  transition: transform 0.4s ease-in-out;
 
   &-wrapper {
     transform: skewX(10deg);
@@ -15,19 +16,20 @@
       color: $gray;
       letter-spacing: $letter-spacing-wide;
       font-weight: $font-weight-thick;
+      transition: color 0.4s ease-in-out;
     }
   }
 }
 .light_button:hover {
   transform: skewX(0deg);
-  transition-duration: 150ms;
-  transition-timing-function: ease-out;
+  // transition-duration: 150ms;
+  // transition-timing-function: ease-out;
   .light_button-wrapper {
     transform: skewX(0deg);
     .light_button-wrapper-link {
       color: $granat;
-      transition: color 0.4s;
-      transition-timing-function: ease-in-out;
+      // transition: color 0.4s;
+      // transition-timing-function: ease-in-out;
     }
   }
 }

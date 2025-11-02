@@ -5,8 +5,11 @@
   font-size: $font-medium;
   padding: 0.2em 0em;
   border: 0.2rem solid transparent;
+
   box-shadow: $box-shadow;
   box-sizing: content-box;
+  transition: background-color 0.4s ease-in-out, border-color 0.4s ease-in-out;
+  // transition: border-color 0.4s ease-in-out;
 
   &-wrapper {
     position: relative;
@@ -15,20 +18,21 @@
       color: $white;
       font-weight: $font-weight-thick;
       letter-spacing: $letter-spacing-wide;
+      transition: color 0.4s ease-in-out;
     }
   }
 }
 .wide_button:hover {
   background-color: transparent;
-  transition: background-color 0.4s;
-  transition-timing-function: ease-in-out;
+  // transition: background-color 0.4s;
+  // transition-timing-function: ease-in-out;
   border-color: $granat;
   .wide_button-wrapper {
     .wide_button-wrapper-link {
       color: $granat;
-      transition: color 0.4s;
-      transition: border 0.4s;
-      transition-timing-function: ease-in-out;
+      // transition: color 0.4s;
+      // transition: border 0.4s;
+      // transition-timing-function: ease-in-out;
     }
   }
 }

@@ -299,19 +299,18 @@ button {
 .header-content-search-input:focus {
   outline: 0.1rem solid #ff6600;
 }
-.header-content-search-input:focus {
-  outline: 0.1rem solid #ff6600;
-}
 .header-content-search-button {
   background-color: #002b5b;
   width: 2.8rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: background-color 0.4s ease-in-out;
 }
 .header-content-search-button-img {
   width: 1.9rem;
   transform: skewX(10deg);
+  transition: transform 0.4s ease-in-out;
 }
 .header-content-search-button:hover {
   background-color: #ff6600;
@@ -359,11 +358,10 @@ button {
   bottom: 0.4rem;
   max-width: 100%;
   overflow-x: scroll;
+  transition: color 0.4s ease-in-out;
 }
 .header-content-account-user-login:hover {
   color: #ff6600;
-  transition: color 0.25s;
-  transition-timing-function: ease-in;
 }
 .header-content-account-shopping {
   padding: 0 1rem;
@@ -388,6 +386,7 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: transform 0.4s ease-in-out;
 }
 .header-content-account-shopping-ball-counter {
   color: white;
@@ -396,8 +395,6 @@ button {
 }
 .header-content-account-shopping-ball:hover {
   transform: scale(1.2);
-  transition: transform 0.25s;
-  transition-timing-function: ease-in;
 }
 .header-content-account-shopping-ball:active {
   transform: scale(0.8);
@@ -476,12 +473,11 @@ button {
   font-size: 2rem;
   font-weight: 400;
   color: #002b5b;
+  transition: color 0.4s ease-in-out;
   text-decoration: none;
 }
 .header_link-link:hover {
   color: #ff6600;
-  transition: color 0.25s;
-  transition-timing-function: ease-in;
 }
 
 .slideshow {
@@ -716,19 +712,20 @@ button {
   margin: 0 auto;
   transform: skewX(-10deg);
   box-shadow: 0rem 0rem 0.6rem 0.1rem rgba(0, 0, 0, 0.3882352941);
+  transition: transform 0.4s ease-in-out;
 }
 .standard_button-wrapper {
   transform: skewX(10deg);
+  transition: transform 0.4s ease-in-out;
 }
 .standard_button-wrapper-link {
   color: white;
   font-weight: 600;
+  transition: color 0.4s ease-in-out;
 }
 
 .standard_button:hover {
   transform: skewX(0deg);
-  transition-duration: 350ms;
-  transition-timing-function: ease-in-out;
 }
 .standard_button:hover .standard_button-wrapper {
   transform: skewX(0deg);
@@ -863,27 +860,6 @@ button {
   text-decoration: none;
   cursor: pointer;
 }
-.dashboard-pulpit-variants-sizes-list {
-  display: flex;
-  gap: 0.8rem;
-}
-.dashboard-pulpit-variants-sizes-list-size {
-  width: 4rem;
-  height: 4rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  background-color: #808080;
-  background-color: rgb(17, 7, 222);
-  border-radius: 50%;
-}
-.dashboard-pulpit-variants-sizes-list-size-number {
-  color: white;
-}
-.dashboard-pulpit-variants-sizes-list-size:hover {
-  background-color: #ff6600;
-}
 .dashboard-pulpit-add {
   background-color: goldenrod;
   display: flex;
@@ -962,19 +938,18 @@ button {
 .header-content-search-input:focus {
   outline: 0.1rem solid #ff6600;
 }
-.header-content-search-input:focus {
-  outline: 0.1rem solid #ff6600;
-}
 .header-content-search-button {
   background-color: #002b5b;
   width: 2.8rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: background-color 0.4s ease-in-out;
 }
 .header-content-search-button-img {
   width: 1.9rem;
   transform: skewX(10deg);
+  transition: transform 0.4s ease-in-out;
 }
 .header-content-search-button:hover {
   background-color: #ff6600;
@@ -1022,11 +997,10 @@ button {
   bottom: 0.4rem;
   max-width: 100%;
   overflow-x: scroll;
+  transition: color 0.4s ease-in-out;
 }
 .header-content-account-user-login:hover {
   color: #ff6600;
-  transition: color 0.25s;
-  transition-timing-function: ease-in;
 }
 .header-content-account-shopping {
   padding: 0 1rem;
@@ -1051,6 +1025,7 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: transform 0.4s ease-in-out;
 }
 .header-content-account-shopping-ball-counter {
   color: white;
@@ -1059,8 +1034,6 @@ button {
 }
 .header-content-account-shopping-ball:hover {
   transform: scale(1.2);
-  transition: transform 0.25s;
-  transition-timing-function: ease-in;
 }
 .header-content-account-shopping-ball:active {
   transform: scale(0.8);
@@ -1229,12 +1202,11 @@ button {
   font-size: 2rem;
   font-weight: 400;
   color: #002b5b;
+  transition: color 0.4s ease-in-out;
   text-decoration: none;
 }
 .header_link-link:hover {
   color: #ff6600;
-  transition: color 0.25s;
-  transition-timing-function: ease-in;
 }
 
 .log_modal {
@@ -1266,6 +1238,7 @@ button {
   border-bottom: 0.5rem solid #002b5b;
   font-size: 2rem;
   color: #002b5b;
+  transition: color 0.4s ease-in-out;
 }
 
 .inactive {
@@ -1275,8 +1248,60 @@ button {
 
 .tab_nav-button:hover {
   color: #002b5b;
-  transition: color 0.4s;
-  transition-timing-function: ease-in-out;
+}
+
+.input_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.input_wrapper label {
+  font-size: 1.6rem;
+  color: #002b5b;
+}
+.input_wrapper input {
+  padding: 0.1rem 0.5rem;
+  border: 0.2rem solid #808080;
+  transition: all 0.3s ease-in-out;
+}
+
+.error_blinking {
+  border-color: #b51818 !important;
+  animation: blinking 1s infinite alternate;
+}
+
+@keyframes blinking {
+  from {
+    box-shadow: 0rem 0rem 0.2rem 0.1rem rgba(255, 255, 255, 0);
+  }
+  to {
+    box-shadow: 0rem 0rem 0.6rem 0.1rem rgba(121, 1, 1, 0.3882352941);
+  }
+}
+.password_input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.password_input label {
+  font-size: 1.6rem;
+  color: #002b5b;
+}
+.password_input-wrapper {
+  position: relative;
+}
+.password_input-wrapper input {
+  border: 0.2rem solid #808080;
+  padding: 0.1rem 0.5rem;
+  padding-right: 6rem;
+  width: 100%;
+}
+.password_input-wrapper .show {
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  transform: translateY(-50%);
+  z-index: 10;
 }
 
 .register {
@@ -1621,19 +1646,20 @@ button {
   margin: 0 auto;
   transform: skewX(-10deg);
   box-shadow: 0rem 0rem 0.6rem 0.1rem rgba(0, 0, 0, 0.3882352941);
+  transition: transform 0.4s ease-in-out;
 }
 .standard_button-wrapper {
   transform: skewX(10deg);
+  transition: transform 0.4s ease-in-out;
 }
 .standard_button-wrapper-link {
   color: white;
   font-weight: 600;
+  transition: color 0.4s ease-in-out;
 }
 
 .standard_button:hover {
   transform: skewX(0deg);
-  transition-duration: 350ms;
-  transition-timing-function: ease-in-out;
 }
 .standard_button:hover .standard_button-wrapper {
   transform: skewX(0deg);
@@ -1654,6 +1680,7 @@ button {
   -o-border-image: linear-gradient(to right, rgba(128, 128, 128, 0), #808080);
      border-image: linear-gradient(to right, rgba(128, 128, 128, 0), #808080);
   border-image-slice: 1;
+  transition: transform 0.4s ease-in-out;
 }
 .light_button-wrapper {
   transform: skewX(10deg);
@@ -1662,20 +1689,17 @@ button {
   color: #808080;
   letter-spacing: 0.2rem;
   font-weight: 600;
+  transition: color 0.4s ease-in-out;
 }
 
 .light_button:hover {
   transform: skewX(0deg);
-  transition-duration: 150ms;
-  transition-timing-function: ease-out;
 }
 .light_button:hover .light_button-wrapper {
   transform: skewX(0deg);
 }
 .light_button:hover .light_button-wrapper .light_button-wrapper-link {
   color: #002b5b;
-  transition: color 0.4s;
-  transition-timing-function: ease-in-out;
 }
 
 .wide_button {
@@ -1687,6 +1711,7 @@ button {
   border: 0.2rem solid transparent;
   box-shadow: 0rem 0rem 0.6rem 0.1rem rgba(0, 0, 0, 0.3882352941);
   box-sizing: content-box;
+  transition: background-color 0.4s ease-in-out, border-color 0.4s ease-in-out;
 }
 .wide_button-wrapper {
   position: relative;
@@ -1696,19 +1721,15 @@ button {
   color: white;
   font-weight: 600;
   letter-spacing: 0.2rem;
+  transition: color 0.4s ease-in-out;
 }
 
 .wide_button:hover {
   background-color: transparent;
-  transition: background-color 0.4s;
-  transition-timing-function: ease-in-out;
   border-color: #002b5b;
 }
 .wide_button:hover .wide_button-wrapper .wide_button-wrapper-link {
   color: #002b5b;
-  transition: color 0.4s;
-  transition: border 0.4s;
-  transition-timing-function: ease-in-out;
 }
 
 .ugly_button {
@@ -1730,11 +1751,11 @@ button {
 .show {
   font-size: 1.4rem;
   color: #808080;
+  transition: color 0.4s ease-in-out;
 }
 
 .show:hover {
   color: #002b5b;
-  transition: color 0.4s;
 }
 
 .breadcrumbs_wrapper {
@@ -1787,58 +1808,27 @@ button {
   height: 10rem;
 }
 
-.input_wrapper {
+.digit_balls {
   display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
+  gap: 0.8rem;
 }
-.input_wrapper label {
-  font-size: 1.6rem;
-  color: #002b5b;
-}
-.input_wrapper input {
-  padding: 0.1rem 0.5rem;
-  border: 0.2rem solid #808080;
-  transition: all 0.3s ease-in-out;
-}
-
-.error_blinking {
-  border-color: #b51818 !important;
-  animation: blinking 1s infinite alternate;
-}
-
-@keyframes blinking {
-  from {
-    box-shadow: 0rem 0rem 0.2rem 0.1rem rgba(255, 255, 255, 0);
-  }
-  to {
-    box-shadow: 0rem 0rem 0.6rem 0.1rem rgba(121, 1, 1, 0.3882352941);
-  }
-}
-.password_input {
+.digit_balls-ball {
+  width: 4rem;
+  height: 4rem;
   display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: #808080;
+  background-color: rgb(17, 7, 222);
+  border-radius: 50%;
+  transition: background-color 0.4s ease-in-out;
 }
-.password_input label {
-  font-size: 1.6rem;
-  color: #002b5b;
+.digit_balls-ball-button {
+  color: white;
 }
-.password_input-wrapper {
-  position: relative;
-}
-.password_input-wrapper input {
-  border: 0.2rem solid #808080;
-  padding: 0.1rem 0.5rem;
-  padding-right: 6rem;
-  width: 100%;
-}
-.password_input-wrapper .show {
-  position: absolute;
-  top: 50%;
-  right: 1rem;
-  transform: translateY(-50%);
-  z-index: 10;
+.digit_balls-ball:hover {
+  background-color: #ff6600;
 }
 
 body {

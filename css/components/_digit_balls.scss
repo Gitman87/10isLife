@@ -1,0 +1,23 @@
+.digit_balls {
+  display: flex;
+  gap: 0.8rem;
+  &-ball {
+    // padding: 0.8em;
+    width: 4rem;
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-color: $gray;
+    background-color: rgb(17, 7, 222);
+    border-radius: 50%;
+    transition: background-color 0.4s ease-in-out;
+    &-button {
+      color: $white;
+    }
+  }
+  &-ball:hover {
+    background-color: $orange;
+  }
+}

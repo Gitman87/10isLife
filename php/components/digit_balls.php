@@ -6,7 +6,7 @@ function genDigitBalls($number)
         <?php
         for ($i = 0; $i < $number; $i++) {
         ?>
-            <li class="digit_balls-ball"><button class="digit_balls-ball-button">0</button></li>
+            <li class="digit_balls-ball"><button class="digit_balls-ball-button"><?= $i ?></button></li>
 
         <?php
 

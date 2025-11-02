@@ -52,7 +52,7 @@ $prodData = getProductData(1);
     <div class="dashboard-pulpit">
       <div class="dashboard-pulpit-header">
         <div class="dashboard-pulpit-header-title">
-          <h3 class="dashboard-pulpit-header-title-name"><?= $prodData['manufacturer']['name'] ?></h3>
+          <h3 class="dashboard-pulpit-header-title-name"><?= $prodData['name'] ?></h3>
           <div class="dashboard-pulpit-header-title-manufacturer">
             <img src="<?= $prodData['manufacturer']['url'] ?>" alt="" class="dashboard-pulpit-header-title-manufacturer-image">
             <h4 class="dashboard-pulpit-header-title-manufacturer-name"><a href="" class="dashboard-pulpit-header-title-manufacturer-name-link"><?= $prodData['manufacturer'][0] ?></a></h4>
@@ -76,13 +76,7 @@ $prodData = getProductData(1);
         </div>
         <div class="dashboard-pulpit-variants-sizes">
           <div class="dashboard-pulpit-variants-sizes-show">Rozmiar:<span class="dashboard-pulpit-variants-sizes-show-table">Tabela rozmiarów</span></div>
-          <ul class="dashboard-pulpit-variants-sizes-list">
-            <li class="dashboard-pulpit-variants-sizes-list-size"><button class="dashboard-pulpit-variants-sizes-list-size-number">0</button> </li>
-            <li class="dashboard-pulpit-variants-sizes-list-size"><button class="dashboard-pulpit-variants-sizes-list-size-number">1</button> </li>
-            <li class="dashboard-pulpit-variants-sizes-list-size"><button class="dashboard-pulpit-variants-sizes-list-size-number">2</button> </li>
-            <li class="dashboard-pulpit-variants-sizes-list-size"><button class="dashboard-pulpit-variants-sizes-list-size-number">3</button> </li>
-            <li class="dashboard-pulpit-variants-sizes-list-size"><button class="dashboard-pulpit-variants-sizes-list-size-number">4</button> </li>
-          </ul>
+          <?= genDigitBalls(count($prodData['grip_size'])) ?>
 
         </div>
         <div class="dashboard-pulpit-variants-length">

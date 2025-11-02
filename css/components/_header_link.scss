@@ -5,11 +5,10 @@
     font-size: $font-large;
     font-weight: $font-weight-normal;
     color: $granat;
+    transition: color 0.4s ease-in-out;
     text-decoration: none;
   }
   &-link:hover {
     color: $orange;
-    transition: color 0.25s;
-    transition-timing-function: ease-in;
   }
 }

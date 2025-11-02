@@ -5,19 +5,22 @@
   margin: 0 auto;
   transform: skewX(-10deg);
   box-shadow: $box-shadow;
-
+  transition: transform 0.4s ease-in-out;
   &-wrapper {
     transform: skewX(10deg);
+    transition: transform 0.4s ease-in-out;
+
     &-link {
       color: $white;
       font-weight: $font-weight-thick;
+      transition: color 0.4s ease-in-out;
     }
   }
 }
 .standard_button:hover {
   transform: skewX(0deg);
-  transition-duration: 350ms;
-  transition-timing-function: ease-in-out;
+  // transition-duration: 350ms;
+  // transition-timing-function: ease-in-out;
   .standard_button-wrapper {
     transform: skewX(0deg);
     .standard_button-wrapper-link {

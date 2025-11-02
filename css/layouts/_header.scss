@@ -39,18 +39,19 @@
       &-input:focus {
         outline: 0.1rem solid $orange;
       }
-      &-input:focus {
-        outline: 0.1rem solid $orange;
-      }
+
       &-button {
         background-color: $granat;
         width: 2.8rem;
         display: flex;
         justify-content: center;
         align-items: center;
+        transition: background-color 0.4s ease-in-out;
+
         &-img {
           width: 1.9rem;
           transform: skewX(10deg);
+          transition: transform 0.4s ease-in-out;
         }
       }
       &-button:hover {
@@ -100,11 +101,12 @@
           bottom: 0.4rem;
           max-width: 100%;
           overflow-x: scroll;
+          transition: color 0.4s ease-in-out;
         }
         &-login:hover {
           color: $orange;
-          transition: color 0.25s;
-          transition-timing-function: ease-in;
+          // transition: color 0.25s;
+          // transition-timing-function: ease-in;
         }
       }
       &-shopping {
@@ -129,6 +131,8 @@
           display: flex;
           justify-content: center;
           align-items: center;
+          transition: transform 0.4s ease-in-out;
+
           &-counter {
             color: $white;
             font-size: $font-medium;
@@ -137,8 +141,8 @@
         }
         &-ball:hover {
           transform: scale(1.2);
-          transition: transform 0.25s;
-          transition-timing-function: ease-in;
+          // transition: transform 0.25s;
+          // transition-timing-function: ease-in;
         }
         &-ball:active {
           transform: scale(0.8);

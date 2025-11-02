@@ -97,28 +97,6 @@
             cursor: pointer;
           }
         }
-        &-list {
-          display: flex;
-          gap: 0.8rem;
-          &-size {
-            // padding: 0.8em;
-            width: 4rem;
-            height: 4rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            background-color: $gray;
-            background-color: rgb(17, 7, 222);
-            border-radius: 50%;
-            &-number {
-              color: $white;
-            }
-          }
-          &-size:hover {
-            background-color: $orange;
-          }
-        }
       }
     }
 
