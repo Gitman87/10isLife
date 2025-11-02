@@ -200,6 +200,22 @@ WHERE
     //     $prodArray['length'][] = $row;
     // };
     // print_r($prodArray['cover']['value']);
+    // ............................rating--------------------------------
+    $stmt = $conn->prepare("SELECT reviews.rating, reviews.opinion, review_date from reviews WHERE product_id = ?;");
+    if (!$stmt) {
+        die("statement error" . $conn->error);
+    }
+    $stmt->bind_param("s",  $id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $prodArray['reviews'] = [];
+    while ($row = $result->fetch_assoc()) {
+        // print_r($row);
+        $prodArray['reviews'][] = $row;
+    };
+    //calculate average rating
+
+    // print_r($prodArray['reviews']);
 
     // -------------------------decription-------------------------------
     $stmt = $conn->prepare("SELECT products.description FROM products WHERE products.product_id = ?;");
@@ -215,9 +231,25 @@ WHERE
     //     // print_r($row);
     //     $prodArray['length'][] = $row;
     // };
-    print_r($prodArray['description']['description']);
+    // print_r($prodArray['description']['description']);
+
+    // --------------------warranties-------------------------------------
+    $stmt = $conn->prepare("SELECT warranties.description, warranties.exp_date FROM warranties WHERE product_id = ?;");
+    if (!$stmt) {
+        die("statement error" . $conn->error);
+    }
+    $stmt->bind_param("s",  $id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $prodArray['warranty'] = [];
+    $prodArray['warranty'] = $result->fetch_assoc();
+    // print_r($prodArray['warranty']);
+
+    //calc amount of time ledt befor exp
+
 
 
     // ===============return all gathered info about product========
+    print_r($prodArray);
     return $prodArray;
 }
