@@ -71,6 +71,11 @@ WHERE
         // print_r($row);
         $prodArray['images'][] = $row;
     };
+    // print_r($prodArray['images'][2]);
+    // ---------------------% discount calc-------------------------
+    $prodArray['discount'] = round(($prodArray['price'] * 100) / $prodArray['last_price']);
+
+
     // ----------------manufacturers and man.photos----------------
     $stmt = $conn->prepare("SELECT
     manufacturer.name, manufacturer_images.url
@@ -90,18 +95,42 @@ WHERE
     $stmt->execute();
     $result = $stmt->get_result();
     $prodArray['manufacturer'] = [];
-    if ($row = $result->fetch_assoc()) {
-        $prodArray['manufacturer'][] = $row;
-    } else {
-        echo "No data";
-        return [];
-    }
+    $prodArray['manufacturer'] =  $result->fetch_assoc();
+
+    // print_r($prodArray['manufacturer']);
+    // if ($row = $result->fetch_assoc()) {
+    //     print_r($row);
+    //     $prodArray['manufacturer'][] = $row;
+    // } else {
+    //     echo "No data";
+    //     return [];
+    // }
     // print_r($result);
 
-    print_r($prodArray);
+    // print_r($prodArray);
     // $prodArray['manufacturer_name'] = result['name'];
     // $prodArray['manufacturer_photo']
     // -----------------------attributes---------------------------
+    // grip sizes - attribute id = 1
+    $stmt = $conn->prepare("SELECT attribute_variants.attribute_variant_id, attribute_variants.value FROM attribute_variants JOIN product_attributes ON attribute_variants.attribute_variant_id = product_attributes.attribute_variant_id
+    WHERE attribute_variants.attribute_id = ? AND product_attributes.product_id = ?;");
+    if (!$stmt) {
+        die("statement error" . $conn->error);
+    }
+    $attributeId = 1;
+    $stmt->bind_param("ss", $attributeId, $id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $prodArray['grip_size'] = [];
+    while ($row = $result->fetch_assoc()) {
+        // print_r($row);
+        $prodArray['grip_size'][] = $row;
+    };
+
+    print_r($prodArray['grip_size'][4]);
+    echo 'grip size length is ' . count($prodArray['grip_size']);
+
+
 
     // ===============return all gathered info about product========
     return $prodArray;

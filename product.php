@@ -35,6 +35,9 @@ include './php/components/product_preview.php';
 require './php/api/connection.php';
 require './php/api/get_product_data.php';
 
+//prod info
+require './php/components/digit_balls.php';
+
 
 session_start();
 $prodData = getProductData(1);
@@ -45,18 +48,14 @@ $prodData = getProductData(1);
 <?php genBreadCrumbs() ?>
 <main class="main">
   <section class="dashboard">
-
-
-
-
     <?php genProductPreview($prodData['images']) ?>
     <div class="dashboard-pulpit">
       <div class="dashboard-pulpit-header">
         <div class="dashboard-pulpit-header-title">
-          <h3 class="dashboard-pulpit-header-title-name"><?= $prodData['manufacturer'][0]['name'] ?></h3>
+          <h3 class="dashboard-pulpit-header-title-name"><?= $prodData['manufacturer']['name'] ?></h3>
           <div class="dashboard-pulpit-header-title-manufacturer">
-            <img src="<?= $prodData['manufacturer'][0]['url'] ?>" alt="" class="dashboard-pulpit-header-title-manufacturer-image">
-            <h4 class="dashboard-pulpit-header-title-manufacturer-name"><a href="" class="dashboard-pulpit-header-title-manufacturer-name-link"><?= $prodData['manufacturer'][0] ?>/a></h4>
+            <img src="<?= $prodData['manufacturer']['url'] ?>" alt="" class="dashboard-pulpit-header-title-manufacturer-image">
+            <h4 class="dashboard-pulpit-header-title-manufacturer-name"><a href="" class="dashboard-pulpit-header-title-manufacturer-name-link"><?= $prodData['manufacturer'][0] ?></a></h4>
           </div>
 
         </div>
@@ -64,10 +63,8 @@ $prodData = getProductData(1);
           <?php genRateBalls() ?>
         </div>
         <div class="dashboard-pulpit-header-price">
-          <p class="dashboard-pulpit-header-price-value">products.price<span class="dashboard-pulpit-header-price-value-currency">zł</span></p><span class="dashboard-pulpit-header-price-percent">clac%</span>
-          <p class="dashboard-pulpit-header-price-before">Najniższa cena z 30 dni: <span class="dashboard-pulpit-header-price-before-value">products.last_price</span><span class="dashboard-pulpit-header-price-value-before-currency">zł</span></p>
-
-
+          <p class="dashboard-pulpit-header-price-value"><?= $prodData['price'] ?><span class="dashboard-pulpit-header-price-value-currency">zł</span></p><span class="dashboard-pulpit-header-price-percent"><?= $prodData['discount'] ?>%</span>
+          <p class="dashboard-pulpit-header-price-before">Najniższa cena z 30 dni: <span class="dashboard-pulpit-header-price-before-value"><?= $prodData['last_price'] ?></span><span class="dashboard-pulpit-header-price-value-before-currency">zł</span></p>
         </div>
       </div>
       <div class="dashboard-pulpit-variants">
