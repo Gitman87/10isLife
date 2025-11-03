@@ -245,7 +245,7 @@ WHERE
     $result = $stmt->get_result();
     $prodArray['warranty'] = [];
     $prodArray['warranty'] = $result->fetch_assoc();
-    print_r($prodArray['warranty']);
+    // print_r($prodArray['warranty']);
 
     //calc amount of time ledt befor exp
 
@@ -261,7 +261,33 @@ function calcRating($reviews)
     foreach ($reviews as $review) {
         $rates[] = $review['rating'];
     }
-    $average = round(array_sum($rates) / count($rates));
+    $average = round(array_sum($rates) / count($rates), 1);
     return $average;
 }
 // function calcWarrantyTime
+function customerFullName($idArray)
+{
+    global $user, $host, $password, $db_name;
+    // Create connection
+    $conn = new mysqli($host, $user, $password, $db_name);
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+    $customersFullNameArray = [];
+    foreach ($idArray as $id) {
+        $stmt = $conn->prepare("SELECT first_name, last_name FROM customers WHERE customer_id=?");
+        if (!$stmt) {
+            die("statement error" . $conn->error);
+        }
+        $stmt->bind_param("s", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $assocResult = $result->fetch_assoc();
+        $fullName = $assocResult['first_name'] . ' ' . $assocResult['last_name'];
+        $customersFullNameArray[] = $fullName;
+    }
+
+    print_r($customersFullNameArray);
+    return $customersFullNameArray;
+}

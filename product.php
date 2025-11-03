@@ -39,6 +39,8 @@ require './php/components/digit_balls.php';
 
 session_start();
 $prodData = getProductData(1);
+$customersIds = [1, 3, 5];
+$customerFullNameArray =  customerFullName($customersIds);
 ?>
 
 <?php genHeader() ?>
@@ -109,6 +111,7 @@ $prodData = getProductData(1);
           <!-- <button class="dashboard-pulpit-add-button">Do koszyka</button> -->
 
           <?php genStandardButton('Do koszyka', true,  '', '') ?>
+          <?= $customerFullNameArray[0] ?>
 
         </div>
 
