@@ -214,7 +214,8 @@ WHERE
         $prodArray['reviews'][] = $row;
     };
     //calculate average rating
-
+    $prodArray['rating_score'] = calcRating($prodArray['reviews']);
+    print_r($prodArray['rating_score']);
     // print_r($prodArray['reviews']);
 
     // -------------------------decription-------------------------------
@@ -250,6 +251,16 @@ WHERE
 
 
     // ===============return all gathered info about product========
-    print_r($prodArray);
+    // print_r($prodArray);
     return $prodArray;
 }
+function calcRating($reviews)
+{
+    $rates = [];
+    foreach ($reviews as $review) {
+        $rates[] = $review['rating'];
+    }
+    $average = round(array_sum($rates) / count($rates));
+    return $average;
+}
+// function calcWarrantyTime
