@@ -200,8 +200,8 @@ WHERE
     //     $prodArray['length'][] = $row;
     // };
     // print_r($prodArray['cover']['value']);
-    // ............................rating--------------------------------
-    $stmt = $conn->prepare("SELECT reviews.rating, reviews.opinion, review_date from reviews WHERE product_id = ?;");
+    // ............................--------------------------reviews--------------------------
+    $stmt = $conn->prepare("SELECT reviews.customer_id, reviews.rating, reviews.opinion, review_date from reviews WHERE product_id = ?;");
     if (!$stmt) {
         die("statement error" . $conn->error);
     }
@@ -288,6 +288,5 @@ function customerFullName($idArray)
         $customersFullNameArray[] = $fullName;
     }
 
-    print_r($customersFullNameArray);
     return $customersFullNameArray;
 }

@@ -1,13 +1,27 @@
-
-
 <?php
 function genReviewTiles($prodReviews)
 {
-    $customerName = ' ';
+    $customersIds = [];
+    foreach ($prodReviews['customer_id'] as $id) {
+        $customersIds[] = $id;
+    }
+    $customersFullNames = customerFullName($customersIds);
+?>
+    <section class="reviews">
+        <?php
+        for ($i = 0; $i < count($prodReviews); $i++) {
+
+            genRateBalls($prodReviews[$i]['rate'], count($prodReviews), true);
+        }
+        ?>
+
+    </section>
+
 
     $rating = '';
     $opinion = '';
     $time = '';
+<?php
 }
 function customerFullName($idArray)
 {
@@ -27,14 +41,10 @@ function customerFullName($idArray)
         $stmt->bind_param("s", $id);
         $stmt->execute();
         $result = $stmt->get_result();
-        if ($row = $result->fetch_assoc()) {
-            $customersFullNameArray = $row;
-        } else {
-            echo "No data";
-            return [];
-        }
+        $assocResult = $result->fetch_assoc();
+        $fullName = $assocResult['first_name'] . ' ' . $assocResult['last_name'];
+        $customersFullNameArray[] = $fullName;
     }
-
 
     return $customersFullNameArray;
 }

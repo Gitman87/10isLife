@@ -39,8 +39,6 @@ require './php/components/digit_balls.php';
 
 session_start();
 $prodData = getProductData(1);
-$customersIds = [1, 3, 5];
-$customerFullNameArray =  customerFullName($customersIds);
 ?>
 
 <?php genHeader() ?>
@@ -111,7 +109,6 @@ $customerFullNameArray =  customerFullName($customersIds);
           <!-- <button class="dashboard-pulpit-add-button">Do koszyka</button> -->
 
           <?php genStandardButton('Do koszyka', true,  '', '') ?>
-          <?= $customerFullNameArray[0] ?>
 
         </div>
 
@@ -125,6 +122,32 @@ $customerFullNameArray =  customerFullName($customersIds);
   <section class="description">
     <h2 class="description-tile">Opis</h2>
     <p class="description-text"><?= $prodData['description']['description'] ?></p>
+  </section>
+  <section class="reviews">
+    <div class="reviews-reviev">
+      <?php
+      genRateBalls(3, 8, true);
+      ?>
+      <p class="reviews-review-text">
+        SDKGFJPIOREJGPOIRJEJKPOEKJGPOJKROPJKpokjegporgro
+        egerg
+        register_shutdown_functionreg
+        register_shutdown_functiongregre
+        gregoriantojdre
+        gregg rt gthtrhjr
+        t
+        t htrjyjtrjyrtjytjtyjytjdtyjdypoihjofdsafiojfoidjoifjg
+        figodfjgoidsfjglkfdsjglkfdjsgjdfsg
+        rad2degrgjiorjgoiregjofidsjglsdfjkgroijgrasre
+        briojesgjboirboiriojjgioprejgoikjlkfdjlskdfjgsdf
+
+      </p>
+      <div class="reviews-review-stamp">
+
+        <div class="reviews-review-stamp-time">12-12-2024</div>
+        <div class="reviews-review-stamp-full_name">George Washignton</div>
+      </div>
+    </div>
   </section>
 
 
