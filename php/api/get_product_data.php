@@ -215,7 +215,7 @@ WHERE
     };
     //calculate average rating
     $prodArray['rating_score'] = calcRating($prodArray['reviews']);
-    print_r($prodArray['rating_score']);
+    // print_r($prodArray['rating_score']);
     // print_r($prodArray['reviews']);
 
     // -------------------------decription-------------------------------
@@ -235,7 +235,7 @@ WHERE
     // print_r($prodArray['description']['description']);
 
     // --------------------warranties-------------------------------------
-    $stmt = $conn->prepare("SELECT warranties.description, warranties.exp_date FROM warranties WHERE product_id = ?;");
+    $stmt = $conn->prepare("SELECT warranty.description, warranty.time FROM warranty WHERE product_id = ?;");
     if (!$stmt) {
         die("statement error" . $conn->error);
     }
@@ -244,7 +244,7 @@ WHERE
     $result = $stmt->get_result();
     $prodArray['warranty'] = [];
     $prodArray['warranty'] = $result->fetch_assoc();
-    // print_r($prodArray['warranty']);
+    print_r($prodArray['warranty']);
 
     //calc amount of time ledt befor exp
 

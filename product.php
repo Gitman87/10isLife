@@ -57,7 +57,7 @@ $prodData = getProductData(1);
 
         </div>
         <div class="dashboard-pulpit-header-rating">
-          <?php genRateBalls() ?>
+          <?php genRateBalls($prodData['rating_score']) ?>
         </div>
         <div class="dashboard-pulpit-header-price">
           <p class="dashboard-pulpit-header-price-value"><?= $prodData['price'] ?><span class="dashboard-pulpit-header-price-value-currency">zł</span></p><span class="dashboard-pulpit-header-price-percent"><?= $prodData['discount'] ?>%</span>

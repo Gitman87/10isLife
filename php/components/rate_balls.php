@@ -1,5 +1,5 @@
 <?php
-function genRateBalls()
+function genRateBalls($rate)
 {
 
 
@@ -23,7 +23,7 @@ function genRateBalls()
             </li>
         </ul>
         <p class="rate-opinions">
-            <span class="rate-opinions-number"><?php echo $tile['opinionNumber'] ?>reviews.rating</span>
+            <span class="rate-opinions-number"><?= $rate ?></span>
             <a href="" class="rate-opinions-link"> opinie</a>
         </p>
     </div>
