@@ -689,20 +689,15 @@ button {
 .rate {
   display: flex;
   align-items: center;
+  width: 20rem;
 }
 .rate-balls {
   display: flex;
   flex-direction: row;
   gap: 0.2rem;
 }
-.rate-opinions-number {
-  color: #002b5b;
-}
-.rate-opinions-link {
-  color: #002b5b;
-}
-.rate-opinions-link:hover {
-  color: #ff6600;
+.rate-balls-ball-img_gray {
+  filter: grayscale(1);
 }
 
 .standard_button {
@@ -1627,20 +1622,15 @@ button {
 .rate {
   display: flex;
   align-items: center;
+  width: 20rem;
 }
 .rate-balls {
   display: flex;
   flex-direction: row;
   gap: 0.2rem;
 }
-.rate-opinions-number {
-  color: #002b5b;
-}
-.rate-opinions-link {
-  color: #002b5b;
-}
-.rate-opinions-link:hover {
-  color: #ff6600;
+.rate-balls-ball-img_gray {
+  filter: grayscale(1);
 }
 
 .standard_button {

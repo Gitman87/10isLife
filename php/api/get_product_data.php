@@ -209,6 +209,7 @@ WHERE
     $stmt->execute();
     $result = $stmt->get_result();
     $prodArray['reviews'] = [];
+
     while ($row = $result->fetch_assoc()) {
         // print_r($row);
         $prodArray['reviews'][] = $row;

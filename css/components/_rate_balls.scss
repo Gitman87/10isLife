@@ -1,21 +1,27 @@
 .rate {
   display: flex;
   align-items: center;
+  width: 20rem;
   &-balls {
     display: flex;
-
     flex-direction: row;
     gap: 0.2rem;
-  }
-  &-opinions {
-    &-number {
-      color: $granat;
-    }
-    &-link {
-      color: $granat;
-    }
-    &-link:hover {
-      color: $orange;
+    &-ball {
+      &-img_gray {
+        filter: grayscale(1);
+      }
     }
   }
+  // &-opinions {
+  //   background-color: orange;
+  //   &-number {
+  //     color: $granat;
+  //   }
+  //   &-link {
+  //     color: $granat;
+  //   }
+  //   &-link:hover {
+  //     color: $orange;
+  //   }
+  // }
 }
