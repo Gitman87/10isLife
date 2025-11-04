@@ -10,17 +10,24 @@ function genReviewTiles($prodReviews)
     <section class="reviews">
         <?php
         for ($i = 0; $i < count($prodReviews); $i++) {
-
-            genRateBalls($prodReviews[$i]['rate'], count($prodReviews), true);
-        }
         ?>
 
+            <div class="review">
+                <?= genRateBalls($prodReviews[$i]['rating'], count($prodReviews), true) ?>;
+                <p class="review-opinion"><?= $prodReviews[$i]['opinion'] ?></p>
+                <p class="review-stamp">
+                    <span class="review-stamp-time"><?= $prodReviews[$i]['review_date'] ?></span>
+                    <span class="review-stamp-full_name"><?= $customersFullNames[$i] ?></span>
+                </p>
+
+            </div>
+        <?php
+        }
+        ?>
     </section>
-
-
-    $rating = '';
+    <!-- $rating = '';
     $opinion = '';
-    $time = '';
+    $time = ''; -->
 <?php
 }
 function customerFullName($idArray)

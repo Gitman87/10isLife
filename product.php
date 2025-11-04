@@ -36,6 +36,7 @@ require './php/api/connection.php';
 require './php/api/get_product_data.php';
 //prod info
 require './php/components/digit_balls.php';
+require './php/components/review_tiles.php';
 
 session_start();
 $prodData = getProductData(1);
@@ -186,7 +187,7 @@ $prodData = getProductData(1);
       </div>
     </div>
   </section>
-
+  <?= genReviewTiles($prodData['reviews']) ?>
 
 
 
