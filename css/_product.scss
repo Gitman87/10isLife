@@ -30,6 +30,16 @@
     width: 100%;
     &-header {
       background-color: burlywood;
+      &-new_best {
+        display: flex;
+        justify-content: center;
+        &-new_img {
+          width: 4rem;
+        }
+        &-bestseller_img {
+          width: 4rem;
+        }
+      }
       &-title {
         display: flex;
         justify-content: space-between;

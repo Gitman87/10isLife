@@ -97,19 +97,6 @@ WHERE
     $prodArray['manufacturer'] = [];
     $prodArray['manufacturer'] =  $result->fetch_assoc();
 
-    // print_r($prodArray['manufacturer']);
-    // if ($row = $result->fetch_assoc()) {
-    //     print_r($row);
-    //     $prodArray['manufacturer'][] = $row;
-    // } else {
-    //     echo "No data";
-    //     return [];
-    // }
-    // print_r($result);
-
-    // print_r($prodArray);
-    // $prodArray['manufacturer_name'] = result['name'];
-    // $prodArray['manufacturer_photo']
     // =============================attributes===================================================
     // -----------------------------grip size----------------------------------------------------
     // grip sizes - attribute id = 1
@@ -132,7 +119,6 @@ WHERE
     // echo 'grip size length is ' . count($prodArray['grip_size']);
 
     // ----------------------length------------------------------
-
     $stmt = $conn->prepare("SELECT attribute_variants.attribute_variant_id, attribute_variants.value FROM attribute_variants JOIN product_attributes ON attribute_variants.attribute_variant_id = product_attributes.attribute_variant_id
     WHERE attribute_variants.attribute_id = ? AND product_attributes.product_id=?;");
     if (!$stmt) {

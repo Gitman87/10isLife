@@ -48,6 +48,19 @@ $prodData = getProductData(1);
     <?php genProductPreview($prodData['images']) ?>
     <div class="dashboard-pulpit">
       <div class="dashboard-pulpit-header">
+        <div class="dashboard-pulpit-header-new_best">
+          <?php
+          if ($prodData['is_new']) {
+          ?>
+            <img src="./res/icon/new.svg" alt="nowość" title="Nowość" class="dashboard-pulpit-header-new_best-new_img">
+          <?php
+          } elseif ($prodData['is_bestseller']) {
+          ?>
+            <img src="./res/icon/trophy.svg" alt="bestseller" title="Bestseller" class="dashboard-pulpit-header-new_best-bestseller_img">
+          <?php
+          }
+          ?>
+        </div>
         <div class="dashboard-pulpit-header-title">
           <h3 class="dashboard-pulpit-header-title-name"><?= $prodData['name'] ?></h3>
           <div class="dashboard-pulpit-header-title-manufacturer">

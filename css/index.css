@@ -795,6 +795,16 @@ button {
 .dashboard-pulpit-header {
   background-color: burlywood;
 }
+.dashboard-pulpit-header-new_best {
+  display: flex;
+  justify-content: center;
+}
+.dashboard-pulpit-header-new_best-new_img {
+  width: 4rem;
+}
+.dashboard-pulpit-header-new_best-bestseller_img {
+  width: 4rem;
+}
 .dashboard-pulpit-header-title {
   display: flex;
   justify-content: space-between;
