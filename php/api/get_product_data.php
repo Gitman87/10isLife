@@ -234,7 +234,6 @@ WHERE
     //     $prodArray['length'][] = $row;
     // };
     // print_r($prodArray['description']['description']);
-
     // --------------------warranties-------------------------------------
     $stmt = $conn->prepare("SELECT warranty.description, warranty.time FROM warranty WHERE product_id = ?;");
     if (!$stmt) {
@@ -246,13 +245,9 @@ WHERE
     $prodArray['warranty'] = [];
     $prodArray['warranty'] = $result->fetch_assoc();
     // print_r($prodArray['warranty']);
-
     //calc amount of time ledt befor exp
-
-
-
     // ===============return all gathered info about product========
-    // print_r($prodArray);
+    print_r($prodArray['warranty']['time']);
     return $prodArray;
 }
 function calcRating($reviews)

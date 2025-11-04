@@ -29,8 +29,7 @@ function genRateBalls($rate, $numberOfOpinions, $isReview = false)
         ?>
             <div class="rate-opinions">
                 <p class="rate-opinions-score">
-                    <span class="rate-opinions-score-average"><?= $rate ?></span>
-                    /5
+                    <span class="rate-opinions-score-average"><?= $rate ?></span>/5
                 </p>
             </div>
         <?php
