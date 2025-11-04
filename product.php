@@ -64,6 +64,23 @@ $prodData = getProductData(1);
           <p class="dashboard-pulpit-header-price-before">Najniższa cena z 30 dni: <span class="dashboard-pulpit-header-price-before-value"><?= $prodData['last_price'] ?></span><span class="dashboard-pulpit-header-price-value-before-currency">zł</span></p>
         </div>
       </div>
+      <div class="dashboard-pulpit-header-quantity">
+        <?php
+        if ($prodData['quantity'] > 5) {
+        ?>
+          <p class="dashboard-pulpit-header-quantity-availability">Produkt dostępny</p>
+        <?php
+        } elseif ($prodData['quantity'] > 0) {
+        ?>
+          <p class="dashboard-pulpit-header-quantity-availability">Uwaga! Zostało mniej niż 5 szt.</p>
+        <?php
+        } else {
+        ?>
+          <p class="dashboard-pulpit-header-quantity-availability">Produkt niedostępny</p>
+        <?php
+        }
+        ?>
+      </div>
       <div class="dashboard-pulpit-variants">
         <h5 class="dashboard-pulpit-variants-title">Opcje:</h5>
         <div class="dashboard-pulpit-variants-slideshow">
