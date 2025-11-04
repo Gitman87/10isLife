@@ -121,7 +121,7 @@ $prodData = getProductData(1);
   </section>
   <section class="description">
     <h2 class="description-tile">Opis</h2>
-    <p class="description-text"><?= $prodData['description']['description'] ?></p>
+    <p class="description-text"><?= $prodData['description'] ?></p>
   </section>
   <section class="warranty">
     <h3 class="warranty-title">Gwarancja</h3>
@@ -130,7 +130,7 @@ $prodData = getProductData(1);
     </h5>
     <p class="warranty-description"><?= $prodData['warranty']['description'] ?></p>
   </section>
-  <!-- <section class="reviews">
+  <section class="reviews">
     <div class="reviews-reviev">
       <?php
       genRateBalls(3, 8, true);
@@ -155,7 +155,7 @@ $prodData = getProductData(1);
         <div class="reviews-review-stamp-full_name">George Washignton</div>
       </div>
     </div>
-  </section> -->
+  </section>
 
 
 

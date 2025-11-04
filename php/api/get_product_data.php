@@ -110,7 +110,8 @@ WHERE
     // print_r($prodArray);
     // $prodArray['manufacturer_name'] = result['name'];
     // $prodArray['manufacturer_photo']
-    // -----------------------attributes---------------------------
+    // =============================attributes===================================================
+    // -----------------------------grip size----------------------------------------------------
     // grip sizes - attribute id = 1
     $stmt = $conn->prepare("SELECT attribute_variants.attribute_variant_id, attribute_variants.value FROM attribute_variants JOIN product_attributes ON attribute_variants.attribute_variant_id = product_attributes.attribute_variant_id
     WHERE attribute_variants.attribute_id = ? AND product_attributes.product_id = ?;");
@@ -218,22 +219,6 @@ WHERE
     $prodArray['rating_score'] = calcRating($prodArray['reviews']);
     // print_r($prodArray['rating_score']);
     // print_r($prodArray['reviews']);
-
-    // -------------------------decription-------------------------------
-    $stmt = $conn->prepare("SELECT products.description FROM products WHERE products.product_id = ?;");
-    if (!$stmt) {
-        die("statement error" . $conn->error);
-    }
-    $stmt->bind_param("s",  $id);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $prodArray['description'] = [];
-    $prodArray['description'] = $result->fetch_assoc();
-    // while ($row = $result->fetch_assoc()) {
-    //     // print_r($row);
-    //     $prodArray['length'][] = $row;
-    // };
-    // print_r($prodArray['description']['description']);
     // --------------------warranties-------------------------------------
     $stmt = $conn->prepare("SELECT warranty.description, warranty.time FROM warranty WHERE product_id = ?;");
     if (!$stmt) {
