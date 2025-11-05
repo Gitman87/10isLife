@@ -44,10 +44,13 @@ body {
   bottom: 0;
   margin-bottom: 0;
   padding: 0;
+  display: flex;
+  flex-direction: column;
 }
 .main {
   background-color: yellow;
   margin: 1.6rem auto;
+  margin-top: 4rem;
   max-width: $main-view-max-width;
   padding: $main-view-padding;
 }

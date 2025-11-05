@@ -1,9 +1,46 @@
-.breadcrumbs_list {
-  display: flex;
-  max-width: $main-view-max-width;
-  padding: $main-view-padding;
-  margin: 0.8rem auto 0 auto;
-  position: sticky;
-  z-index: 10;
+.breadcrumbs {
+  // display: flex;
+  // justify-content: center;
+  width: 100%;
+
+  // position: sticky;
+  // z-index: 10;
+  position: fixed;
   top: 10rem;
+  transition: transform 0.3s ease-out;
+  z-index: 10;
+  &-breadcrumbs_list {
+    // background-color: orange;
+    display: flex;
+    gap: 0.5rem;
+    max-width: $main-view-max-width;
+    padding: $main-view-padding;
+    width: 100%;
+    margin: 0.8rem auto 0 auto;
+    -webkit-backdrop-filter: blur(10rem);
+    backdrop-filter: blur(1rem);
+    box-shadow: 0 0.4rem 3rem rgba(0, 0, 0, 0.1);
+    color: $gray;
+    &-crumb {
+      &-link {
+        text-decoration: none;
+        color: $gray;
+        transition: color 0.4s ease-in-out;
+      }
+      &-link:hover {
+        color: $orange;
+      }
+    }
+    &-last_crumb {
+      color: $granat;
+    }
+    &-separator {
+      color: $gray;
+    }
+  }
+}
+
+.hidden_crumb {
+  // visibility: hidden;
+  transform: translateY(-110%);
 }

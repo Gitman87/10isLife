@@ -81,8 +81,10 @@ function genHeader()
             </div>
 
         </header>
-        <?php echo  genBreadcrumbs('>') ?>
 
+
+        <?php echo  genBreadcrumbs() ?>
+        <script src="./js/components/breadcrumbs_move.js"></script>
 
 
     <?php
