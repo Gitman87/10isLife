@@ -37,6 +37,9 @@
     &-separator {
       color: $gray;
     }
+    &-separator:last-child {
+      visibility: hidden;
+    }
   }
 }
 

@@ -761,6 +761,9 @@ button {
 .breadcrumbs-breadcrumbs_list-separator {
   color: #808080;
 }
+.breadcrumbs-breadcrumbs_list-separator:last-child {
+  visibility: hidden;
+}
 
 .hidden_crumb {
   transform: translateY(-110%);
@@ -1808,6 +1811,9 @@ button {
 }
 .breadcrumbs-breadcrumbs_list-separator {
   color: #808080;
+}
+.breadcrumbs-breadcrumbs_list-separator:last-child {
+  visibility: hidden;
 }
 
 .hidden_crumb {
