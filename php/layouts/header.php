@@ -1,5 +1,6 @@
 <?php
 
+include './php/components/breadcrumbs.php';
 
 
 function genHeader()
@@ -22,7 +23,6 @@ function genHeader()
         <script src='./js/components/toggle_log_modal.js'></script>
         <script src='./js/components/open_profile.js'></script>
         <script src="./js/components/profile.js"></script>
-
 
 
 
@@ -77,9 +77,12 @@ function genHeader()
 
 
                 </div>
+
             </div>
 
         </header>
+        <?php echo  genBreadcrumbs('>') ?>
+
 
 
     <?php

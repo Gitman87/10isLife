@@ -26,9 +26,9 @@ require './php/components/reg_policy.php';
 require './php/components/profile.php';
 
 
+
 include './php/components/tile_browser.php';
 include './php/components/tile.php';
-include './php/components/breadcrumbs.php';
 include './php/components/rate_balls.php';
 include './php/components/product_preview.php';
 // api
@@ -41,9 +41,9 @@ require './php/components/review_tiles.php';
 session_start();
 $prodData = getProductData(1);
 ?>
-
 <?php genHeader() ?>
-<?php genBreadCrumbs() ?>
+
+
 <main class="main">
   <section class="dashboard">
     <?php genProductPreview($prodData['images']) ?>

@@ -10,6 +10,7 @@ include './php/components/header_link.php';
 include './php/components/log_modal.php';
 include './php/components/tab_nav.php';
 
+// include './php/components/breadcrumbs.php';
 
 //logging /registration
 require './php/layouts/register.php';

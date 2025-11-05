@@ -258,11 +258,9 @@ button {
 
 .header {
   top: 0;
-  background-color: rgb(202, 202, 202);
   position: sticky;
   width: 100%;
   padding: 0.8rem 0;
-  background-color: rgba(255, 255, 255, 0.2);
   -webkit-backdrop-filter: blur(10rem);
   backdrop-filter: blur(1rem);
   box-shadow: 0 0.4rem 3rem rgba(0, 0, 0, 0.1);
@@ -270,7 +268,6 @@ button {
   z-index: 10;
 }
 .header-content {
-  background-color: gray;
   width: 100%;
   max-width: 152rem;
   padding: 0rem 4rem;
@@ -731,22 +728,14 @@ button {
   transition-timing-function: ease-in-out;
 }
 
-.breadcrumbs_wrapper {
-  background-color: pink;
-  margin: 1.6rem auto;
+.breadcrumbs_list {
+  display: flex;
   max-width: 152rem;
   padding: 0rem 4rem;
-}
-.breadcrumbs_wrapper-breadcrumbs {
-  display: flex;
-}
-.breadcrumbs_wrapper-breadcrumbs-crumb-link {
-  color: #002b5b;
-}
-.breadcrumbs_wrapper-breadcrumbs-crumb-link:hover {
-  color: #ff6600;
-  transition: color 0.6s;
-  transition-timing-function: ease-in-out;
+  margin: 0.8rem auto 0 auto;
+  position: sticky;
+  z-index: 10;
+  top: 10rem;
 }
 
 .product_preview {
@@ -906,11 +895,9 @@ button {
 
 .header {
   top: 0;
-  background-color: rgb(202, 202, 202);
   position: sticky;
   width: 100%;
   padding: 0.8rem 0;
-  background-color: rgba(255, 255, 255, 0.2);
   -webkit-backdrop-filter: blur(10rem);
   backdrop-filter: blur(1rem);
   box-shadow: 0 0.4rem 3rem rgba(0, 0, 0, 0.1);
@@ -918,7 +905,6 @@ button {
   z-index: 10;
 }
 .header-content {
-  background-color: gray;
   width: 100%;
   max-width: 152rem;
   padding: 0rem 4rem;
@@ -1762,22 +1748,14 @@ button {
   color: #002b5b;
 }
 
-.breadcrumbs_wrapper {
-  background-color: pink;
-  margin: 1.6rem auto;
+.breadcrumbs_list {
+  display: flex;
   max-width: 152rem;
   padding: 0rem 4rem;
-}
-.breadcrumbs_wrapper-breadcrumbs {
-  display: flex;
-}
-.breadcrumbs_wrapper-breadcrumbs-crumb-link {
-  color: #002b5b;
-}
-.breadcrumbs_wrapper-breadcrumbs-crumb-link:hover {
-  color: #ff6600;
-  transition: color 0.6s;
-  transition-timing-function: ease-in-out;
+  margin: 0.8rem auto 0 auto;
+  position: sticky;
+  z-index: 10;
+  top: 10rem;
 }
 
 .product_preview {

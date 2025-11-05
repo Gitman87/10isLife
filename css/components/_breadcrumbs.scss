@@ -1,19 +1,9 @@
-.breadcrumbs_wrapper {
-  background-color: pink;
-  margin: 1.6rem auto;
+.breadcrumbs_list {
+  display: flex;
   max-width: $main-view-max-width;
   padding: $main-view-padding;
-  &-breadcrumbs {
-    display: flex;
-    &-crumb {
-      &-link {
-        color: $granat;
-      }
-      &-link:hover {
-        color: $orange;
-        transition: color 0.6s;
-        transition-timing-function: ease-in-out;
-      }
-    }
-  }
+  margin: 0.8rem auto 0 auto;
+  position: sticky;
+  z-index: 10;
+  top: 10rem;
 }
