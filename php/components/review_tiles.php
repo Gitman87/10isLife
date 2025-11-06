@@ -6,7 +6,7 @@ function genReviewTiles($prodReviews)
         $customersIds[] = $id['customer_id'];
     }
     // echo $prodReviews
-    echo 'Customers ids are: ' . $customersIds[0];
+    // echo 'Customers ids are: ' . $customersIds[0];
     $customersFullNames = customerFullName(array_keys($customersIds));
 ?>
     <section class="reviews">
@@ -14,10 +14,13 @@ function genReviewTiles($prodReviews)
         for ($i = 0; $i < count($prodReviews); $i++) {
         ?>
             <div class="review">
-                <?= genRateBalls($prodReviews[$i]['rating'], count($prodReviews), true) ?>;
+                <?= genRateBalls($prodReviews[$i]['rating'], count($prodReviews), true) ?>
                 <p class="review-opinion"><?= $prodReviews[$i]['opinion'] ?></p>
                 <p class="review-stamp">
-                    <span class="review-stamp-time"><?= $prodReviews[$i]['review_date'] ?></span>
+                    <?php $dateArray = explode(' ', $prodReviews[$i]['review_date']);
+                    array_pop($dateArray);
+                    $date = implode($dateArray); ?>
+                    <span class="review-stamp-time"><?= $date ?></span>
                     <span class="review-stamp-full_name"><?= $customersFullNames[$i] ?></span>
                 </p>
             </div>

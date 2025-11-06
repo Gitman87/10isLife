@@ -161,33 +161,9 @@ $prodData = getProductData(1);
     </h5>
     <p class="warranty-description"><?= $prodData['warranty']['description'] ?></p>
   </section>
-  <section class="reviews">
-    <div class="reviews-reviev">
-      <?php
-      genRateBalls(3, 8, true);
-      ?>
-      <p class="reviews-review-text">
-        SDKGFJPIOREJGPOIRJEJKPOEKJGPOJKROPJKpokjegporgro
-        egerg
-        register_shutdown_functionreg
-        register_shutdown_functiongregre
-        gregoriantojdre
-        gregg rt gthtrhjr
-        t
-        t htrjyjtrjyrtjytjtyjytjdtyjdypoihjofdsafiojfoidjoifjg
-        figodfjgoidsfjglkfdsjglkfdjsgjdfsg
-        rad2degrgjiorjgoiregjofidsjglsdfjkgroijgrasre
-        briojesgjboirboiriojjgioprejgoikjlkfdjlskdfjgsdf
 
-      </p>
-      <div class="reviews-review-stamp">
-
-        <div class="reviews-review-stamp-time">12-12-2024</div>
-        <div class="reviews-review-stamp-full_name">George Washignton</div>
-      </div>
-    </div>
-  </section>
   <?= genReviewTiles($prodData['reviews']) ?>
+
 
 
 

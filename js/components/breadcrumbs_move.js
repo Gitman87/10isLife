@@ -23,16 +23,16 @@ function breadcrumbsMove() {
     if (currentPosition > lastPosition && currentPosition > latencyDown) {
       breadcrumbsWrapper.classList.add("hidden_crumb");
       superPosition = currentPosition - latencyUp;
-      console.log("superposition down  is: ", superPosition);
+      // console.log("superposition down  is: ", superPosition);
     } else if (currentPosition < lastPosition) {
-      console.log("going up");
+      // console.log("going up");
 
       if (superPosition < lastPosition) {
-        console.log("Waiting");
+        // console.log("Waiting");
       } else {
-        console.log("Current position is: ", currentPosition);
-        console.log("last position is: ", lastPosition);
-        console.log("superposition is: ", superPosition);
+        // console.log("Current position is: ", currentPosition);
+        // console.log("last position is: ", lastPosition);
+        // console.log("superposition is: ", superPosition);
 
         breadcrumbsWrapper.classList.remove("hidden_crumb");
       }
