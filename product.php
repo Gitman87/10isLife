@@ -66,7 +66,7 @@ $prodData = getProductData(1);
           <h3 class="dashboard-pulpit-header-title-name"><?= $prodData['name'] ?></h3>
           <div class="dashboard-pulpit-header-title-manufacturer">
             <img src="<?= $prodData['manufacturer']['url'] ?>" alt="" class="dashboard-pulpit-header-title-manufacturer-image">
-            <h4 class="dashboard-pulpit-header-title-manufacturer-name"><a href="" class="dashboard-pulpit-header-title-manufacturer-name-link"><?= $prodData['manufacturer'][0] ?></a></h4>
+            <h4 class="dashboard-pulpit-header-title-manufacturer-name"><a href="" class="dashboard-pulpit-header-title-manufacturer-name-link"><?= $prodData['manufacturer']['name'] ?></a></h4>
           </div>
 
         </div>

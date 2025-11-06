@@ -22,7 +22,6 @@
     box-shadow: 0 0.4rem 3rem rgba(0, 0, 0, 0.1);
     color: $gray;
     &-crumb {
-      background-color: rgba(255, 255, 255, 0.556);
       &-link {
         text-decoration: none;
         color: $gray;
@@ -31,14 +30,13 @@
       &-link:hover {
         color: $orange;
       }
-      &-link:only-child {
+    }
+    li:only-child {
+      a {
         color: $granat;
-        transition: color 0.4s ease-in-out;
-      }
-      &-link:only-child:hover {
-        color: $orange;
       }
     }
+
     &-last_crumb {
       color: $granat;
     }
