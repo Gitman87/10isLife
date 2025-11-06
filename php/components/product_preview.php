@@ -10,6 +10,7 @@ function genProductPreview($images)
   }
 ?>
   <div class="product_preview">
+
     <div class="product_preview-preview">
       <!-- <img src="res/img/products/rackets/Babolat/100_babolat_01.webp" alt="" class="product_preview-preview-image"> -->
       <img src="<?= $thumbnailSrc  ?>" alt="product preview" class="product_preview-preview-image">
@@ -21,7 +22,7 @@ function genProductPreview($images)
         foreach ($images as $image) {
         ?>
 
-          <li class="product_preview-slideshow-list-slide"><img src="<?= $image['url'] ?>" alt="product image" class="product_preview-slideshow-list-slide-image"></li>
+          <li class="product_preview-slideshow-list-slide"><button class="product_preview-slideshow-list-slide-button"><img src="<?= $image['url'] ?>" alt="product image" class="product_preview-slideshow-list-slide-button-image"></button></li>
 
         <?php
         }
@@ -33,8 +34,7 @@ function genProductPreview($images)
       </ul>
 
     </div>
-
   </div>
-
+  <script src="/js/components/product_preview.js"></script>
 <?php
 }

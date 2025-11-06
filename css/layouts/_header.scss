@@ -74,16 +74,13 @@
     &-nav {
       &-list {
         display: flex;
-        background-color: burlywood;
       }
     }
     &-account {
-      background-color: beige;
       display: flex;
       justify-content: space-between;
       align-items: center;
       &-user {
-        background-color: bisque;
         padding: 0 1rem;
         display: flex;
         flex-direction: column;
