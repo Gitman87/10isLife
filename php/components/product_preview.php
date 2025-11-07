@@ -37,7 +37,7 @@ function genProductPreview($images)
     </div>
   </div>
   <script src="/js/components/product_preview.js"></script>
-  <script src="/js/components/magnifier.js"></script>
+  <!-- <script src="/js/components/magnifier.js"></script> -->
 
 <?php
 }
