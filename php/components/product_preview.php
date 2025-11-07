@@ -13,9 +13,10 @@ function genProductPreview($images)
 
     <div class="product_preview-preview">
       <!-- <img src="res/img/products/rackets/Babolat/100_babolat_01.webp" alt="" class="product_preview-preview-image"> -->
-      <img src="<?= $thumbnailSrc  ?>" alt="product preview" class="product_preview-preview-image">
+      <img src="<?= $thumbnailSrc  ?>" alt="product preview" class="product_preview-preview-image" id="magnified_image">
 
     </div>
+
     <div class="product_preview-slideshow">
       <ul class="product_preview-slideshow-list"> <!-- images will be dynamically added froom db -->
         <?php
@@ -36,5 +37,7 @@ function genProductPreview($images)
     </div>
   </div>
   <script src="/js/components/product_preview.js"></script>
+  <script src="/js/components/magnifier.js"></script>
+
 <?php
 }

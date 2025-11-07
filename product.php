@@ -45,6 +45,7 @@ $prodData = getProductData(1);
 
 
 <main class="main">
+  <!-- <script src="/js/components/magnifier.js"></script> -->
   <section class="dashboard">
     <?php genProductPreview($prodData['images']) ?>
     <div class="dashboard-pulpit">
