@@ -2,6 +2,8 @@
   color: $white;
   font-size: $font-small;
   background-color: $orange;
+  max-width: 4rem;
+  height: 2.5rem;
   padding: 0.2rem 0.5rem;
   transform: skewX(-10deg);
 }

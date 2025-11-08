@@ -3,13 +3,13 @@
   font-size: $font-medium;
   padding: 0.6em 1.4em;
   margin: 0 auto;
+  max-height: 3.5em;
   transform: skewX(-10deg);
   box-shadow: $box-shadow;
   transition: transform 0.4s ease-in-out;
   &-wrapper {
     transform: skewX(10deg);
     transition: transform 0.4s ease-in-out;
-
     &-link {
       color: $white;
       font-weight: $font-weight-thick;

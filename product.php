@@ -66,47 +66,71 @@ $prodData = getProductData(1);
         </div>
 
         <?php genRateBalls($prodData['rating_score'], count($prodData['reviews'])) ?>
+        <div class="dashboard-pulpit-header-title">
+          <h3 class="dashboard-pulpit-header-title-name"><?= $prodData['name'] ?></h3>
+          <div class="dashboard-pulpit-header-title-manufacturer">
+            <img src="<?= $prodData['manufacturer']['url'] ?>" alt="" class="dashboard-pulpit-header-title-manufacturer-image">
+            <h4 class="dashboard-pulpit-header-title-manufacturer-name"><a href="" class="dashboard-pulpit-header-title-manufacturer-name-link"><?= $prodData['manufacturer']['name'] ?></a></h4>
+          </div>
+
+        </div>
 
         <div class="dashboard-pulpit-header-price">
-          <p class="dashboard-pulpit-header-price-value"><?= $prodData['price'] ?><span class="dashboard-pulpit-header-price-value-currency">zł</span></p><span class="dashboard-pulpit-header-price-percent"><?= $prodData['discount'] ?>%</span>
-          <p class="dashboard-pulpit-header-price-before">Najniższa cena z 30 dni: <span class="dashboard-pulpit-header-price-before-value"><?= $prodData['last_price'] ?></span><span class="dashboard-pulpit-header-price-value-before-currency">zł</span></p>
+          <div class="dashboard-pulpit-header-price-value">
+            <?= $prodData['price'] ?>
+            <span class="dashboard-pulpit-header-price-value-currency">zł</span>
+            <?php displayDiscount($prodData['discount'])  ?>
+          </div>
+          <p class="dashboard-pulpit-header-price-before">Najniższa cena z 30 dni: <span class="dashboard-pulpit-header-price-before-value">
+              <?= $prodData['last_price'] ?></span>
+            <span class="dashboard-pulpit-header-price-value-before-currency">zł</span>
+          </p>
         </div>
       </div>
-      <div class="dashboard-pulpit-header-title">
-        <h3 class="dashboard-pulpit-header-title-name"><?= $prodData['name'] ?></h3>
-        <div class="dashboard-pulpit-header-title-manufacturer">
-          <img src="<?= $prodData['manufacturer']['url'] ?>" alt="" class="dashboard-pulpit-header-title-manufacturer-image">
-          <h4 class="dashboard-pulpit-header-title-manufacturer-name"><a href="" class="dashboard-pulpit-header-title-manufacturer-name-link"><?= $prodData['manufacturer']['name'] ?></a></h4>
-        </div>
 
-      </div>
 
-      <div class="dashboard-pulpit-header-quantity">
-        <?php
-        if ($prodData['quantity'] > 5) {
-        ?>
-          <p class="dashboard-pulpit-header-quantity-availability">Produkt dostępny</p>
-        <?php
-        } elseif ($prodData['quantity'] > 0) {
-        ?>
-          <p class="dashboard-pulpit-header-quantity-availability">Uwaga! Zostało mniej niż 5 szt.</p>
-        <?php
-        } else {
-        ?>
-          <p class="dashboard-pulpit-header-quantity-availability">Produkt niedostępny</p>
-        <?php
-        }
-        ?>
-      </div>
+      <hr class="dashboard-pulpit-line">
       <div class="dashboard-pulpit-variants">
         <h5 class="dashboard-pulpit-variants-title">Opcje:</h5>
-        <div class="dashboard-pulpit-variants-slideshow">
-          <ul class="dashboard-pulpit-variants-slideshow-list">
-            <li class="dashboard-pulpit-variants-slideshow-list-variant"><a href="" class="dashboard-pulpit-variants-slideshow-list-variant-link"><img src="./res/img/products/rackets/babolat/babolat_pure_aero/140468_babolat_01.jpg" alt="" class="dashboard-pulpit-variants-slideshow-list-variant-link-image" title="attribute_name"></a></li>
-          </ul>
-        </div>
+
         <div class="dashboard-pulpit-variants-sizes">
-          <div class="dashboard-pulpit-variants-sizes-show">Rozmiar:<span class="dashboard-pulpit-variants-sizes-show-table">Tabela rozmiarów</span></div>
+          <div class="dashboard-pulpit-variants-sizes-show">Rozmiar: <span class="dashboard-pulpit-variants-sizes-show-table">Tabela rozmiarów</span></div>
+
+          <table class="dashboard-pulpit-variants-sizes-show-table-table_window hide ">
+            <thead>
+              <tr>
+                <th>Oznaczenia amerykańskie
+                  [cale / ≈ cm]</th>
+                <th>Oznaczenia europejskie</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>4 / ≈ 10</td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td>4 1/8 / ≈ 10,4</td>
+                <td>1</td>
+              </tr>
+              <tr>
+                <td>4 1/4 / ≈ 10,8</td>
+                <td>2</td>
+              </tr>
+              <tr>
+                <td>4 3/8 / ≈ 11</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <td>4 1/2 / ≈ 11,4</td>
+                <td>4</td>
+              </tr>
+
+            </tbody>
+          </table>
+
+
+
           <?= genDigitBalls($prodData['grip_size']) ?>
 
         </div>
@@ -133,19 +157,38 @@ $prodData = getProductData(1);
           </select>
 
         </div>
-        <div class="dashboard-pulpit-variants-add">
-          <div class="dashboard-pulpit-variants-add-amount">
-            <button class="dashboard-pulpit-variants-add-amount-minus">-</button>
-            <div class="dashboard-pulpit-variants-add-amount-value">0</div>
-            <button class="dashboard-pulpit-variants-add-amount-lus">+</button>
 
-          </div>
-          <!-- <button class="dashboard-pulpit-add-button">Do koszyka</button> -->
 
-          <?php genStandardButton('Do koszyka', true,  '', '') ?>
+      </div>
+      <hr class="dashboard-pulpit-line">
 
+      <div class="dashboard-pulpit-add">
+        <div class="dashboard-pulpit-add-amount">
+          <button class="dashboard-pulpit-add-amount-minus">-</button>
+          <div class="dashboard-pulpit-add-amount-value">0</div>
+          <button class="dashboard-pulpit-add-amount-lus">+</button>
         </div>
+        <!-- <button class="dashboard-pulpit-add-button">Do koszyka</button> -->
 
+        <?php genStandardButton('Do koszyka', true,  '', '') ?>
+
+      </div>
+      <div class="dashboard-pulpit-header-quantity">
+        <?php
+        if ($prodData['quantity'] > 5) {
+        ?>
+          <p class="dashboard-pulpit-header-quantity-availability">Produkt dostępny</p>
+        <?php
+        } elseif ($prodData['quantity'] > 0) {
+        ?>
+          <p class="dashboard-pulpit-header-quantity-availability">Uwaga! Zostało mniej niż 5 szt.</p>
+        <?php
+        } else {
+        ?>
+          <p class="dashboard-pulpit-header-quantity-availability">Produkt niedostępny</p>
+        <?php
+        }
+        ?>
       </div>
 
 

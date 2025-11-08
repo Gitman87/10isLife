@@ -714,6 +714,7 @@ button {
   font-size: 1.6rem;
   padding: 0.6em 1.4em;
   margin: 0 auto;
+  max-height: 3.5em;
   transform: skewX(-10deg);
   box-shadow: 0rem 0rem 0.6rem 0.1rem rgba(0, 0, 0, 0.3882352941);
   transition: transform 0.4s ease-in-out;
@@ -855,6 +856,9 @@ button {
   gap: 1rem;
 }
 .dashboard-pulpit {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
   background-color: bisque;
   width: 40%;
 }
@@ -894,28 +898,28 @@ button {
   color: #ff6600;
 }
 .dashboard-pulpit-header-price-value {
-  font-size: 2rem;
+  display: flex;
+  flex-direction: row;
+  gap: 0.8rem;
+  color: #002b5b;
+  font-size: 3rem;
+  font-weight: 600;
+  width: -moz-fit-content;
+  width: fit-content;
 }
-.dashboard-pulpit-header-price-percent {
-  color: white;
+.dashboard-pulpit-header-price-before {
+  color: #808080;
   font-size: 1.4rem;
-  background-color: #ff6600;
-  padding: 0.2rem 0.5rem;
-  transform: skewX(-10deg);
+  margin-top: -1rem;
 }
 .dashboard-pulpit-variants {
   background-color: teal;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 .dashboard-pulpit-variants-slideshow {
   width: 100%;
-}
-.dashboard-pulpit-variants-slideshow-list {
-  display: flex;
-  gap: 1rem;
-}
-.dashboard-pulpit-variants-slideshow-list-variant-link-image {
-  max-width: 8rem;
-  border: 0.2rem solid #808080;
 }
 .dashboard-pulpit-variants-sizes {
   background-color: rgb(88, 151, 147);
@@ -928,9 +932,13 @@ button {
   text-decoration: underline;
   cursor: pointer;
 }
-.dashboard-pulpit-variants-sizes-show-table:hover {
+.dashboard-pulpit-variants-sizes-show-table:hover .hide {
+  display: visible;
   text-decoration: none;
   cursor: pointer;
+}
+.dashboard-pulpit-line {
+  border: 0.1rem solid #808080;
 }
 .dashboard-pulpit-add {
   background-color: goldenrod;
@@ -939,6 +947,10 @@ button {
 
 .description {
   width: 100%;
+}
+
+.hide {
+  display: none;
 }
 
 .registered {
@@ -1724,6 +1736,7 @@ button {
   font-size: 1.6rem;
   padding: 0.6em 1.4em;
   margin: 0 auto;
+  max-height: 3.5em;
   transform: skewX(-10deg);
   box-shadow: 0rem 0rem 0.6rem 0.1rem rgba(0, 0, 0, 0.3882352941);
   transition: transform 0.4s ease-in-out;
@@ -1966,6 +1979,16 @@ button {
 }
 .digit_balls-ball:hover {
   background-color: #ff6600;
+}
+
+.display_discount {
+  color: white;
+  font-size: 1.4rem;
+  background-color: #ff6600;
+  max-width: 4rem;
+  height: 2.5rem;
+  padding: 0.2rem 0.5rem;
+  transform: skewX(-10deg);
 }
 
 body {
