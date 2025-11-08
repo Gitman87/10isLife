@@ -91,43 +91,45 @@ $prodData = getProductData(1);
 
       <hr class="dashboard-pulpit-line">
       <div class="dashboard-pulpit-variants">
-        <h5 class="dashboard-pulpit-variants-title">Opcje:</h5>
+        <h4 class="dashboard-pulpit-variants-title">Opcje:</h4>
 
         <div class="dashboard-pulpit-variants-sizes">
-          <div class="dashboard-pulpit-variants-sizes-show">Rozmiar: <span class="dashboard-pulpit-variants-sizes-show-table">Tabela rozmiarów</span></div>
+          <div class="dashboard-pulpit-variants-sizes-size">Grubość uchwytu:
+            <div class="dashboard-pulpit-variants-sizes-size-show">Tabela rozmiarów</div>
 
-          <table class="dashboard-pulpit-variants-sizes-show-table-table_window hide ">
-            <thead>
-              <tr>
-                <th>Oznaczenia amerykańskie
-                  [cale / ≈ cm]</th>
-                <th>Oznaczenia europejskie</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>4 / ≈ 10</td>
-                <td>0</td>
-              </tr>
-              <tr>
-                <td>4 1/8 / ≈ 10,4</td>
-                <td>1</td>
-              </tr>
-              <tr>
-                <td>4 1/4 / ≈ 10,8</td>
-                <td>2</td>
-              </tr>
-              <tr>
-                <td>4 3/8 / ≈ 11</td>
-                <td>3</td>
-              </tr>
-              <tr>
-                <td>4 1/2 / ≈ 11,4</td>
-                <td>4</td>
-              </tr>
+            <table class="dashboard-pulpit-variants-sizes-size-table hide ">
+              <thead>
+                <tr>
+                  <th>Oznaczenia amerykańskie
+                    [cale / ≈ cm]</th>
+                  <th>Oznaczenia europejskie</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>4 / ≈ 10</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td>4 1/8 / ≈ 10,4</td>
+                  <td>1</td>
+                </tr>
+                <tr>
+                  <td>4 1/4 / ≈ 10,8</td>
+                  <td>2</td>
+                </tr>
+                <tr>
+                  <td>4 3/8 / ≈ 11</td>
+                  <td>3</td>
+                </tr>
+                <tr>
+                  <td>4 1/2 / ≈ 11,4</td>
+                  <td>4</td>
+                </tr>
 
-            </tbody>
-          </table>
+              </tbody>
+            </table>
+          </div>
 
 
 
@@ -135,7 +137,7 @@ $prodData = getProductData(1);
 
         </div>
         <div class="dashboard-pulpit-variants-length">
-          <label for="length" class="dashboard-pulpit-variants-length-label">Długość [cm]:</label>
+          <p class="dashboard-pulpit-variants-length-title">Długość [cm]:</p>
           <?= genDigitBalls($prodData['length']) ?>
 
 
@@ -164,32 +166,35 @@ $prodData = getProductData(1);
 
       <div class="dashboard-pulpit-add">
         <div class="dashboard-pulpit-add-amount">
-          <button class="dashboard-pulpit-add-amount-minus">-</button>
+          <label for="quantifier" class="dashboard-pulpit-add-amount-label">Ilość:</label>
+          <input type="number" class="dashboard-pulpit-add-amount-quantifier" name="quantifier" id="quantifier" value=0>
+          <!-- <button class="dashboard-pulpit-add-amount-minus">-</button>
           <div class="dashboard-pulpit-add-amount-value">0</div>
-          <button class="dashboard-pulpit-add-amount-lus">+</button>
+          <button class="dashboard-pulpit-add-amount-lus">+</button> -->
+        </div>
+        <div class="dashboard-pulpit-header-quantity">
+          <?php
+          if ($prodData['quantity'] > 5) {
+          ?>
+            <p class="dashboard-pulpit-header-quantity-available">Produkt dostępny</p>
+          <?php
+          } elseif ($prodData['quantity'] > 0) {
+          ?>
+            <p class="dashboard-pulpit-header-quantity-warning">Uwaga! Zostało mniej niż 5 szt.</p>
+          <?php
+          } else {
+          ?>
+            <p class="dashboard-pulpit-header-quantity-unavailable">Produkt niedostępny</p>
+          <?php
+          }
+          ?>
         </div>
         <!-- <button class="dashboard-pulpit-add-button">Do koszyka</button> -->
 
-        <?php genStandardButton('Do koszyka', true,  '', '') ?>
 
       </div>
-      <div class="dashboard-pulpit-header-quantity">
-        <?php
-        if ($prodData['quantity'] > 5) {
-        ?>
-          <p class="dashboard-pulpit-header-quantity-availability">Produkt dostępny</p>
-        <?php
-        } elseif ($prodData['quantity'] > 0) {
-        ?>
-          <p class="dashboard-pulpit-header-quantity-availability">Uwaga! Zostało mniej niż 5 szt.</p>
-        <?php
-        } else {
-        ?>
-          <p class="dashboard-pulpit-header-quantity-availability">Produkt niedostępny</p>
-        <?php
-        }
-        ?>
-      </div>
+      <?php genStandardButton('Do koszyka', true,  '', '') ?>
+
 
 
     </div>

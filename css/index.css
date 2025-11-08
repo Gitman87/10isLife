@@ -849,7 +849,7 @@ button {
 }
 
 .dashboard {
-  background-color: #ffeadf;
+  background-color: white;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -859,14 +859,9 @@ button {
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  background-color: bisque;
   width: 40%;
 }
-.dashboard-pulpit-header {
-  background-color: burlywood;
-}
 .dashboard-pulpit-header-new_best {
-  background-color: pink;
   display: flex;
   justify-content: start;
 }
@@ -893,6 +888,7 @@ button {
 .dashboard-pulpit-header-title-manufacturer-name-link {
   text-decoration: none;
   color: #002b5b;
+  transition: color 0.4s ease-in-out;
 }
 .dashboard-pulpit-header-title-manufacturer-name-link:hover {
   color: #ff6600;
@@ -913,36 +909,80 @@ button {
   margin-top: -1rem;
 }
 .dashboard-pulpit-variants {
-  background-color: teal;
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
-.dashboard-pulpit-variants-slideshow {
-  width: 100%;
-}
-.dashboard-pulpit-variants-sizes {
-  background-color: rgb(88, 151, 147);
-  width: 100%;
-}
-.dashboard-pulpit-variants-sizes-show {
+.dashboard-pulpit-variants-title {
   color: #002b5b;
 }
-.dashboard-pulpit-variants-sizes-show-table {
+.dashboard-pulpit-variants-sizes {
+  width: 100%;
+  color: #002b5b;
+}
+.dashboard-pulpit-variants-sizes-size {
+  display: flex;
+  position: relative;
+  gap: 2rem;
+}
+.dashboard-pulpit-variants-sizes-size-show {
+  color: #002b5b;
   text-decoration: underline;
   cursor: pointer;
+  width: 15rem;
+  height: 2.5rem;
 }
-.dashboard-pulpit-variants-sizes-show-table:hover .hide {
-  display: visible;
-  text-decoration: none;
-  cursor: pointer;
+.dashboard-pulpit-variants-sizes-size-show:hover + .hide {
+  display: block;
+}
+.dashboard-pulpit-variants-sizes-size-table {
+  position: absolute;
+  width: 30rem;
+  padding: 0.5rem;
+  top: 80%;
+  left: 100%;
+  transform: translate(-80%, -18%);
+  background-color: white;
+  box-shadow: 0rem 0rem 0.6rem 0.1rem rgba(0, 0, 0, 0.3882352941);
+}
+.dashboard-pulpit-variants-sizes-size-table tr {
+  text-align: center;
+}
+.dashboard-pulpit-variants-length-title {
+  color: #002b5b;
+}
+.dashboard-pulpit-variants-pattern {
+  color: #002b5b;
+}
+.dashboard-pulpit-variants-material {
+  color: #002b5b;
+}
+.dashboard-pulpit-variants-cover {
+  color: #002b5b;
 }
 .dashboard-pulpit-line {
   border: 0.1rem solid #808080;
 }
 .dashboard-pulpit-add {
-  background-color: goldenrod;
   display: flex;
+  justify-content: space-evenly;
+  gap: 2rem;
+  width: 100%;
+}
+.dashboard-pulpit-add-amount-label {
+  color: #002b5b;
+}
+.dashboard-pulpit-add-amount-quantifier {
+  max-width: 6rem;
+}
+.dashboard-pulpit-add-quantity-available {
+  color: #002b5b;
+}
+.dashboard-pulpit-add-quantity-warning {
+  color: #b51818;
+}
+.dashboard-pulpit-add-quantity-unavailable {
+  color: #b51818;
 }
 
 .description {
