@@ -37,6 +37,7 @@ require './php/api/get_product_data.php';
 //prod info
 require './php/components/digit_balls.php';
 require './php/components/review_tiles.php';
+require './php/components/discount_display.php';
 
 session_start();
 $prodData = getProductData(1);
@@ -63,22 +64,23 @@ $prodData = getProductData(1);
           }
           ?>
         </div>
-        <div class="dashboard-pulpit-header-title">
-          <h3 class="dashboard-pulpit-header-title-name"><?= $prodData['name'] ?></h3>
-          <div class="dashboard-pulpit-header-title-manufacturer">
-            <img src="<?= $prodData['manufacturer']['url'] ?>" alt="" class="dashboard-pulpit-header-title-manufacturer-image">
-            <h4 class="dashboard-pulpit-header-title-manufacturer-name"><a href="" class="dashboard-pulpit-header-title-manufacturer-name-link"><?= $prodData['manufacturer']['name'] ?></a></h4>
-          </div>
 
-        </div>
-        <div class="dashboard-pulpit-header-rating">
-          <?php genRateBalls($prodData['rating_score'], count($prodData['reviews'])) ?>
-        </div>
+        <?php genRateBalls($prodData['rating_score'], count($prodData['reviews'])) ?>
+
         <div class="dashboard-pulpit-header-price">
           <p class="dashboard-pulpit-header-price-value"><?= $prodData['price'] ?><span class="dashboard-pulpit-header-price-value-currency">zł</span></p><span class="dashboard-pulpit-header-price-percent"><?= $prodData['discount'] ?>%</span>
           <p class="dashboard-pulpit-header-price-before">Najniższa cena z 30 dni: <span class="dashboard-pulpit-header-price-before-value"><?= $prodData['last_price'] ?></span><span class="dashboard-pulpit-header-price-value-before-currency">zł</span></p>
         </div>
       </div>
+      <div class="dashboard-pulpit-header-title">
+        <h3 class="dashboard-pulpit-header-title-name"><?= $prodData['name'] ?></h3>
+        <div class="dashboard-pulpit-header-title-manufacturer">
+          <img src="<?= $prodData['manufacturer']['url'] ?>" alt="" class="dashboard-pulpit-header-title-manufacturer-image">
+          <h4 class="dashboard-pulpit-header-title-manufacturer-name"><a href="" class="dashboard-pulpit-header-title-manufacturer-name-link"><?= $prodData['manufacturer']['name'] ?></a></h4>
+        </div>
+
+      </div>
+
       <div class="dashboard-pulpit-header-quantity">
         <?php
         if ($prodData['quantity'] > 5) {

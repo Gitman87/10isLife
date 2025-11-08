@@ -680,9 +680,10 @@ button {
 }
 
 .rate {
+  width: 100%;
   display: flex;
   align-items: center;
-  width: 20rem;
+  gap: 1rem;
 }
 .rate-balls {
   display: flex;
@@ -691,6 +692,21 @@ button {
 }
 .rate-balls-ball-img_gray {
   filter: grayscale(1);
+}
+.rate-opinions {
+  font-size: 1.4rem;
+  color: #002b5b;
+}
+.rate-opinions-score-number {
+  color: #002b5b;
+}
+.rate-opinions-score-number-link {
+  text-decoration: none;
+  color: #002b5b;
+  transition: color 0.4s ease-in-out;
+}
+.rate-opinions-score-number-link:hover {
+  color: #ff6600;
 }
 
 .standard_button {
@@ -846,8 +862,9 @@ button {
   background-color: burlywood;
 }
 .dashboard-pulpit-header-new_best {
+  background-color: pink;
   display: flex;
-  justify-content: center;
+  justify-content: start;
 }
 .dashboard-pulpit-header-new_best-new_img {
   width: 4rem;
@@ -1673,9 +1690,10 @@ button {
 }
 
 .rate {
+  width: 100%;
   display: flex;
   align-items: center;
-  width: 20rem;
+  gap: 1rem;
 }
 .rate-balls {
   display: flex;
@@ -1684,6 +1702,21 @@ button {
 }
 .rate-balls-ball-img_gray {
   filter: grayscale(1);
+}
+.rate-opinions {
+  font-size: 1.4rem;
+  color: #002b5b;
+}
+.rate-opinions-score-number {
+  color: #002b5b;
+}
+.rate-opinions-score-number-link {
+  text-decoration: none;
+  color: #002b5b;
+  transition: color 0.4s ease-in-out;
+}
+.rate-opinions-score-number-link:hover {
+  color: #ff6600;
 }
 
 .standard_button {
