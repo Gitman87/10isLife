@@ -224,15 +224,22 @@
 }
 .opinions {
   margin-top: 1rem;
+
   background-color: $white;
   &-head {
     color: $granat;
     text-align: center;
   }
   &-wrapper {
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
-    gap: 4rem;
+    justify-content: center;
+    gap: 4.5rem;
+    padding: 2rem;
+    max-height: 60rem;
+    overflow-y: scroll;
+    box-shadow: 0rem -1rem 1rem -1rem #00000063 inset;
   }
 }
 

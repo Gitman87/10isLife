@@ -1050,9 +1050,15 @@ button {
   text-align: center;
 }
 .opinions-wrapper {
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
-  gap: 4rem;
+  justify-content: center;
+  gap: 4.5rem;
+  padding: 2rem;
+  max-height: 60rem;
+  overflow-y: scroll;
+  box-shadow: 0rem -1rem 1rem -1rem rgba(0, 0, 0, 0.3882352941) inset;
 }
 
 .hide {
@@ -2102,12 +2108,34 @@ button {
 
 .review {
   background-color: white;
-  max-width: 50rem;
+  width: 40rem;
+  padding: 0.8rem;
+  display: flex;
+  flex-direction: column;
   box-shadow: 0rem 0rem 0.6rem 0.1rem rgba(0, 0, 0, 0.3882352941);
 }
+.review-head {
+  padding: 0.8rem 0;
+}
 .review-text {
-  width: 50rem;
-  height: 10rem;
+  width: 100%;
+  color: #002b5b;
+  overflow-y: scroll;
+  box-shadow: 0rem -1rem 1rem -1rem rgba(0, 0, 0, 0.3882352941) inset;
+  max-height: 10rem;
+}
+.review-stamp {
+  padding: 0.8rem 0;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: space-between;
+}
+.review-stamp-time {
+  color: #002b5b;
+}
+.review-stamp-full_name {
+  color: #002b5b;
 }
 
 body {

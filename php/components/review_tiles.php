@@ -15,15 +15,17 @@ function genReviewTiles($prodReviews)
     ?>
         <div class="review">
 
-            <?= genRateBalls($prodReviews[$i]['rating'], count($prodReviews), true) ?>
-            <textarea name="" id="" class="review-text"><?= $prodReviews[$i]['opinion'] ?></textarea>
+            <div class="review-head">
+                <?= genRateBalls($prodReviews[$i]['rating'], count($prodReviews), true) ?>
+            </div>
+            <p name="" id="" class="review-text"><?= $prodReviews[$i]['opinion'] ?></p>
             <!-- <p class="review-opinion">/p> -->
             <p class="review-stamp">
                 <?php $dateArray = explode(' ', $prodReviews[$i]['review_date']);
                 array_pop($dateArray);
                 $date = implode($dateArray); ?>
-                <span class="review-stamp-time"><?= $date ?></span>
-                <span class="review-stamp-full_name"><?= $customersFullNames[$i] ?></span>
+            <div class="review-stamp-time"><?= $date ?></div>
+            <div class="review-stamp-full_name"><?= $customersFullNames[$i] ?></div>
             </p>
         </div>
     <?php

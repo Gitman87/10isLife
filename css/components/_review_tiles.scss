@@ -1,13 +1,35 @@
 .review {
   background-color: $white;
-  max-width: 50rem;
+  width: 40rem;
+  padding: 0.8rem;
+  display: flex;
+  flex-direction: column;
 
-  // overflow-y: scroll;
   box-shadow: $box-shadow;
+  &-head {
+    padding: 0.8rem 0;
+  }
   &-text {
-    width: 50rem;
+    width: 100%;
+    color: $granat;
+    overflow-y: scroll;
+    box-shadow: 0rem -1rem 1rem -1rem #00000063 inset;
+
     // min-height: 4rem;
-    // max-height: 40rem;
-    height: clamp(4rem, 10rem, 40rem);
+    max-height: 10rem;
+    // height: clamp(4rem, 10rem, 40rem);
+  }
+  &-stamp {
+    padding: 0.8rem 0;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: space-between;
+    &-time {
+      color: $granat;
+    }
+    &-full_name {
+      color: $granat;
+    }
   }
 }
