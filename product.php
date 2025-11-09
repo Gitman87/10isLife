@@ -167,7 +167,7 @@ $prodData = getProductData(1);
       <div class="dashboard-pulpit-add">
         <div class="dashboard-pulpit-add-amount">
           <label for="quantifier" class="dashboard-pulpit-add-amount-label">Ilość:</label>
-          <input type="number" class="dashboard-pulpit-add-amount-quantifier" name="quantifier" id="quantifier" value=0 max=<?= $prodData['quantity'] ?>>
+          <input type="number" class="dashboard-pulpit-add-amount-quantifier" name="quantifier" id="quantifier" value=0 min=0 max=<?= $prodData['quantity'] ?>>
           <!-- <button class="dashboard-pulpit-add-amount-minus">-</button>
           <div class="dashboard-pulpit-add-amount-value">0</div>
           <button class="dashboard-pulpit-add-amount-lus">+</button> -->
@@ -212,8 +212,11 @@ $prodData = getProductData(1);
     </h4>
     <p class="warranty-text"><?= $prodData['warranty']['description'] ?></p>
   </section>
-
-  <?= genReviewTiles($prodData['reviews']) ?>
+  <section class="opinions">
+    <h3 class="opinions-head">Recenzje klientów</h3>
+    <div class="opinions-wrapper"></div>
+    <?= genReviewTiles($prodData['reviews']) ?>
+  </section>
 
 
 

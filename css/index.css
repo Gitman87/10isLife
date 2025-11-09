@@ -22,6 +22,7 @@ body {
   margin: 0;
   background-image: url(../res/icon/square-tile.svg);
   background-repeat: repeat;
+  background-attachment: fixed;
 }
 
 /* 3. Enable keyword animations */
@@ -150,6 +151,7 @@ body {
   margin: 0;
   background-image: url(../res/icon/square-tile.svg);
   background-repeat: repeat;
+  background-attachment: fixed;
 }
 
 /* 3. Enable keyword animations */
@@ -1027,6 +1029,7 @@ button {
   font-size: 2rem;
 }
 .warranty-text {
+  margin-top: 1rem;
   color: #002b5b;
   text-align: justify;
   -moz-column-count: 2;
@@ -1036,6 +1039,20 @@ button {
   -moz-column-gap: 2em;
        column-gap: 2em;
   text-indent: 2em;
+}
+
+.opinions {
+  margin-top: 1rem;
+  background-color: white;
+}
+.opinions-head {
+  color: #002b5b;
+  text-align: center;
+}
+.opinions-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4rem;
 }
 
 .hide {
@@ -2081,6 +2098,16 @@ button {
   height: 2.5rem;
   padding: 0.2rem 0.5rem;
   transform: skewX(-10deg);
+}
+
+.review {
+  background-color: white;
+  max-width: 50rem;
+  box-shadow: 0rem 0rem 0.6rem 0.1rem rgba(0, 0, 0, 0.3882352941);
+}
+.review-text {
+  width: 50rem;
+  height: 10rem;
 }
 
 body {

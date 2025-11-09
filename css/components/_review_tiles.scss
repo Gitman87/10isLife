@@ -1,0 +1,13 @@
+.review {
+  background-color: $white;
+  max-width: 50rem;
+
+  // overflow-y: scroll;
+  box-shadow: $box-shadow;
+  &-text {
+    width: 50rem;
+    // min-height: 4rem;
+    // max-height: 40rem;
+    height: clamp(4rem, 10rem, 40rem);
+  }
+}

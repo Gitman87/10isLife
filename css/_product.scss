@@ -213,12 +213,26 @@
     }
   }
   &-text {
+    margin-top: 1rem;
     color: $granat;
     text-align: justify;
     column-count: 2;
     column-width: 50ch;
     column-gap: 2em;
     text-indent: 2em;
+  }
+}
+.opinions {
+  margin-top: 1rem;
+  background-color: $white;
+  &-head {
+    color: $granat;
+    text-align: center;
+  }
+  &-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4rem;
   }
 }
 

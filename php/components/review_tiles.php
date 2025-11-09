@@ -9,25 +9,27 @@ function genReviewTiles($prodReviews)
     // echo 'Customers ids are: ' . $customersIds[0];
     $customersFullNames = customerFullName(array_keys($customersIds));
 ?>
-    <section class="reviews">
-        <?php
-        for ($i = 0; $i < count($prodReviews); $i++) {
-        ?>
-            <div class="review">
-                <?= genRateBalls($prodReviews[$i]['rating'], count($prodReviews), true) ?>
-                <p class="review-opinion"><?= $prodReviews[$i]['opinion'] ?></p>
-                <p class="review-stamp">
-                    <?php $dateArray = explode(' ', $prodReviews[$i]['review_date']);
-                    array_pop($dateArray);
-                    $date = implode($dateArray); ?>
-                    <span class="review-stamp-time"><?= $date ?></span>
-                    <span class="review-stamp-full_name"><?= $customersFullNames[$i] ?></span>
-                </p>
-            </div>
-        <?php
-        }
-        ?>
-    </section>
+
+    <?php
+    for ($i = 0; $i < count($prodReviews); $i++) {
+    ?>
+        <div class="review">
+
+            <?= genRateBalls($prodReviews[$i]['rating'], count($prodReviews), true) ?>
+            <textarea name="" id="" class="review-text"><?= $prodReviews[$i]['opinion'] ?></textarea>
+            <!-- <p class="review-opinion">/p> -->
+            <p class="review-stamp">
+                <?php $dateArray = explode(' ', $prodReviews[$i]['review_date']);
+                array_pop($dateArray);
+                $date = implode($dateArray); ?>
+                <span class="review-stamp-time"><?= $date ?></span>
+                <span class="review-stamp-full_name"><?= $customersFullNames[$i] ?></span>
+            </p>
+        </div>
+    <?php
+    }
+    ?>
+
     <!-- $rating = '';
     $opinion = '';
     $time = ''; -->
