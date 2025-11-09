@@ -215,6 +215,7 @@ $prodData = getProductData(1);
   <section class="opinions">
     <h3 class="opinions-head">Recenzje klientów</h3>
     <div class="opinions-wrapper">
+
       <?= genReviewTiles($prodData['reviews']) ?>
     </div>
 

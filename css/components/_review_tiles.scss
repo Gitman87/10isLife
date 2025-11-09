@@ -21,14 +21,19 @@
   }
   &-stamp {
     padding: 0.8rem 0;
+    width: 100%;
     display: flex;
     flex-direction: row;
-    gap: 1rem;
+    // gap: 1rem;
     justify-content: space-between;
     &-time {
       color: $granat;
+      // width: 30%;
     }
     &-full_name {
+      // width: 70%;
+      overflow-x: scroll;
+      text-align: right;
       color: $granat;
     }
   }

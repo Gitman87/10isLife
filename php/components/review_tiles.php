@@ -5,14 +5,23 @@ function genReviewTiles($prodReviews)
     foreach ($prodReviews as $id) {
         $customersIds[] = $id['customer_id'];
     }
+    // for($i; i$< count($prodReviews);$i++){
+    //     $customersIds[] =
+    // }
+    // echo var_dump($customersIds)
+    // print_r(array_keys($customersIds));
     // echo $prodReviews
     // echo 'Customers ids are: ' . $customersIds[0];
-    $customersFullNames = customerFullName(array_keys($customersIds));
+    $customersFullNames = customerFullName($customersIds);
+    // print_r($customersFullNames);
 ?>
 
     <?php
     for ($i = 0; $i < count($prodReviews); $i++) {
     ?>
+        <?php $dateArray = explode(' ', $prodReviews[$i]['review_date']);
+        array_pop($dateArray);
+        $date = implode($dateArray); ?>
         <div class="review">
 
             <div class="review-head">
@@ -20,13 +29,11 @@ function genReviewTiles($prodReviews)
             </div>
             <p name="" id="" class="review-text"><?= $prodReviews[$i]['opinion'] ?></p>
             <!-- <p class="review-opinion">/p> -->
-            <p class="review-stamp">
-                <?php $dateArray = explode(' ', $prodReviews[$i]['review_date']);
-                array_pop($dateArray);
-                $date = implode($dateArray); ?>
-            <div class="review-stamp-time"><?= $date ?></div>
-            <div class="review-stamp-full_name"><?= $customersFullNames[$i] ?></div>
-            </p>
+            <div class="review-stamp">
+
+                <div class="review-stamp-time"><?= $date ?></div>
+                <div class="review-stamp-full_name"><?= $customersFullNames[$i] ?></div>
+            </div>
         </div>
     <?php
     }
@@ -47,12 +54,13 @@ function customerFullName($idArray)
         die("Connection failed: " . $conn->connect_error);
     }
     $customersFullNameArray = [];
-    foreach ($idArray as $id) {
+    for ($i = 0; $i < count($idArray); $i++) {
         $stmt = $conn->prepare("SELECT first_name, last_name FROM customers WHERE customer_id=?");
         if (!$stmt) {
             die("statement error" . $conn->error);
         }
-        $stmt->bind_param("s", $id);
+        // echo ($idArray[0]);
+        $stmt->bind_param("s", $idArray[$i]);
         $stmt->execute();
         $result = $stmt->get_result();
         $assocResult = $result->fetch_assoc();

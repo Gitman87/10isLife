@@ -853,6 +853,7 @@ button {
 }
 
 .dashboard {
+  padding: 0 1rem;
   background-color: white;
   width: 100%;
   display: flex;
@@ -992,7 +993,7 @@ button {
 .description {
   background-color: white;
   width: 100%;
-  padding: 1rem 0;
+  padding: 1rem;
 }
 .description-head {
   color: #002b5b;
@@ -1002,10 +1003,10 @@ button {
 .description-text {
   color: #002b5b;
   text-align: justify;
-  -moz-column-count: 2;
-       column-count: 2;
-  -moz-column-width: 50ch;
-       column-width: 50ch;
+  -moz-column-count: 3;
+       column-count: 3;
+  -moz-column-width: 30ch;
+       column-width: 30ch;
   -moz-column-gap: 2em;
        column-gap: 2em;
   text-indent: 2em;
@@ -1014,7 +1015,7 @@ button {
 .warranty {
   background-color: white;
   width: 100%;
-  padding: 1rem 0;
+  padding: 1rem;
 }
 .warranty-head {
   color: #002b5b;
@@ -1032,17 +1033,17 @@ button {
   margin-top: 1rem;
   color: #002b5b;
   text-align: justify;
-  -moz-column-count: 2;
-       column-count: 2;
-  -moz-column-width: 50ch;
-       column-width: 50ch;
+  -moz-column-count: 3;
+       column-count: 3;
+  -moz-column-width: 30ch;
+       column-width: 30ch;
   -moz-column-gap: 2em;
        column-gap: 2em;
   text-indent: 2em;
 }
 
 .opinions {
-  margin-top: 1rem;
+  padding-top: 2rem;
   background-color: white;
 }
 .opinions-head {
@@ -1050,6 +1051,7 @@ button {
   text-align: center;
 }
 .opinions-wrapper {
+  margin-top: 1rem;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -2126,15 +2128,17 @@ button {
 }
 .review-stamp {
   padding: 0.8rem 0;
+  width: 100%;
   display: flex;
   flex-direction: row;
-  gap: 1rem;
   justify-content: space-between;
 }
 .review-stamp-time {
   color: #002b5b;
 }
 .review-stamp-full_name {
+  overflow-x: scroll;
+  text-align: right;
   color: #002b5b;
 }
 

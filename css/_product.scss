@@ -19,6 +19,7 @@
 @import "components/_product_preview";
 
 .dashboard {
+  padding: 0 1rem;
   background-color: $white;
   width: 100%;
   display: flex;
@@ -179,7 +180,7 @@
 .description {
   background-color: $white;
   width: 100%;
-  padding: 1rem 0;
+  padding: 1rem;
 
   &-head {
     color: $granat;
@@ -189,8 +190,8 @@
   &-text {
     color: $granat;
     text-align: justify;
-    column-count: 2;
-    column-width: 50ch;
+    column-count: 3;
+    column-width: 30ch;
     column-gap: 2em;
     text-indent: 2em;
   }
@@ -198,7 +199,7 @@
 .warranty {
   background-color: $white;
   width: 100%;
-  padding: 1rem 0;
+  padding: 1rem;
 
   &-head {
     color: $granat;
@@ -216,14 +217,14 @@
     margin-top: 1rem;
     color: $granat;
     text-align: justify;
-    column-count: 2;
-    column-width: 50ch;
+    column-count: 3;
+    column-width: 30ch;
     column-gap: 2em;
     text-indent: 2em;
   }
 }
 .opinions {
-  margin-top: 1rem;
+  padding-top: 2rem;
 
   background-color: $white;
   &-head {
@@ -231,6 +232,7 @@
     text-align: center;
   }
   &-wrapper {
+    margin-top: 1rem;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
