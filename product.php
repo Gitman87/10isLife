@@ -34,6 +34,8 @@ include './php/components/product_preview.php';
 // api
 require './php/api/connection.php';
 require './php/api/get_product_data.php';
+require './php/api/get_reviews.php';
+
 //prod info
 require './php/components/digit_balls.php';
 require './php/components/review_tiles.php';
@@ -41,6 +43,7 @@ require './php/components/discount_display.php';
 
 session_start();
 $prodData = getProductData(1);
+$reviewData = getReviews(1);
 ?>
 <?php genHeader() ?>
 
@@ -214,9 +217,11 @@ $prodData = getProductData(1);
   </section>
   <section class="opinions">
     <h3 class="opinions-head">Recenzje klientów</h3>
+    <label for="new_review" class="opinions-label"></label>
+    <textarea name="new_review" id="new_review"></textarea>
     <div class="opinions-wrapper">
 
-      <?= genReviewTiles($prodData['reviews']) ?>
+      <?= genReviewTiles($reviewData) ?>
     </div>
 
   </section>

@@ -187,7 +187,7 @@ WHERE
     //     $prodArray['length'][] = $row;
     // };
     // print_r($prodArray['cover']['value']);
-    // ............................--------------------------reviews--------------------------
+    // ........................reviews--------------------------
     $stmt = $conn->prepare("SELECT reviews.customer_id, reviews.rating, reviews.opinion, review_date from reviews WHERE product_id = ?;");
     if (!$stmt) {
         die("statement error" . $conn->error);
