@@ -154,7 +154,7 @@ $prodData = getProductData(1);
         </div>
         <div class="dashboard-pulpit-variants-cover">
           <label for="cover" class="dashboard-pulpit-variants-cover-label">Pokrowiec:</label>
-          <p class="dashboard-pulpit-variants-cover-value"><?= $prodData['material']['value'] ?></p>
+          <p class="dashboard-pulpit-variants-cover-value"><?= $prodData['cover']['value'] ?></p>
 
           </select>
 
@@ -167,24 +167,24 @@ $prodData = getProductData(1);
       <div class="dashboard-pulpit-add">
         <div class="dashboard-pulpit-add-amount">
           <label for="quantifier" class="dashboard-pulpit-add-amount-label">Ilość:</label>
-          <input type="number" class="dashboard-pulpit-add-amount-quantifier" name="quantifier" id="quantifier" value=0>
+          <input type="number" class="dashboard-pulpit-add-amount-quantifier" name="quantifier" id="quantifier" value=0 max=<?= $prodData['quantity'] ?>>
           <!-- <button class="dashboard-pulpit-add-amount-minus">-</button>
           <div class="dashboard-pulpit-add-amount-value">0</div>
           <button class="dashboard-pulpit-add-amount-lus">+</button> -->
         </div>
-        <div class="dashboard-pulpit-header-quantity">
+        <div class="dashboard-pulpit-add-availability">
           <?php
           if ($prodData['quantity'] > 5) {
           ?>
-            <p class="dashboard-pulpit-header-quantity-available">Produkt dostępny</p>
+            <p class="dashboard-pulpit-add-availability-available">Produkt dostępny</p>
           <?php
           } elseif ($prodData['quantity'] > 0) {
           ?>
-            <p class="dashboard-pulpit-header-quantity-warning">Uwaga! Zostało mniej niż 5 szt.</p>
+            <p class="dashboard-pulpit-add-availability-warning">Uwaga! Zostało mniej niż 5 szt.</p>
           <?php
           } else {
           ?>
-            <p class="dashboard-pulpit-header-quantity-unavailable">Produkt niedostępny</p>
+            <p class="dashboard-pulpit-add-availability-unavailable">Produkt niedostępny</p>
           <?php
           }
           ?>
@@ -202,15 +202,15 @@ $prodData = getProductData(1);
 
   </section>
   <section class="description">
-    <h2 class="description-tile">Opis</h2>
+    <h2 class="description-head">Opis</h2>
     <p class="description-text"><?= $prodData['description'] ?></p>
   </section>
   <section class="warranty">
-    <h3 class="warranty-title">Gwarancja</h3>
-    <h5 class="warranty-time">Ten produkt objęty jest gwarancją na okres
-      <span class="warranty-time-number"> <?= $prodData['warranty']['time'] ?> </span>miesięcy.
-    </h5>
-    <p class="warranty-description"><?= $prodData['warranty']['description'] ?></p>
+    <h3 class="warranty-head">Gwarancja</h3>
+    <h4 class="warranty-time">Ten produkt objęty jest gwarancją na okres &nbsp;
+      <span class="warranty-time-number"> <?= $prodData['warranty']['time'] ?> </span> miesięcy.
+    </h4>
+    <p class="warranty-text"><?= $prodData['warranty']['description'] ?></p>
   </section>
 
   <?= genReviewTiles($prodData['reviews']) ?>

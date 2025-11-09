@@ -1,12 +1,12 @@
 .slideshow {
   width: 100%;
   min-height: 50rem;
-  background-color: darkolivegreen;
+  // background-color: darkolivegreen;
   overflow-x: hidden;
   position: relative;
 
   &-list {
-    background-color: rgb(108, 138, 55);
+    // background-color: rgb(108, 138, 55);
     display: flex;
     // gap: 1.6rem;
     width: fit-content;
@@ -16,7 +16,7 @@
     transition-timing-function: ease-in-out;
   }
   &-nav {
-    background-color: rgb(162, 228, 48);
+    // background-color: rgb(162, 228, 48);
     position: absolute;
     top: 45%;
     display: flex;

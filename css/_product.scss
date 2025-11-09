@@ -149,7 +149,6 @@
     &-line {
       border: 0.1rem solid $gray;
     }
-
     &-add {
       display: flex;
       justify-content: space-evenly;
@@ -163,7 +162,7 @@
           max-width: 6rem;
         }
       }
-      &-quantity {
+      &-availability {
         &-available {
           color: $granat;
         }
@@ -178,8 +177,51 @@
   }
 }
 .description {
+  background-color: $white;
   width: 100%;
+  padding: 1rem 0;
+
+  &-head {
+    color: $granat;
+    text-align: center;
+    margin: 1rem 0;
+  }
+  &-text {
+    color: $granat;
+    text-align: justify;
+    column-count: 2;
+    column-width: 50ch;
+    column-gap: 2em;
+    text-indent: 2em;
+  }
 }
+.warranty {
+  background-color: $white;
+  width: 100%;
+  padding: 1rem 0;
+
+  &-head {
+    color: $granat;
+    text-align: center;
+    margin: 1rem 0;
+  }
+  &-time {
+    color: $granat;
+    text-align: center;
+    &-number {
+      font-size: $font-large;
+    }
+  }
+  &-text {
+    color: $granat;
+    text-align: justify;
+    column-count: 2;
+    column-width: 50ch;
+    column-gap: 2em;
+    text-indent: 2em;
+  }
+}
+
 .hide {
   display: none;
 }

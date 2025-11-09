@@ -476,12 +476,10 @@ button {
 .slideshow {
   width: 100%;
   min-height: 50rem;
-  background-color: darkolivegreen;
   overflow-x: hidden;
   position: relative;
 }
 .slideshow-list {
-  background-color: rgb(108, 138, 55);
   display: flex;
   width: -moz-fit-content;
   width: fit-content;
@@ -491,7 +489,6 @@ button {
   transition-timing-function: ease-in-out;
 }
 .slideshow-nav {
-  background-color: rgb(162, 228, 48);
   position: absolute;
   top: 45%;
   display: flex;
@@ -545,7 +542,12 @@ button {
      object-fit: cover;
 }
 .slideshow-list-slide-details {
-  background-color: rgb(170, 224, 76);
+  -webkit-backdrop-filter: blur(10rem);
+  background-color: rgba(255, 255, 255, 0.279);
+  -webkit-backdrop-filter: blur(1rem);
+          backdrop-filter: blur(1rem);
+  box-shadow: 0 0.4rem 3rem rgba(0, 0, 0, 0.1);
+  border-bottom: 0.1rem solid rgba(255, 255, 255, 0.3);
   position: absolute;
   max-width: 45ch;
   display: flex;
@@ -786,14 +788,14 @@ button {
 }
 
 .product_preview {
-  background-color: rgb(66, 35, 12);
+  background-color: white;
   width: 60%;
   display: flex;
   flex-direction: row;
   position: relative;
 }
 .product_preview-preview {
-  background-color: rgb(74, 73, 73);
+  background-color: white;
   position: relative;
   overflow: hidden;
   cursor: none; /* Optional: hide default cursor */
@@ -975,18 +977,65 @@ button {
 .dashboard-pulpit-add-amount-quantifier {
   max-width: 6rem;
 }
-.dashboard-pulpit-add-quantity-available {
+.dashboard-pulpit-add-availability-available {
   color: #002b5b;
 }
-.dashboard-pulpit-add-quantity-warning {
+.dashboard-pulpit-add-availability-warning {
   color: #b51818;
 }
-.dashboard-pulpit-add-quantity-unavailable {
+.dashboard-pulpit-add-availability-unavailable {
   color: #b51818;
 }
 
 .description {
+  background-color: white;
   width: 100%;
+  padding: 1rem 0;
+}
+.description-head {
+  color: #002b5b;
+  text-align: center;
+  margin: 1rem 0;
+}
+.description-text {
+  color: #002b5b;
+  text-align: justify;
+  -moz-column-count: 2;
+       column-count: 2;
+  -moz-column-width: 50ch;
+       column-width: 50ch;
+  -moz-column-gap: 2em;
+       column-gap: 2em;
+  text-indent: 2em;
+}
+
+.warranty {
+  background-color: white;
+  width: 100%;
+  padding: 1rem 0;
+}
+.warranty-head {
+  color: #002b5b;
+  text-align: center;
+  margin: 1rem 0;
+}
+.warranty-time {
+  color: #002b5b;
+  text-align: center;
+}
+.warranty-time-number {
+  font-size: 2rem;
+}
+.warranty-text {
+  color: #002b5b;
+  text-align: justify;
+  -moz-column-count: 2;
+       column-count: 2;
+  -moz-column-width: 50ch;
+       column-width: 50ch;
+  -moz-column-gap: 2em;
+       column-gap: 2em;
+  text-indent: 2em;
 }
 
 .hide {
@@ -1538,12 +1587,10 @@ button {
 .slideshow {
   width: 100%;
   min-height: 50rem;
-  background-color: darkolivegreen;
   overflow-x: hidden;
   position: relative;
 }
 .slideshow-list {
-  background-color: rgb(108, 138, 55);
   display: flex;
   width: -moz-fit-content;
   width: fit-content;
@@ -1553,7 +1600,6 @@ button {
   transition-timing-function: ease-in-out;
 }
 .slideshow-nav {
-  background-color: rgb(162, 228, 48);
   position: absolute;
   top: 45%;
   display: flex;
@@ -1607,7 +1653,12 @@ button {
      object-fit: cover;
 }
 .slideshow-list-slide-details {
-  background-color: rgb(170, 224, 76);
+  -webkit-backdrop-filter: blur(10rem);
+  background-color: rgba(255, 255, 255, 0.279);
+  -webkit-backdrop-filter: blur(1rem);
+          backdrop-filter: blur(1rem);
+  box-shadow: 0 0.4rem 3rem rgba(0, 0, 0, 0.1);
+  border-bottom: 0.1rem solid rgba(255, 255, 255, 0.3);
   position: absolute;
   max-width: 45ch;
   display: flex;
@@ -1936,14 +1987,14 @@ button {
 }
 
 .product_preview {
-  background-color: rgb(66, 35, 12);
+  background-color: white;
   width: 60%;
   display: flex;
   flex-direction: row;
   position: relative;
 }
 .product_preview-preview {
-  background-color: rgb(74, 73, 73);
+  background-color: white;
   position: relative;
   overflow: hidden;
   cursor: none; /* Optional: hide default cursor */
@@ -2001,6 +2052,7 @@ button {
 .digit_balls {
   display: flex;
   gap: 0.8rem;
+  flex-wrap: wrap;
 }
 .digit_balls-ball {
   width: 4rem;
@@ -2041,7 +2093,6 @@ body {
 }
 
 .main {
-  background-color: yellow;
   margin: 1.6rem auto;
   margin-top: 4rem;
   max-width: 152rem;

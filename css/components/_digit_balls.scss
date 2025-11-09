@@ -1,6 +1,7 @@
 .digit_balls {
   display: flex;
   gap: 0.8rem;
+  flex-wrap: wrap;
   &-ball {
     // padding: 0.8em;
     width: 4rem;

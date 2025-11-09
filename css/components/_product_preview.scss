@@ -1,11 +1,11 @@
 .product_preview {
-  background-color: rgb(66, 35, 12);
+  background-color: $white;
   width: 60%;
   display: flex;
   flex-direction: row;
   position: relative;
   &-preview {
-    background-color: rgb(74, 73, 73);
+    background-color: $white;
     position: relative;
     overflow: hidden;
     cursor: none; /* Optional: hide default cursor */
