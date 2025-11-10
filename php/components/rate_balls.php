@@ -1,12 +1,14 @@
 <?php
 function genRateBalls($rate, $numberOfOpinions, $isReview = false)
 {
-    $grayBallsNumber = 5 - $rate;
+    $grayBallsNumber = 5 - round($rate);
+
 ?>
     <div class="rate">
         <ul class="rate-balls">
             <?php
-            for ($i = 0; $i < $rate; $i++) {
+            //orange balls
+            for ($i = 0; $i < (5 - $grayBallsNumber); $i++) {
             ?>
                 <li class="rate-balls-ball">
                     <img src="./res/icon/favicon.svg" alt="ball rating" class="rate-balls-ball-img">
@@ -14,7 +16,7 @@ function genRateBalls($rate, $numberOfOpinions, $isReview = false)
             <?php
             };
 
-
+            // gray balls
             for ($i = 0; $i < $grayBallsNumber; $i++) {
             ?>
                 <li class="rate-balls-ball">

@@ -5,15 +5,7 @@ function genReviewTiles($prodReviews)
     foreach ($prodReviews as $id) {
         $customersIds[] = $id['customer_id'];
     }
-    // for($i; i$< count($prodReviews);$i++){
-    //     $customersIds[] =
-    // }
-    // echo var_dump($customersIds)
-    // print_r(array_keys($customersIds));
-    // echo $prodReviews
-    // echo 'Customers ids are: ' . $customersIds[0];
-    // $customersFullNames = customerFullName($customersIds);
-    // print_r($customersFullNames);
+
 ?>
 
     <?php
@@ -45,8 +37,6 @@ function genReviewTiles($prodReviews)
     }
     ?>
 
-    <!-- $rating = '';
-    $opinion = '';
-    $time = ''; -->
+
 <?php
 }

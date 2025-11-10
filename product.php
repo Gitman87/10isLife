@@ -67,7 +67,6 @@ $reviewData = getReviews(1);
           }
           ?>
         </div>
-
         <?php genRateBalls($prodData['rating_score'], count($prodData['reviews'])) ?>
         <div class="dashboard-pulpit-header-title">
           <h3 class="dashboard-pulpit-header-title-name"><?= $prodData['name'] ?></h3>
