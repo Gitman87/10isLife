@@ -21,10 +21,9 @@ function magnify(selector, zoom = 2, lensSize = 80) {
   const container = document.querySelector(selector);
   const img = container.querySelector("img");
 
-  // creating circle div for lens
-  //canot use variables ;(
-  const lens = document.createElement("div");
-  lens.style.cssText = `
+  if (!container.querySelector("#lens")) {
+    const lens = document.createElement("div");
+    lens.style.cssText = `
     position:absolute;
     pointer-events:none;
     width:${lensSize * 2}px;
@@ -37,8 +36,9 @@ function magnify(selector, zoom = 2, lensSize = 80) {
     display:none;
     transform: translate(-50%, -50%);
   `;
-  container.appendChild(lens);
-
+    lens.id = "lens";
+    container.appendChild(lens);
+  }
   //preparing original image copie,this will  be scaled
   const copiedImage = document.createElement("img");
   copiedImage.src = img.src;
