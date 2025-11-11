@@ -215,9 +215,9 @@ $reviewData = getReviews(1);
     <p class="warranty-text"><?= $prodData['warranty']['description'] ?></p>
   </section>
   <section class="opinions">
-    <h3 class="opinions-head">Recenzje klientów</h3>
+    <!-- <h3 class="opinions-head">Recenzje klientów</h3>
     <label for="new_review" class="opinions-label"></label>
-    <textarea name="new_review" id="new_review"></textarea>
+    <textarea name="new_review" id="new_review"></textarea> -->
     <div class="opinions-wrapper">
 
       <?= genReviewTiles($reviewData) ?>
