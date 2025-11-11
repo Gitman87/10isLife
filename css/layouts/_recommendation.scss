@@ -13,6 +13,7 @@
     transform: scale(1.5);
     &-text {
       position: relative;
+      user-select: none;
       span {
         display: inline-block;
         color: $white;
@@ -45,6 +46,7 @@
     position: absolute;
     top: 40%;
     left: 26%;
+    user-select: none;
     &-text {
       color: $white;
       display: flex;

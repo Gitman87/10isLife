@@ -1316,6 +1316,9 @@ button {
 }
 .recommendation-animation-text {
   position: relative;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 .recommendation-animation-text span {
   display: inline-block;
@@ -1346,6 +1349,9 @@ button {
   position: absolute;
   top: 40%;
   left: 26%;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 .recommendation-paragraph-text {
   color: white;
