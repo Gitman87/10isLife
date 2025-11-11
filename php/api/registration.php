@@ -34,11 +34,7 @@ function setCustomerData()
     try {
       if ($stmt->execute()) {
         //       echo '
-        // {
-        //  "success":true,
-        //  "message":"registered"
 
-        // }  ';
         //automatic logging
         session_start();
         //user id will be his id from db, the last insert

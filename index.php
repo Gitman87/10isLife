@@ -34,7 +34,12 @@ include './php/components/tile.php';
 include './php/components/rate_balls.php';
 include './php/components/product_preview.php';
 include './php/product.php';
+
+
+require './php/api/connection.php';
+
 include './php/api/get_reviews.php';
+include './php/api/reviewing.php';
 
 session_start();
 

@@ -43,12 +43,13 @@ require './php/components/review_tiles.php';
 require './php/components/discount_display.php';
 
 session_start();
-$prodData = getProductData(1);
-$reviewData = getReviews(1);
+$prodId = 1;
+$prodData = getProductData($prodId);
+$reviewData = getReviews($prodId);
 ?>
 <?php genHeader() ?>
 <main class="main">
-  <script src="./js/write_review.js"></script>
+
 
   <!-- <script src="/js/components/magnifier.js"></script> -->
   <section class="dashboard">
@@ -210,10 +211,10 @@ $reviewData = getReviews(1);
   </section>
   <section class="opinions">
     <h3 class="opinions-head">Recenzje klientów</h3>
-    <form action="" method="POST" class="opinions-write">
+    <form action=".php/api/reviewing.php" method="POST" class="opinions-write">
       <div class="opinions-write-rate_wrapper">
         <label for="" class="opinions-write-rate_wrapper-new_rate_label">Twoja ocena</label>
-        <input type="number" name="new_rate " id='new_rate' class="opinions-write-rate_wrapper-new_rate" min=1 max=5 value=5>
+        <input type="number" name="new_rate" id='new_rate' class="opinions-write-rate_wrapper-new_rate" min=1 max=5 value=5>
       </div>
       <div class="opinions-write-review_wrapper">
         <label for="new_review" class="opinions-write-review_wrapper-new_review_label">Napisz recencję</label>
@@ -223,7 +224,7 @@ $reviewData = getReviews(1);
         ?>
           <p class="opinions-write-review_wrapper-agreement">*Przesyłając opinię zgadzasz się na upublicznienie swojego imienia i nazwiska.</p>
         <?php
-          genStandardButton('Prześlij', true);
+          genStandardButton('Prześlij', true, '', 'writeReview()');
         } else {
         ?>
           <p class="opinions-write-review_wrapper-not_logged hide_textarea ">Musisz być zalogowany, żeby napisać recenzję.</p>
@@ -232,12 +233,13 @@ $reviewData = getReviews(1);
         ?>
       </div>
       <p class="opinions-write-error_output"></p>
-
+      <input type="hidden" name="prod_id" value="<?= $prodId ?>">
     </form>
     <div class="opinions-wrapper">
       <?= genReviewTiles($reviewData) ?>
     </div>
   </section>
+  <script src="./js/write_review.js"></script>
 </main>
 
 <?php genFooter() ?>

@@ -1,6 +1,7 @@
 function writeReview() {
-  const form = document.querySelector(".logging");
-  const errorContainer = form.querySelector(".logging-error_output");
+  console.log("writeReview triggred");
+  const form = document.querySelector(".opinions-write");
+  const errorContainer = form.querySelector(".opinions-write-error_output");
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
     const formData = new FormData(form);
@@ -15,19 +16,8 @@ function writeReview() {
       }
       const result = await response.json();
       if (result["success"]) {
-        console.log("zalogowao");
-        if (result["redirect"]) {
-          window.location.href = result["redirect"];
-          console.log("User should be redirected now");
-        }
+        console.log("Recenzja OK");
       } else {
-        // let errorMessages = [];
-        // const errorMessagesObject = result["message"];
-        // for (const message in errorMessagesObject) {
-        //   if (errorMessagesObject.hasOwnProperty(message)) {
-        //     errorMessages.push(errorMessagesObject[message]);
-        //   }
-        // }
         errorContainer.innerHTML = result["message"];
         // errorContainer.innerHTML = errorMessages.join("<br>");
       }
