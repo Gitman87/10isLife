@@ -160,7 +160,9 @@
           color: $granat;
         }
         &-quantifier {
+          color: $granat;
           max-width: 6rem;
+          border: 0.1rem solid $gray;
         }
       }
       &-availability {
@@ -191,7 +193,7 @@
     color: $granat;
     text-align: justify;
     column-count: 3;
-    column-width: 30ch;
+    // column-width: 30ch;
     column-gap: 2em;
     text-indent: 2em;
   }
@@ -218,7 +220,7 @@
     color: $granat;
     text-align: justify;
     column-count: 3;
-    column-width: 30ch;
+    // column-width: 30ch;
     column-gap: 2em;
     text-indent: 2em;
   }
@@ -230,6 +232,56 @@
   &-head {
     color: $granat;
     text-align: center;
+  }
+  &-write {
+    margin-top: 1rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+    min-height: 20rem;
+    max-height: 30rem;
+    &-rate_wrapper {
+      display: flex;
+      gap: 2rem;
+      // flex-direction: column;
+      &-new_rate_label {
+        color: $granat;
+      }
+      &-new_rate {
+        color: $granat;
+        width: 5rem;
+        border: 0.1rem solid $gray;
+      }
+    }
+    &-review_wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      width: 45rem;
+      &-new_review_label {
+        color: $granat;
+      }
+      &-new_review {
+        color: $granat;
+        padding: 0.5rem;
+        border: 0.1rem solid $gray;
+        overflow: scroll;
+        resize: none;
+      }
+      &-new_review:focus + .hide_textarea {
+        display: block !important;
+      }
+      &-not_logged {
+        color: $error-color;
+        // display: n;
+      }
+      &-agreement {
+        color: $gray;
+        font-size: $font-small;
+      }
+    }
   }
   &-wrapper {
     margin-top: 1rem;
@@ -248,3 +300,10 @@
 .hide {
   display: none;
 }
+.hide_textarea {
+  display: none;
+}
+// #new_review:focus + .hide {
+//   display: block !important;
+//   background-color: pink;
+// }

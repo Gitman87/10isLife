@@ -35,6 +35,7 @@ include './php/components/product_preview.php';
 require './php/api/connection.php';
 require './php/api/get_product_data.php';
 require './php/api/get_reviews.php';
+require './php/api/reviewing.php';
 
 //prod info
 require './php/components/digit_balls.php';
@@ -46,9 +47,9 @@ $prodData = getProductData(1);
 $reviewData = getReviews(1);
 ?>
 <?php genHeader() ?>
-
-
 <main class="main">
+  <script src="./js/write_review.js"></script>
+
   <!-- <script src="/js/components/magnifier.js"></script> -->
   <section class="dashboard">
     <?php genProductPreview($prodData['images']) ?>
@@ -212,28 +213,31 @@ $reviewData = getReviews(1);
     <form action="" method="POST" class="opinions-write">
       <div class="opinions-write-rate_wrapper">
         <label for="" class="opinions-write-rate_wrapper-new_rate_label">Twoja ocena</label>
-        <input type="number" name="new_rate " id='new_rate' class="opinions-write-rate_wrapper-new_rate" min=1 max=5 value=5><span class="opinions-write-rate_wrapper">/5</span>
+        <input type="number" name="new_rate " id='new_rate' class="opinions-write-rate_wrapper-new_rate" min=1 max=5 value=5>
       </div>
-
       <div class="opinions-write-review_wrapper">
-        <label for="new_review" class="oopinions-write-review_wrapper-new_review_label">Napisz recencję</label>
-        <textarea name="new_review" class="opinions-write-review_wrapper-new_review" id="new_review"></textarea>
+        <label for="new_review" class="opinions-write-review_wrapper-new_review_label">Napisz recencję</label>
+        <textarea name="new_review" class="opinions-write-review_wrapper-new_review" id="new_review" maxlength="600" required></textarea>
+        <?php
+        if ($_SESSION['user_name']) {
+        ?>
+          <p class="opinions-write-review_wrapper-agreement">*Przesyłając opinię zgadzasz się na upublicznienie swojego imienia i nazwiska.</p>
+        <?php
+          genStandardButton('Prześlij', true);
+        } else {
+        ?>
+          <p class="opinions-write-review_wrapper-not_logged hide_textarea ">Musisz być zalogowany, żeby napisać recenzję.</p>
+        <?php
+        };
+        ?>
       </div>
       <p class="opinions-write-error_output"></p>
-      <?php
 
-
-      genStandardButton('Prześlij', true) ?>
     </form>
     <div class="opinions-wrapper">
       <?= genReviewTiles($reviewData) ?>
     </div>
-
   </section>
-
-
-
-
 </main>
 
 <?php genFooter() ?>
