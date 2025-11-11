@@ -1,6 +1,3 @@
-function test() {
-  console.log("plik js dziala");
-}
 const slideShow = document.querySelector(".slideshow");
 const slideShowList = slideShow.querySelector(".slideshow-list");
 const slides = slideShow.querySelectorAll(".slideshow-list li");
@@ -16,31 +13,30 @@ slides[Math.abs(slideShowListPosition)].classList.toggle("inactive_slide");
 
 // console.log("Number of slides is: ", numberOfSlides);
 let slideWidth = 72;
+//start on second slide (for better looks)
+document.addEventListener("DOMContentLoaded", () => {
+  moveSlideShowLeft();
+});
+
 function moveSlideShowLeft() {
   if (Math.abs(slideShowListPosition) < numberOfSlides - 1) {
-    console.log("moved left");
     slideShowListPosition--;
     marginLeft = 36 + slideWidth * slideShowListPosition;
     slides[Math.abs(slideShowListPosition)].classList.toggle("inactive_slide");
     slides[Math.abs(slideShowListPosition) - 1].classList.toggle(
       "inactive_slide"
     );
-    console.log("margin left in moveSlideShowLeft is: ", marginLeft);
     slideShowList.style.marginLeft = marginLeft + "rem";
-    console.log("slideShow position is: ", slideShowListPosition);
   }
 }
 function moveSlideShowRight() {
   if (Math.abs(slideShowListPosition) > 0) {
-    console.log("moved right");
     slideShowListPosition++;
     marginLeft = 36 + slideWidth * slideShowListPosition;
     slides[Math.abs(slideShowListPosition)].classList.toggle("inactive_slide");
     slides[Math.abs(slideShowListPosition) + 1].classList.toggle(
       "inactive_slide"
     );
-    console.log("margin left in moveSlideShowRight is: ", marginLeft);
     slideShowList.style.marginLeft = marginLeft + "rem";
-    console.log("slideShow position is: ", slideShowListPosition);
   }
 }
