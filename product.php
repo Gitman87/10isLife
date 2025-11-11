@@ -192,16 +192,9 @@ $reviewData = getReviews(1);
           ?>
         </div>
         <!-- <button class="dashboard-pulpit-add-button">Do koszyka</button> -->
-
-
       </div>
       <?php genStandardButton('Do koszyka', true,  '', '') ?>
-
-
-
     </div>
-
-
   </section>
   <section class="description">
     <h2 class="description-head">Opis</h2>
@@ -215,11 +208,24 @@ $reviewData = getReviews(1);
     <p class="warranty-text"><?= $prodData['warranty']['description'] ?></p>
   </section>
   <section class="opinions">
-    <!-- <h3 class="opinions-head">Recenzje klientów</h3>
-    <label for="new_review" class="opinions-label"></label>
-    <textarea name="new_review" id="new_review"></textarea> -->
-    <div class="opinions-wrapper">
+    <h3 class="opinions-head">Recenzje klientów</h3>
+    <form action="" method="POST" class="opinions-write">
+      <div class="opinions-write-rate_wrapper">
+        <label for="" class="opinions-write-rate_wrapper-new_rate_label">Twoja ocena</label>
+        <input type="number" name="new_rate " id='new_rate' class="opinions-write-rate_wrapper-new_rate" min=1 max=5 value=5><span class="opinions-write-rate_wrapper">/5</span>
+      </div>
 
+      <div class="opinions-write-review_wrapper">
+        <label for="new_review" class="oopinions-write-review_wrapper-new_review_label">Napisz recencję</label>
+        <textarea name="new_review" class="opinions-write-review_wrapper-new_review" id="new_review"></textarea>
+      </div>
+      <p class="opinions-write-error_output"></p>
+      <?php
+
+
+      genStandardButton('Prześlij', true) ?>
+    </form>
+    <div class="opinions-wrapper">
       <?= genReviewTiles($reviewData) ?>
     </div>
 
