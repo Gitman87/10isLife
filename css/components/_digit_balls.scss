@@ -2,23 +2,38 @@
   display: flex;
   gap: 0.8rem;
   flex-wrap: wrap;
-  &-ball {
-    // padding: 0.8em;
-    width: 4rem;
-    height: 4rem;
+  &-item {
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
-    background-color: $gray;
-    background-color: $granat;
-    border-radius: 50%;
-    transition: background-color 0.4s ease-in-out;
-    &-button {
-      color: $white;
+    &-label {
+      color: $granat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 4.5rem;
+      height: 4.5rem;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 2;
+      transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out;
+      border: 2px solid $granat;
+      &:hover {
+        background-color: $granat;
+        color: $white;
+      }
     }
-  }
-  &-ball:hover {
-    background-color: $orange;
+    &-ball {
+      position: absolute;
+      opacity: 0;
+      width: 1px;
+      height: 1px;
+      pointer-events: none;
+    }
+    &-ball:checked + label {
+      background-color: $granat;
+      color: $white;
+      border-color: $granat;
+    }
   }
 }

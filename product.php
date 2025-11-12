@@ -137,12 +137,12 @@ $reviewData = getReviews($prodId);
 
 
 
-          <?= genDigitBalls($prodData['grip_size']) ?>
+          <?= genDigitBalls($prodData['grip_size'], 'grip_ball') ?>
 
         </div>
         <div class="dashboard-pulpit-variants-length">
           <p class="dashboard-pulpit-variants-length-title">Długość [cm]:</p>
-          <?= genDigitBalls($prodData['length']) ?>
+          <?= genDigitBalls($prodData['length'], 'length_ball') ?>
 
 
         </div>
