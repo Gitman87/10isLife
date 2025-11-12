@@ -942,6 +942,7 @@ button {
 }
 .dashboard-pulpit-variants-sizes-size-table {
   position: absolute;
+  z-index: 5;
   width: 30rem;
   padding: 0.5rem;
   top: 80%;
