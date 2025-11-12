@@ -25,13 +25,13 @@ function setReview()
         $sanitizedReviewText = sanitizeInputValue($_POST['new_review']);
         // echo "21 linijka";
         $userId = $_SESSION['user_id'];
-        // echo "23 linijka";
+        // echo $userId;
         $sanitizedProdId = sanitizeInputValue($_POST['prod_id']);
         $reviewDate = date('Y-m-d H:i:s');
 
 
         $stmt = $conn->prepare("INSERT INTO reviews(product_id,customer_id,rating,opinion, review_date) VALUES (?,?,?,?,?)");
-        $stmt->bind_param("sssss", $sanitizedProdId, $userId, $sanitizedRate, $sanitizedReviewText, $reviewDate);
+        $stmt->bind_param("sdsss", $sanitizedProdId, $userId, $sanitizedRate, $sanitizedReviewText, $reviewDate);
 
         try {
             if ($stmt->execute()) {
@@ -40,6 +40,7 @@ function setReview()
                 echo json_encode([
                     "success" => true,
                     "message" => "review sent"
+
                 ]);
                 exit;
             };

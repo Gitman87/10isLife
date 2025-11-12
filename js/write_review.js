@@ -18,13 +18,17 @@ function writeReview() {
       if (result["success"]) {
         form.reset();
         errorContainer.innerHTML = "Recenzja została pomyślnie przesłana!";
-        console.log("Recenzja OK");
+        // console.log("Recenzja OK");
         setTimeout(() => {
           errorContainer.innerHTML = "";
-        }, 3000);
+        }, 5000);
       } else {
-        errorContainer.innerHTML = result["message"];
+        errorContainer.innerHTML = result["message"]["dataBaseError"];
         // errorContainer.innerHTML = errorMessages.join("<br>");
+        setTimeout(() => {
+          errorContainer.innerHTML = " ";
+          form.reset();
+        }, 5000);
       }
       // console.log("result is ", result);
     } catch (error) {
