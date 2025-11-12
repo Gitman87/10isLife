@@ -1096,6 +1096,9 @@ button {
   color: #808080;
   font-size: 1.4rem;
 }
+.opinions-write-error_output {
+  color: #b51818;
+}
 .opinions-wrapper {
   margin-top: 1rem;
   width: 100%;

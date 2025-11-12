@@ -211,7 +211,7 @@ $reviewData = getReviews($prodId);
   </section>
   <section class="opinions">
     <h3 class="opinions-head">Recenzje klientów</h3>
-    <form action=".php/api/reviewing.php" method="POST" class="opinions-write">
+    <form action="/php/api/reviewing.php" method="POST" class="opinions-write">
       <div class="opinions-write-rate_wrapper">
         <label for="" class="opinions-write-rate_wrapper-new_rate_label">Twoja ocena</label>
         <input type="number" name="new_rate" id='new_rate' class="opinions-write-rate_wrapper-new_rate" min=1 max=5 value=5>
@@ -224,7 +224,7 @@ $reviewData = getReviews($prodId);
         ?>
           <p class="opinions-write-review_wrapper-agreement">*Przesyłając opinię zgadzasz się na upublicznienie swojego imienia i nazwiska.</p>
         <?php
-          genStandardButton('Prześlij', true, '', 'writeReview()');
+          genStandardButton('Prześlij', true);
         } else {
         ?>
           <p class="opinions-write-review_wrapper-not_logged hide_textarea ">Musisz być zalogowany, żeby napisać recenzję.</p>

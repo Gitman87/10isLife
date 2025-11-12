@@ -17,17 +17,11 @@ function validateLogging() {
       if (result["success"]) {
         console.log("zalogowao");
         if (result["redirect"]) {
+          form.reset();
           window.location.href = result["redirect"];
           console.log("User should be redirected now");
         }
       } else {
-        // let errorMessages = [];
-        // const errorMessagesObject = result["message"];
-        // for (const message in errorMessagesObject) {
-        //   if (errorMessagesObject.hasOwnProperty(message)) {
-        //     errorMessages.push(errorMessagesObject[message]);
-        //   }
-        // }
         errorContainer.innerHTML = result["message"];
         // errorContainer.innerHTML = errorMessages.join("<br>");
       }
@@ -37,3 +31,4 @@ function validateLogging() {
     }
   });
 }
+// validateLogging();

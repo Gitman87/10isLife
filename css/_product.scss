@@ -282,6 +282,9 @@
         font-size: $font-small;
       }
     }
+    &-error_output {
+      color: $error-color;
+    }
   }
   &-wrapper {
     margin-top: 1rem;

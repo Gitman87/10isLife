@@ -84,6 +84,7 @@ function setCustomerData()
       "success" => false,
       "message" => $errorMessages
     ]);
+    exit;
   }
 }
 
