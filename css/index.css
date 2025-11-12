@@ -2138,23 +2138,39 @@ button {
   gap: 0.8rem;
   flex-wrap: wrap;
 }
-.digit_balls-ball {
-  width: 4rem;
-  height: 4rem;
+.digit_balls-item {
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
-  background-color: #808080;
-  background-color: #002b5b;
-  border-radius: 50%;
-  transition: background-color 0.4s ease-in-out;
 }
-.digit_balls-ball-button {
+.digit_balls-item-label {
+  color: #002b5b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 2;
+  transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out;
+  border: 2px solid #002b5b;
+}
+.digit_balls-item-label:hover {
+  background-color: #002b5b;
   color: white;
 }
-.digit_balls-ball:hover {
-  background-color: #ff6600;
+.digit_balls-item-ball {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
+.digit_balls-item-ball:checked + label {
+  background-color: #002b5b;
+  color: white;
+  border-color: #002b5b;
 }
 
 .display_discount {
