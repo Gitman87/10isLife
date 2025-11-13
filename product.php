@@ -52,6 +52,7 @@ $reviewData = getReviews($prodId);
 
 
   <!-- <script src="/js/components/magnifier.js"></script> -->
+  <script src="/js/cart_manager.js"></script>
   <section class="dashboard">
     <?php genProductPreview($prodData['images']) ?>
     <div class="dashboard-pulpit">
