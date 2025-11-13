@@ -76,9 +76,7 @@ $reviewData = getReviews($prodId);
             <img src="<?= $prodData['manufacturer']['url'] ?>" alt="" class="dashboard-pulpit-header-title-manufacturer-image">
             <h4 class="dashboard-pulpit-header-title-manufacturer-name"><a href="" class="dashboard-pulpit-header-title-manufacturer-name-link"><?= $prodData['manufacturer']['name'] ?></a></h4>
           </div>
-
         </div>
-
         <div class="dashboard-pulpit-header-price">
           <div class="dashboard-pulpit-header-price-value">
             <?= $prodData['price'] ?>
