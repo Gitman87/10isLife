@@ -37,7 +37,7 @@ class LocalStorageManager {
   }
 }
 
-function makeCartItem(prodId, prodName) {
+function makeCartItem(prodId, prodName, prodPrice) {
   const productDetailsContainer = document.querySelector(".dashboard-pulpit");
   const quantity = productDetailsContainer.querySelector(
     ".dashboard-pulpit-add-amount-quantifier"
@@ -55,6 +55,7 @@ function makeCartItem(prodId, prodName) {
   let cartItem = {
     id: prodId,
     fullName: prodName,
+    price: prodPrice,
     quantity: quantity,
     options: options,
   };
@@ -70,4 +71,5 @@ function addProductToCart(cartItem) {
   }
   cart.push(cartItem);
   cartManager.update(cartKey, cart);
+  console.log("Product added  to cart");
 }

@@ -179,12 +179,12 @@ $prodPrice = $prodData['price'];
           if ($prodData['quantity'] > 5) {
           ?>
             <p class="dashboard-pulpit-add-availability-available">Produkt dostępny</p>
-            <?php genStandardButton('Do koszyka', true,  '', 'addProductToCart(makeCartItem($prodId, $prodName, $prodPrice))') ?>
+            <?php genStandardButton('Do koszyka', true,  '', "addProductToCart(makeCartItem($prodId, '$prodName', $prodPrice))"); ?>
           <?php
           } elseif ($prodData['quantity'] > 0) {
           ?>
             <p class="dashboard-pulpit-add-availability-warning">Uwaga! Zostało mniej niż 5 szt.</p>
-            <?php genStandardButton('Do koszyka', true, '', 'addProductToCart(makeCartItem($prodId, $prodName, $prodPrice))') ?>
+            <?php genStandardButton('Do koszyka', true, '', "addProductToCart(makeCartItem($prodId, '$prodName', $prodPrice))"); ?>
           <?php
           } else {
           ?>
