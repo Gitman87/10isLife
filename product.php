@@ -45,6 +45,7 @@ require './php/components/discount_display.php';
 session_start();
 $prodId = 1;
 $prodData = getProductData($prodId);
+$prodName = $prodData['name'];
 $reviewData = getReviews($prodId);
 ?>
 <?php genHeader() ?>
@@ -162,15 +163,12 @@ $reviewData = getReviews($prodId);
           </select>
 
         </div>
-
-
       </div>
       <hr class="dashboard-pulpit-line">
-
       <div class="dashboard-pulpit-add">
         <div class="dashboard-pulpit-add-amount">
           <label for="quantifier" class="dashboard-pulpit-add-amount-label">Ilość:</label>
-          <input type="number" class="dashboard-pulpit-add-amount-quantifier" name="quantifier" id="quantifier" value=0 min=0 max=<?= $prodData['quantity'] ?>>
+          <input type="number" class="dashboard-pulpit-add-amount-quantifier" name="quantifier" id="quantifier" value=1 min=1 max=<?= $prodData['quantity'] ?>>
           <!-- <button class="dashboard-pulpit-add-amount-minus">-</button>
           <div class="dashboard-pulpit-add-amount-value">0</div>
           <button class="dashboard-pulpit-add-amount-lus">+</button> -->
@@ -180,10 +178,12 @@ $reviewData = getReviews($prodId);
           if ($prodData['quantity'] > 5) {
           ?>
             <p class="dashboard-pulpit-add-availability-available">Produkt dostępny</p>
+            <?php genStandardButton('Do koszyka', true,  '', '') ?>
           <?php
           } elseif ($prodData['quantity'] > 0) {
           ?>
             <p class="dashboard-pulpit-add-availability-warning">Uwaga! Zostało mniej niż 5 szt.</p>
+            <?php genStandardButton('Do koszyka', true, '', 'addProductToCart(makeCartItem($prodId, $prodName))') ?>
           <?php
           } else {
           ?>
@@ -194,7 +194,6 @@ $reviewData = getReviews($prodId);
         </div>
         <!-- <button class="dashboard-pulpit-add-button">Do koszyka</button> -->
       </div>
-      <?php genStandardButton('Do koszyka', true,  '', '') ?>
     </div>
   </section>
   <section class="description">
