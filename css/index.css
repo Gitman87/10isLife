@@ -2150,6 +2150,9 @@ button {
   align-items: center;
 }
 .digit_balls-item-label {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   color: #002b5b;
   display: flex;
   justify-content: center;

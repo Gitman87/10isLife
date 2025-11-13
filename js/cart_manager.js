@@ -68,8 +68,10 @@ function addProductToCart(cartItem) {
   let cart = cartManager.read(cartKey);
   if (cart === null) {
     cart = [];
+    console.log("New cart created");
   }
   cart.push(cartItem);
   cartManager.update(cartKey, cart);
   console.log("Product added  to cart");
+  console.log("Cart looks like: ", cartManager.read(cartKey));
 }
