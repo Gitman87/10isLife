@@ -1,5 +1,5 @@
 <?php
-function genRateBalls($rate, $numberOfOpinions, $isReview = false)
+function genRateBalls($rate, $numberOfOpinions, $isReview = false, $url)
 {
     $grayBallsNumber = 5 - round($rate);
 
@@ -41,7 +41,7 @@ function genRateBalls($rate, $numberOfOpinions, $isReview = false)
                 <p class="rate-opinions-score">
                     <span class="rate-opinions-score-average"><?= $rate ?></span>
                     /5
-                    <span class="rate-opinions-score-number">(<?= $numberOfOpinions ?> <a href="./" class="rate-opinions-score-number-link">opinii</a>)</span>
+                    <span class="rate-opinions-score-number">(<?= $numberOfOpinions ?> <a href="<?= $url ?>" class="rate-opinions-score-number-link">opinii</a>)</span>
                 </p>
             </div>
         <?php

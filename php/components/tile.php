@@ -9,7 +9,7 @@ function genTile($tile)
             <p class="tile-details-name"><?php echo $tile['productName'] ?></p>
             <p class="tile-details-price"><span class="tile-details-price-new"><?php echo $tile['newPrice'] ?></span><del class="tile-details-price-old"><?php echo $tile['oldPrice'] ?></del></p>
 
-            <?php genRateBalls(3, 5) ?>
+            <?php genRateBalls(3, 5, false, ' ') ?>
 
 
         </div>

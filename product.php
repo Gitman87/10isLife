@@ -72,7 +72,7 @@ $prodPrice = $prodData['price'];
           }
           ?>
         </div>
-        <?php genRateBalls($prodData['rating_score'], count($prodData['reviews'])) ?>
+        <?php genRateBalls($prodData['rating_score'], count($prodData['reviews']), false, '#opinions') ?>
         <div class="dashboard-pulpit-header-title">
           <h3 class="dashboard-pulpit-header-title-name"><?= $prodData['name'] ?></h3>
           <div class="dashboard-pulpit-header-title-manufacturer">
@@ -208,7 +208,7 @@ $prodPrice = $prodData['price'];
     </h4>
     <p class="warranty-text"><?= $prodData['warranty']['description'] ?></p>
   </section>
-  <section class="opinions">
+  <section class="opinions" id="opinions">
     <h3 class="opinions-head">Recenzje klientów</h3>
     <form action="/php/api/reviewing.php" method="POST" class="opinions-write">
       <div class="opinions-write-rate_wrapper">

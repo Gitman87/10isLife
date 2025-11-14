@@ -23,7 +23,7 @@ function genReviewTiles($prodReviews)
         <div class="review">
 
             <div class="review-head">
-                <?= genRateBalls($prodReview['rating'], count($prodReviews), true) ?>
+                <?= genRateBalls($prodReview['rating'], count($prodReviews), true, '') ?>
             </div>
             <p name="" id="" class="review-text"><?= $prodReview['opinion'] ?></p>
             <!-- <p class="review-opinion">/p> -->
