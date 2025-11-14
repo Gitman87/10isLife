@@ -69,9 +69,35 @@ function addProductToCart(cartItem) {
   if (cart === null) {
     cart = [];
     console.log("New cart created");
+    cart.push(cartItem);
+    cartManager.update(cartKey, cart);
+    console.log("cart loos: ", cart);
+    return;
   }
-  cart.push(cartItem);
-  cartManager.update(cartKey, cart);
-  console.log("Product added  to cart");
-  console.log("Cart looks like: ", cartManager.read(cartKey));
+  //need to check if already exist the same prooduct with the same config
+  console.log("cartItem looks: ", cartItem);
+  // const stringifiedCartItem = JSON.stringify(cartItem);
+  const isTheSameId = (item) => item.id === cartItem.id;
+  const indexOfTheSameItem = cart.findIndex(isTheSameId);
+  console.log("Index of the same item found: ", indexOfTheSameItem);
+  if (indexOfTheSameItem === -1) {
+    console.log("Different product added");
+    cart.push(cartItem);
+    cartManager.update(cartKey, cart);
+    console.log("Product added  to cart");
+    console.log("Cart after adding looks like: ", cartManager.read(cartKey));
+  } else {
+    //need to update quantity, sum and update damnit!
+    const theSameItemQunatityInt = parseInt(cart[indexOfTheSameItem].quantity);
+    const newItemQuantityInt = parseInt(cartItem.quantity);
+    const newQuantity = theSameItemQunatityInt + newItemQuantityInt;
+    console.log("New quantity is ", newQuantity);
+    cart[indexOfTheSameItem].quantity = newQuantity;
+    console.log("Cart insludes the same product");
+    console.log(
+      `Item's with index ${indexOfTheSameItem} quantity was updated and is now: ${cart[indexOfTheSameItem].quantity} `
+    );
+    cartManager.update(cartKey, cart);
+    console.log("cart looks: ", cart);
+  }
 }

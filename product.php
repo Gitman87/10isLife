@@ -43,7 +43,7 @@ require './php/components/review_tiles.php';
 require './php/components/discount_display.php';
 
 session_start();
-$prodId = 1;
+$prodId = 2;
 $prodData = getProductData($prodId);
 $prodName = $prodData['name'];
 $reviewData = getReviews($prodId);
