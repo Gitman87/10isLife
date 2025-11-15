@@ -789,6 +789,11 @@ button {
   transform: translateY(-110%);
 }
 
+@media (max-width: 128em) {
+  .breadcrumbs {
+    top: 14rem;
+  }
+}
 .product_preview {
   background-color: white;
   width: 60%;
@@ -2076,6 +2081,11 @@ button {
   transform: translateY(-110%);
 }
 
+@media (max-width: 128em) {
+  .breadcrumbs {
+    top: 14rem;
+  }
+}
 .product_preview {
   background-color: white;
   width: 60%;

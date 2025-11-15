@@ -31,4 +31,4 @@ function validateLogging() {
     }
   });
 }
-// validateLogging();
+validateLogging();

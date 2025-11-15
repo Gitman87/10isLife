@@ -1,10 +1,5 @@
 .breadcrumbs {
-  // display: flex;
-  // justify-content: center;
   width: 100%;
-
-  // position: sticky;
-  // z-index: 10;
   position: fixed;
   top: 10rem;
   transition: transform 0.3s ease-out;
@@ -52,4 +47,9 @@
 .hidden_crumb {
   // visibility: hidden;
   transform: translateY(-110%);
+}
+@media (max-width: 128em) {
+  .breadcrumbs {
+    top: 14rem;
+  }
 }

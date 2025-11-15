@@ -10,7 +10,7 @@ include './php/components/log_modal.php';
 include './php/components/tab_nav.php';
 
 // include './php/components/slideshow.php';
-// include './php/components/slide.php';
+// include './php/components/slide.php';a
 include './php/components/standard_button.php';
 require './php/components/light_button.php';
 include './php/components/wide_button.php';
@@ -43,7 +43,7 @@ require './php/components/review_tiles.php';
 require './php/components/discount_display.php';
 
 session_start();
-$prodId = 2;
+$prodId = $_GET['id'];
 $prodData = getProductData($prodId);
 $prodName = $prodData['name'];
 $reviewData = getReviews($prodId);
@@ -52,9 +52,8 @@ $prodPrice = $prodData['price'];
 <?php genHeader() ?>
 <main class="main">
 
-
   <!-- <script src="/js/components/magnifier.js"></script> -->
-  <script src="/js/cart_manager.js"></script>
+  <script src="/js/cart_manager.js" defer></script>
   <section class="dashboard">
     <?php genProductPreview($prodData['images']) ?>
     <div class="dashboard-pulpit">

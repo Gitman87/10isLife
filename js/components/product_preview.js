@@ -85,3 +85,5 @@ function magnify(selector, zoom = 2, lensSize = 80) {
 }
 
 magnify(".product_preview-preview", 2, 80);
+
+clipath();
