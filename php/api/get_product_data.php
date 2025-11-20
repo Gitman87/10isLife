@@ -111,15 +111,7 @@ WHERE
     $result = $stmt->get_result();
     $prodArray['grip_size'] = [];
     $prodArray['grip_size'] = $result->fetch_assoc();
-
-    // while ($row = $result->fetch_assoc()) {
-    //     // print_r($row);
-    //     $prodArray['grip_size'][] = $row;
-    // };
-    // print_r($prodArray['grip_size'][4]);
-    echo 'grip size length is ' . $prodArray['grip_size']['value'];
-    // print_r($prodArray['grip_size']);
-    // echo 'grip size length is ' . $prodArray['grip_size'];
+    // echo 'grip size length is ' . $prodArray['grip_size']['value'];
     // ----------------------length------------------------------
     $stmt = $conn->prepare("SELECT attribute_variants.attribute_variant_id, attribute_variants.value FROM attribute_variants JOIN product_attributes ON attribute_variants.attribute_variant_id = product_attributes.attribute_variant_id
     WHERE attribute_variants.attribute_id = ? AND product_attributes.product_id=?;");
@@ -132,31 +124,63 @@ WHERE
     $result = $stmt->get_result();
     $prodArray['length'] = [];
     $prodArray['length'] = $result->fetch_assoc();
-    // while ($row = $result->fetch_assoc()) {
-    //     // print_r($row);
-    //     $prodArray['length'][] = $row;
-    // };
-    // print_r($prodArray['length'][4]);
-    // echo 'grip size length is ' . $prodArray['length']['value'];
-    // print_r($prodArray['length']['value']);
-    // -----------------------------config_variants---------------------------------------------------
+
+    // -----------------------------grip_variants---------------------------------------------------
     // grip sizes - attribute id = 1
-    $stmt = $conn->prepare("SELECT attribute_variants.attribute_variant_id, attribute_variants.value FROM attribute_variants JOIN product_attributes ON attribute_variants.attribute_variant_id = product_attributes.attribute_variant_id
-    WHERE attribute_variants.attribute_id = ? AND product_attributes.product_id = ?;");
+    $stmt = $conn->prepare("SELECT
+    product_variants.child_id,
+    product_variants.attribute_variant_id,
+    attribute_variants.value
+FROM
+    product_variants
+INNER JOIN
+    attribute_variants
+    ON product_variants.attribute_variant_id = attribute_variants.attribute_variant_id
+WHERE
+    product_variants.parent_id = ?
+    AND attribute_variants.attribute_id = ?; ");
     if (!$stmt) {
-        die("statement error" . $conn->error);
+        error_log("statement error" . $conn->error);
     }
     $attributeId = 1;
-    $stmt->bind_param("ss", $attributeId, $id);
+    $stmt->bind_param("ss", $id, $attributeId);
     $stmt->execute();
     $result = $stmt->get_result();
-    // $prodArray['grip_size'] = [];
-    // while ($row = $result->fetch_assoc()) {
-    //     // print_r($row);
-    //     $prodArray['grip_size'][] = $row;
-    // };
-    // print_r($prodArray['grip_size'][4]);
-    // echo 'grip size length is ' . $prodArray['grip_size'];
+    $prodArray['grip_variants'] = [];
+    // $prodArray['config_variants'] = $result->fetch_assoc();
+    while ($row = $result->fetch_assoc()) {
+        // print_r($row);
+        $prodArray['grip_variants'][] = $row;
+    };
+    print_r($prodArray['grip_variants']);
+    // ------------------------------length_variants---------------------------------------------------
+    // grip sizes - attribute id = 1
+    $stmt = $conn->prepare("SELECT
+    product_variants.child_id,
+    product_variants.attribute_variant_id,
+    attribute_variants.value
+FROM
+    product_variants
+INNER JOIN
+    attribute_variants
+    ON product_variants.attribute_variant_id = attribute_variants.attribute_variant_id
+WHERE
+    product_variants.parent_id = ?
+    AND attribute_variants.attribute_id = ?; ");
+    if (!$stmt) {
+        error_log("statement error" . $conn->error);
+    }
+    $attributeId = 3;
+    $stmt->bind_param("ss", $id, $attributeId);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $prodArray['length_variants'] = [];
+    // $prodArray['config_variants'] = $result->fetch_assoc();
+    while ($row = $result->fetch_assoc()) {
+        // print_r($row);
+        $prodArray['length_variants'][] = $row;
+    };
+    print_r($prodArray['length_variants']);
     // --------------------grid_pattern----------------------------------
     $stmt = $conn->prepare("SELECT attribute_variants.attribute_variant_id, attribute_variants.value FROM attribute_variants JOIN product_attributes ON attribute_variants.attribute_variant_id = product_attributes.attribute_variant_id
     WHERE attribute_variants.attribute_id = ? AND product_attributes.product_id=?;");
@@ -169,11 +193,7 @@ WHERE
     $result = $stmt->get_result();
     $prodArray['grid_pattern'] = [];
     $prodArray['grid_pattern'] = $result->fetch_assoc();
-    // while ($row = $result->fetch_assoc()) {
-    //     // print_r($row);
-    //     $prodArray['length'][] = $row;
-    // };
-    // print_r($prodArray['grid_pattern']['value']);
+
     // --------------------material----------------------------------
     $stmt = $conn->prepare("SELECT attribute_variants.attribute_variant_id, attribute_variants.value FROM attribute_variants JOIN product_attributes ON attribute_variants.attribute_variant_id = product_attributes.attribute_variant_id
     WHERE attribute_variants.attribute_id = ? AND product_attributes.product_id=?;");
@@ -186,11 +206,7 @@ WHERE
     $result = $stmt->get_result();
     $prodArray['material'] = [];
     $prodArray['material'] = $result->fetch_assoc();
-    // while ($row = $result->fetch_assoc()) {
-    //     // print_r($row);
-    //     $prodArray['length'][] = $row;
-    // };
-    // print_r($prodArray['material']['value']);
+
     // --------------------cover---------------------------------
     $stmt = $conn->prepare("SELECT attribute_variants.attribute_variant_id, attribute_variants.value FROM attribute_variants JOIN product_attributes ON attribute_variants.attribute_variant_id = product_attributes.attribute_variant_id
     WHERE attribute_variants.attribute_id = ? AND product_attributes.product_id=?;");
@@ -203,11 +219,7 @@ WHERE
     $result = $stmt->get_result();
     $prodArray['cover'] = [];
     $prodArray['cover'] = $result->fetch_assoc();
-    // while ($row = $result->fetch_assoc()) {
-    //     // print_r($row);
-    //     $prodArray['length'][] = $row;
-    // };
-    // print_r($prodArray['cover']['value']);
+
     // ........................reviews--------------------------
     $stmt = $conn->prepare("SELECT reviews.customer_id, reviews.rating, reviews.opinion, review_date from reviews WHERE product_id = ?;");
     if (!$stmt) {
@@ -224,8 +236,7 @@ WHERE
     };
     //calculate average rating
     $prodArray['rating_score'] = calcRating($prodArray['reviews']);
-    // print_r($prodArray['rating_score']);
-    // print_r($prodArray['reviews']);
+
     // --------------------warranties-------------------------------------
     $stmt = $conn->prepare("SELECT warranty.description, warranty.time FROM warranty WHERE product_id = ?;");
     if (!$stmt) {
