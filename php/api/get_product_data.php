@@ -7,7 +7,7 @@ function getProductData($id)
     $conn = new mysqli($host, $user, $password, $db_name);
     // Check connection
     if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
+        error_log("Connection failed: " . $conn->connect_error);
     }
 
     // prepare and bind
@@ -31,7 +31,7 @@ WHERE
  products.product_id = ?;
     ");
     if (!$stmt) {
-        die("statement error" . $conn->error);
+        error_log("statement error" . $conn->error);
     }
 
     $stmt->bind_param("s", $id);
@@ -58,7 +58,7 @@ FROM
 WHERE
     product_images.product_id = ?;");
     if (!$stmt) {
-        die("statement error" . $conn->error);
+        error_log("statement error" . $conn->error);
     }
 
     $stmt->bind_param("s", $id);
@@ -88,7 +88,7 @@ WHERE
         AND manufacturer.manufacturer_id = manufacturer_images.manufacturer_id
         AND products.product_id = ?;");
     if (!$stmt) {
-        die("statement error" . $conn->error);
+        error_log("statement error" . $conn->error);
     }
 
     $stmt->bind_param("s", $id);
@@ -103,7 +103,7 @@ WHERE
     $stmt = $conn->prepare("SELECT attribute_variants.attribute_variant_id, attribute_variants.value FROM attribute_variants JOIN product_attributes ON attribute_variants.attribute_variant_id = product_attributes.attribute_variant_id
     WHERE attribute_variants.attribute_id = ? AND product_attributes.product_id = ?;");
     if (!$stmt) {
-        die("statement error" . $conn->error);
+        error_log("statement error" . $conn->error);
     }
     $attributeId = 1;
     $stmt->bind_param("ss", $attributeId, $id);
@@ -116,7 +116,7 @@ WHERE
     $stmt = $conn->prepare("SELECT attribute_variants.attribute_variant_id, attribute_variants.value FROM attribute_variants JOIN product_attributes ON attribute_variants.attribute_variant_id = product_attributes.attribute_variant_id
     WHERE attribute_variants.attribute_id = ? AND product_attributes.product_id=?;");
     if (!$stmt) {
-        die("statement error" . $conn->error);
+        error_log("statement error" . $conn->error);
     }
     $attributeId = 3;
     $stmt->bind_param("ss", $attributeId, $id);
@@ -185,7 +185,7 @@ WHERE
     $stmt = $conn->prepare("SELECT attribute_variants.attribute_variant_id, attribute_variants.value FROM attribute_variants JOIN product_attributes ON attribute_variants.attribute_variant_id = product_attributes.attribute_variant_id
     WHERE attribute_variants.attribute_id = ? AND product_attributes.product_id=?;");
     if (!$stmt) {
-        die("statement error" . $conn->error);
+        error_log("statement error" . $conn->error);
     }
     $attributeId = 2;
     $stmt->bind_param("ss", $attributeId, $id);
@@ -198,7 +198,7 @@ WHERE
     $stmt = $conn->prepare("SELECT attribute_variants.attribute_variant_id, attribute_variants.value FROM attribute_variants JOIN product_attributes ON attribute_variants.attribute_variant_id = product_attributes.attribute_variant_id
     WHERE attribute_variants.attribute_id = ? AND product_attributes.product_id=?;");
     if (!$stmt) {
-        die("statement error" . $conn->error);
+        error_log("statement error" . $conn->error);
     }
     $attributeId = 4;
     $stmt->bind_param("ss", $attributeId, $id);
@@ -211,7 +211,7 @@ WHERE
     $stmt = $conn->prepare("SELECT attribute_variants.attribute_variant_id, attribute_variants.value FROM attribute_variants JOIN product_attributes ON attribute_variants.attribute_variant_id = product_attributes.attribute_variant_id
     WHERE attribute_variants.attribute_id = ? AND product_attributes.product_id=?;");
     if (!$stmt) {
-        die("statement error" . $conn->error);
+        error_log("statement error" . $conn->error);
     }
     $attributeId = 5;
     $stmt->bind_param("ss", $attributeId, $id);
@@ -223,7 +223,7 @@ WHERE
     // ........................reviews--------------------------
     $stmt = $conn->prepare("SELECT reviews.customer_id, reviews.rating, reviews.opinion, review_date from reviews WHERE product_id = ?;");
     if (!$stmt) {
-        die("statement error" . $conn->error);
+        error_log("statement error" . $conn->error);
     }
     $stmt->bind_param("s",  $id);
     $stmt->execute();
@@ -240,7 +240,7 @@ WHERE
     // --------------------warranties-------------------------------------
     $stmt = $conn->prepare("SELECT warranty.description, warranty.time FROM warranty WHERE product_id = ?;");
     if (!$stmt) {
-        die("statement error" . $conn->error);
+        error_log("statement error" . $conn->error);
     }
     $stmt->bind_param("s",  $id);
     $stmt->execute();
