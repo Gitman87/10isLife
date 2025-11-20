@@ -91,78 +91,84 @@ $prodPrice = $prodData['price'];
           </p>
         </div>
       </div>
-
-
       <hr class="dashboard-pulpit-line">
       <div class="dashboard-pulpit-variants">
         <h4 class="dashboard-pulpit-variants-title">Opcje:</h4>
-
         <div class="dashboard-pulpit-variants-sizes">
-          <div class="dashboard-pulpit-variants-sizes-size">Grubość uchwytu:
-            <div class="dashboard-pulpit-variants-sizes-size-show">Tabela rozmiarów</div>
-
-            <table class="dashboard-pulpit-variants-sizes-size-table hide ">
-              <thead>
-                <tr>
-                  <th>Oznaczenia amerykańskie
-                    [cale / ≈ cm]</th>
-                  <th>Oznaczenia europejskie</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>4 / ≈ 10</td>
-                  <td>0</td>
-                </tr>
-                <tr>
-                  <td>4 1/8 / ≈ 10,4</td>
-                  <td>1</td>
-                </tr>
-                <tr>
-                  <td>4 1/4 / ≈ 10,8</td>
-                  <td>2</td>
-                </tr>
-                <tr>
-                  <td>4 3/8 / ≈ 11</td>
-                  <td>3</td>
-                </tr>
-                <tr>
-                  <td>4 1/2 / ≈ 11,4</td>
-                  <td>4</td>
-                </tr>
-
-              </tbody>
-            </table>
-          </div>
-
-
-
-          <?= genDigitBalls($prodData['grip_size'], 'grip_ball') ?>
-
+          <?php
+          if ($prodData['variant_type'] === 'basic') {
+          ?>
+            <div class="dashboard-pulpit-variants-grip_size">
+              <label for="grip_size" class="dashboard-pulpit-variants-grip_size-label">Grubość uchwytu:</label>
+              <p class="dashboard-pulpit-variants-grip_size-value"><?= $prodData['grip_size']['value'] ?></p>
+            </div>
+            <div class="dashboard-pulpit-variants-length">
+              <label for="length" class="dashboard-pulpit-variants-length-label">Długość [cm]:</label>
+              <p class="dashboard-pulpit-variants-length-value"><?= $prodData['length']['value'] ?></p>
+            </div>
+          <?php
+          } else {
+          ?>
+            <div class="dashboard-pulpit-variants-sizes-size">Grubość uchwytu:
+              <div class="dashboard-pulpit-variants-sizes-size-show">Tabela rozmiarów</div>
+              <table class="dashboard-pulpit-variants-sizes-size-table hide ">
+                <thead>
+                  <tr>
+                    <th>Oznaczenia amerykańskie
+                      [cale / ≈ cm]</th>
+                    <th>Oznaczenia europejskie</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>4 / ≈ 10</td>
+                    <td>0</td>
+                  </tr>
+                  <tr>
+                    <td>4 1/8 / ≈ 10,4</td>
+                    <td>1</td>
+                  </tr>
+                  <tr>
+                    <td>4 1/4 / ≈ 10,8</td>
+                    <td>2</td>
+                  </tr>
+                  <tr>
+                    <td>4 3/8 / ≈ 11</td>
+                    <td>3</td>
+                  </tr>
+                  <tr>
+                    <td>4 1/2 / ≈ 11,4</td>
+                    <td>4</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <?= genDigitBalls($prodData['grip_size'], 'grip_ball') ?>
         </div>
         <div class="dashboard-pulpit-variants-length">
           <p class="dashboard-pulpit-variants-length-title">Długość [cm]:</p>
           <?= genDigitBalls($prodData['length'], 'length_ball') ?>
-
-
         </div>
-        <div class="dashboard-pulpit-variants-pattern">
-          <label for="pattern" class="dashboard-pulpit-variants-pattern-label">Układ strun:</label>
-          <p class="dashboard-pulpit-variants-pattern-value"><?= $prodData['grid_pattern']['value'] ?></p>
-        </div>
+      <?php
+          }
+      ?>
+      <div class="dashboard-pulpit-variants-pattern">
+        <label for="pattern" class="dashboard-pulpit-variants-pattern-label">Układ strun:</label>
+        <p class="dashboard-pulpit-variants-pattern-value"><?= $prodData['grid_pattern']['value'] ?></p>
+      </div>
 
-        <div class="dashboard-pulpit-variants-material">
-          <label for="material" class="dashboard-pulpit-variants-material-label">Materiał:</label>
-          <p class="dashboard-pulpit-variants-material-value"><?= $prodData['material']['value'] ?></p>
+      <div class="dashboard-pulpit-variants-material">
+        <label for="material" class="dashboard-pulpit-variants-material-label">Materiał:</label>
+        <p class="dashboard-pulpit-variants-material-value"><?= $prodData['material']['value'] ?></p>
 
-        </div>
-        <div class="dashboard-pulpit-variants-cover">
-          <label for="cover" class="dashboard-pulpit-variants-cover-label">Pokrowiec:</label>
-          <p class="dashboard-pulpit-variants-cover-value"><?= $prodData['cover']['value'] ?></p>
+      </div>
+      <div class="dashboard-pulpit-variants-cover">
+        <label for="cover" class="dashboard-pulpit-variants-cover-label">Pokrowiec:</label>
+        <p class="dashboard-pulpit-variants-cover-value"><?= $prodData['cover']['value'] ?></p>
 
-          </select>
+        </select>
 
-        </div>
+      </div>
       </div>
       <hr class="dashboard-pulpit-line">
       <div class="dashboard-pulpit-add">
