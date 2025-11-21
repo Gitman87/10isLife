@@ -40,7 +40,6 @@ require './php/api/reviewing.php';
 //prod info
 require './php/components/digit_balls.php';
 require './php/components/review_tiles.php';
-require './php/components/discount_display.php';
 
 session_start();
 $prodId = $_GET['id'];
@@ -48,6 +47,7 @@ $prodData = getProductData($prodId);
 $prodName = $prodData['name'];
 $reviewData = getReviews($prodId);
 $prodPrice = $prodData['price'];
+$prodDataJson = json_encode($prodData);
 ?>
 <?php genHeader() ?>
 <main class="main">
@@ -243,6 +243,19 @@ $prodPrice = $prodData['price'];
       <?= genReviewTiles($reviewData) ?>
     </div>
   </section>
+  <script>
+    console.log("prodData loaded ");
+
+    const prodDataJson = JSON.parse(<?php echo json_encode($prodDataJson); ?>);
+    console.log("prodData loaded ", prodDataJson);
+    document.addEventListener('DOMContentLoaded', () => {
+
+      if (typeof prodConfig === 'function') {
+        prodConfig();
+      }
+    });
+  </script>
+  <script src="./js/product_config.js"></script>
   <script src="./js/write_review.js"></script>
 </main>
 

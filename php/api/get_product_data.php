@@ -34,7 +34,7 @@ WHERE
         error_log("statement error" . $conn->error);
     }
 
-    $stmt->bind_param("s", $id);
+    $stmt->bind_param("i", $id);
     $stmt->execute();
     $result = $stmt->get_result();
     $prodArray = [];
@@ -61,7 +61,7 @@ WHERE
         error_log("statement error" . $conn->error);
     }
 
-    $stmt->bind_param("s", $id);
+    $stmt->bind_param("i", $id);
     $stmt->execute();
     $result = $stmt->get_result();
 
@@ -91,7 +91,7 @@ WHERE
         error_log("statement error" . $conn->error);
     }
 
-    $stmt->bind_param("s", $id);
+    $stmt->bind_param("i", $id);
     $stmt->execute();
     $result = $stmt->get_result();
     $prodArray['manufacturer'] = [];
@@ -106,7 +106,7 @@ WHERE
         error_log("statement error" . $conn->error);
     }
     $attributeId = 1;
-    $stmt->bind_param("ss", $attributeId, $id);
+    $stmt->bind_param("ii", $attributeId, $id);
     $stmt->execute();
     $result = $stmt->get_result();
     $prodArray['grip_size'] = [];
@@ -119,7 +119,7 @@ WHERE
         error_log("statement error" . $conn->error);
     }
     $attributeId = 3;
-    $stmt->bind_param("ss", $attributeId, $id);
+    $stmt->bind_param("ii", $attributeId, $id);
     $stmt->execute();
     $result = $stmt->get_result();
     $prodArray['length'] = [];
@@ -143,7 +143,7 @@ WHERE
         error_log("statement error" . $conn->error);
     }
     $attributeId = 1;
-    $stmt->bind_param("ss", $id, $attributeId);
+    $stmt->bind_param("ii", $id, $attributeId);
     $stmt->execute();
     $result = $stmt->get_result();
     $prodArray['grip_variants'] = [];
@@ -152,7 +152,7 @@ WHERE
         // print_r($row);
         $prodArray['grip_variants'][] = $row;
     };
-    print_r($prodArray['grip_variants']);
+    // print_r($prodArray['grip_variants']);
     // ------------------------------length_variants---------------------------------------------------
     // grip sizes - attribute id = 1
     $stmt = $conn->prepare("SELECT
@@ -171,7 +171,7 @@ WHERE
         error_log("statement error" . $conn->error);
     }
     $attributeId = 3;
-    $stmt->bind_param("ss", $id, $attributeId);
+    $stmt->bind_param("ii", $id, $attributeId);
     $stmt->execute();
     $result = $stmt->get_result();
     $prodArray['length_variants'] = [];
@@ -180,15 +180,42 @@ WHERE
         // print_r($row);
         $prodArray['length_variants'][] = $row;
     };
-    print_r($prodArray['length_variants']);
-    // --------------------grid_pattern----------------------------------
+    // print_r($prodArray['length_variants']);
+    // -------------------------product_children----------------------------------------
+    // product_id, name, price, last price, quantity, weight of all children for parent id = ?
+    $stmt = $conn->prepare("SELECT DISTINCT
+    products.product_id, products.name, products.price, products.last_price, products.quantity, products.weight_kg
+    FROM
+    product_variants
+    INNER JOIN
+    products ON product_variants.child_id = products.product_id
+    WHERE
+    product_variants.parent_id = ?;");
+    if (!$stmt) {
+        error_log("statement error" . $conn->error);
+    }
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $prodArray['children'] = [];
+    while ($row = $result->fetch_assoc()) {
+        // print_r($row);
+        $prodArray['children'][] = $row;
+    };
+    print_r($prodArray['children']);
+
+
+
+
+
+    // -----------------------------grid_pattern----------------------------------------
     $stmt = $conn->prepare("SELECT attribute_variants.attribute_variant_id, attribute_variants.value FROM attribute_variants JOIN product_attributes ON attribute_variants.attribute_variant_id = product_attributes.attribute_variant_id
     WHERE attribute_variants.attribute_id = ? AND product_attributes.product_id=?;");
     if (!$stmt) {
         error_log("statement error" . $conn->error);
     }
     $attributeId = 2;
-    $stmt->bind_param("ss", $attributeId, $id);
+    $stmt->bind_param("ii", $attributeId, $id);
     $stmt->execute();
     $result = $stmt->get_result();
     $prodArray['grid_pattern'] = [];
@@ -201,7 +228,7 @@ WHERE
         error_log("statement error" . $conn->error);
     }
     $attributeId = 4;
-    $stmt->bind_param("ss", $attributeId, $id);
+    $stmt->bind_param("ii", $attributeId, $id);
     $stmt->execute();
     $result = $stmt->get_result();
     $prodArray['material'] = [];
@@ -214,7 +241,7 @@ WHERE
         error_log("statement error" . $conn->error);
     }
     $attributeId = 5;
-    $stmt->bind_param("ss", $attributeId, $id);
+    $stmt->bind_param("ii", $attributeId, $id);
     $stmt->execute();
     $result = $stmt->get_result();
     $prodArray['cover'] = [];
@@ -225,7 +252,7 @@ WHERE
     if (!$stmt) {
         error_log("statement error" . $conn->error);
     }
-    $stmt->bind_param("s",  $id);
+    $stmt->bind_param("i",  $id);
     $stmt->execute();
     $result = $stmt->get_result();
     $prodArray['reviews'] = [];
@@ -242,7 +269,7 @@ WHERE
     if (!$stmt) {
         error_log("statement error" . $conn->error);
     }
-    $stmt->bind_param("s",  $id);
+    $stmt->bind_param("i",  $id);
     $stmt->execute();
     $result = $stmt->get_result();
     $prodArray['warranty'] = [];

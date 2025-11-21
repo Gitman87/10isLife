@@ -1,50 +1,45 @@
 <?php
-function genDigitBalls($array, $name = 'digit_ball')
+
+function genDigitBalls($rawVariants,  $name = 'digit_ball', $currentValue = null)
 {
+    $uniqueVariants = [];
+    $seenValues = [];
+
+    foreach ($rawVariants as $variant) {
+        $value = (string)$variant['value'];
+
+        if (!isset($seenValues[$value])) {
+            $uniqueVariants[] = [
+                'attribute_variant_id' => $variant['attribute_variant_id'],
+                'value' => $value,
+            ];
+            $seenValues[$value] = true;
+        }
+    }
+    if ($currentValue === null && !empty($uniqueVariants)) {
+        $currentValue = $uniqueVariants[0]['value'];
+    }
 ?>
     <ul class="digit_balls">
-        <?php
-        for ($i = 0; $i < count($array); $i++) {
-            $id = $name . '_' . $array[$i]['value'];
-            if ($i == 0) {
-        ?>
-                <!-- mark first ball as checked -->
-                <li class="digit_balls-item">
-                    <input type="radio" name="<?= $name ?>" id="<?= $id ?>" class="digit_balls-item-ball" value="<?= $array[$i]['value']  ?>" checked>
-                    <label for="<?= $id ?>" class="digit_balls-item-label"><?= $array[$i]['value'] ?></label>
-                </li>
-            <?php
-            } else {
-            ?>
-                <li class="digit_balls-item">
-                    <input type="radio" name="<?= $name ?>" id="<?= $id ?>" class="digit_balls-item-ball" value="<?= $array[$i]['value'] ?>">
-                    <label for="<?= $id ?>" class="digit_balls-item-label"><?= $array[$i]['value'] ?></label>
-                </li>
-            <?php
-            }
-            ?>
+        <?php foreach ($uniqueVariants as $variant):
+            $value = $variant['value'];
+            $id = $name . '_' . str_replace(['.', ',', ' '], ['_'], $value);
 
-        <?php
-        }
+            $isChecked = ($value == (string)$currentValue) ? 'checked' : '';
         ?>
+            <li class="digit_balls-item">
+                <input
+                    type="radio"
+                    name="<?= $name ?>"
+                    id="<?= $id ?>"
+                    class="digit_balls-item-ball"
+                    value="<?= $value ?>"
+                    data-variant-id="<?= $variant['attribute_variant_id'] ?>"
+                    <?= $isChecked ?>>
+                <label for="<?= $id ?>" class="digit_balls-item-label"><?= $value ?></label>
+            </li>
+        <?php endforeach; ?>
     </ul>
-<?php
-
-}
-function genDigitBalls2($array, $name = 'digit_ball')
-{
-?>
-
-
-
-
-
-
-
-    <li class="digit_balls-item">
-        <input type="radio" name="<?= $name ?>" id="<?= $id ?>" class="digit_balls-item-ball" value="<?= $array[$i]['value'] ?>">
-        <label for="<?= $id ?>" class="digit_balls-item-label"><?= $array[$i]['value'] ?></label>
-    </li>
 <?php
 }
 ?>
