@@ -38,7 +38,8 @@ require './php/api/get_reviews.php';
 require './php/api/reviewing.php';
 
 //prod info
-require './php/components/digit_balls.php';
+// require './php/components/digit_balls.php';
+require './php/components/discount_display.php';
 require './php/components/review_tiles.php';
 
 session_start();
@@ -51,7 +52,6 @@ $prodDataJson = json_encode($prodData);
 ?>
 <?php genHeader() ?>
 <main class="main">
-
   <!-- <script src="/js/components/magnifier.js"></script> -->
   <script src="/js/cart_manager.js" defer></script>
   <section class="dashboard">
@@ -83,7 +83,7 @@ $prodDataJson = json_encode($prodData);
           <div class="dashboard-pulpit-header-price-value">
             <?= $prodData['price'] ?>
             <span class="dashboard-pulpit-header-price-value-currency">zł</span>
-            <?php displayDiscount($prodData['discount'])  ?>
+            <?php displayDiscount($prodData['discount']) ?>
           </div>
           <p class="dashboard-pulpit-header-price-before">Najniższa cena z 30 dni: <span class="dashboard-pulpit-header-price-before-value">
               <?= $prodData['last_price'] ?></span>
@@ -143,11 +143,11 @@ $prodDataJson = json_encode($prodData);
                 </tbody>
               </table>
             </div>
-            <?= genDigitBalls($prodData['grip_size'], 'grip_ball') ?>
+
         </div>
         <div class="dashboard-pulpit-variants-length">
           <p class="dashboard-pulpit-variants-length-title">Długość [cm]:</p>
-          <?= genDigitBalls($prodData['length'], 'length_ball') ?>
+
         </div>
       <?php
           }
@@ -244,12 +244,11 @@ $prodDataJson = json_encode($prodData);
     </div>
   </section>
   <script>
-    console.log("prodData loaded ");
-
+    console.log("prodData loaded");
     const prodDataJson = JSON.parse(<?php echo json_encode($prodDataJson); ?>);
-    console.log("prodData loaded ", prodDataJson);
+    console.log("grip sizes ", prodDataJson['grip_variants']);
+    console.log("lengths ", prodDataJson['length_variants']);
     document.addEventListener('DOMContentLoaded', () => {
-
       if (typeof prodConfig === 'function') {
         prodConfig();
       }
@@ -258,5 +257,4 @@ $prodDataJson = json_encode($prodData);
   <script src="./js/product_config.js"></script>
   <script src="./js/write_review.js"></script>
 </main>
-
 <?php genFooter() ?>

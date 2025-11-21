@@ -17,9 +17,9 @@ function getProductData($id)
     products.name,
     products.description,
     products.price,
-    last_price,
-    quantity,
-    is_bestseller,
+    products.last_price,
+    products.quantity,
+    products.is_bestseller,
     products.is_new,
     products.is_discount,
     products.variant_type
@@ -202,11 +202,7 @@ WHERE
         // print_r($row);
         $prodArray['children'][] = $row;
     };
-    print_r($prodArray['children']);
-
-
-
-
+    // print_r($prodArray['children']);
 
     // -----------------------------grid_pattern----------------------------------------
     $stmt = $conn->prepare("SELECT attribute_variants.attribute_variant_id, attribute_variants.value FROM attribute_variants JOIN product_attributes ON attribute_variants.attribute_variant_id = product_attributes.attribute_variant_id

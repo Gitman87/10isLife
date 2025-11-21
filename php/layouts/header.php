@@ -12,19 +12,14 @@ function genHeader()
         array('Piłki', './123'),
         array('Akcesoria', './123'),
         array('Marki', './123'),
-
-
-
     )
 ?>
     <?php genHead('10isLife') ?>
 
     <body>
         <script src='./js/components/toggle_log_modal.js'></script>
-        <script src='./js/components/open_profile.js'></script>
+        <!-- <script src='./js/components/open_profile.js'></script> -->
         <script src="./js/components/profile.js"></script>
-
-
 
         <header class="header">
             <div class="header-content breakpoint">
