@@ -246,8 +246,7 @@ $prodDataJson = json_encode($prodData);
   <script>
     console.log("prodData loaded");
     const prodDataJson = JSON.parse(<?php echo json_encode($prodDataJson); ?>);
-    console.log("grip sizes ", prodDataJson['grip_variants']);
-    console.log("lengths ", prodDataJson['length_variants']);
+
     document.addEventListener('DOMContentLoaded', () => {
       if (typeof prodConfig === 'function') {
         prodConfig();
