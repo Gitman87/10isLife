@@ -88,9 +88,12 @@ function genBalls(prodDataJson) {
       let gotBucket = gripBuckets.get(bucketId);
       console.log("gotBucket  length array is is: ", gotBucket.lengthArray);
       console.log("gripbal dataset is: ", bucketId);
-      console.log("gripbutects with id is :", gripBuckets.bucketId);
       for (let i = 0; i < gotBucket.lengthArray.length; i++) {
-        const value = gotBucket.lengthArray[i];
+        const foundLengthObject = lengthData.find(
+          (item) => item.child_id === gotBucket.lengthArray[i]
+        );
+        console.log("foundobject in lengthData is:", foundLengthObject);
+        const value = foundLengthObject["value"];
         const id = "digit_ball_length_" + i;
         const name = "digit_ball_length";
         const listItem = document.createElement("li");
@@ -109,6 +112,8 @@ function genBalls(prodDataJson) {
         label.textContent = value;
         listItem.appendChild(label);
         lengthList.append(listItem);
+        //add making changes to price and qunatity
+        listItem.addEventListener("click", () => {});
       }
     });
   });
