@@ -91,8 +91,8 @@ function genBalls(prodDataJson) {
       console.log("gripbutects with id is :", gripBuckets.bucketId);
       for (let i = 0; i < gotBucket.lengthArray.length; i++) {
         const value = gotBucket.lengthArray[i];
-        const id = "digit_ball_" + i;
-        const name = "digit_ball";
+        const id = "digit_ball_length_" + i;
+        const name = "digit_ball_length";
         const listItem = document.createElement("li");
         listItem.classList.add("item");
         const radioInput = document.createElement("input");
