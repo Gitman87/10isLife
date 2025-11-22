@@ -17,6 +17,9 @@ function genBalls(prodDataJson) {
   console.log("Children are: ", childrenData);
   const gripList = document.createElement("ul");
   gripList.classList.add("digit_balls");
+  const lengthList = document.createElement("ul");
+  lengthList.classList.add("digit_balls");
+  lengthContainer.appendChild(lengthList);
   //   ---------------gen balls for grip sieze, use force, Luke------------
   // make unique grip values
   const gripValues = [];
@@ -36,13 +39,14 @@ function genBalls(prodDataJson) {
 
   console.log("uniqueGripValues array is: ", uniqueGripValues);
   //make grip balls
-  const gripBuckets = [];
+  const gripBuckets = new Map();
   for (let i = 0; i < uniqueGripValues.length; i++) {
     const value = uniqueGripValues[i];
     const id = "digit_ball_" + i;
     const name = "digit_ball";
     const listItem = document.createElement("li");
     listItem.classList.add("item");
+    listItem.setAttribute("data-grip-id", value);
     const radioInput = document.createElement("input");
     radioInput.setAttribute("type", "radio");
     radioInput.setAttribute("id", id);
@@ -56,6 +60,7 @@ function genBalls(prodDataJson) {
     label.classList.add("digit_balls-item-label");
     label.textContent = value;
     listItem.appendChild(label);
+
     // radioInput.setAttribute("data-variant-id", variantId);
     gripList.appendChild(listItem);
     // add event listener which dispalys length baslls
@@ -71,23 +76,45 @@ function genBalls(prodDataJson) {
       value: value,
       lengthArray: associatedChildIds,
     };
-    gripBuckets.push(bucket);
+    gripBuckets.set(value, bucket);
   }
-
+  //add display length balls for each grip ball
+  console.log("gripList length is: ", gripList.children[0]);
+  [...gripList.children].forEach((gripBall) => {
+    gripBall.addEventListener("click", () => {
+      console.log("gripBall is: ", gripBall);
+      lengthList.innerHTML = "";
+      let bucketId = gripBall.dataset.gripId;
+      let gotBucket = gripBuckets.get(bucketId);
+      console.log("gotBucket  length array is is: ", gotBucket.lengthArray);
+      console.log("gripbal dataset is: ", bucketId);
+      console.log("gripbutects with id is :", gripBuckets.bucketId);
+      for (let i = 0; i < gotBucket.lengthArray.length; i++) {
+        const value = gotBucket.lengthArray[i];
+        const id = "digit_ball_" + i;
+        const name = "digit_ball";
+        const listItem = document.createElement("li");
+        listItem.classList.add("item");
+        const radioInput = document.createElement("input");
+        radioInput.setAttribute("type", "radio");
+        radioInput.setAttribute("id", id);
+        radioInput.classList.add("digit_balls-item-ball");
+        radioInput.setAttribute("value", value);
+        radioInput.setAttribute("name", name);
+        listItem.appendChild(radioInput);
+        //label
+        const label = document.createElement("label");
+        label.setAttribute("for", id);
+        label.classList.add("digit_balls-item-label");
+        label.textContent = value;
+        listItem.appendChild(label);
+        lengthList.append(listItem);
+      }
+    });
+  });
   console.log("gripBuckets is: ", gripBuckets);
 
   gripSizeContainer.appendChild(gripList);
   //make length balls
-
-  // make unique grip values
-  const lengthValues = [];
-  lengthData.forEach((element) => {
-    lengthValues.push(element["value"]);
-  });
-
-  //create child object grip size an  length
-
-  //show length for a given  grip size
-  const map = new Map();
 }
 genBalls(prodDataJson);
