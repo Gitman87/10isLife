@@ -20,13 +20,23 @@ function genBalls(prodDataJson) {
   //   ---------------gen balls for grip sieze, use force, Luke------------
   // make unique grip values
   const gripValues = [];
+  const gripIds = [];
+
   gripSizeData.forEach((element) => {
     gripValues.push(element["value"]);
+    gripIds.push(element["child_id"]);
   });
+  const uniqueGripIds = gripIds.filter(
+    (value, index, array) => array.indexOf(value) === index
+  );
   const uniqueGripValues = gripValues.filter(
     (value, index, array) => array.indexOf(value) === index
   );
+  console.log("uniqueGripIds: ", uniqueGripIds);
+
+  console.log("uniqueGripValues array is: ", uniqueGripValues);
   //make grip balls
+  const gripBuckets = [];
   for (let i = 0; i < uniqueGripValues.length; i++) {
     const value = uniqueGripValues[i];
     const id = "digit_ball_" + i;
@@ -48,23 +58,27 @@ function genBalls(prodDataJson) {
     listItem.appendChild(label);
     // radioInput.setAttribute("data-variant-id", variantId);
     gripList.appendChild(listItem);
+    // add event listener which dispalys length baslls
+    //make kinda hashmap
+    const matchingGripVariants = gripSizeData.filter(
+      (item) => item.value === value
+    );
+    const associatedChildIds = matchingGripVariants.map(
+      (item) => item.child_id
+    );
+    const bucket = {
+      id: id,
+      value: value,
+      lengthArray: associatedChildIds,
+    };
+    gripBuckets.push(bucket);
   }
-  // uniqueGripValues.forEach((ball) => {
-  //   const value = ball;
-  //   const listItem = document.createElement("li");
-  //   listItem.classList.add("item");
-  //   const radioInput = document.createElement("input");
-  //   radioInput.setAttribute("type", "radio");
-  //   radioInput.setAttribute("id", id);
-  //   radioInput.classList.add("digit_balls-item-ball");
-  //   radioInput.setAttribute("value", value);
-  //   radioInput.setAttribute("data-variant-id", variantId);
-  //   listItem.appendChild(radioInput);
-  //   gripList.appendChild(listItem);
-  // });
+
+  console.log("gripBuckets is: ", gripBuckets);
+
   gripSizeContainer.appendChild(gripList);
   //make length balls
-  console.log("uniqueGripValues array is: ", uniqueGripValues);
+
   // make unique grip values
   const lengthValues = [];
   lengthData.forEach((element) => {
