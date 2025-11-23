@@ -20,11 +20,20 @@ function genBalls(prodDataJson) {
   const lengthList = document.createElement("ul");
   lengthList.classList.add("digit_balls");
   lengthContainer.appendChild(lengthList);
+  //containers for updating amount
+  const addContainer = document.querySelector(".dashboard-pulpit-add");
+  const quantitiyInput = addContainer.querySelector(
+    ".dashboard-pulpit-add-amount-quantifier"
+  );
+  const availabilityContainer = addContainer.querySelector(
+    ".dashboard-pulpit-add-availability-message"
+  );
+  const toBasketButton = addContainer.querySelector(".standard_button");
+  toBasketButton.style.display = "none";
   //   ---------------gen balls for grip sieze, use force, Luke------------
   // make unique grip values
   const gripValues = [];
   const gripIds = [];
-
   gripSizeData.forEach((element) => {
     gripValues.push(element["value"]);
     gripIds.push(element["child_id"]);
@@ -36,7 +45,6 @@ function genBalls(prodDataJson) {
     (value, index, array) => array.indexOf(value) === index
   );
   console.log("uniqueGripIds: ", uniqueGripIds);
-
   console.log("uniqueGripValues array is: ", uniqueGripValues);
   //make grip balls
   const gripBuckets = new Map();
@@ -60,7 +68,6 @@ function genBalls(prodDataJson) {
     label.classList.add("digit_balls-item-label");
     label.textContent = value;
     listItem.appendChild(label);
-
     // radioInput.setAttribute("data-variant-id", variantId);
     gripList.appendChild(listItem);
     // add event listener which dispalys length baslls
@@ -112,13 +119,37 @@ function genBalls(prodDataJson) {
         label.textContent = value;
         listItem.appendChild(label);
         lengthList.append(listItem);
-        //add making changes to price and qunatity
-        listItem.addEventListener("click", () => {});
+        //add making changes to amount and availability
+        listItem.addEventListener("click", () => {
+          // update quantitiy
+          const foundChildObject = childrenData.find(
+            (item) => item.product_id == foundLengthObject["child_id"]
+          );
+          const newQuantity = foundChildObject["quantity"];
+          quantitiyInput.max = newQuantity;
+          //check availability
+          if (newQuantity > 5) {
+            availabilityContainer.textContent = "Produkt dostępny";
+            quantitiyInput.max = newQuantity;
+            availabilityContainer.style.color = "#002b5b";
+            toBasketButton.style.display = "block";
+          } else if (newQuantity > 0) {
+            availabilityContainer.textContent =
+              "Uwaga! Zostało mniej niż 5 szt.";
+            availabilityContainer.style.color = "#b51818";
+            quantitiyInput.max = newQuantity;
+            toBasketButton.style.display = "block";
+          } else {
+            availabilityContainer.textContent = "Produkt niedostępny";
+            availabilityContainer.style.color = "#b51818";
+            quantitiyInput.max = 1;
+            toBasketButton.style.display = "none";
+          }
+        });
       }
     });
   });
   console.log("gripBuckets is: ", gripBuckets);
-
   gripSizeContainer.appendChild(gripList);
   //make length balls
 }

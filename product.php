@@ -181,14 +181,21 @@ $prodDataJson = json_encode($prodData);
         </div>
         <div class="dashboard-pulpit-add-availability">
           <?php
-          if ($prodData['quantity'] > 5) {
+          if ($prodData['variant_type'] === 'config') {
           ?>
-            <p class="dashboard-pulpit-add-availability-available">Produkt dostępny</p>
+
+            <p class="dashboard-pulpit-add-availability-message">Skonfiguruj produkt, aby sprawdźić jego dostępność.</p>
+            <?php genStandardButton('Do koszyka', true,  '', "addProductToCart(makeCartItem($prodId, '$prodName', $prodPrice))"); ?>
+
+          <?php
+          } elseif ($prodData['quantity'] > 5) {
+          ?>
+            <p class="dashboard-pulpit-add-availability-message">Produkt dostępny</p>
             <?php genStandardButton('Do koszyka', true,  '', "addProductToCart(makeCartItem($prodId, '$prodName', $prodPrice))"); ?>
           <?php
           } elseif ($prodData['quantity'] > 0) {
           ?>
-            <p class="dashboard-pulpit-add-availability-warning">Uwaga! Zostało mniej niż 5 szt.</p>
+            <p class="dashboard-pulpit-add-availability-message">Uwaga! Zostało mniej niż 5 szt.</p>
             <?php genStandardButton('Do koszyka', true, '', "addProductToCart(makeCartItem($prodId, '$prodName', $prodPrice))"); ?>
           <?php
           } else {
