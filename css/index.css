@@ -993,14 +993,8 @@ button {
   flex-direction: column;
   gap: 1rem;
 }
-.dashboard-pulpit-add-availability-available {
+.dashboard-pulpit-add-availability-message {
   color: #002b5b;
-}
-.dashboard-pulpit-add-availability-warning {
-  color: #b51818;
-}
-.dashboard-pulpit-add-availability-unavailable {
-  color: #b51818;
 }
 
 .description {

@@ -48,6 +48,7 @@ $prodData = getProductData($prodId);
 $prodName = $prodData['name'];
 $reviewData = getReviews($prodId);
 $prodPrice = $prodData['price'];
+
 $prodDataJson = json_encode($prodData);
 ?>
 <?php genHeader() ?>
@@ -186,7 +187,7 @@ $prodDataJson = json_encode($prodData);
 
             <p class="dashboard-pulpit-add-availability-message">Skonfiguruj produkt, aby sprawdźić jego dostępność.</p>
             <?php genStandardButton('Do koszyka', true,  '', "addProductToCart(makeCartItem($prodId, '$prodName', $prodPrice))"); ?>
-
+            <input type="hidden" id="myHiddenField" name="field_name" value="the_value_to_submit">
           <?php
           } elseif ($prodData['quantity'] > 5) {
           ?>

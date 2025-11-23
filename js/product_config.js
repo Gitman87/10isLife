@@ -29,7 +29,11 @@ function genBalls(prodDataJson) {
     ".dashboard-pulpit-add-availability-message"
   );
   const toBasketButton = addContainer.querySelector(".standard_button");
-  toBasketButton.style.display = "none";
+  if (prodDataJson["variant_type"] === "config") {
+    toBasketButton.style.display = "none";
+  } else {
+    toBasketButton.style.display = "block";
+  }
   //   ---------------gen balls for grip sieze, use force, Luke------------
   // make unique grip values
   const gripValues = [];
@@ -133,6 +137,9 @@ function genBalls(prodDataJson) {
             quantitiyInput.max = newQuantity;
             availabilityContainer.style.color = "#002b5b";
             toBasketButton.style.display = "block";
+            const newOnClickString = `addProductToCart(makeCartItem(${foundChildObject["product_id"]},"${foundChildObject["name"]}",${foundChildObject["price"]}))`;
+            toBasketButton.removeAttribute("onclick");
+            toBasketButton.setAttribute("onclick", newOnClickString);
           } else if (newQuantity > 0) {
             availabilityContainer.textContent =
               "Uwaga! Zostało mniej niż 5 szt.";
