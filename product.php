@@ -55,7 +55,6 @@ foreach ($prodData['images'] as $image) {
     break;
   };
 };
-echo 'Thumbnail url is ' . $prodThumbnailUrl;
 $prodDataJson = json_encode($prodData);
 ?>
 <?php genHeader() ?>

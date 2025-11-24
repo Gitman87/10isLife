@@ -10,11 +10,8 @@ function genBalls(prodDataJson) {
     ".dashboard-pulpit-variants-length"
   );
   const gripSizeData = prodDataJson["grip_variants"];
-  console.log("Grip size are: ", gripSizeData);
   const lengthData = prodDataJson["length_variants"];
-  console.log("Lengths are: ", lengthData);
   const childrenData = prodDataJson["children"];
-  console.log("Children are: ", childrenData);
   const gripList = document.createElement("ul");
   gripList.classList.add("digit_balls");
   const lengthList = document.createElement("ul");
@@ -48,8 +45,6 @@ function genBalls(prodDataJson) {
   const uniqueGripValues = gripValues.filter(
     (value, index, array) => array.indexOf(value) === index
   );
-  console.log("uniqueGripIds: ", uniqueGripIds);
-  console.log("uniqueGripValues array is: ", uniqueGripValues);
   //make grip balls
   const gripBuckets = new Map();
   for (let i = 0; i < uniqueGripValues.length; i++) {
@@ -90,20 +85,15 @@ function genBalls(prodDataJson) {
     gripBuckets.set(value, bucket);
   }
   //add display length balls for each grip ball
-  console.log("gripList length is: ", gripList.children[0]);
   [...gripList.children].forEach((gripBall) => {
     gripBall.addEventListener("click", () => {
-      console.log("gripBall is: ", gripBall);
       lengthList.innerHTML = "";
       let bucketId = gripBall.dataset.gripId;
       let gotBucket = gripBuckets.get(bucketId);
-      console.log("gotBucket  length array is is: ", gotBucket.lengthArray);
-      console.log("gripbal dataset is: ", bucketId);
       for (let i = 0; i < gotBucket.lengthArray.length; i++) {
         const foundLengthObject = lengthData.find(
           (item) => item.child_id === gotBucket.lengthArray[i]
         );
-        console.log("foundobject in lengthData is:", foundLengthObject);
         const value = foundLengthObject["value"];
         const id = "digit_ball_length_" + i;
         const name = "digit_ball_length";
@@ -156,7 +146,6 @@ function genBalls(prodDataJson) {
       }
     });
   });
-  console.log("gripBuckets is: ", gripBuckets);
   gripSizeContainer.appendChild(gripList);
   //make length balls
 }
