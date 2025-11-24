@@ -121,6 +121,7 @@ function genBalls(prodDataJson) {
           );
           const newQuantity = foundChildObject["quantity"];
           quantitiyInput.value = "1";
+          quantitiyInput.min = "1";
           quantitiyInput.max = newQuantity;
 
           //check availability

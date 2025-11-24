@@ -114,16 +114,18 @@ function updateBasketNumber(cartKey) {
     console.log("no cart created to count items");
     return;
   }
-  let totalNumberOfItems = 0;
-  document.addEventListener("DOMContentLoaded", () => {
-    console.log("in counting cart is ", cart);
-    cart.forEach((cartItem) => {
-      console.log("in counting, caret item is ", cartItem);
-      totalNumberOfItems += parseInt(cartItem.quantity);
-    });
-    basketNumberContainer.textContent = totalNumberOfItems;
-    console.log("totalNumberOfItems: ", totalNumberOfItems);
+  let totalNumberOfItems = Number(0);
+
+  console.log("in counting cart is ", cart);
+  cart.forEach((cartItem) => {
+    console.log("in counting, caret item is ", cartItem);
+    totalNumberOfItems += Number(cartItem.quantity);
+    console.log("typeof total quantity = ", typeof totalNumberOfItems);
+    // parseInt(totalNumberOfItems) + parseInt(cartItem.quantity);
   });
+  basketNumberContainer.textContent = totalNumberOfItems;
+  console.log("totalNumberOfItems: ", totalNumberOfItems);
+
   //count//
   basketNumberContainer.textContent = totalNumberOfItems;
   console.log("totalNumberOfItems: ", totalNumberOfItems);
