@@ -67,6 +67,14 @@ function makeCartItem(prodId, prodName, prodPrice, thumbnail_url) {
 function addProductToCart(cartItem) {
   const cartManager = new LocalStorageManager();
   const cartKey = "cart";
+  const stockQuantityInputValue = parseInt(
+    document.querySelector(".dashboard-pulpit-add-amount-stock_quantity_input")
+      .value
+  );
+  const messageContainer = document.querySelector(
+    ".dashboard-pulpit-add-availability-message"
+  );
+  console.log("stockQuantityInputValue is: ", stockQuantityInputValue);
   let cart = cartManager.read(cartKey);
   if (cart === null) {
     cart = [];
@@ -93,16 +101,24 @@ function addProductToCart(cartItem) {
     const theSameItemQunatityInt = parseInt(cart[indexOfTheSameItem].quantity);
     const newItemQuantityInt = parseInt(cartItem.quantity);
     const newQuantity = theSameItemQunatityInt + newItemQuantityInt;
-    console.log("New quantity is ", newQuantity);
-    cart[indexOfTheSameItem].quantity = newQuantity;
-    console.log("Cart insludes the same product");
-    console.log(
-      `Item's with index ${indexOfTheSameItem} quantity was updated and is now: ${cart[indexOfTheSameItem].quantity} `
-    );
-    cartManager.update(cartKey, cart);
-    console.log("cart looks: ", cart);
+    if (stockQuantityInputValue < theSameItemQunatityInt + newItemQuantityInt) {
+      console.warn("Cannot add more to basket");
+      messageContainer.textContent = "Nie można dodać więcej tego produktu";
+      messageContainer.style.color = "#b51818";
+      return;
+    } else {
+      console.log("New quantity is ", newQuantity);
+      cart[indexOfTheSameItem].quantity = newQuantity;
+      console.log("Cart insludes the same product");
+      console.log(
+        `Item's with index ${indexOfTheSameItem} quantity was updated and is now: ${cart[indexOfTheSameItem].quantity} `
+      );
+      cartManager.update(cartKey, cart);
+      console.log("cart looks: ", cart);
+    }
   }
 }
+
 function updateBasketNumber(cartKey) {
   const basketNumberContainer = document.querySelector(
     ".header-content-account-shopping-basket_link-number"

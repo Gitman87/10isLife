@@ -48,6 +48,7 @@ $prodData = getProductData($prodId);
 $prodName = $prodData['name'];
 $reviewData = getReviews($prodId);
 $prodPrice = $prodData['price'];
+$stockQuantity = $prodData['quantity'];
 $prodThumbnailUrl = '';
 foreach ($prodData['images'] as $image) {
   if (isset($image['is_thumbnail']) && $image['is_thumbnail'] === 1) {
@@ -179,6 +180,7 @@ $prodDataJson = json_encode($prodData);
       <hr class="dashboard-pulpit-line">
       <div class="dashboard-pulpit-add">
         <div class="dashboard-pulpit-add-amount">
+          <input type="hidden" class="dashboard-pulpit-add-amount-stock_quantity_input" value=<?= $prodData['quantity'] ?>>
           <?php
           if ($prodData['variant_type'] === 'basic') {
           ?>
@@ -197,18 +199,18 @@ $prodDataJson = json_encode($prodData);
           if ($prodData['variant_type'] === 'config') {
           ?>
             <p class="dashboard-pulpit-add-availability-message">Skonfiguruj produkt, aby sprawdźić jego dostępność.</p>
-            <?php genStandardButton('Do koszyka', true,  '', "addProductToCart(makeCartItem($prodId, '$prodName', $prodPrice, '$prodThumbnailUrl'));updateBasketNumber('cart')"); ?>
+            <?php genStandardButton('Do koszyka', true,  '', "addProductToCart(makeCartItem($prodId, '$prodName', $prodPrice, '$prodThumbnailUrl') );updateBasketNumber('cart')"); ?>
             <input type="hidden" id="myHiddenField" name="field_name" value="the_value_to_submit">
           <?php
           } elseif ($prodData['quantity'] > 5) {
           ?>
             <p class="dashboard-pulpit-add-availability-message">Produkt dostępny</p>
-            <?php genStandardButton('Do koszyka', true,  '', "addProductToCart(makeCartItem($prodId, '$prodName', $prodPrice, '$prodThumbnailUrl'));updateBasketNumber('cart')"); ?>
+            <?php genStandardButton('Do koszyka', true,  '', "addProductToCart(makeCartItem($prodId, '$prodName', $prodPrice, '$prodThumbnailUrl') );updateBasketNumber('cart')"); ?>
           <?php
           } elseif ($prodData['quantity'] > 0) {
           ?>
             <p class="dashboard-pulpit-add-availability-message">Uwaga! Zostało mniej niż 5 szt.</p>
-            <?php genStandardButton('Do koszyka', true, '', "addProductToCart(makeCartItem($prodId, '$prodName', $prodPrice, '$prodThumbnailUrl'));updateBasketNumber('cart')"); ?>
+            <?php genStandardButton('Do koszyka', true, '', "addProductToCart(makeCartItem($prodId, '$prodName', $prodPrice, '$prodThumbnailUrl') );updateBasketNumber('cart')"); ?>
           <?php
           } else {
           ?>

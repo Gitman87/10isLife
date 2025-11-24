@@ -31,6 +31,9 @@ function genBalls(prodDataJson) {
   } else {
     toBasketButton.style.visibility = "visible";
   }
+  const stockQuantityInput = addContainer.querySelector(
+    ".dashboard-pulpit-add-amount-stock_quantity_input"
+  );
   //   ---------------gen balls for grip sieze, use force, Luke------------
   // make unique grip values
   const gripValues = [];
@@ -119,19 +122,16 @@ function genBalls(prodDataJson) {
           const foundChildObject = childrenData.find(
             (item) => item.product_id == foundLengthObject["child_id"]
           );
+          stockQuantityInput.value = foundChildObject["quantity"];
           const newQuantity = foundChildObject["quantity"];
           quantitiyInput.value = "1";
           quantitiyInput.min = "1";
           quantitiyInput.max = newQuantity;
-
           //check availability
           if (newQuantity > 5) {
             availabilityContainer.textContent = "Produkt dostępny";
             availabilityContainer.style.color = "#002b5b";
             toBasketButton.style.visibility = "visible";
-            const newOnClickString = `addProductToCart(makeCartItem(${foundChildObject["product_id"]},"${foundChildObject["name"]}",${foundChildObject["price"]}))`;
-            toBasketButton.removeAttribute("onclick");
-            toBasketButton.setAttribute("onclick", newOnClickString);
           } else if (newQuantity > 0) {
             availabilityContainer.textContent =
               "Uwaga! Zostało mniej niż 5 szt.";
