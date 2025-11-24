@@ -108,43 +108,44 @@
       }
       &-shopping {
         padding: 0 1rem;
-        display: flex;
-        flex-direction: column;
         order: 0;
-        justify-content: center;
-        align-items: center;
-        &-basket {
-          width: 4rem;
+        position: relative;
+        top: -0.25rem;
+        &-basket_link {
           position: relative;
-          top: 1.2rem;
-        }
-        &-ball {
-          background-color: $orange;
-          width: 2.2rem;
-          height: 2.2rem;
-          border-radius: 50% 50%;
-          position: relative;
-          bottom: 3.2rem;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          transition: transform 0.4s ease-in-out;
-
-          &-counter {
+          &-basket {
+            width: 3.6rem;
+            position: relative;
+            top: 1.2rem;
+          }
+          &-number {
+            position: absolute;
+            top: -2.55rem;
+            left: 0.7rem;
+            background-color: $orange;
+            width: 2.2rem;
+            height: 2.2rem;
+            border-radius: 50% 50%;
+            position: relative;
+            bottom: 3.2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.4s ease-in-out;
             color: $white;
             font-size: $font-medium;
             font-weight: $font-weight-thick;
           }
-        }
-        &-ball:hover {
-          transform: scale(1.2);
-          // transition: transform 0.25s;
-          // transition-timing-function: ease-in;
-        }
-        &-ball:active {
-          transform: scale(0.8);
-          transition: transform 0.25s;
-          transition-timing-function: ease-in;
+          &-number:hover {
+            transform: scale(1.2);
+            // transition: transform 0.25s;
+            // transition-timing-function: ease-in;
+          }
+          &-number:active {
+            transform: scale(0.8);
+            transition: transform 0.25s;
+            transition-timing-function: ease-in;
+          }
         }
       }
     }

@@ -64,10 +64,12 @@ function genHeader()
                     <?php genProfile() ?>
                     <?php genLogModal() ?>
                     <div class="header-content-account-shopping">
-                        <img src="./res/icon/basket.svg" class="header-content-account-shopping-basket" alt="basket">
-                        <div class="header-content-account-shopping-ball">
-                            <a href="" class="header-content-account-shopping-ball-counter">0</a>
-                        </div>
+                        <a href="" class="header-content-account-shopping-basket_link">
+                            <img src="./res/icon/basket.svg" class="header-content-account-shopping-basket_link-basket" alt="basket">
+                            <div class="header-content-account-shopping-basket_link-number">
+                                0
+                            </div>
+                        </a>
                     </div>
 
 

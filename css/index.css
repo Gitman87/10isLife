@@ -361,18 +361,22 @@ button {
 }
 .header-content-account-shopping {
   padding: 0 1rem;
-  display: flex;
-  flex-direction: column;
   order: 0;
-  justify-content: center;
-  align-items: center;
+  position: relative;
+  top: -0.25rem;
 }
-.header-content-account-shopping-basket {
-  width: 4rem;
+.header-content-account-shopping-basket_link {
+  position: relative;
+}
+.header-content-account-shopping-basket_link-basket {
+  width: 3.6rem;
   position: relative;
   top: 1.2rem;
 }
-.header-content-account-shopping-ball {
+.header-content-account-shopping-basket_link-number {
+  position: absolute;
+  top: -2.55rem;
+  left: 0.7rem;
   background-color: #ff6600;
   width: 2.2rem;
   height: 2.2rem;
@@ -383,16 +387,14 @@ button {
   justify-content: center;
   align-items: center;
   transition: transform 0.4s ease-in-out;
-}
-.header-content-account-shopping-ball-counter {
   color: white;
   font-size: 1.6rem;
   font-weight: 600;
 }
-.header-content-account-shopping-ball:hover {
+.header-content-account-shopping-basket_link-number:hover {
   transform: scale(1.2);
 }
-.header-content-account-shopping-ball:active {
+.header-content-account-shopping-basket_link-number:active {
   transform: scale(0.8);
   transition: transform 0.25s;
   transition-timing-function: ease-in;
@@ -1258,18 +1260,22 @@ button {
 }
 .header-content-account-shopping {
   padding: 0 1rem;
-  display: flex;
-  flex-direction: column;
   order: 0;
-  justify-content: center;
-  align-items: center;
+  position: relative;
+  top: -0.25rem;
 }
-.header-content-account-shopping-basket {
-  width: 4rem;
+.header-content-account-shopping-basket_link {
+  position: relative;
+}
+.header-content-account-shopping-basket_link-basket {
+  width: 3.6rem;
   position: relative;
   top: 1.2rem;
 }
-.header-content-account-shopping-ball {
+.header-content-account-shopping-basket_link-number {
+  position: absolute;
+  top: -2.55rem;
+  left: 0.7rem;
   background-color: #ff6600;
   width: 2.2rem;
   height: 2.2rem;
@@ -1280,16 +1286,14 @@ button {
   justify-content: center;
   align-items: center;
   transition: transform 0.4s ease-in-out;
-}
-.header-content-account-shopping-ball-counter {
   color: white;
   font-size: 1.6rem;
   font-weight: 600;
 }
-.header-content-account-shopping-ball:hover {
+.header-content-account-shopping-basket_link-number:hover {
   transform: scale(1.2);
 }
-.header-content-account-shopping-ball:active {
+.header-content-account-shopping-basket_link-number:active {
   transform: scale(0.8);
   transition: transform 0.25s;
   transition-timing-function: ease-in;

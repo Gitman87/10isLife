@@ -102,3 +102,8 @@ function addProductToCart(cartItem) {
     console.log("cart looks: ", cart);
   }
 }
+// function updateCartAmaount(){
+
+// cosnt
+
+// }
