@@ -36,12 +36,12 @@ class LocalStorageManager {
     localStorage.setItem(key, JSON.stringify(item));
   }
 }
-
-function makeCartItem(prodId, prodName, prodPrice) {
+function makeCartItem(prodId, prodName, prodPrice, thumbnail_url) {
   const productDetailsContainer = document.querySelector(".dashboard-pulpit");
   const quantity = productDetailsContainer.querySelector(
     ".dashboard-pulpit-add-amount-quantifier"
   ).value;
+
   console.log("Quantity of the product adding to cart is: ", quantity);
   const options = {};
   productDetailsContainer
@@ -57,6 +57,7 @@ function makeCartItem(prodId, prodName, prodPrice) {
     fullName: prodName,
     price: prodPrice,
     quantity: quantity,
+    thumbnail: thumbnail_url,
     options: options,
   };
   return cartItem;

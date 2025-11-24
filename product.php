@@ -48,7 +48,14 @@ $prodData = getProductData($prodId);
 $prodName = $prodData['name'];
 $reviewData = getReviews($prodId);
 $prodPrice = $prodData['price'];
-
+$prodThumbnailUrl = '';
+foreach ($prodData['images'] as $image) {
+  if (isset($image['is_thumbnail']) && $image['is_thumbnail'] === 1) {
+    $prodThumbnailUrl  = $image['url'];
+    break;
+  };
+};
+echo 'Thumbnail url is ' . $prodThumbnailUrl;
 $prodDataJson = json_encode($prodData);
 ?>
 <?php genHeader() ?>
@@ -56,7 +63,7 @@ $prodDataJson = json_encode($prodData);
   <!-- <script src="/js/components/magnifier.js"></script> -->
   <script src="/js/cart_manager.js" defer></script>
   <section class="dashboard">
-    <?php genProductPreview($prodData['images']) ?>
+    <?php genProductPreview($prodData['images'], $prodThumbnailUrl) ?>
     <div class="dashboard-pulpit">
       <div class="dashboard-pulpit-header">
         <div class="dashboard-pulpit-header-new_best">
@@ -186,18 +193,18 @@ $prodDataJson = json_encode($prodData);
           ?>
 
             <p class="dashboard-pulpit-add-availability-message">Skonfiguruj produkt, aby sprawdźić jego dostępność.</p>
-            <?php genStandardButton('Do koszyka', true,  '', "addProductToCart(makeCartItem($prodId, '$prodName', $prodPrice))"); ?>
+            <?php genStandardButton('Do koszyka', true,  '', "addProductToCart(makeCartItem($prodId, '$prodName', $prodPrice, '$prodThumbnailUrl'))"); ?>
             <input type="hidden" id="myHiddenField" name="field_name" value="the_value_to_submit">
           <?php
           } elseif ($prodData['quantity'] > 5) {
           ?>
             <p class="dashboard-pulpit-add-availability-message">Produkt dostępny</p>
-            <?php genStandardButton('Do koszyka', true,  '', "addProductToCart(makeCartItem($prodId, '$prodName', $prodPrice))"); ?>
+            <?php genStandardButton('Do koszyka', true,  '', "addProductToCart(makeCartItem($prodId, '$prodName', $prodPrice, '$prodThumbnailUrl'))"); ?>
           <?php
           } elseif ($prodData['quantity'] > 0) {
           ?>
             <p class="dashboard-pulpit-add-availability-message">Uwaga! Zostało mniej niż 5 szt.</p>
-            <?php genStandardButton('Do koszyka', true, '', "addProductToCart(makeCartItem($prodId, '$prodName', $prodPrice))"); ?>
+            <?php genStandardButton('Do koszyka', true, '', "addProductToCart(makeCartItem($prodId, '$prodName', $prodPrice, '$prodThumbnailUrl'))"); ?>
           <?php
           } else {
           ?>
