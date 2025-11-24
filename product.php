@@ -197,18 +197,18 @@ $prodDataJson = json_encode($prodData);
           if ($prodData['variant_type'] === 'config') {
           ?>
             <p class="dashboard-pulpit-add-availability-message">Skonfiguruj produkt, aby sprawdźić jego dostępność.</p>
-            <?php genStandardButton('Do koszyka', true,  '', "addProductToCart(makeCartItem($prodId, '$prodName', $prodPrice, '$prodThumbnailUrl'))"); ?>
+            <?php genStandardButton('Do koszyka', true,  '', "addProductToCart(makeCartItem($prodId, '$prodName', $prodPrice, '$prodThumbnailUrl'));updateBasketNumber('cart')"); ?>
             <input type="hidden" id="myHiddenField" name="field_name" value="the_value_to_submit">
           <?php
           } elseif ($prodData['quantity'] > 5) {
           ?>
             <p class="dashboard-pulpit-add-availability-message">Produkt dostępny</p>
-            <?php genStandardButton('Do koszyka', true,  '', "addProductToCart(makeCartItem($prodId, '$prodName', $prodPrice, '$prodThumbnailUrl'))"); ?>
+            <?php genStandardButton('Do koszyka', true,  '', "addProductToCart(makeCartItem($prodId, '$prodName', $prodPrice, '$prodThumbnailUrl'));updateBasketNumber('cart')"); ?>
           <?php
           } elseif ($prodData['quantity'] > 0) {
           ?>
             <p class="dashboard-pulpit-add-availability-message">Uwaga! Zostało mniej niż 5 szt.</p>
-            <?php genStandardButton('Do koszyka', true, '', "addProductToCart(makeCartItem($prodId, '$prodName', $prodPrice, '$prodThumbnailUrl'))"); ?>
+            <?php genStandardButton('Do koszyka', true, '', "addProductToCart(makeCartItem($prodId, '$prodName', $prodPrice, '$prodThumbnailUrl'));updateBasketNumber('cart')"); ?>
           <?php
           } else {
           ?>

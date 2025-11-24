@@ -27,9 +27,9 @@ function genBalls(prodDataJson) {
   );
   const toBasketButton = addContainer.querySelector(".standard_button");
   if (prodDataJson["variant_type"] === "config") {
-    toBasketButton.style.display = "none";
+    toBasketButton.style.visibility = "hidden";
   } else {
-    toBasketButton.style.display = "block";
+    toBasketButton.style.visibility = "visible";
   }
   //   ---------------gen balls for grip sieze, use force, Luke------------
   // make unique grip values
@@ -128,7 +128,7 @@ function genBalls(prodDataJson) {
           if (newQuantity > 5) {
             availabilityContainer.textContent = "Produkt dostępny";
             availabilityContainer.style.color = "#002b5b";
-            toBasketButton.style.display = "block";
+            toBasketButton.style.visibility = "visible";
             const newOnClickString = `addProductToCart(makeCartItem(${foundChildObject["product_id"]},"${foundChildObject["name"]}",${foundChildObject["price"]}))`;
             toBasketButton.removeAttribute("onclick");
             toBasketButton.setAttribute("onclick", newOnClickString);
@@ -136,11 +136,11 @@ function genBalls(prodDataJson) {
             availabilityContainer.textContent =
               "Uwaga! Zostało mniej niż 5 szt.";
             availabilityContainer.style.color = "#b51818";
-            toBasketButton.style.display = "block";
+            toBasketButton.style.visibility = "visible";
           } else {
             availabilityContainer.textContent = "Produkt niedostępny";
             availabilityContainer.style.color = "#b51818";
-            toBasketButton.style.display = "none";
+            toBasketButton.style.visibility = "hidden";
           }
         });
       }
