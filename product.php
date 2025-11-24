@@ -186,11 +186,11 @@ $prodDataJson = json_encode($prodData);
           <?php
           } else {
           ?>
+            <label for="quantifier" class="dashboard-pulpit-add-amount-label">Ilość:</label>
             <input type="number" class="dashboard-pulpit-add-amount-quantifier" name="quantifier" id="quantifier" value=0 min=0 max=0>
           <?php
           }
           ?>
-          <label for="quantifier" class="dashboard-pulpit-add-amount-label">Ilość:</label>
         </div>
         <div class="dashboard-pulpit-add-availability">
           <?php
