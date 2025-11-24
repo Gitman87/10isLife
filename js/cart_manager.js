@@ -36,6 +36,7 @@ class LocalStorageManager {
     localStorage.setItem(key, JSON.stringify(item));
   }
 }
+//t he cart key used in following functions is 'cart'
 function makeCartItem(prodId, prodName, prodPrice, thumbnail_url) {
   const productDetailsContainer = document.querySelector(".dashboard-pulpit");
   const quantity = productDetailsContainer.querySelector(
@@ -102,8 +103,33 @@ function addProductToCart(cartItem) {
     console.log("cart looks: ", cart);
   }
 }
-// function updateCartAmaount(){
+function updateBasketNumber(cartKey) {
+  const basketNumberContainer = document.querySelector(
+    ".header-content-account-shopping-basket_link-number"
+  );
+  const cartManager = new LocalStorageManager();
+  //sum all all the quantity of the products inside the cart
+  let cart = cartManager.read(cartKey);
+  if (cart === null) {
+    console.log("no cart created to count items");
+    return;
+  }
+  let totalNumberOfItems = 0;
+  document.addEventListener("DOMContentLoaded", () => {
+    console.log("in counting cart is ", cart);
+    cart.forEach((cartItem) => {
+      console.log("in counting, caret item is ", cartItem);
+      totalNumberOfItems += parseInt(cartItem.quantity);
+    });
+    basketNumberContainer.textContent = totalNumberOfItems;
+    console.log("totalNumberOfItems: ", totalNumberOfItems);
+  });
+  //count//
+  basketNumberContainer.textContent = totalNumberOfItems;
+  console.log("totalNumberOfItems: ", totalNumberOfItems);
 
-// cosnt
-
-// }
+  cart.forEach((cartItem) => {
+    totalNumberOfItems += cartItem.quantity;
+  });
+}
+updateBasketNumber("cart");

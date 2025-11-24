@@ -174,23 +174,28 @@ $prodDataJson = json_encode($prodData);
         <p class="dashboard-pulpit-variants-cover-value"><?= $prodData['cover']['value'] ?></p>
 
         </select>
-
       </div>
       </div>
       <hr class="dashboard-pulpit-line">
       <div class="dashboard-pulpit-add">
         <div class="dashboard-pulpit-add-amount">
+          <?php
+          if ($prodData['variant_type'] === 'basic') {
+          ?>
+            <input type="number" class="dashboard-pulpit-add-amount-quantifier" name="quantifier" id="quantifier" value=1 min=1 max=<?= $prodData['quantity'] ?>>
+          <?php
+          } else {
+          ?>
+            <input type="number" class="dashboard-pulpit-add-amount-quantifier" name="quantifier" id="quantifier" value=0 min=0 max=0>
+          <?php
+          }
+          ?>
           <label for="quantifier" class="dashboard-pulpit-add-amount-label">Ilość:</label>
-          <input type="number" class="dashboard-pulpit-add-amount-quantifier" name="quantifier" id="quantifier" value=1 min=1 max=<?= $prodData['quantity'] ?>>
-          <!-- <button class="dashboard-pulpit-add-amount-minus">-</button>
-          <div class="dashboard-pulpit-add-amount-value">0</div>
-          <button class="dashboard-pulpit-add-amount-lus">+</button> -->
         </div>
         <div class="dashboard-pulpit-add-availability">
           <?php
           if ($prodData['variant_type'] === 'config') {
           ?>
-
             <p class="dashboard-pulpit-add-availability-message">Skonfiguruj produkt, aby sprawdźić jego dostępność.</p>
             <?php genStandardButton('Do koszyka', true,  '', "addProductToCart(makeCartItem($prodId, '$prodName', $prodPrice, '$prodThumbnailUrl'))"); ?>
             <input type="hidden" id="myHiddenField" name="field_name" value="the_value_to_submit">

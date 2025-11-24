@@ -121,10 +121,10 @@ function genBalls(prodDataJson) {
           );
           const newQuantity = foundChildObject["quantity"];
           quantitiyInput.max = newQuantity;
+
           //check availability
           if (newQuantity > 5) {
             availabilityContainer.textContent = "Produkt dostępny";
-            quantitiyInput.max = newQuantity;
             availabilityContainer.style.color = "#002b5b";
             toBasketButton.style.display = "block";
             const newOnClickString = `addProductToCart(makeCartItem(${foundChildObject["product_id"]},"${foundChildObject["name"]}",${foundChildObject["price"]}))`;
@@ -134,12 +134,10 @@ function genBalls(prodDataJson) {
             availabilityContainer.textContent =
               "Uwaga! Zostało mniej niż 5 szt.";
             availabilityContainer.style.color = "#b51818";
-            quantitiyInput.max = newQuantity;
             toBasketButton.style.display = "block";
           } else {
             availabilityContainer.textContent = "Produkt niedostępny";
             availabilityContainer.style.color = "#b51818";
-            quantitiyInput.max = 1;
             toBasketButton.style.display = "none";
           }
         });
