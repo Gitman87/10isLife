@@ -43,7 +43,6 @@ function makeCartItem(prodId, prodName, prodPrice, thumbnail_url) {
     ".dashboard-pulpit-add-amount-quantifier"
   ).value;
 
-  console.log("Quantity of the product adding to cart is: ", quantity);
   const options = {};
   productDetailsContainer
     .querySelectorAll("input:checked, select")
@@ -52,7 +51,6 @@ function makeCartItem(prodId, prodName, prodPrice, thumbnail_url) {
         options[input.name] = input.value;
       }
     });
-  console.log("Options of a product are: ", options);
   let cartItem = {
     id: prodId,
     fullName: prodName,
@@ -74,28 +72,20 @@ function addProductToCart(cartItem) {
   const messageContainer = document.querySelector(
     ".dashboard-pulpit-add-availability-message"
   );
-  console.log("stockQuantityInputValue is: ", stockQuantityInputValue);
   let cart = cartManager.read(cartKey);
   if (cart === null) {
     cart = [];
-    console.log("New cart created");
     cart.push(cartItem);
     cartManager.update(cartKey, cart);
-    console.log("cart loos: ", cart);
     return;
   }
   //need to check if already exist the same prooduct with the same config
-  console.log("cartItem looks: ", cartItem);
   // const stringifiedCartItem = JSON.stringify(cartItem);
   const isTheSameId = (item) => item.id === cartItem.id;
   const indexOfTheSameItem = cart.findIndex(isTheSameId);
-  console.log("Index of the same item found: ", indexOfTheSameItem);
   if (indexOfTheSameItem === -1) {
-    console.log("Different product added");
     cart.push(cartItem);
     cartManager.update(cartKey, cart);
-    console.log("Product added  to cart");
-    console.log("Cart after adding looks like: ", cartManager.read(cartKey));
   } else {
     //need to update quantity, sum and update damnit!
     const theSameItemQunatityInt = parseInt(cart[indexOfTheSameItem].quantity);
@@ -104,21 +94,15 @@ function addProductToCart(cartItem) {
     if (stockQuantityInputValue < theSameItemQunatityInt + newItemQuantityInt) {
       console.warn("Cannot add more to basket");
       messageContainer.textContent = "Nie można dodać więcej tego produktu";
-      messageContainer.style.color = "#b51818";
+      messageContainer.classList.remove("message_text_color");
+      messageContainer.classList.remove("error_text_color");
       return;
     } else {
-      console.log("New quantity is ", newQuantity);
       cart[indexOfTheSameItem].quantity = newQuantity;
-      console.log("Cart insludes the same product");
-      console.log(
-        `Item's with index ${indexOfTheSameItem} quantity was updated and is now: ${cart[indexOfTheSameItem].quantity} `
-      );
       cartManager.update(cartKey, cart);
-      console.log("cart looks: ", cart);
     }
   }
 }
-
 function updateBasketNumber(cartKey) {
   const basketNumberContainer = document.querySelector(
     ".header-content-account-shopping-basket_link-number"
@@ -127,25 +111,16 @@ function updateBasketNumber(cartKey) {
   //sum all all the quantity of the products inside the cart
   let cart = cartManager.read(cartKey);
   if (cart === null) {
-    console.log("no cart created to count items");
     return;
   }
   let totalNumberOfItems = Number(0);
-
-  console.log("in counting cart is ", cart);
   cart.forEach((cartItem) => {
-    console.log("in counting, caret item is ", cartItem);
     totalNumberOfItems += Number(cartItem.quantity);
-    console.log("typeof total quantity = ", typeof totalNumberOfItems);
     // parseInt(totalNumberOfItems) + parseInt(cartItem.quantity);
   });
   basketNumberContainer.textContent = totalNumberOfItems;
-  console.log("totalNumberOfItems: ", totalNumberOfItems);
-
   //count//
   basketNumberContainer.textContent = totalNumberOfItems;
-  console.log("totalNumberOfItems: ", totalNumberOfItems);
-
   cart.forEach((cartItem) => {
     totalNumberOfItems += cartItem.quantity;
   });

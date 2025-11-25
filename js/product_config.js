@@ -1,4 +1,3 @@
-function prodConfig() {}
 function genBalls(prodDataJson) {
   const variantsContainer = document.querySelector(
     ".dashboard-pulpit-variants"
@@ -42,9 +41,6 @@ function genBalls(prodDataJson) {
     gripValues.push(element["value"]);
     gripIds.push(element["child_id"]);
   });
-  const uniqueGripIds = gripIds.filter(
-    (value, index, array) => array.indexOf(value) === index
-  );
   const uniqueGripValues = gripValues.filter(
     (value, index, array) => array.indexOf(value) === index
   );

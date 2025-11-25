@@ -995,6 +995,11 @@ button {
   flex-direction: column;
   gap: 1rem;
 }
+.dashboard-pulpit-add-availability-ball {
+  visibility: hidden;
+  opacity: 0.5;
+  width: 2rem;
+}
 .dashboard-pulpit-add-availability-message {
   color: #002b5b;
 }
@@ -1133,6 +1138,21 @@ button {
 
 .message_text_color {
   color: #002b5b;
+}
+
+@keyframes wiggle {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(5deg);
+  }
+  75% {
+    transform: rotate(-5deg);
+  }
+}
+.wiggle {
+  animation: wiggle 0.2s ease-in-out 2;
 }
 
 .registered {

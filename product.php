@@ -195,21 +195,27 @@ $prodDataJson = json_encode($prodData);
           ?>
         </div>
         <div class="dashboard-pulpit-add-availability">
+
           <?php
           if ($prodData['variant_type'] === 'config') {
           ?>
             <p class="dashboard-pulpit-add-availability-message">Skonfiguruj produkt, aby sprawdźić jego dostępność.</p>
             <?php genStandardButton('Do koszyka', true,  '', "addProductToCart(makeCartItem($prodId, '$prodName', $prodPrice, '$prodThumbnailUrl') );updateBasketNumber('cart')"); ?>
+            <img class="dashboard-pulpit-add-availability-ball" src="./res/icon/favicon.svg" alt="ball">
             <input type="hidden" id="myHiddenField" name="field_name" value="the_value_to_submit">
           <?php
           } elseif ($prodData['quantity'] > 5) {
           ?>
             <p class="dashboard-pulpit-add-availability-message">Produkt dostępny</p>
+            <img class="dashboard-pulpit-add-availability-ball" src="./res/icon/favicon.svg" alt="ball">
+
             <?php genStandardButton('Do koszyka', true,  '', "addProductToCart(makeCartItem($prodId, '$prodName', $prodPrice, '$prodThumbnailUrl') );updateBasketNumber('cart')"); ?>
           <?php
           } elseif ($prodData['quantity'] > 0) {
           ?>
             <p class="dashboard-pulpit-add-availability-message">Uwaga! Zostało mniej niż 5 szt.</p>
+            <img class="dashboard-pulpit-add-availability-ball" src="./res/icon/favicon.svg" alt="ball">
+
             <?php genStandardButton('Do koszyka', true, '', "addProductToCart(makeCartItem($prodId, '$prodName', $prodPrice, '$prodThumbnailUrl') );updateBasketNumber('cart')"); ?>
           <?php
           } else {
@@ -267,7 +273,6 @@ $prodDataJson = json_encode($prodData);
   <script>
     console.log("prodData loaded");
     const prodDataJson = JSON.parse(<?php echo json_encode($prodDataJson); ?>);
-
     document.addEventListener('DOMContentLoaded', () => {
       if (typeof prodConfig === 'function') {
         prodConfig();
@@ -276,5 +281,6 @@ $prodDataJson = json_encode($prodData);
   </script>
   <script src="./js/product_config.js"></script>
   <script src="./js/write_review.js"></script>
+  <script src="./js/cart_anim.js"></script>
 </main>
 <?php genFooter() ?>

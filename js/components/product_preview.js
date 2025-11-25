@@ -54,34 +54,27 @@ function magnify(selector, zoom = 2, lensSize = 80) {
     object-fit: initial !important;
   `;
   lens.appendChild(copiedImage);
-
   container.addEventListener("mousemove", (e) => {
     // get cursor position
     const rect = container.getBoundingClientRect();
     //relative ccordinates , not of the page
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-
     //cover lens over the cursor
     lens.style.display = "block";
     lens.style.left = x + "px";
     lens.style.top = y + "px";
-
     //map cusros as it is on the original %
     const px = (x / rect.width) * img.naturalWidth;
     const py = (y / rect.height) * img.naturalHeight;
-
     // calculate transistion fromthe focal point
     const tx = -(px * zoom) + lensSize;
     const ty = -(py * zoom) + lensSize;
-
     copiedImage.style.transform = `translate(${tx}px, ${ty}px) scale(${zoom})`;
   });
-
   // when cursorleaves main container
   container.addEventListener("mouseleave", () => {
     lens.style.display = "none";
   });
 }
-
 magnify(".product_preview-preview", 2, 80);
