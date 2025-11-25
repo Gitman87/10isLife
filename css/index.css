@@ -1127,6 +1127,14 @@ button {
   display: none;
 }
 
+.error_text_color {
+  color: #b51818;
+}
+
+.message_text_color {
+  color: #002b5b;
+}
+
 .registered {
   margin: 10rem auto;
   max-width: -moz-fit-content;

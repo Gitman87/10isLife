@@ -130,16 +130,19 @@ function genBalls(prodDataJson) {
           //check availability
           if (newQuantity > 5) {
             availabilityContainer.textContent = "Produkt dostępny";
-            availabilityContainer.style.color = "#002b5b";
+            availabilityContainer.classList.remove("error_text_color");
+            availabilityContainer.classList.add("message_text_color");
             toBasketButton.style.visibility = "visible";
           } else if (newQuantity > 0) {
             availabilityContainer.textContent =
               "Uwaga! Zostało mniej niż 5 szt.";
-            availabilityContainer.style.color = "#b51818";
+            availabilityContainer.classList.remove("message_text_color");
+            availabilityContainer.classList.add("error_text_color");
             toBasketButton.style.visibility = "visible";
           } else {
             availabilityContainer.textContent = "Produkt niedostępny";
-            availabilityContainer.style.color = "#b51818";
+            availabilityContainer.classList.remove("message_text_color");
+            availabilityContainer.classList.add("error_text_color");
             toBasketButton.style.visibility = "hidden";
           }
         });

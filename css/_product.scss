@@ -304,7 +304,9 @@
 .hide_textarea {
   display: none;
 }
-// #new_review:focus + .hide {
-//   display: block !important;
-//   background-color: pink;
-// }
+.error_text_color {
+  color: $error-color;
+}
+.message_text_color {
+  color: $granat;
+}
