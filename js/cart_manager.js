@@ -121,7 +121,6 @@ function updateBasketNumber(cartKey) {
     totalNumberOfItems += Number(cartItem.quantity);
     // parseInt(totalNumberOfItems) + parseInt(cartItem.quantity);
   });
-  basketNumberContainer.textContent = totalNumberOfItems;
   //count//
   basketNumberContainer.textContent = totalNumberOfItems;
   cart.forEach((cartItem) => {

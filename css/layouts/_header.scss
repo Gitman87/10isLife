@@ -114,17 +114,18 @@
         &-basket_link {
           position: relative;
           &-basket {
-            width: 3.6rem;
+            width: 3.9rem;
             position: relative;
-            top: 1.2rem;
+            top: 1.5rem;
           }
           &-number {
             position: absolute;
-            top: -2.45rem;
-            left: 0.7rem;
+            // top: -2.45rem;
+            left: 0.5rem;
             background-color: $orange;
-            width: 2.2rem;
-            height: 2.2rem;
+            width: 1.8em;
+            height: 1.8em;
+            padding: 0.5em;
             border-radius: 50% 50%;
             position: relative;
             bottom: 3.2rem;

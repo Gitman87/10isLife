@@ -369,17 +369,17 @@ button {
   position: relative;
 }
 .header-content-account-shopping-basket_link-basket {
-  width: 3.6rem;
+  width: 3.9rem;
   position: relative;
-  top: 1.2rem;
+  top: 1.5rem;
 }
 .header-content-account-shopping-basket_link-number {
   position: absolute;
-  top: -2.45rem;
-  left: 0.7rem;
+  left: 0.5rem;
   background-color: #ff6600;
-  width: 2.2rem;
-  height: 2.2rem;
+  width: 1.8em;
+  height: 1.8em;
+  padding: 0.5em;
   border-radius: 50% 50%;
   position: relative;
   bottom: 3.2rem;
@@ -1139,19 +1139,37 @@ button {
   color: #002b5b;
 }
 
+@keyframes pop {
+  0%, 50% {
+    transform: scale(0);
+  }
+  75% {
+    transform: scale(1.2);
+  }
+  90% {
+    transform: scale(0.7);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 @keyframes wiggle {
   0%, 100% {
     transform: rotate(0deg);
   }
-  25% {
-    transform: rotate(5deg);
+  85% {
+    transform: rotate(-65deg);
   }
-  75% {
-    transform: rotate(-5deg);
+  95% {
+    transform: rotate(65deg);
   }
 }
 .wiggle {
-  animation: wiggle 0.2s ease-in-out 2;
+  animation: wiggle 1s ease-in-out;
+}
+
+.pop {
+  animation: pop 2s ease-in-out;
 }
 
 .registered {
@@ -1295,17 +1313,17 @@ button {
   position: relative;
 }
 .header-content-account-shopping-basket_link-basket {
-  width: 3.6rem;
+  width: 3.9rem;
   position: relative;
-  top: 1.2rem;
+  top: 1.5rem;
 }
 .header-content-account-shopping-basket_link-number {
   position: absolute;
-  top: -2.45rem;
-  left: 0.7rem;
+  left: 0.5rem;
   background-color: #ff6600;
-  width: 2.2rem;
-  height: 2.2rem;
+  width: 1.8em;
+  height: 1.8em;
+  padding: 0.5em;
   border-radius: 50% 50%;
   position: relative;
   bottom: 3.2rem;

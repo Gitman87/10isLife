@@ -313,21 +313,46 @@
 .message_text_color {
   color: $granat;
 }
+@keyframes pop {
+  0%,
+  50% {
+    transform: scale(0);
+  }
+
+  75% {
+    transform: scale(1.2);
+  }
+  90% {
+    transform: scale(0.7);
+  }
+  100% {
+    transform: scale(1);
+  }
+  // 0% {
+  //   transform: scale(1);
+  // }
+  // 100% {
+  //   transform: scale(0);
+  // }
+}
 @keyframes wiggle {
   0%,
   100% {
     transform: rotate(0deg);
   }
-  25% {
-    transform: rotate(5deg);
+  85% {
+    transform: rotate(-65deg);
   }
-  75% {
-    transform: rotate(-5deg);
+  95% {
+    transform: rotate(65deg);
   }
 }
 
 .wiggle {
-  animation: wiggle 0.2s ease-in-out 2;
+  animation: wiggle 1s ease-in-out;
+}
+.pop {
+  animation: pop 2s ease-in-out;
 }
 // .flying-clone {
 //   position: fixed;

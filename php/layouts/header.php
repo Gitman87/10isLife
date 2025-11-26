@@ -39,12 +39,9 @@ function genHeader()
                         foreach ($headerConf as $row) {
                             genHeaderLink($row[0], $row[1]);
                         }
-
                         ?>
-
                     </ul>
                 </nav>
-
                 <div class="header-content-account">
                     <div class="header-content-account-user">
                         <img src="./res/icon/person.svg" class="header-content-account-user-person" alt="user">
@@ -59,7 +56,6 @@ function genHeader()
                         <?php
                         }
                         ?>
-
                     </div>
                     <?php genProfile() ?>
                     <?php genLogModal() ?>
