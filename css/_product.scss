@@ -358,3 +358,28 @@
 .pop {
   animation: pop 2s ease-in-out;
 }
+
+@media (max-width: 80em) {
+  .description {
+    &-text {
+      column-count: 2;
+    }
+  }
+  .warranty {
+    &-text {
+      column-count: 2;
+    }
+  }
+}
+@media (max-width: 50em) {
+  .description {
+    &-text {
+      column-count: 1;
+    }
+  }
+  .warranty {
+    &-text {
+      column-count: 1;
+    }
+  }
+}

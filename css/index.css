@@ -1184,6 +1184,26 @@ button {
   animation: pop 2s ease-in-out;
 }
 
+@media (max-width: 80em) {
+  .description-text {
+    -moz-column-count: 2;
+         column-count: 2;
+  }
+  .warranty-text {
+    -moz-column-count: 2;
+         column-count: 2;
+  }
+}
+@media (max-width: 50em) {
+  .description-text {
+    -moz-column-count: 1;
+         column-count: 1;
+  }
+  .warranty-text {
+    -moz-column-count: 1;
+         column-count: 1;
+  }
+}
 .registered {
   margin: 10rem auto;
   max-width: -moz-fit-content;
