@@ -997,7 +997,6 @@ button {
 }
 .dashboard-pulpit-add-availability-ball {
   visibility: hidden;
-  opacity: 0.5;
   width: 2rem;
 }
 .dashboard-pulpit-add-availability-message {

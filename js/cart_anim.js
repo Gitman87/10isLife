@@ -12,17 +12,17 @@ function cartAnim() {
   );
 
   addButton.addEventListener("click", () => {
-    console.log("Add to cart cliked");
     const cloneBall = document
       .querySelector(".dashboard-pulpit-add-availability-ball")
       .cloneNode();
     addContainer.prepend(cloneBall);
     cloneBall.style.visibility = "visible";
+    cloneBall.style.marginLeft = "6rem";
     let { top: y2, left: x2 } = basketBallNumber.getBoundingClientRect();
     let { top: y1, left: x1 } = ball.getBoundingClientRect();
-    console.log("y1 and x2 are:", y1, x2);
     Object.assign(cloneBall.style, {
       position: "fixed",
+      marginLeft: "0rem",
       top: `${y1}px`,
       left: `${x1}px`,
       translate: `${x2 - x1}px ${y2 - y1}px`,
@@ -38,25 +38,8 @@ function cartAnim() {
       basketBallNumber.classList.remove("wiggle");
       cloneBall.remove();
       addButton.disabled = false;
-      console.log("Attempting to re-enable button:", addButton);
     });
   });
 }
 cartAnim();
-
-console.clear();
-
-// let { top: y2, left: x2 } = basketBallNumber.getBoundingClientRect();
-// let { top: y1, left: x1 } = ball.getBoundingClientRect();
-// Object.assign(ball.style, {
-//   position: "fixed",
-//   translate: `${x2 - x1 + 20}px ${y2 - y1 - 50}px`,
-//   transition: `all 1s ease-in-out`,
-// });
-// $on(clone, "transitionstart", () => {
-//   ball.classList.add("wiggle");
-// });
-// $on(clone, "transitionend", () => {
-//   ball.classList.remove("wiggle");
-//   clone.remove();
-// });
+// inspired from https://dev.to/mynk-tmr/fly-to-cart-animation-with-pure-javascript-in-few-lines-552l

@@ -65,6 +65,7 @@ function makeCartItem(prodId, prodName, prodPrice, thumbnail_url) {
 function addProductToCart(cartItem) {
   const cartManager = new LocalStorageManager();
   const cartKey = "cart";
+  const addButton = document.querySelector(".standard_button");
   const stockQuantityInputValue = parseInt(
     document.querySelector(".dashboard-pulpit-add-amount-stock_quantity_input")
       .value
@@ -96,10 +97,12 @@ function addProductToCart(cartItem) {
       messageContainer.textContent = "Nie można dodać więcej tego produktu";
       messageContainer.classList.remove("message_text_color");
       messageContainer.classList.remove("error_text_color");
+      addButton.disabled = true;
       return;
     } else {
       cart[indexOfTheSameItem].quantity = newQuantity;
       cartManager.update(cartKey, cart);
+      addButton.disabled = false;
     }
   }
 }
