@@ -26,7 +26,6 @@ require './php/components/reg_policy.php';
 require './php/components/profile.php';
 
 
-
 include './php/components/tile_browser.php';
 include './php/components/tile.php';
 include './php/components/rate_balls.php';
@@ -38,7 +37,6 @@ require './php/api/get_reviews.php';
 require './php/api/reviewing.php';
 
 //prod info
-// require './php/components/digit_balls.php';
 require './php/components/discount_display.php';
 require './php/components/review_tiles.php';
 

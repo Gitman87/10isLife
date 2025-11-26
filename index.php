@@ -33,14 +33,14 @@ include './php/components/tile_browser.php';
 include './php/components/tile.php';
 include './php/components/rate_balls.php';
 include './php/components/product_preview.php';
+//product
 include './php/product.php';
-
-
-require './php/api/connection.php';
-
 include './php/api/get_reviews.php';
 include './php/api/reviewing.php';
-
+//cart
+// require './php/cart.php';
+//api
+require './php/api/connection.php';
 session_start();
 
 ?>
