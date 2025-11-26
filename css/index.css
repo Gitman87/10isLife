@@ -997,7 +997,7 @@ button {
 }
 .dashboard-pulpit-add-availability-ball {
   visibility: hidden;
-  width: 2rem;
+  width: 3rem;
 }
 .dashboard-pulpit-add-availability-message {
   color: #002b5b;
@@ -1164,6 +1164,18 @@ button {
     transform: rotate(65deg);
   }
 }
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(1440deg);
+  }
+}
+.spin {
+  animation: spin 1s ease-in-out;
+}
+
 .wiggle {
   animation: wiggle 1s ease-in-out;
 }

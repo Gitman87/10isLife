@@ -36,15 +36,19 @@ function cartAnim() {
     cloneBall.addEventListener("transitionstart", () => {
       basketBallNumber.classList.add("pop");
       basketImg.classList.add("wiggle");
+      cloneBall.classList.add("spin");
       addButton.disabled = true;
+      addButton.style.pointerEvents = "none";
     });
     setTimeout(() => {
       basketBallNumber.classList.remove("pop");
+      addButton.style.pointerEvents = "auto";
+      addButton.disabled = false;
     }, "2000");
     cloneBall.addEventListener("transitionend", () => {
       basketImg.classList.remove("wiggle");
+      cloneBall.classList.remove("spin");
       cloneBall.remove();
-      addButton.disabled = false;
     });
   });
 }
