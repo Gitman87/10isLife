@@ -1,0 +1,38 @@
+class LocalStorageManager {
+  read(key) {
+    const dugUpObject = localStorage.getItem(key);
+    if (dugUpObject) {
+      const confirmedObject = JSON.parse(dugUpObject);
+      return confirmedObject;
+    } else {
+      console.warn("Couldn't find in local storage any object with key: ", key);
+      return null;
+    }
+  }
+  write(key, item) {
+    //check if already exist
+    if (localStorage.getItem(key) === null) {
+      localStorage.setItem(key, JSON.stringify(item));
+    } else {
+      const foundObject = localStorage.getItem(key);
+      console.warn(
+        `There is already an item in localStorage with the key ${key} which is  ${foundObject}`
+      );
+      return null;
+    }
+  }
+  remove(key) {
+    if (localStorage.getItem(key)) {
+      localStorage.removeItem(key);
+    } else {
+      console.warn(
+        "Couldn't remove in local storage any object with key: ",
+        key
+      );
+      return null;
+    }
+  }
+  update(key, item) {
+    localStorage.setItem(key, JSON.stringify(item));
+  }
+}

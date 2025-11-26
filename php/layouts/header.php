@@ -58,7 +58,7 @@ function genHeader()
                     <?php genProfile() ?>
                     <?php genLogModal() ?>
                     <div class="header-content-account-shopping">
-                        <a href="" class="header-content-account-shopping-basket_link">
+                        <a href="cart.php" class="header-content-account-shopping-basket_link">
                             <img src="./res/icon/basket.svg" class="header-content-account-shopping-basket_link-basket" alt="basket">
                             <div class="header-content-account-shopping-basket_link-number">
                                 0
