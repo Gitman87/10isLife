@@ -25,8 +25,7 @@ require './php/api/connection.php';
 require './php/api/get_product_data.php';
 
 //cart
-require './php/components/basket_item.php';
-require './php/components/basket_item_list.php';
+
 
 session_start();
 
@@ -34,23 +33,16 @@ session_start();
 <?php genHeader() ?>
 
 <main class="main">
-    <section class="basket-items">
+    <section class="basket_contnet">
         <h2>Koszyk</h2>
-        <div class="item-list">
-            <article class="basket-item">
-            </article>
-        </div>
+        <ul class="basket_content-list">
+
+        </ul>
     </section>
     <aside class="basket-summary">
         <h3>Podsumowanie</h3>
         <dl class="summary-details">
-            <dt>Suma:</dt>
-            <dd></dd>
 
-            <dt>Koszt Trasportu</dt>
-            <dd>€5.00</dd>
-            <dt class="total-label">Suma do zapłaty:</dt>
-            <dd class="total-value">€154.97</dd>
         </dl>
 
         <button class="checkout-btn">Idź do kasy</button>
@@ -61,7 +53,7 @@ session_start();
 
 
 
-
+    <script src="./js/local_storage_manager.js"></script>
     <script src="./js/cart_manager.js"></script>
     <script src="./js/basket_manager.js"></script>
 

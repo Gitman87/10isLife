@@ -42,15 +42,21 @@ function addProductToCart(cartItem) {
     cartManager.update(cartKey, cart);
     return;
   }
-  //need to check if already exist the same prooduct with the same config
-  // const stringifiedCartItem = JSON.stringify(cartItem);
+  //need to check if already exist the same product with the same config
+  cart.forEach;
   const isTheSameId = (item) => item.id === cartItem.id;
+  console.log("Is the same id is: ", isTheSameId);
   const indexOfTheSameItem = cart.findIndex(isTheSameId);
   if (indexOfTheSameItem === -1) {
     cart.push(cartItem);
     cartManager.update(cartKey, cart);
+    console.log("Unique cart item added, cart is: ", cartManager.read(cartKey));
   } else {
     //need to update quantity, sum and update damnit!
+    console.log(
+      "The same cartitem added, updating quantity: ",
+      cartManager.read(cartKey)
+    );
     const theSameItemQunatityInt = parseInt(cart[indexOfTheSameItem].quantity);
     const newItemQuantityInt = parseInt(cartItem.quantity);
     const newQuantity = theSameItemQunatityInt + newItemQuantityInt;
