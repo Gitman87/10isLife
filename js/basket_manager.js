@@ -11,8 +11,14 @@ function basketManager(cartKey) {
   const cartListItem = document.createElement("li");
   cartListItem.classList.add("basket_content-list");
 
-  if (!cartData) {
-    console.log("Koszyk nie istnieje");
+  updateBasket(cartData);
+}
+function updateBasket(cartData) {
+  const cartListContainer = document.querySelector(".basket_content-list");
+  // empty basket info
+  const emptyBasketInfo = document.createElement("h2");
+  // check if empty, whe user removed all the items
+  if (!cartData || cartData.length < 1) {
     cartListContainer.appendChild(emptyBasketInfo);
   } else {
     cartListContainer.innerHTML = "";

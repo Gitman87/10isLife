@@ -83,7 +83,62 @@ function genBalls(prodDataJson) {
     };
     gripBuckets.set(value, bucket);
   }
-  //add display length balls for each grip ball
+  //prepare lengths listeners
+  const handleLengthSelection = (foundLengthObject) => {
+    const foundChildObject = childrenData.find(
+      (item) => item.product_id === foundLengthObject["child_id"]
+    );
+    if (!foundChildObject) {
+      return;
+    }
+    const newQuantity = foundChildObject["quantity"];
+    const thumbnailUrl = document.querySelector(
+      ".dashboard-pulpit-add-availability-thumbnail_input"
+    ).value;
+    console.log("thumbnailUrl in handleLengthSelection is: ", thumbnailUrl);
+    stockQuantityInput.value = newQuantity;
+    quantitiyInput.value = "1";
+    quantitiyInput.min = "1";
+    quantitiyInput.max = newQuantity;
+    if (newQuantity > 5) {
+      availabilityContainer.textContent = "Produkt dostępny";
+      availabilityContainer.classList.remove("error_text_color");
+      availabilityContainer.classList.add("message_text_color");
+      toBasketButton.style.visibility = "visible";
+      const newOnClickString = `addProductToCart(makeCartItem(${foundChildObject["product_id"]},"${foundChildObject["name"]}",${foundChildObject["price"]},"${thumbnailUrl}"));updateBasketNumber('cart')`;
+      toBasketButton.removeAttribute("onclick");
+      toBasketButton.setAttribute("onclick", newOnClickString);
+    } else if (newQuantity > 0) {
+      availabilityContainer.textContent = "Uwaga! Zostało mniej niż 5 szt.";
+      availabilityContainer.classList.remove("message_text_color");
+      availabilityContainer.classList.add("error_text_color");
+      toBasketButton.style.visibility = "visible";
+      const newOnClickString = `addProductToCart(makeCartItem(${foundChildObject["product_id"]},"${foundChildObject["name"]}",${foundChildObject["price"]},"${thumbnailUrl}"));updateBasketNumber('cart')`;
+      toBasketButton.removeAttribute("onclick");
+      toBasketButton.setAttribute("onclick", newOnClickString);
+    } else {
+      availabilityContainer.textContent = "Produkt niedostępny";
+      availabilityContainer.classList.remove("message_text_color");
+      availabilityContainer.classList.add("error_text_color");
+      toBasketButton.style.visibility = "hidden";
+      quantitiyInput.max = "0";
+    }
+  };
+
+  lengthList.addEventListener("click", (event) => {
+    const clickedElement = event.target.closest(".item");
+    if (!clickedElement) return;
+    const radioInput = clickedElement.querySelector('input[type="radio"]');
+    if (!radioInput) return;
+    const childId = radioInput.dataset.childId;
+    const foundLengthObject = lengthData.find(
+      (item) => item.child_id == childId
+    );
+    if (foundLengthObject) {
+      handleLengthSelection(foundLengthObject);
+    }
+  });
+
   [...gripList.children].forEach((gripBall) => {
     gripBall.addEventListener("click", () => {
       lengthList.innerHTML = "";
@@ -104,54 +159,14 @@ function genBalls(prodDataJson) {
         radioInput.classList.add("digit_balls-item-ball");
         radioInput.setAttribute("value", value);
         radioInput.setAttribute("name", name);
+        radioInput.dataset.childId = foundLengthObject["child_id"];
         listItem.appendChild(radioInput);
-        //label
         const label = document.createElement("label");
         label.setAttribute("for", id);
         label.classList.add("digit_balls-item-label");
         label.textContent = value;
         listItem.appendChild(label);
         lengthList.append(listItem);
-        //add making changes to amount and availability
-        listItem.addEventListener("click", () => {
-          // update quantitiy
-          const foundChildObject = childrenData.find(
-            (item) => item.product_id == foundLengthObject["child_id"]
-          );
-          stockQuantityInput.value = foundChildObject["quantity"];
-          const newQuantity = foundChildObject["quantity"];
-          quantitiyInput.value = "1";
-          quantitiyInput.min = "1";
-          quantitiyInput.max = newQuantity;
-          //check availability
-          if (newQuantity > 5) {
-            availabilityContainer.textContent = "Produkt dostępny";
-            availabilityContainer.classList.remove("error_text_color");
-            availabilityContainer.classList.add("message_text_color");
-            toBasketButton.style.visibility = "visible";
-            const newOnClickString = `addProductToCart(makeCartItem(${foundChildObject["product_id"]},"${foundChildObject["name"]}",${foundChildObject["price"]}));updateBasketNumber('cart')`;
-
-            toBasketButton.removeAttribute("onclick");
-
-            toBasketButton.setAttribute("onclick", newOnClickString);
-          } else if (newQuantity > 0) {
-            availabilityContainer.textContent =
-              "Uwaga! Zostało mniej niż 5 szt.";
-            availabilityContainer.classList.remove("message_text_color");
-            availabilityContainer.classList.add("error_text_color");
-            toBasketButton.style.visibility = "visible";
-            const newOnClickString = `addProductToCart(makeCartItem(${foundChildObject["product_id"]},"${foundChildObject["name"]}",${foundChildObject["price"]}));updateBasketNumber('cart')`;
-
-            toBasketButton.removeAttribute("onclick");
-
-            toBasketButton.setAttribute("onclick", newOnClickString);
-          } else {
-            availabilityContainer.textContent = "Produkt niedostępny";
-            availabilityContainer.classList.remove("message_text_color");
-            availabilityContainer.classList.add("error_text_color");
-            toBasketButton.style.visibility = "hidden";
-          }
-        });
       }
     });
   });

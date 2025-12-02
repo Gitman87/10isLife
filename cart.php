@@ -36,29 +36,17 @@ session_start();
     <section class="basket_contnet">
         <h2>Koszyk</h2>
         <ul class="basket_content-list">
-
         </ul>
     </section>
     <aside class="basket-summary">
         <h3>Podsumowanie</h3>
         <dl class="summary-details">
-
         </dl>
-
         <button class="checkout-btn">Idź do kasy</button>
-
         <a href="/shop" class="continue-shopping">Kontynuuj zakupy</a>
     </aside>
-
-
-
-
     <script src="./js/local_storage_manager.js"></script>
     <script src="./js/cart_manager.js"></script>
     <script src="./js/basket_manager.js"></script>
-
 </main>
-
-
-
 <?php genFooter() ?>

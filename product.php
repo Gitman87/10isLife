@@ -54,6 +54,7 @@ foreach ($prodData['images'] as $image) {
     break;
   };
 };
+// echo 'prodThumbnailUrl is' . $prodThumbnailUrl;
 $prodDataJson = json_encode($prodData);
 ?>
 <?php genHeader() ?>
@@ -190,14 +191,13 @@ $prodDataJson = json_encode($prodData);
           ?>
         </div>
         <div class="dashboard-pulpit-add-availability">
+          <input type="hidden" id="thumbnail_input" class="dashboard-pulpit-add-availability-thumbnail_input" name="thumbnail_input" value="<?= $prodThumbnailUrl ?>">
           <?php
           if ($prodData['variant_type'] === 'config') {
           ?>
             <p class="dashboard-pulpit-add-availability-message">Skonfiguruj produkt, aby sprawdźić jego dostępność.</p>
             <img class="dashboard-pulpit-add-availability-ball" src="./res/icon/favicon.svg" alt="ball">
             <?php genStandardButton('Do koszyka', true,  '', "addProductToCart(makeCartItem($prodId, '$prodName', $prodPrice, '$prodThumbnailUrl') );updateBasketNumber('cart')"); ?>
-
-            <input type="hidden" id="myHiddenField" name="field_name" value="the_value_to_submit">
           <?php
           } elseif ($prodData['quantity'] > 5) {
           ?>
