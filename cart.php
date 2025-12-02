@@ -33,17 +33,22 @@ session_start();
 <?php genHeader() ?>
 
 <main class="main">
-    <section class="basket_contnet">
-        <h2>Koszyk</h2>
+    <section class="basket_content">
+        <h2 class="basket_content-title">Koszyk</h2>
         <ul class="basket_content-list">
         </ul>
     </section>
-    <aside class="basket-summary">
-        <h3>Podsumowanie</h3>
+    <aside class="basket_summary">
+        <h3 class="basket_summary-title">Podsumowanie</h3>
         <dl class="summary-details">
+            <dt class="summary-details-term">Ilość produktów:</dt>
+            <dd class="summary-details-quantity"></dd>
+            <dt class="summary-details-term">Suma:</dt>
+            <dd class="summary-details-sum"></dd>
         </dl>
-        <button class="checkout-btn">Idź do kasy</button>
-        <a href="/shop" class="continue-shopping">Kontynuuj zakupy</a>
+        <?php genStandardButton("Do kasy", $is_button = false, $url = './kasa', $callback = '') ?>
+        <?php genLightButton("Kontynuuj zakupy", $is_button = FALSE, $url = './last_visited_site') ?>
+
     </aside>
     <script src="./js/local_storage_manager.js"></script>
     <script src="./js/cart_manager.js"></script>

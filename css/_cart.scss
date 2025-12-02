@@ -1,0 +1,24 @@
+.main {
+  width: 100%;
+  display: flex;
+  padding: 1rem;
+}
+.basket_content {
+  background-color: darkgray;
+  width: 75%;
+  &-title {
+    text-align: center;
+    color: $gray;
+  }
+  &-basket_content-list {
+    width: 100%;
+    background-color: darkcyan;
+  }
+}
+.basket_summary {
+  background-color: darkseagreen;
+  width: 25%;
+  &-title {
+    color: $gray;
+  }
+}

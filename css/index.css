@@ -1234,6 +1234,33 @@ button {
   text-align: center;
 }
 
+.main {
+  width: 100%;
+  display: flex;
+  padding: 1rem;
+}
+
+.basket_content {
+  background-color: darkgray;
+  width: 75%;
+}
+.basket_content-title {
+  text-align: center;
+  color: #808080;
+}
+.basket_content-basket_content-list {
+  width: 100%;
+  background-color: darkcyan;
+}
+
+.basket_summary {
+  background-color: darkseagreen;
+  width: 25%;
+}
+.basket_summary-title {
+  color: #808080;
+}
+
 .header {
   top: 0;
   position: sticky;
