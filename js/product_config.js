@@ -49,7 +49,7 @@ function genBalls(prodDataJson) {
   for (let i = 0; i < uniqueGripValues.length; i++) {
     const value = uniqueGripValues[i];
     const id = "digit_ball_" + i;
-    const name = "digit_ball";
+    const name = "grip_size";
     const listItem = document.createElement("li");
     listItem.classList.add("item");
     listItem.setAttribute("data-grip-id", value);
@@ -88,6 +88,7 @@ function genBalls(prodDataJson) {
     const foundChildObject = childrenData.find(
       (item) => item.product_id === foundLengthObject["child_id"]
     );
+
     if (!foundChildObject) {
       return;
     }
@@ -150,7 +151,7 @@ function genBalls(prodDataJson) {
         );
         const value = foundLengthObject["value"];
         const id = "digit_ball_length_" + i;
-        const name = "digit_ball_length";
+        const name = "length";
         const listItem = document.createElement("li");
         listItem.classList.add("item");
         const radioInput = document.createElement("input");

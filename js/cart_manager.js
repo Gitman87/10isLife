@@ -1,5 +1,11 @@
 //t he cart key used in following functions is 'cart'
-function makeCartItem(prodId, prodName, prodPrice, thumbnail_url) {
+function makeCartItem(
+  prodId,
+  prodName,
+  prodPrice,
+  thumbnail_url,
+  stockQuantity
+) {
   const productDetailsContainer = document.querySelector(".dashboard-pulpit");
   const quantity = productDetailsContainer.querySelector(
     ".dashboard-pulpit-add-amount-quantifier"
@@ -18,6 +24,7 @@ function makeCartItem(prodId, prodName, prodPrice, thumbnail_url) {
     fullName: prodName,
     price: prodPrice,
     quantity: quantity,
+    stockQuantity: stockQuantity,
     thumbnail: thumbnail_url,
     options: options,
   };
@@ -73,6 +80,21 @@ function addProductToCart(cartItem) {
       addButton.disabled = false;
     }
   }
+}
+function removeCartItem(cartKey, id) {
+  const cartManager = new LocalStorageManager();
+  let cart = cartManager.read(cartKey);
+  const isTheSameId = (item) => item.id === id;
+  console.log("Is the same id is: ", isTheSameId);
+  const indexOfItemToRemove = cart.findIndex(isTheSameId);
+  if (indexOfItemToRemove === -1) {
+    console.warn("Could find item to remove in the cart");
+  } else {
+    cart.splice(indexOfItemToRemove, 1);
+  }
+  //wrtite modified cart back to storage
+  cartManager.update(cartKey, cart);
+  console.log("Cart after removing item is: ", cart);
 }
 function updateBasketNumber(cartKey) {
   const basketNumberContainer = document.querySelector(

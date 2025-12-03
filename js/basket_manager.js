@@ -20,13 +20,17 @@ function basketManager(cartKey) {
       console.log("cartData is: ", cartData);
       cartData.forEach((cartItem) => {
         cartListContainer.innerHTML += `
-          <li class="basket_content-list-row_container">
+          <li class="basket_content-list-row_container" data-row_id=${cartItem["id"]}>
             <img
               src="${cartItem["thumbnail"]}"
               class="basket_content-list-row_container-thumbnail"
             />
-            <p class="basket_content-list-row_container">${cartItem["fullName"]}</p>
-
+            <p class="basket_content-list-row_container-name">${cartItem["fullName"]}</p>
+            <p class="basket_content-list-row_container-grip">Uchwyt:${cartItem["options"]["grip_size"]}</p>
+            <p class="basket_content-list-row_container-grip">Długość${cartItem["options"]["length"]}</p>
+            <label>Ilość:</label>
+            <input type ='number' id='basket_unit_quantity' name = 'basket_unit_quantity' min=0 max=${cartItem["stockQuantity"]} value=${cartItem["quantity"]}>
+            <?php genUglyButton('Usuń', true, removeCartItem('cart', cartItem['id'])) ?>
           </li>
         `;
 
@@ -40,6 +44,13 @@ function basketManager(cartKey) {
     }
   }
   updateBasket(cartData);
+}
+function removeBasketRow(cartKey, id) {
+  const cartListContainer = document.querySelector(".basket_content-list");
+  const rowToRemove = cartListContainer.querySelector(`[data-row_id= ${id}]`);
+  rowToRemove.remove();
+
+  removeCartItem(cartKey, id);
 }
 
 basketManager("cart");
