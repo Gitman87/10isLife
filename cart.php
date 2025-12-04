@@ -32,7 +32,7 @@ session_start();
 ?>
 <?php genHeader() ?>
 
-<main class="main">
+<main class="main_basket">
     <section class="basket_content">
         <h2 class="basket_content-title">Koszyk</h2>
         <ul class="basket_content-list">

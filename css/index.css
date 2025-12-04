@@ -1238,6 +1238,10 @@ button {
   width: 100%;
   display: flex;
   padding: 1rem;
+  margin: 1.6rem auto;
+  margin-top: 4rem;
+  max-width: 152rem;
+  padding: 0rem 4rem;
 }
 
 .basket_content {
@@ -1248,9 +1252,35 @@ button {
   text-align: center;
   color: #808080;
 }
-.basket_content-basket_content-list {
-  width: 100%;
+.basket_content-list {
   background-color: darkcyan;
+}
+.basket_content-list-row_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: pink;
+  color: #002b5b;
+}
+.basket_content-list-row_container-thumbnail {
+  width: 4rem;
+}
+.basket_content-list-row_container-name {
+  color: #002b5b;
+  min-width: 20rem;
+  max-width: 30rem;
+  overflow-x: scroll;
+}
+.basket_content-list-row_container-grip {
+  width: 15rem;
+}
+.basket_content-list-row_container-length {
+  width: 15rem;
+}
+.basket_content-list-row_container-quantity {
+  width: 6rem;
+  height: 3.2rem;
+  color: #002b5b;
 }
 
 .basket_summary {

@@ -27,10 +27,10 @@ function basketManager(cartKey) {
             />
             <p class="basket_content-list-row_container-name">${cartItem["fullName"]}</p>
             <p class="basket_content-list-row_container-grip">Uchwyt:${cartItem["options"]["grip_size"]}</p>
-            <p class="basket_content-list-row_container-grip">Długość${cartItem["options"]["length"]}</p>
+            <p class="basket_content-list-row_container-length">Długość${cartItem["options"]["length"]}</p>
             <label>Ilość:</label>
-            <input type ='number' id='basket_unit_quantity' name = 'basket_unit_quantity' min=0 max=${cartItem["stockQuantity"]} value=${cartItem["quantity"]}>
-            <?php genUglyButton('Usuń', true, 'removeCartItem('cart', cartItem['id'])') ?>
+            <input type ='number' id='basket_unit_quantity' class="basket_content-list-row_container-quantity" name = 'basket_unit_quantity' min=0 max=${cartItem["stockQuantity"]} value=${cartItem["quantity"]}>
+
             <button class="basket_content-list-row_container-remove_button" onclick="removeCartItem('cart', ${cartItem["id"]})">Usuń</button>
           </li>
         `;

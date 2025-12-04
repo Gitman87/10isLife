@@ -161,6 +161,9 @@ function genBalls(prodDataJson) {
         radioInput.setAttribute("value", value);
         radioInput.setAttribute("name", name);
         radioInput.dataset.childId = foundLengthObject["child_id"];
+        if (i === 0) {
+          radioInput.checked = true;
+        }
         listItem.appendChild(radioInput);
         const label = document.createElement("label");
         label.setAttribute("for", id);

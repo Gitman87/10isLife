@@ -2,6 +2,10 @@
   width: 100%;
   display: flex;
   padding: 1rem;
+  margin: 1.6rem auto;
+  margin-top: 4rem;
+  max-width: $main-view-max-width;
+  padding: $main-view-padding;
 }
 .basket_content {
   background-color: darkgray;
@@ -10,9 +14,37 @@
     text-align: center;
     color: $gray;
   }
-  &-basket_content-list {
-    width: 100%;
+
+  &-list {
+    // width: 100%;
     background-color: darkcyan;
+    &-row_container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: pink;
+      color: $granat;
+      &-thumbnail {
+        width: 4rem;
+      }
+      &-name {
+        color: $granat;
+        min-width: 20rem;
+        max-width: 30rem;
+        overflow-x: scroll;
+      }
+      &-grip {
+        width: 15rem;
+      }
+      &-length {
+        width: 15rem;
+      }
+      &-quantity {
+        width: 6rem;
+        height: 3.2rem;
+        color: $granat;
+      }
+    }
   }
 }
 .basket_summary {
