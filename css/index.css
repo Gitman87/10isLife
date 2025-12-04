@@ -1277,7 +1277,7 @@ button {
 .basket_content-list-row_container-length {
   width: 15rem;
 }
-.basket_content-list-row_container-quantity {
+.basket_content-list-row_container-quantity-input {
   width: 6rem;
   height: 3.2rem;
   color: #002b5b;

@@ -40,9 +40,11 @@
         width: 15rem;
       }
       &-quantity {
-        width: 6rem;
-        height: 3.2rem;
-        color: $granat;
+        &-input {
+          width: 6rem;
+          height: 3.2rem;
+          color: $granat;
+        }
       }
     }
   }
