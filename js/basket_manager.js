@@ -22,6 +22,8 @@ function basketManager(cartKey) {
       cartListContainer.innerHTML = "";
       console.log("cartData is: ", cartData);
       cartData.forEach((cartItem) => {
+        const rowPrice = cartItem["quantity"] * cartItem["price"];
+        console.log("rowPrice is: ", rowPrice);
         console.log("cart item optins are: ", isEmpty(cartItem["options"]));
         if (isEmpty(cartItem["options"])) {
           cartListContainer.innerHTML += `
@@ -35,8 +37,9 @@ function basketManager(cartKey) {
             <p class="basket_content-list-row_container-price">Cena:&#32;${cartItem["price"]}zł</p>
             <div class="basket_content-list-row_container-quantity"
             <label for="basket_unit_quantity" class="basket_content-list-row_container-quantity-label">Ilość:</label>
-            <input type = 'number' id='basket_unit_quantity' class="basket_content-list-row_container-quantity-input"class="basket_content-list-row_container-quantity" name = 'basket_unit_quantity' min=0 max=${cartItem["stockQuantity"]} value=${cartItem["quantity"]}>
+            <input type = 'number' id='basket_unit_quantity' class="basket_content-list-row_container-quantity-input"class="basket_content-list-row_container-quantity" name = 'basket_unit_quantity' min=1 max=${cartItem["stockQuantity"]} value=${cartItem["quantity"]}>
             </div>
+            <p class="basket_content-list-row_container-row_price">Suma:&#32; ${rowPrice}zł</p>
             <button class="basket_content-list-row_container-remove_button" onclick="removeCartItem('cart', ${cartItem["id"]})">Usuń</button>
           </li>
         `;
@@ -54,14 +57,26 @@ function basketManager(cartKey) {
             <p class="basket_content-list-row_container-price">Cena: &#32; ${cartItem["price"]}zł</p>
             <div class="basket_content-list-row_container-quantity"
             <label for="basket_unit_quantity" class="basket_content-list-row_container-quantity-label">Ilość:</label>
-            <input type = 'number' id='basket_unit_quantity' class="basket_content-list-row_container-quantity-input"class="basket_content-list-row_container-quantity" name = 'basket_unit_quantity' min=0 max=${cartItem["stockQuantity"]} value=${cartItem["quantity"]}>
+            <input type = 'number' id='basket_unit_quantity' class="basket_content-list-row_container-quantity-input"class="basket_content-list-row_container-quantity" name = 'basket_unit_quantity' min=1 max=${cartItem["stockQuantity"]} value=${cartItem["quantity"]}>
             </div>
-
+            <p class="basket_content-list-row_container-row_price">Suma:&#32; ${rowPrice}zł</p>
             <button class="basket_content-list-row_container-remove_button" onclick="removeCartItem('cart', ${cartItem["id"]})">Usuń</button>
           </li>
         `;
         }
         i++;
+        const thisRow = cartListContainer.querySelector(`[data-row_id= ${id}]`);
+        const rowPriceContainer = thisRow.querySelector(
+          ".basket_content-list-row_container-row_price"
+        );
+        const quantityInput = thisRow.querySelector(
+          ".basket_content-list-row_container-quantity-input"
+        );
+        quantityInput.addEventListener("change", () => {
+          rowPriceContainer.textContent = "";
+          const newRowPrice = quantityInput.value * cartItem["price"];
+          rowPriceContainer.textContent = newRowPrice;
+        });
       });
     }
   }
