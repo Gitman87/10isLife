@@ -3,6 +3,10 @@ function basketManager(cartKey) {
   const cartData = localStorageManager.read(cartKey);
   const cartListContainer = document.querySelector(".basket_content-list");
   // empty basket info
+  const basketSummaryContainer = document.querySelector(".basket_summary");
+  const totalNumberOfItems = basketSummaryContainer.querySelector(
+    ".basket_summary-details-term"
+  );
   const emptyBasketInfo = document.createElement("h2");
   emptyBasketInfo.classList.add("basket_contnet_list-empty");
   emptyBasketInfo.textContent = "Twój koszyk jest pusty";
@@ -90,6 +94,7 @@ function basketManager(cartKey) {
               rowPriceContainer.textContent = `Suma: ${newRowPrice.toFixed(
                 2
               )}zł`;
+              calcNumberOfItems(cartListContainer, totalNumberOfItems);
             }
           }
         });
@@ -98,8 +103,9 @@ function basketManager(cartKey) {
     }
   }
   updateBasket(cartData);
+  calcNumberOfItems(cartListContainer, totalNumberOfItems);
 }
-function calcRowSum(cartListContainer) {
+function calcRowSum(cartListContainer, totalNumberOfItems) {
   const thisRow = cartListContainer.querySelector(
     `[data-row_id='${cartItem["id"]}']`
   );
@@ -116,6 +122,7 @@ function calcRowSum(cartListContainer) {
     rowPriceContainer.textContent = "";
     const newRowPrice = quantityInput.value * cartItem["price"];
     rowPriceContainer.textContent = newRowPrice;
+    calcNumberOfItems(cartListContainer, totalNumberOfItems);
   });
 }
 function removeBasketRow(cartKey, id) {
@@ -125,5 +132,17 @@ function removeBasketRow(cartKey, id) {
 
   removeCartItem(cartKey, id);
 }
-
+function calcNumberOfItems(cartListContainer, totalNumberOfItems) {
+  const inputs = cartListContainer.querySelectorAll(
+    ".basket_content-list-row_container-quantity-input"
+  );
+  console.log("inputs are: ", inputs);
+  let sum = 0;
+  inputs.forEach((input) => {
+    sum += parseInt(input.value);
+    console.log("Input value is: ", input.value);
+  });
+  totalNumberOfItems.innerText = sum;
+  console.log("Number of all items is: ", sum);
+}
 basketManager("cart");
