@@ -20,10 +20,16 @@
     background-color: darkcyan;
     &-row_container {
       display: flex;
-      justify-content: space-between;
+      flex-wrap: wrap;
+
+      // justify-content: space-between;
       align-items: center;
       background-color: pink;
       color: $granat;
+      gap: 1rem;
+      &-order {
+        width: 4rem;
+      }
       &-thumbnail {
         width: 4rem;
       }
@@ -33,6 +39,9 @@
         max-width: 30rem;
         overflow-x: scroll;
       }
+      &-price {
+        width: 15rem;
+      }
       &-grip {
         width: 15rem;
       }
@@ -40,11 +49,22 @@
         width: 15rem;
       }
       &-quantity {
+        background-color: grey;
+        margin-left: auto;
+
         &-input {
           width: 6rem;
           height: 3.2rem;
           color: $granat;
         }
+      }
+      &-remove_button {
+        background-color: chocolate;
+        color: $granat;
+        transition: color 0.4s ease-in-out;
+      }
+      &-remove_button:hover {
+        color: $orange;
       }
     }
   }

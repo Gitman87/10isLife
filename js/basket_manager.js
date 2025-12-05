@@ -32,11 +32,11 @@ function basketManager(cartKey) {
               class="basket_content-list-row_container-thumbnail"
             />
             <p class="basket_content-list-row_container-name">${cartItem["fullName"]}</p>
+            <p class="basket_content-list-row_container-price">Cena:&#32;${cartItem["price"]}zł</p>
             <div class="basket_content-list-row_container-quantity"
             <label for="basket_unit_quantity" class="basket_content-list-row_container-quantity-label">Ilość:</label>
             <input type = 'number' id='basket_unit_quantity' class="basket_content-list-row_container-quantity-input"class="basket_content-list-row_container-quantity" name = 'basket_unit_quantity' min=0 max=${cartItem["stockQuantity"]} value=${cartItem["quantity"]}>
             </div>
-
             <button class="basket_content-list-row_container-remove_button" onclick="removeCartItem('cart', ${cartItem["id"]})">Usuń</button>
           </li>
         `;
@@ -51,10 +51,12 @@ function basketManager(cartKey) {
             <p class="basket_content-list-row_container-name">${cartItem["fullName"]}</p>
             <p class="basket_content-list-row_container-grip">Uchwyt: &#32; ${cartItem["options"]["grip_size"]}</p>
             <p class="basket_content-list-row_container-length">Długość: &#32; ${cartItem["options"]["length"]}</p>
-              <div class="basket_content-list-row_container-quantity"
+            <p class="basket_content-list-row_container-price">Cena: &#32; ${cartItem["price"]}zł</p>
+            <div class="basket_content-list-row_container-quantity"
             <label for="basket_unit_quantity" class="basket_content-list-row_container-quantity-label">Ilość:</label>
             <input type = 'number' id='basket_unit_quantity' class="basket_content-list-row_container-quantity-input"class="basket_content-list-row_container-quantity" name = 'basket_unit_quantity' min=0 max=${cartItem["stockQuantity"]} value=${cartItem["quantity"]}>
             </div>
+
             <button class="basket_content-list-row_container-remove_button" onclick="removeCartItem('cart', ${cartItem["id"]})">Usuń</button>
           </li>
         `;

@@ -203,13 +203,13 @@ $prodDataJson = json_encode($prodData);
           ?>
             <p class="dashboard-pulpit-add-availability-message">Produkt dostępny</p>
             <img class="dashboard-pulpit-add-availability-ball" src="./res/icon/favicon.svg" alt="ball">
-            <?php genStandardButton('Do koszyka', true,  '', "addProductToCart(makeCartItem($prodId, '$prodName', $prodPrice, '$prodThumbnailUrl') );updateBasketNumber('cart')"); ?>
+            <?php genStandardButton('Do koszyka', true,  '', "addProductToCart(makeCartItem($prodId, '$prodName', $prodPrice, '$prodThumbnailUrl',$stockQuantity) );updateBasketNumber('cart')"); ?>
           <?php
           } elseif ($prodData['quantity'] > 0) {
           ?>
             <p class="dashboard-pulpit-add-availability-message">Uwaga! Zostało mniej niż 5 szt.</p>
             <img class="dashboard-pulpit-add-availability-ball" src="./res/icon/favicon.svg" alt="ball">
-            <?php genStandardButton('Do koszyka', true, '', "addProductToCart(makeCartItem($prodId, '$prodName', $prodPrice, '$prodThumbnailUrl') );updateBasketNumber('cart')"); ?>
+            <?php genStandardButton('Do koszyka', true, '', "addProductToCart(makeCartItem($prodId, '$prodName', $prodPrice, '$prodThumbnailUrl',$stockQuantity) );updateBasketNumber('cart')"); ?>
           <?php
           } else {
           ?>

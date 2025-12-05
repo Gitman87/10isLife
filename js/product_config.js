@@ -106,7 +106,7 @@ function genBalls(prodDataJson) {
       availabilityContainer.classList.remove("error_text_color");
       availabilityContainer.classList.add("message_text_color");
       toBasketButton.style.visibility = "visible";
-      const newOnClickString = `addProductToCart(makeCartItem(${foundChildObject["product_id"]},"${foundChildObject["name"]}",${foundChildObject["price"]},"${thumbnailUrl}"));updateBasketNumber('cart')`;
+      const newOnClickString = `addProductToCart(makeCartItem(${foundChildObject["product_id"]},"${foundChildObject["name"]}",${foundChildObject["price"]},"${thumbnailUrl}",${newQuantity}));updateBasketNumber('cart')`;
       toBasketButton.removeAttribute("onclick");
       toBasketButton.setAttribute("onclick", newOnClickString);
     } else if (newQuantity > 0) {
@@ -114,7 +114,7 @@ function genBalls(prodDataJson) {
       availabilityContainer.classList.remove("message_text_color");
       availabilityContainer.classList.add("error_text_color");
       toBasketButton.style.visibility = "visible";
-      const newOnClickString = `addProductToCart(makeCartItem(${foundChildObject["product_id"]},"${foundChildObject["name"]}",${foundChildObject["price"]},"${thumbnailUrl}"));updateBasketNumber('cart')`;
+      const newOnClickString = `addProductToCart(makeCartItem(${foundChildObject["product_id"]},"${foundChildObject["name"]}",${foundChildObject["price"]},"${thumbnailUrl}",${newQuantity}));updateBasketNumber('cart')`;
       toBasketButton.removeAttribute("onclick");
       toBasketButton.setAttribute("onclick", newOnClickString);
     } else {

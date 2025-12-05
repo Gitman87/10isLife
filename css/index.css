@@ -1257,10 +1257,14 @@ button {
 }
 .basket_content-list-row_container {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
   align-items: center;
   background-color: pink;
   color: #002b5b;
+  gap: 1rem;
+}
+.basket_content-list-row_container-order {
+  width: 4rem;
 }
 .basket_content-list-row_container-thumbnail {
   width: 4rem;
@@ -1271,16 +1275,31 @@ button {
   max-width: 30rem;
   overflow-x: scroll;
 }
+.basket_content-list-row_container-price {
+  width: 15rem;
+}
 .basket_content-list-row_container-grip {
   width: 15rem;
 }
 .basket_content-list-row_container-length {
   width: 15rem;
 }
+.basket_content-list-row_container-quantity {
+  background-color: grey;
+  margin-left: auto;
+}
 .basket_content-list-row_container-quantity-input {
   width: 6rem;
   height: 3.2rem;
   color: #002b5b;
+}
+.basket_content-list-row_container-remove_button {
+  background-color: chocolate;
+  color: #002b5b;
+  transition: color 0.4s ease-in-out;
+}
+.basket_content-list-row_container-remove_button:hover {
+  color: #ff6600;
 }
 
 .basket_summary {
