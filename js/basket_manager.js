@@ -40,7 +40,7 @@ function basketManager(cartKey) {
             <input type = 'number' id='basket_unit_quantity' class="basket_content-list-row_container-quantity-input"class="basket_content-list-row_container-quantity" name = 'basket_unit_quantity' min=1 max=${cartItem["stockQuantity"]} value=${cartItem["quantity"]}>
             </div>
             <p class="basket_content-list-row_container-row_price">Suma:&#32; ${rowPrice}zł</p>
-            <button class="basket_content-list-row_container-remove_button" onclick="removeCartItem('cart', ${cartItem["id"]})">Usuń</button>
+            <button class="basket_content-list-row_container-remove_button" onclick="removeBasketRow('cart', ${cartItem["id"]})">Usuń</button>
           </li>
         `;
         } else {
@@ -60,31 +60,67 @@ function basketManager(cartKey) {
             <input type = 'number' id='basket_unit_quantity' class="basket_content-list-row_container-quantity-input"class="basket_content-list-row_container-quantity" name = 'basket_unit_quantity' min=1 max=${cartItem["stockQuantity"]} value=${cartItem["quantity"]}>
             </div>
             <p class="basket_content-list-row_container-row_price">Suma:&#32; ${rowPrice}zł</p>
-            <button class="basket_content-list-row_container-remove_button" onclick="removeCartItem('cart', ${cartItem["id"]})">Usuń</button>
+            <button class="basket_content-list-row_container-remove_button" onclick="removeBasketRow('cart', ${cartItem["id"]})">Usuń</button>
           </li>
         `;
         }
-        i++;
-        const thisRow = cartListContainer.querySelector(`[data-row_id= ${id}]`);
-        const rowPriceContainer = thisRow.querySelector(
-          ".basket_content-list-row_container-row_price"
-        );
-        const quantityInput = thisRow.querySelector(
-          ".basket_content-list-row_container-quantity-input"
-        );
-        quantityInput.addEventListener("change", () => {
-          rowPriceContainer.textContent = "";
-          const newRowPrice = quantityInput.value * cartItem["price"];
-          rowPriceContainer.textContent = newRowPrice;
+        cartListContainer.addEventListener("change", (event) => {
+          const target = event.target;
+
+          if (
+            target.classList.contains(
+              "basket_content-list-row_container-quantity-input"
+            )
+          ) {
+            const quantityInput = target;
+            const thisRow = quantityInput.closest("[data-row_id]");
+
+            const itemId = thisRow.dataset.row_id;
+            const newQuantity = parseFloat(quantityInput.value);
+
+            const cartData = localStorageManager.read(cartKey);
+            const cartItem = cartData.find((item) => item.id == itemId);
+
+            if (cartItem) {
+              const rowPriceContainer = thisRow.querySelector(
+                ".basket_content-list-row_container-row_price"
+              );
+              const newRowPrice = newQuantity * cartItem.price;
+
+              rowPriceContainer.textContent = `Suma: ${newRowPrice.toFixed(
+                2
+              )}zł`;
+            }
+          }
         });
+        i++;
       });
     }
   }
   updateBasket(cartData);
 }
+function calcRowSum(cartListContainer) {
+  const thisRow = cartListContainer.querySelector(
+    `[data-row_id='${cartItem["id"]}']`
+  );
+  console.log("This row id is: ", thisRow);
+  const rowPriceContainer = thisRow.querySelector(
+    ".basket_content-list-row_container-row_price"
+  );
+  rowPriceContainer.innerText = "dupa";
+  const quantityInput = thisRow.querySelector(
+    ".basket_content-list-row_container-quantity-input"
+  );
+  console.log("quantity input value in calsSum is: ", quantityInput.value);
+  quantityInput.addEventListener("change", () => {
+    rowPriceContainer.textContent = "";
+    const newRowPrice = quantityInput.value * cartItem["price"];
+    rowPriceContainer.textContent = newRowPrice;
+  });
+}
 function removeBasketRow(cartKey, id) {
   const cartListContainer = document.querySelector(".basket_content-list");
-  const rowToRemove = cartListContainer.querySelector(`[data-row_id= ${id}]`);
+  const rowToRemove = cartListContainer.querySelector(`[data-row_id= '${id}']`);
   rowToRemove.remove();
 
   removeCartItem(cartKey, id);
