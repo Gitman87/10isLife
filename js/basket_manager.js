@@ -81,19 +81,19 @@ function basketManager(cartKey) {
           ) {
             const quantityInput = target;
             const thisRow = quantityInput.closest("[data-row_id]");
-
             const itemId = thisRow.dataset.row_id;
+            console.log("itemId is: ", itemId);
             const newQuantity = parseFloat(quantityInput.value);
-
             const cartData = localStorageManager.read(cartKey);
             const cartItem = cartData.find((item) => item.id == itemId);
-
             if (cartItem) {
+              updateCartItemQuantity("cart", itemId, newQuantity);
+              // cartItem["quantity"] = newQuantity;
+              // localStorageManager.update("cart", cartItem);
               const rowPriceContainer = thisRow.querySelector(
                 ".basket_content-list-row_container-row_price-price"
               );
               const newRowPrice = newQuantity * cartItem.price;
-
               rowPriceContainer.textContent = newRowPrice.toFixed(2);
               calcNumberOfItems(
                 cartListContainer,
@@ -165,6 +165,7 @@ function removeBasketRow(cartKey, id) {
   calcNumberOfItems(cartListContainer, totalNumberOfItems);
   calcTotalSum(cartListContainer, totalSumContainer);
 }
+
 function calcNumberOfItems(cartListContainer, totalNumberOfItems) {
   const inputs = cartListContainer.querySelectorAll(
     ".basket_content-list-row_container-quantity-input"
@@ -179,3 +180,5 @@ function calcNumberOfItems(cartListContainer, totalNumberOfItems) {
   console.log("Number of all items is: ", sum);
 }
 basketManager("cart");
+//  cartItem["quantity"] = newQuantity;
+//               localStorageManager.update("cart", cartItem);

@@ -96,6 +96,22 @@ function removeCartItem(cartKey, id) {
   cartManager.update(cartKey, cart);
   console.log("Cart after removing item is: ", cart);
 }
+function updateCartItemQuantity(cartKey, id, newQuantity) {
+  console.log("updatequantiuty fired");
+  const cartManager = new LocalStorageManager();
+  let cart = cartManager.read(cartKey);
+  const isTheSameId = (item) => item.id == id;
+  console.log("Is the same id is: ", isTheSameId);
+  const indexOfItemToUpdate = cart.findIndex(isTheSameId);
+  if (indexOfItemToUpdate === -1) {
+    console.warn("Could find item to update its quantity");
+  } else {
+    cart[indexOfItemToUpdate]["quantity"] = newQuantity;
+  }
+  //wrtite modified cart back to storage
+  cartManager.update(cartKey, cart);
+  console.log("Cart after updating quantity  item is: ", cart);
+}
 function updateBasketNumber(cartKey) {
   const basketNumberContainer = document.querySelector(
     ".header-content-account-shopping-basket_link-number"
