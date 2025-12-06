@@ -5,7 +5,10 @@ function basketManager(cartKey) {
   // empty basket info
   const basketSummaryContainer = document.querySelector(".basket_summary");
   const totalNumberOfItems = basketSummaryContainer.querySelector(
-    ".basket_summary-details-term"
+    ".basket_summary-details-quantity"
+  );
+  const totalSumContainer = basketSummaryContainer.querySelector(
+    ".basket_summary-details-sum"
   );
   const emptyBasketInfo = document.createElement("h2");
   emptyBasketInfo.classList.add("basket_contnet_list-empty");
@@ -94,18 +97,25 @@ function basketManager(cartKey) {
               rowPriceContainer.textContent = `Suma: ${newRowPrice.toFixed(
                 2
               )}zł`;
-              calcNumberOfItems(cartListContainer, totalNumberOfItems);
+              calcNumberOfItems(
+                cartListContainer,
+                totalNumberOfItems,
+                totalSumContainer
+              );
+              calcTotalSum(cartListContainer, totalSumContainer);
             }
           }
         });
+
         i++;
       });
     }
   }
   updateBasket(cartData);
-  calcNumberOfItems(cartListContainer, totalNumberOfItems);
+  calcNumberOfItems(cartListContainer, totalNumberOfItems, totalSumContainer);
+  calcTotalSum(cartListContainer, totalSumContainer);
 }
-function calcRowSum(cartListContainer, totalNumberOfItems) {
+function calcRowSum(cartListContainer, totalNumberOfItems, totalSumContainer) {
   const thisRow = cartListContainer.querySelector(
     `[data-row_id='${cartItem["id"]}']`
   );
@@ -121,16 +131,36 @@ function calcRowSum(cartListContainer, totalNumberOfItems) {
   quantityInput.addEventListener("change", () => {
     rowPriceContainer.textContent = "";
     const newRowPrice = quantityInput.value * cartItem["price"];
-    rowPriceContainer.textContent = newRowPrice;
+    rowPriceContainer.textContent = "Ilość: " + newRowPrice;
     calcNumberOfItems(cartListContainer, totalNumberOfItems);
+    calcTotalSum(cartListContainer, totalSumContainer);
   });
+}
+function calcTotalSum(cartListContainer, totalSumContainer) {
+  totalSumContainer.innerText = "";
+  const inputs = cartListContainer.querySelectorAll(
+    ".basket_content-list-row_container-quantity-input"
+  );
+  if (inputs) {
+    let sum = 0;
+    inputs.forEach((input) => {
+      sum += parseFloat(input.value);
+    });
+    totalSumContainer.innerText = sum;
+  } else {
+    console.log("there is no basket rows yet");
+    totalSumContainer.innerText = 0;
+  }
 }
 function removeBasketRow(cartKey, id) {
   const cartListContainer = document.querySelector(".basket_content-list");
   const rowToRemove = cartListContainer.querySelector(`[data-row_id= '${id}']`);
+  const totalNumberOfItems = document.querySelector(
+    ".basket_summary-details-quantity"
+  );
   rowToRemove.remove();
-
   removeCartItem(cartKey, id);
+  calcNumberOfItems(cartListContainer, totalNumberOfItems);
 }
 function calcNumberOfItems(cartListContainer, totalNumberOfItems) {
   const inputs = cartListContainer.querySelectorAll(
