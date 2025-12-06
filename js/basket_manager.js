@@ -46,7 +46,7 @@ function basketManager(cartKey) {
             <label for="basket_unit_quantity" class="basket_content-list-row_container-quantity-label">Ilość:</label>
             <input type = 'number' id='basket_unit_quantity' class="basket_content-list-row_container-quantity-input"class="basket_content-list-row_container-quantity" name = 'basket_unit_quantity' min=1 max=${cartItem["stockQuantity"]} value=${cartItem["quantity"]}>
             </div>
-            <p class="basket_content-list-row_container-row_price">Suma:&#32; ${rowPrice}zł</p>
+            <p class="basket_content-list-row_container-row_price">Suma:&#32; <span class="basket_content-list-row_container-row_price-price">${rowPrice}</span>zł</p>
             <button class="basket_content-list-row_container-remove_button" onclick="removeBasketRow('cart', ${cartItem["id"]})">Usuń</button>
           </li>
         `;
@@ -66,7 +66,7 @@ function basketManager(cartKey) {
             <label for="basket_unit_quantity" class="basket_content-list-row_container-quantity-label">Ilość:</label>
             <input type = 'number' id='basket_unit_quantity' class="basket_content-list-row_container-quantity-input"class="basket_content-list-row_container-quantity" name = 'basket_unit_quantity' min=1 max=${cartItem["stockQuantity"]} value=${cartItem["quantity"]}>
             </div>
-            <p class="basket_content-list-row_container-row_price">Suma:&#32; ${rowPrice}zł</p>
+            <p class="basket_content-list-row_container-row_price">Suma:&#32; <span class="basket_content-list-row_container-row_price-price">${rowPrice}</span>zł</p>
             <button class="basket_content-list-row_container-remove_button" onclick="removeBasketRow('cart', ${cartItem["id"]})">Usuń</button>
           </li>
         `;
@@ -90,13 +90,11 @@ function basketManager(cartKey) {
 
             if (cartItem) {
               const rowPriceContainer = thisRow.querySelector(
-                ".basket_content-list-row_container-row_price"
+                ".basket_content-list-row_container-row_price-price"
               );
               const newRowPrice = newQuantity * cartItem.price;
 
-              rowPriceContainer.textContent = `Suma: ${newRowPrice.toFixed(
-                2
-              )}zł`;
+              rowPriceContainer.textContent = newRowPrice.toFixed(2);
               calcNumberOfItems(
                 cartListContainer,
                 totalNumberOfItems,
@@ -121,7 +119,7 @@ function calcRowSum(cartListContainer, totalNumberOfItems, totalSumContainer) {
   );
   console.log("This row id is: ", thisRow);
   const rowPriceContainer = thisRow.querySelector(
-    ".basket_content-list-row_container-row_price"
+    ".basket_content-list-row_container-row_price-price"
   );
   rowPriceContainer.innerText = "dupa";
   const quantityInput = thisRow.querySelector(
@@ -131,20 +129,20 @@ function calcRowSum(cartListContainer, totalNumberOfItems, totalSumContainer) {
   quantityInput.addEventListener("change", () => {
     rowPriceContainer.textContent = "";
     const newRowPrice = quantityInput.value * cartItem["price"];
-    rowPriceContainer.textContent = "Ilość: " + newRowPrice;
+    rowPriceContainer.textContent = newRowPrice;
     calcNumberOfItems(cartListContainer, totalNumberOfItems);
     calcTotalSum(cartListContainer, totalSumContainer);
   });
 }
 function calcTotalSum(cartListContainer, totalSumContainer) {
   totalSumContainer.innerText = "";
-  const inputs = cartListContainer.querySelectorAll(
-    ".basket_content-list-row_container-quantity-input"
+  const sumContainers = cartListContainer.querySelectorAll(
+    ".basket_content-list-row_container-row_price-price"
   );
-  if (inputs) {
+  if (sumContainers) {
     let sum = 0;
-    inputs.forEach((input) => {
-      sum += parseFloat(input.value);
+    sumContainers.forEach((sumContainer) => {
+      sum += parseFloat(sumContainer.textContent);
     });
     totalSumContainer.innerText = sum;
   } else {
@@ -158,9 +156,14 @@ function removeBasketRow(cartKey, id) {
   const totalNumberOfItems = document.querySelector(
     ".basket_summary-details-quantity"
   );
+  const basketSummaryContainer = document.querySelector(".basket_summary");
+  const totalSumContainer = basketSummaryContainer.querySelector(
+    ".basket_summary-details-sum"
+  );
   rowToRemove.remove();
   removeCartItem(cartKey, id);
   calcNumberOfItems(cartListContainer, totalNumberOfItems);
+  calcTotalSum(cartListContainer, totalSumContainer);
 }
 function calcNumberOfItems(cartListContainer, totalNumberOfItems) {
   const inputs = cartListContainer.querySelectorAll(
