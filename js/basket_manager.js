@@ -41,12 +41,12 @@ function basketManager(cartKey) {
               class="basket_content-list-row_container-thumbnail"
             />
             <p class="basket_content-list-row_container-name">${cartItem["fullName"]}</p>
-            <p class="basket_content-list-row_container-price">Cena:&#32;${cartItem["price"]}zł</p>
+            <p class="basket_content-list-row_container-price">Cena:&#32;${cartItem["price"]}&#32;zł</p>
             <div class="basket_content-list-row_container-quantity"
             <label for="basket_unit_quantity" class="basket_content-list-row_container-quantity-label">Ilość:</label>
             <input type = 'number' id='basket_unit_quantity' class="basket_content-list-row_container-quantity-input"class="basket_content-list-row_container-quantity" name = 'basket_unit_quantity' min=1 max=${cartItem["stockQuantity"]} value=${cartItem["quantity"]}>
             </div>
-            <p class="basket_content-list-row_container-row_price">Suma:&#32; <span class="basket_content-list-row_container-row_price-price">${rowPrice}</span>zł</p>
+            <p class="basket_content-list-row_container-row_price">Suma:&#32; <span class="basket_content-list-row_container-row_price-price">${rowPrice}</span>&#32;zł</p>
             <button class="basket_content-list-row_container-remove_button" onclick="removeBasketRow('cart', ${cartItem["id"]})">Usuń</button>
           </li>
         `;
@@ -61,12 +61,12 @@ function basketManager(cartKey) {
             <p class="basket_content-list-row_container-name">${cartItem["fullName"]}</p>
             <p class="basket_content-list-row_container-grip">Uchwyt: &#32; ${cartItem["options"]["grip_size"]}</p>
             <p class="basket_content-list-row_container-length">Długość: &#32; ${cartItem["options"]["length"]}</p>
-            <p class="basket_content-list-row_container-price">Cena: &#32; ${cartItem["price"]}zł</p>
+            <p class="basket_content-list-row_container-price">Cena: &#32; ${cartItem["price"]}&#32;zł</p>
             <div class="basket_content-list-row_container-quantity"
             <label for="basket_unit_quantity" class="basket_content-list-row_container-quantity-label">Ilość:</label>
             <input type = 'number' id='basket_unit_quantity' class="basket_content-list-row_container-quantity-input"class="basket_content-list-row_container-quantity" name = 'basket_unit_quantity' min=1 max=${cartItem["stockQuantity"]} value=${cartItem["quantity"]}>
             </div>
-            <p class="basket_content-list-row_container-row_price">Suma:&#32; <span class="basket_content-list-row_container-row_price-price">${rowPrice}</span>zł</p>
+            <p class="basket_content-list-row_container-row_price">Suma:&#32; <span class="basket_content-list-row_container-row_price-price">${rowPrice}</span>&#32;zł</p>
             <button class="basket_content-list-row_container-remove_button" onclick="removeBasketRow('cart', ${cartItem["id"]})">Usuń</button>
           </li>
         `;
@@ -144,7 +144,8 @@ function calcTotalSum(cartListContainer, totalSumContainer) {
     sumContainers.forEach((sumContainer) => {
       sum += parseFloat(sumContainer.textContent);
     });
-    totalSumContainer.innerText = sum;
+    console.log("total sum is: ", sum);
+    totalSumContainer.innerText = sum.toFixed(2) + " " + "zł";
   } else {
     console.log("there is no basket rows yet");
     totalSumContainer.innerText = 0;
@@ -176,7 +177,7 @@ function calcNumberOfItems(cartListContainer, totalNumberOfItems) {
     sum += parseInt(input.value);
     console.log("Input value is: ", input.value);
   });
-  totalNumberOfItems.innerText = sum;
+  totalNumberOfItems.innerText = sum + " " + "szt.";
   console.log("Number of all items is: ", sum);
 }
 basketManager("cart");
