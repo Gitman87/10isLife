@@ -41,10 +41,10 @@ function basketManager(cartKey) {
               class="basket_content-list-row_container-thumbnail"
             />
             <p class="basket_content-list-row_container-name">${cartItem["fullName"]}</p>
-            <p class="basket_content-list-row_container-price">Cena:&#32;${cartItem["price"]}&#32;zł</p>
-            <div class="basket_content-list-row_container-quantity"
+            <p class="basket_content-list-row_container-price">${cartItem["price"]}&#32;zł</p>
+            <div class="basket_content-list-row_container-quantity">
             <label for="basket_unit_quantity" class="basket_content-list-row_container-quantity-label">Ilość:</label>
-            <input type = 'number' id='basket_unit_quantity' class="basket_content-list-row_container-quantity-input"class="basket_content-list-row_container-quantity" name = 'basket_unit_quantity' min=1 max=${cartItem["stockQuantity"]} value=${cartItem["quantity"]}>
+            <input type = 'number' id='basket_unit_quantity' class="basket_content-list-row_container-quantity-input"  name = 'basket_unit_quantity' min=1 max=${cartItem["stockQuantity"]} value=${cartItem["quantity"]}>
             </div>
             <p class="basket_content-list-row_container-row_price">Suma:&#32; <span class="basket_content-list-row_container-row_price-price">${rowPrice}</span>&#32;zł</p>
             <button class="basket_content-list-row_container-remove_button" onclick="removeBasketRow('cart', ${cartItem["id"]})">Usuń</button>
@@ -61,10 +61,10 @@ function basketManager(cartKey) {
             <p class="basket_content-list-row_container-name">${cartItem["fullName"]}</p>
             <p class="basket_content-list-row_container-grip">Uchwyt: &#32; ${cartItem["options"]["grip_size"]}</p>
             <p class="basket_content-list-row_container-length">Długość: &#32; ${cartItem["options"]["length"]}</p>
-            <p class="basket_content-list-row_container-price">Cena: &#32; ${cartItem["price"]}&#32;zł</p>
-            <div class="basket_content-list-row_container-quantity"
+            <p class="basket_content-list-row_container-price">  ${cartItem["price"]}&#32;zł</p>
+            <div class="basket_content-list-row_container-quantity">
             <label for="basket_unit_quantity" class="basket_content-list-row_container-quantity-label">Ilość:</label>
-            <input type = 'number' id='basket_unit_quantity' class="basket_content-list-row_container-quantity-input"class="basket_content-list-row_container-quantity" name = 'basket_unit_quantity' min=1 max=${cartItem["stockQuantity"]} value=${cartItem["quantity"]}>
+            <input type = 'number' id='basket_unit_quantity' class="basket_content-list-row_container-quantity-input" name = 'basket_unit_quantity' min=1 max=${cartItem["stockQuantity"]} value=${cartItem["quantity"]}>
             </div>
             <p class="basket_content-list-row_container-row_price">Suma:&#32; <span class="basket_content-list-row_container-row_price-price">${rowPrice}</span>&#32;zł</p>
             <button class="basket_content-list-row_container-remove_button" onclick="removeBasketRow('cart', ${cartItem["id"]})">Usuń</button>
@@ -104,7 +104,6 @@ function basketManager(cartKey) {
             }
           }
         });
-
         i++;
       });
     }

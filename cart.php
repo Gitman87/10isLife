@@ -38,15 +38,17 @@ session_start();
         </ul>
     </section>
     <aside class="basket_summary">
-        <h3 class="basket_summary-title">Podsumowanie</h3>
+        <h2 class="basket_summary-title">Podsumowanie</h2>
         <dl class="basket_summary-details">
             <dt class="basket_summary-details-term">Ilość produktów:</dt>
             <dd class="basket_summary-details-quantity"></dd>
             <dt class="basket_summary-details-term">Suma:</dt>
             <dd class="basket_summary-details-sum"></dd>
         </dl>
-        <?php genStandardButton("Do kasy", $is_button = false, $url = './kasa', $callback = '') ?>
-        <?php genLightButton("Kontynuuj zakupy", $is_button = FALSE, $url = './last_visited_site') ?>
+        <div class="basket_summary-buttons">
+            <?php genLightButton("Kontynuuj zakupy", $is_button = FALSE, $url = './last_visited_site') ?>
+            <?php genStandardButton("Do kasy", $is_button = false, $url = './kasa', $callback = '') ?>
+        </div>
     </aside>
     <script src="./js/local_storage_manager.js"></script>
     <script src="./js/cart_manager.js"></script>
