@@ -1,6 +1,6 @@
 function basketManager(cartKey) {
-  const localStorageManager = new LocalStorageManager();
-  const cartData = localStorageManager.read(cartKey);
+  const localStorageManagerBasket = new LocalStorageManager();
+  const cartData = localStorageManagerBasket.read(cartKey);
   const cartListContainer = document.querySelector(".basket_content-list");
   // empty basket info
   const basketSummaryContainer = document.querySelector(".basket_summary");
@@ -84,7 +84,7 @@ function basketManager(cartKey) {
             const itemId = thisRow.dataset.row_id;
             console.log("itemId is: ", itemId);
             const newQuantity = parseFloat(quantityInput.value);
-            const cartData = localStorageManager.read(cartKey);
+            const cartData = localStorageManagerBasket.read(cartKey);
             const cartItem = cartData.find((item) => item.id == itemId);
             if (cartItem) {
               updateCartItemQuantity("cart", itemId, newQuantity);
@@ -111,6 +111,14 @@ function basketManager(cartKey) {
   updateBasket(cartData);
   calcNumberOfItems(cartListContainer, totalNumberOfItems, totalSumContainer);
   calcTotalSum(cartListContainer, totalSumContainer);
+  const continueShoppingButton = basketSummaryContainer.querySelector(
+    ".light_button-wrapper-link"
+  );
+  addAddressToButton(
+    localStorageManagerBasket,
+    "address",
+    continueShoppingButton
+  );
 }
 function calcRowSum(cartListContainer, totalNumberOfItems, totalSumContainer) {
   const thisRow = cartListContainer.querySelector(
@@ -179,6 +187,10 @@ function calcNumberOfItems(cartListContainer, totalNumberOfItems) {
   totalNumberOfItems.innerText = sum + " " + "szt.";
   console.log("Number of all items is: ", sum);
 }
-basketManager("cart");
 //  cartItem["quantity"] = newQuantity;
 //               localStorageManager.update("cart", cartItem);
+function addAddressToButton(storageManager, key, button) {
+  const address = storageManager.read(key);
+  button.href = address;
+}
+basketManager("cart");

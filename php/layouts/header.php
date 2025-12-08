@@ -57,18 +57,20 @@ function genHeader()
                     </div>
                     <?php genProfile() ?>
                     <?php genLogModal() ?>
-                    <div class="header-content-account-shopping">
+                    <button class="header-content-account-shopping" onclick="saveCurrentAddress('address') ">
                         <a href="cart.php" class="header-content-account-shopping-basket_link">
                             <img src="./res/icon/basket.svg" class="header-content-account-shopping-basket_link-basket" alt="basket">
                             <div class="header-content-account-shopping-basket_link-number">
                                 0
                             </div>
                         </a>
-                    </div>
+                    </button>
                 </div>
             </div>
         </header>
         <?php echo  genBreadcrumbs() ?>
         <script src="./js/components/breadcrumbs_move.js"></script>
+        <!-- <script src="./js/local_storage_manager.js"></script> -->
+        <script src="./js/save_address.js"></script>
     <?php
 }
