@@ -69,8 +69,8 @@ function genHeader()
             </div>
         </header>
         <?php echo  genBreadcrumbs() ?>
+        <script src="./js/local_storage_manager.js"></script>
         <script src="./js/components/breadcrumbs_move.js"></script>
-        <!-- <script src="./js/local_storage_manager.js"></script> -->
         <script src="./js/save_address.js"></script>
     <?php
 }

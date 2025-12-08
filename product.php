@@ -272,7 +272,7 @@ $prodDataJson = json_encode($prodData);
       }
     });
   </script>
-  <script src="./js/local_storage_manager.js"></script>
+  <!-- <script src="./js/local_storage_manager.js"></script> -->
   <script src="./js/product_config.js"></script>
   <script src="./js/write_review.js"></script>
   <script src="./js/cart_anim.js"></script>

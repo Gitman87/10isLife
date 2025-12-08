@@ -50,7 +50,7 @@ session_start();
             <?php genStandardButton("Do kasy", $is_button = false, $url = './kasa', $callback = '') ?>
         </div>
     </aside>
-    <script src="./js/local_storage_manager.js"></script>
+    <!-- <script src="./js/local_storage_manager.js"></script> -->
     <script src="./js/cart_manager.js"></script>
     <script src="./js/basket_manager.js"></script>
 </main>

@@ -27,11 +27,8 @@ function basketManager(cartKey) {
       cartListContainer.appendChild(emptyBasketInfo);
     } else {
       cartListContainer.innerHTML = "";
-      console.log("cartData is: ", cartData);
       cartData.forEach((cartItem) => {
         const rowPrice = cartItem["quantity"] * cartItem["price"];
-        console.log("rowPrice is: ", rowPrice);
-        console.log("cart item optins are: ", isEmpty(cartItem["options"]));
         if (isEmpty(cartItem["options"])) {
           cartListContainer.innerHTML += `
           <li class="basket_content-list-row_container" data-row_id=${cartItem["id"]}>
@@ -82,7 +79,6 @@ function basketManager(cartKey) {
             const quantityInput = target;
             const thisRow = quantityInput.closest("[data-row_id]");
             const itemId = thisRow.dataset.row_id;
-            console.log("itemId is: ", itemId);
             const newQuantity = parseFloat(quantityInput.value);
             const cartData = localStorageManagerBasket.read(cartKey);
             const cartItem = cartData.find((item) => item.id == itemId);
@@ -124,7 +120,6 @@ function calcRowSum(cartListContainer, totalNumberOfItems, totalSumContainer) {
   const thisRow = cartListContainer.querySelector(
     `[data-row_id='${cartItem["id"]}']`
   );
-  console.log("This row id is: ", thisRow);
   const rowPriceContainer = thisRow.querySelector(
     ".basket_content-list-row_container-row_price-price"
   );
@@ -132,7 +127,6 @@ function calcRowSum(cartListContainer, totalNumberOfItems, totalSumContainer) {
   const quantityInput = thisRow.querySelector(
     ".basket_content-list-row_container-quantity-input"
   );
-  console.log("quantity input value in calsSum is: ", quantityInput.value);
   quantityInput.addEventListener("change", () => {
     rowPriceContainer.textContent = "";
     const newRowPrice = quantityInput.value * cartItem["price"];
@@ -151,10 +145,8 @@ function calcTotalSum(cartListContainer, totalSumContainer) {
     sumContainers.forEach((sumContainer) => {
       sum += parseFloat(sumContainer.textContent);
     });
-    console.log("total sum is: ", sum);
     totalSumContainer.innerText = sum.toFixed(2) + " " + "zł";
   } else {
-    console.log("there is no basket rows yet");
     totalSumContainer.innerText = 0;
   }
 }
@@ -178,14 +170,11 @@ function calcNumberOfItems(cartListContainer, totalNumberOfItems) {
   const inputs = cartListContainer.querySelectorAll(
     ".basket_content-list-row_container-quantity-input"
   );
-  console.log("inputs are: ", inputs);
   let sum = 0;
   inputs.forEach((input) => {
     sum += parseInt(input.value);
-    console.log("Input value is: ", input.value);
   });
   totalNumberOfItems.innerText = sum + " " + "szt.";
-  console.log("Number of all items is: ", sum);
 }
 //  cartItem["quantity"] = newQuantity;
 //               localStorageManager.update("cart", cartItem);

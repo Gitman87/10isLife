@@ -52,23 +52,16 @@ function addProductToCart(cartItem) {
   //need to check if already exist the same product with the same config
   cart.forEach;
   const isTheSameId = (item) => item.id === cartItem.id;
-  console.log("Is the same id is: ", isTheSameId);
   const indexOfTheSameItem = cart.findIndex(isTheSameId);
   if (indexOfTheSameItem === -1) {
     cart.push(cartItem);
     cartManager.update(cartKey, cart);
-    console.log("Unique cart item added, cart is: ", cartManager.read(cartKey));
   } else {
     //need to update quantity, sum and update damnit!
-    console.log(
-      "The same cartitem added, updating quantity: ",
-      cartManager.read(cartKey)
-    );
     const theSameItemQunatityInt = parseInt(cart[indexOfTheSameItem].quantity);
     const newItemQuantityInt = parseInt(cartItem.quantity);
     const newQuantity = theSameItemQunatityInt + newItemQuantityInt;
     if (stockQuantityInputValue < theSameItemQunatityInt + newItemQuantityInt) {
-      console.warn("Cannot add more to basket");
       messageContainer.textContent = "Nie można dodać więcej tego produktu";
       messageContainer.classList.remove("message_text_color");
       messageContainer.classList.remove("error_text_color");
@@ -85,7 +78,6 @@ function removeCartItem(cartKey, id) {
   const cartManager = new LocalStorageManager();
   let cart = cartManager.read(cartKey);
   const isTheSameId = (item) => item.id === id;
-  console.log("Is the same id is: ", isTheSameId);
   const indexOfItemToRemove = cart.findIndex(isTheSameId);
   if (indexOfItemToRemove === -1) {
     console.warn("Could find item to remove in the cart");
@@ -94,14 +86,11 @@ function removeCartItem(cartKey, id) {
   }
   //wrtite modified cart back to storage
   cartManager.update(cartKey, cart);
-  console.log("Cart after removing item is: ", cart);
 }
 function updateCartItemQuantity(cartKey, id, newQuantity) {
-  console.log("updatequantiuty fired");
   const cartManager = new LocalStorageManager();
   let cart = cartManager.read(cartKey);
   const isTheSameId = (item) => item.id == id;
-  console.log("Is the same id is: ", isTheSameId);
   const indexOfItemToUpdate = cart.findIndex(isTheSameId);
   if (indexOfItemToUpdate === -1) {
     console.warn("Could find item to update its quantity");
@@ -110,7 +99,6 @@ function updateCartItemQuantity(cartKey, id, newQuantity) {
   }
   //wrtite modified cart back to storage
   cartManager.update(cartKey, cart);
-  console.log("Cart after updating quantity  item is: ", cart);
 }
 function updateBasketNumber(cartKey) {
   const basketNumberContainer = document.querySelector(
