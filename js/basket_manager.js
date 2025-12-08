@@ -10,8 +10,8 @@ function basketManager(cartKey) {
   const totalSumContainer = basketSummaryContainer.querySelector(
     ".basket_summary-details-sum"
   );
-  const emptyBasketInfo = document.createElement("h2");
-  emptyBasketInfo.classList.add("basket_contnet_list-empty");
+  const emptyBasketInfo = document.createElement("h3");
+  emptyBasketInfo.classList.add("basket_content-list-empty");
   emptyBasketInfo.textContent = "Twój koszyk jest pusty";
 
   //cart item html

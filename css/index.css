@@ -1259,6 +1259,10 @@ button {
   padding: 1.5rem;
   gap: 1.5rem;
 }
+.basket_content-list-empty {
+  color: #808080;
+  margin: 0 auto;
+}
 .basket_content-list-row_container {
   display: flex;
   flex-wrap: wrap;
