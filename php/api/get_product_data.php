@@ -184,7 +184,7 @@ WHERE
     // -------------------------product_children----------------------------------------
     // product_id, name, price, last price, quantity, weight of all children for parent id = ?
     $stmt = $conn->prepare("SELECT DISTINCT
-    products.product_id, products.name, products.price, products.last_price, products.quantity, products.weight_kg
+    products.product_id, products.name, products.price, products.last_price, products.quantity, products.weight_kg, product_variants.parent_id
     FROM
     product_variants
     INNER JOIN
@@ -202,7 +202,6 @@ WHERE
         // print_r($row);
         $prodArray['children'][] = $row;
     };
-    // print_r($prodArray['children']);
 
     // -----------------------------grid_pattern----------------------------------------
     $stmt = $conn->prepare("SELECT attribute_variants.attribute_variant_id, attribute_variants.value FROM attribute_variants JOIN product_attributes ON attribute_variants.attribute_variant_id = product_attributes.attribute_variant_id

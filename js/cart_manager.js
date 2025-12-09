@@ -4,13 +4,13 @@ function makeCartItem(
   prodName,
   prodPrice,
   thumbnail_url,
-  stockQuantity
+  stockQuantity,
+  parentId
 ) {
   const productDetailsContainer = document.querySelector(".dashboard-pulpit");
   const quantity = productDetailsContainer.querySelector(
     ".dashboard-pulpit-add-amount-quantifier"
   ).value;
-
   const options = {};
   productDetailsContainer
     .querySelectorAll("input:checked, select")
@@ -27,6 +27,7 @@ function makeCartItem(
     stockQuantity: stockQuantity,
     thumbnail: thumbnail_url,
     options: options,
+    parentId: parentId,
   };
   return cartItem;
 }

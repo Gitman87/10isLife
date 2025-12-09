@@ -1284,6 +1284,13 @@ button {
   max-width: 35rem;
   overflow-x: scroll;
 }
+.basket_content-list-row_container-name a {
+  color: #002b5b;
+  transition: color 0.4s ease-in-out;
+}
+.basket_content-list-row_container-name a:hover {
+  color: #ff6600;
+}
 .basket_content-list-row_container-price {
   margin-left: auto;
   width: 10rem;

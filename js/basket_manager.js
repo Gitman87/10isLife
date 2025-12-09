@@ -37,7 +37,7 @@ function basketManager(cartKey) {
               src="${cartItem["thumbnail"]}"
               class="basket_content-list-row_container-thumbnail"
             />
-            <p class="basket_content-list-row_container-name">${cartItem["fullName"]}</p>
+            <p class="basket_content-list-row_container-name"><a href="./product.php?id=${cartItem["id"]}">${cartItem["fullName"]}</a></p>
             <p class="basket_content-list-row_container-price">${cartItem["price"]}&#32;zł</p>
             <div class="basket_content-list-row_container-quantity">
             <label for="basket_unit_quantity" class="basket_content-list-row_container-quantity-label">Ilość:</label>
@@ -55,7 +55,7 @@ function basketManager(cartKey) {
               src="${cartItem["thumbnail"]}"
               class="basket_content-list-row_container-thumbnail"
             />
-            <p class="basket_content-list-row_container-name">${cartItem["fullName"]}</p>
+            <p class="basket_content-list-row_container-name"><a href="./product.php?id=${cartItem["parentId"]}">${cartItem["fullName"]}</a></p>
             <p class="basket_content-list-row_container-grip">Uchwyt: &#32; ${cartItem["options"]["grip_size"]}</p>
             <p class="basket_content-list-row_container-length">Długość: &#32; ${cartItem["options"]["length"]}</p>
             <p class="basket_content-list-row_container-price">  ${cartItem["price"]}&#32;zł</p>

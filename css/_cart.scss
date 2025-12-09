@@ -46,6 +46,13 @@
         min-width: 30rem;
         max-width: 35rem;
         overflow-x: scroll;
+        a {
+          color: $granat;
+          transition: color 0.4s ease-in-out;
+        }
+        a:hover {
+          color: $orange;
+        }
       }
       &-price {
         margin-left: auto;
