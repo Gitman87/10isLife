@@ -40,7 +40,9 @@ include './php/api/reviewing.php';
 //cart
 // require './php/cart.php';
 //api
+require './php/api/get_tile_data.php';
 require './php/api/connection.php';
+// require './php/api/get_tile_data.php';
 session_start();
 
 ?>

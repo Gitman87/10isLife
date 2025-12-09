@@ -52,7 +52,6 @@ WHERE
     product_images.image_id,
     product_images.url,
     product_images.is_thumbnail
-
 FROM
     product_images
 WHERE

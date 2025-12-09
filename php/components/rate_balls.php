@@ -2,7 +2,6 @@
 function genRateBalls($rate, $numberOfOpinions, $isReview = false, $url)
 {
     $grayBallsNumber = 5 - round($rate);
-
 ?>
     <div class="rate">
         <ul class="rate-balls">
@@ -48,7 +47,5 @@ function genRateBalls($rate, $numberOfOpinions, $isReview = false, $url)
         }
         ?>
     </div>
-
-
 <?php
 }
