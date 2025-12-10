@@ -21,7 +21,6 @@
         transform: scale(1.2);
       }
     }
-
     &-discount {
       position: absolute;
       left: 1rem;
@@ -37,6 +36,7 @@
       flex-direction: column;
       margin-top: 0.8rem;
       padding: 0rem 0.8rem 0.8rem 0.8rem;
+      pointer-events: none;
       &-name {
         color: $granat;
         font-size: $font-medium;

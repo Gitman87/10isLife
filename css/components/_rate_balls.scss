@@ -18,8 +18,16 @@
     font-size: $font-small;
     color: $granat;
     &-score {
+      color: $granat;
+      &-average {
+        color: $granat;
+      }
+      &-of {
+        color: $granat;
+      }
       &-number {
         color: $granat;
+
         &-link {
           text-decoration: none;
           color: $granat;
