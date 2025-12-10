@@ -38,7 +38,8 @@ WHERE
     if ($prodArray['price'] > $prodArray['last_price']) {
         $prodArray['discount'] = NULL;
     } else {
-        $prodArray['discount'] = round(($prodArray['price'] * 100) / $prodArray['last_price']);
+
+        $prodArray['discount'] = round((($prodArray['last_price'] - $prodArray['price']) * 100) / $prodArray['last_price']);
     }
     // ........................reviews--------------------------
     $stmt = $conn->prepare("SELECT reviews.customer_id, reviews.rating, reviews.opinion, review_date from reviews WHERE product_id = ?;");
