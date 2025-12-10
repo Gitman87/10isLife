@@ -6,17 +6,19 @@ function genTile($id)
     $tileData = getTileData($id);
     // print_r($tileData);
 ?>
-
     <li class="tile">
-        <img src="<?php echo $tileData['thumbnail']['url'] ?>" class="tile-img" alt="product photo">
-        <div class="tile-discount"><?php echo $tileData['discount'] ?>%</div>
-        <div class="tile-details">
-            <p class="tile-details-name"><?php echo $tileData['name'] ?></p>
-            <p class="tile-details-price"><span class="tile-details-price-new"><?php echo $tileData['price'] ?></span><del class="tile-details-price-old"><?php echo $tileData['last_price'] ?></del></p>
+        <a href="./product.php?id=<?php echo $tileData['product_id'] ?>" class="tile-link">
+            <div class="tile-link-img_wrapper">
+                <img src="<?php echo $tileData['thumbnail']['url'] ?>" class="tile-link-img_wrapper-img" alt="product photo">
+            </div>
+            <div class="tile-link-discount"><?php echo $tileData['discount'] ?>%</div>
+            <div class="tile-link-details">
+                <p class="tile-link-details-name"><?php echo $tileData['name'] ?></p>
+                <p class="tile-link-details-price"><span class="tile-link-details-price-new"><?php echo $tileData['price'] ?>zł</span><del class="tile-link-details-price-old"><?php echo $tileData['last_price'] ?>zł</del></p>
 
-            <?php genRateBalls($tileData['rating_score'], count($tileData['reviews']), false, '') ?>
-        </div>
+                <?php genRateBalls($tileData['rating_score'], count($tileData['reviews']), false, '') ?>
+            </div>
+        </a>
     </li>
-
 <?php
 }

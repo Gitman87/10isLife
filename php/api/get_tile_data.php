@@ -2,7 +2,6 @@
 
 function getTileData($id)
 {
-
     global $user, $host, $password, $db_name;
     // Create connection
     $conn = new mysqli($host, $user, $password, $db_name);

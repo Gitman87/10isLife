@@ -644,7 +644,7 @@ button {
 }
 .tile {
   width: 27.5rem;
-  background-color: aquamarine;
+  background-color: white;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -654,7 +654,19 @@ button {
      border-image: linear-gradient(to right, rgba(0, 42, 91, 0), #002b5b);
   border-image-slice: 1;
 }
-.tile-discount {
+.tile-link-img_wrapper {
+  width: 100%;
+  overflow: hidden;
+}
+.tile-link-img_wrapper-img {
+  width: 100%;
+  transform: scale(1);
+  transition: transform 0.4s ease-in-out;
+}
+.tile-link-img_wrapper-img:hover {
+  transform: scale(1.2);
+}
+.tile-link-discount {
   position: absolute;
   left: 1rem;
   top: 1rem;
@@ -664,28 +676,28 @@ button {
   padding: 0.2rem 0.5rem;
   transform: skewX(-10deg);
 }
-.tile-details {
+.tile-link-details {
   display: flex;
   flex-direction: column;
   margin-top: 0.8rem;
   padding: 0rem 0.8rem 0.8rem 0.8rem;
 }
-.tile-details-name {
+.tile-link-details-name {
   color: #002b5b;
   font-size: 1.6rem;
   overflow-x: scroll;
   margin-bottom: 0.8rem;
 }
-.tile-details-price {
+.tile-link-details-price {
   display: flex;
   gap: 0.8rem;
 }
-.tile-details-price-new {
+.tile-link-details-price-new {
   font-size: 2rem;
   color: #ff6600;
   font-weight: 600;
 }
-.tile-details-price-old {
+.tile-link-details-price-old {
   font-size: 1.4rem;
   color: gray;
 }
@@ -2058,7 +2070,7 @@ button {
 }
 .tile {
   width: 27.5rem;
-  background-color: aquamarine;
+  background-color: white;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -2068,7 +2080,19 @@ button {
      border-image: linear-gradient(to right, rgba(0, 42, 91, 0), #002b5b);
   border-image-slice: 1;
 }
-.tile-discount {
+.tile-link-img_wrapper {
+  width: 100%;
+  overflow: hidden;
+}
+.tile-link-img_wrapper-img {
+  width: 100%;
+  transform: scale(1);
+  transition: transform 0.4s ease-in-out;
+}
+.tile-link-img_wrapper-img:hover {
+  transform: scale(1.2);
+}
+.tile-link-discount {
   position: absolute;
   left: 1rem;
   top: 1rem;
@@ -2078,28 +2102,28 @@ button {
   padding: 0.2rem 0.5rem;
   transform: skewX(-10deg);
 }
-.tile-details {
+.tile-link-details {
   display: flex;
   flex-direction: column;
   margin-top: 0.8rem;
   padding: 0rem 0.8rem 0.8rem 0.8rem;
 }
-.tile-details-name {
+.tile-link-details-name {
   color: #002b5b;
   font-size: 1.6rem;
   overflow-x: scroll;
   margin-bottom: 0.8rem;
 }
-.tile-details-price {
+.tile-link-details-price {
   display: flex;
   gap: 0.8rem;
 }
-.tile-details-price-new {
+.tile-link-details-price-new {
   font-size: 2rem;
   color: #ff6600;
   font-weight: 600;
 }
-.tile-details-price-old {
+.tile-link-details-price-old {
   font-size: 1.4rem;
   color: gray;
 }
