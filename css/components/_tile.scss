@@ -3,11 +3,13 @@
   background-color: $white;
   display: flex;
   flex-direction: column;
+  flex: 0 0 27.5rem;
   position: relative;
   cursor: pointer;
   border: 0.4rem solid transparent;
   border-image: $outline-granat;
   border-image-slice: 1;
+  max-width: 100%;
   &-link {
     &-img_wrapper {
       width: 100%;

@@ -1,6 +1,5 @@
 <?php
 function genTileBrowser($tileBrowserData, $tileBrowserTitle)
-
 {
 ?>
     <div class="tile_browser">

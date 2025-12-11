@@ -46,10 +46,18 @@ require './php/api/connection.php';
 
 //new products
 require './php/layouts/new_products.php';
+//browser
+require './php/layouts/prod_browser.php';
 session_start();
 ?>
 <?php genHeader() ?>
 <main class="main">
     <?php genNewProducts() ?>
+    <hr>
+    <?php
+    // $range = [1, 100];
+    genProdBrowser();
+    ?>
+
 </main>
 <?php genFooter() ?>

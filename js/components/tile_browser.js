@@ -1,6 +1,3 @@
-function test() {
-  console.log("plik js dziala");
-}
 const tileBrowser = document.querySelector(".tile_browser");
 const tileBrowserList = tileBrowser.querySelector(".tile_browser-list");
 const tiles = tileBrowser.getElementsByClassName("tile");

@@ -6,7 +6,7 @@ include './php/components/breadcrumbs.php';
 function genHeader()
 {
     $headerConf = array(
-        array('Rakiety', './123'),
+        array('Rakiety', './rackets.php'),
         array('Odzież', './123'),
         array('Buty', './123'),
         array('Piłki', './123'),

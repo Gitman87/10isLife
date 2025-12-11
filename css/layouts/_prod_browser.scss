@@ -1,0 +1,56 @@
+.prod_browser {
+  background-color: turquoise;
+  margin-top: 1.6rem;
+  padding-top: 1rem;
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  &-nav {
+    display: flex;
+    justify-content: end;
+    gap: 1.6rem;
+    button {
+      scale: 0.8;
+      img {
+        border-radius: 50%;
+        box-shadow: $box-shadow;
+      }
+    }
+    &-left_button {
+      &-ball {
+        transform: rotate(-180deg);
+      }
+    }
+    &-left_button:hover {
+      transform: rotate(-180deg);
+    }
+    button:hover {
+      animation: bounce 0.5s;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-in-out;
+    }
+  }
+
+  &-list {
+    background-color: yellow;
+    display: flex;
+    gap: 1.6rem;
+    justify-content: center;
+    // width: 100%;
+    flex-wrap: wrap;
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: translate(0, 0.5rem);
+  }
+  50% {
+    transform: translate(0, -1rem);
+  }
+  100% {
+    transform: translate(0, 1rem);
+  }
+}

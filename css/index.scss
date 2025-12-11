@@ -40,6 +40,9 @@
 @import "components/digit_balls";
 @import "components/_discount_display.scss";
 @import "components/_review_tiles.scss";
+//rackets
+@import "_rackets.scss";
+@import "layouts/_prod_browser.scss";
 // @import "product";
 
 body {
@@ -47,8 +50,8 @@ body {
   bottom: 0;
   margin-bottom: 0;
   padding: 0;
-  display: flex;
-  flex-direction: column;
+  // display: flex;
+  // flex-direction: column;
 }
 .main {
   // background-color: yellow;

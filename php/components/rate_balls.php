@@ -36,13 +36,17 @@ function genRateBalls($rate, $numberOfOpinions, $isReview = false, $url)
         <?php
         } else {
         ?>
-            <div class="rate-opinions">
-                <p class="rate-opinions-score">
-                    <span class="rate-opinions-score-average"><?= $rate ?></span><span class="rate-opinions-score-of">/5</span>
-                    <span class="rate-opinions-score-number">(<?= $numberOfOpinions ?><a href="<?= $url ?>" class="rate-opinions-score-number-link"> opinii</a>)</span>
-                </p>
-            </div>
+            <?php
+            if ($url) {
+            ?>
+                <div class="rate-opinions">
+                    <p class="rate-opinions-score">
+                        <span class="rate-opinions-score-average"><?= $rate ?></span><span class="rate-opinions-score-of">/5</span>
+                        <span class="rate-opinions-score-number">(<?= $numberOfOpinions ?><a href="<?= $url ?>" class="rate-opinions-score-number-link"> opinii</a>)</span>
+                    </p>
+                </div>
         <?php
+            }
         }
         ?>
     </div>

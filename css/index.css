@@ -647,12 +647,14 @@ button {
   background-color: white;
   display: flex;
   flex-direction: column;
+  flex: 0 0 27.5rem;
   position: relative;
   cursor: pointer;
   border: 0.4rem solid transparent;
   -o-border-image: linear-gradient(to right, rgba(0, 42, 91, 0), #002b5b);
      border-image: linear-gradient(to right, rgba(0, 42, 91, 0), #002b5b);
   border-image-slice: 1;
+  max-width: 100%;
 }
 .tile-link-img_wrapper {
   width: 100%;
@@ -2083,12 +2085,14 @@ button {
   background-color: white;
   display: flex;
   flex-direction: column;
+  flex: 0 0 27.5rem;
   position: relative;
   cursor: pointer;
   border: 0.4rem solid transparent;
   -o-border-image: linear-gradient(to right, rgba(0, 42, 91, 0), #002b5b);
      border-image: linear-gradient(to right, rgba(0, 42, 91, 0), #002b5b);
   border-image-slice: 1;
+  max-width: 100%;
 }
 .tile-link-img_wrapper {
   width: 100%;
@@ -2497,13 +2501,69 @@ button {
   color: #002b5b;
 }
 
+hr {
+  margin-top: 2rem;
+  width: 100%;
+}
+
+.prod_browser {
+  background-color: turquoise;
+  margin-top: 1.6rem;
+  padding-top: 1rem;
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.prod_browser-nav {
+  display: flex;
+  justify-content: end;
+  gap: 1.6rem;
+}
+.prod_browser-nav button {
+  scale: 0.8;
+}
+.prod_browser-nav button img {
+  border-radius: 50%;
+  box-shadow: 0rem 0rem 0.6rem 0.1rem rgba(0, 0, 0, 0.3882352941);
+}
+.prod_browser-nav-left_button-ball {
+  transform: rotate(-180deg);
+}
+.prod_browser-nav-left_button:hover {
+  transform: rotate(-180deg);
+}
+.prod_browser-nav button:hover {
+  animation: bounce 0.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+.prod_browser-list {
+  background-color: yellow;
+  display: flex;
+  gap: 1.6rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translate(0, 0.5rem);
+  }
+  50% {
+    transform: translate(0, -1rem);
+  }
+  100% {
+    transform: translate(0, 1rem);
+  }
+}
 body {
   position: relative;
   bottom: 0;
   margin-bottom: 0;
   padding: 0;
-  display: flex;
-  flex-direction: column;
 }
 
 .main {
