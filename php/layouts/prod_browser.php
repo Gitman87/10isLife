@@ -7,8 +7,11 @@ function genProdBrowser()
     $page  = isset($_GET['page']) ? (int)$_GET['page'] : 1;
     echo 'Page is ' . $page;
 
+    $totalNumberOfProducts = 100;
+    $numberOfPages = ceil($totalNumberOfProducts / $limit);
     $start = (($page - 1) * $limit) + 1;
-    $end   = $page * $limit;
+    $end   = min($page * $limit,  $totalNumberOfProducts);
+    $page = min($page, $numberOfPages);
     echo 'End is ' . $end;
     $limitOptions = [5, 10, 25, 50];
 
@@ -39,8 +42,8 @@ function genProdBrowser()
 
                 </select>
             </div>
-            <button class="prod_browser-nav-left_button" onclick="moveTileBrowserRight()"><img src="./res/icon/ball_button.svg" alt="" class="prod_browser-nav-left_button-ball"></button>
-            <button class="prod_browser-right_button" onclick="moveTileBrowserLeft()"><img src="./res/icon/ball_button.svg" class="prod_browser-right_button-ball" alt=""></button>
+            <button class="prod_browser-nav-left_button"><img src="./res/icon/ball_button.svg" alt="" class="prod_browser-nav-left_button-ball"></button>
+            <button class="prod_browser-right_button"><img src="./res/icon/ball_button.svg" class="prod_browser-right_button-ball" alt=""></button>
         </div>
         <ul class="prod_browser-list">
             <?php {
@@ -51,6 +54,10 @@ function genProdBrowser()
             ?>
         </ul>
     </div>
+    <script>
+        const currentPage = <?= $page; ?>;
+        const totalPages = <?= $numberOfPages; ?>;
+    </script>
     <script src='./js/components/prod_browser.js'></script>
 <?php
 }
