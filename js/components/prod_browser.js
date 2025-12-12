@@ -1,4 +1,4 @@
-function prodBrowser() {
+function prodBrowser(currentPage, totalPages) {
   const browser = document.querySelector(".prod_browser");
   const sortInput = browser.querySelector(".prod_browser-nav-sorting-sort_by");
   const displayInput = browser.querySelector(
@@ -17,30 +17,34 @@ function prodBrowser() {
   });
 
   //pagination
-  if (window.currentPage <= 1) {
+  console.log("window.currentPage is: ", currentPage);
+  if (currentPage <= 1) {
     prevButton.disabled = true;
-    prevButton.style.style = gray;
+    prevButton.style.opacity = "0.5";
   } else {
     prevButton.addEventListener("click", () => {
-      const newPage = window.currentPage - 1;
+      const newPage = currentPage - 1;
       updateUrlParameter("page", newPage);
     });
   }
-  if (window.currentPage >= window.totalPages) {
+  if (currentPage >= totalPages) {
     nextButton.disabled = true;
-    nextButton.style.color = gray;
+    nextButton.style.opacity = "0.5";
+  } else {
     nextButton.addEventListener("click", () => {
-      const newPage = window.currentPage + 1;
+      const newPage = currentPage + 1;
       updateUrlParameter("page", newPage);
+      console.log("next button cliked and newPage is: ", newPage);
     });
   }
+
   function updateUrlParameter(key, value) {
-    const url = new URL(window.location.href);
+    const url = new URL(location.href);
     url.searchParams.set(key, value);
     if (key === "limit" || key === "sort") {
       url.searchParams.set("page", 1);
     }
-    window.location.href = url.toString();
+    location.href = url.toString();
   }
 }
-prodBrowser();
+prodBrowser(currentPage, totalPages);

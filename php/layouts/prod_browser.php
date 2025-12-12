@@ -3,22 +3,24 @@
 function genProdBrowser()
 {
     $limit = isset($_GET['limit']) ? (int)$_GET['limit'] : 25;
-    echo 'Limit is ' . $limit;
-    $page  = isset($_GET['page']) ? (int)$_GET['page'] : 1;
-    echo 'Page is ' . $page;
 
+    $page  = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+
+    $rawPage = $_GET['page'] ?? 1;
+    if (!is_numeric($rawPage) || (int)$rawPage < 1) {
+        $page = 1;
+    } else {
+        $page = (int)$rawPage;
+    }
     $totalNumberOfProducts = 100;
     $numberOfPages = ceil($totalNumberOfProducts / $limit);
     $start = (($page - 1) * $limit) + 1;
     $end   = min($page * $limit,  $totalNumberOfProducts);
     $page = min($page, $numberOfPages);
-    echo 'End is ' . $end;
     $limitOptions = [5, 10, 25, 50];
 
 ?>
     <div class="prod_browser">
-
-
         <div class="prod_browser-nav">
             <div class="prod_browser-nav-sorting">
                 <label for="sort_by" class="prod_browser-nav-sorting">Sortuj</label>
@@ -55,9 +57,9 @@ function genProdBrowser()
         </ul>
     </div>
     <script>
-        const currentPage = <?= $page; ?>;
-        const totalPages = <?= $numberOfPages; ?>;
+        const currentPage = parseInt('<?= $page; ?>', 10);
+        const totalPages = parseInt('<?= $numberOfPages; ?>', 10);
     </script>
-    <script src='./js/components/prod_browser.js'></script>
+    <script src='./js/components/prod_browser.js' defer></script>
 <?php
 }
