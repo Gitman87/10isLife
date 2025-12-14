@@ -1,7 +1,7 @@
 <?php
-
 function genProdBrowser()
 {
+    //limit
     $limit = isset($_GET['limit']) ? (int)$_GET['limit'] : 25;
 
     $page  = isset($_GET['page']) ? (int)$_GET['page'] : 1;
@@ -19,12 +19,17 @@ function genProdBrowser()
     $page = min($page, $numberOfPages);
     $pageLeft = $numberOfPages - $page;
     $limitOptions = [5, 10, 25, 50];
+    //sorting
+    $sortOption = isset($_GET['sort_option']) ? $_GET['sort_option'] : "name";
+    $browserData = getProdBrowserData($sortOption, $limit, $start);
+    echo 'sortOption is: ' . $sortOption . ' limit is: ' . $limit . ' start is: ' . $start;
+    // print_r($browserData);
 
 ?>
     <div class="prod_browser">
         <div class="prod_browser-nav">
             <div class="prod_browser-nav-sorting">
-                <label for="sort_by" class="prod_browser-nav-sorting">Sortuj</label>
+                <label for="sort_by" class="prod_browser-nav-sorting-label">Sortuj</label>
                 <select name="sort_by" id="sort_by" class="prod_browser-nav-sorting-sort_by">
                     <option value="name" class="prod_browser-nav-sorting-sort_by-option">Nazwa</option>
                     <option value="price_asc" class="prod_browser-nav-sorting-sort_by-option">Cena: rosnąco</option>
@@ -34,7 +39,7 @@ function genProdBrowser()
                 </select>
             </div>
             <div class="prod_browser-nav-display">
-                <label for="display_number" class="prod_browser-nav-display">Wyświetl</label>
+                <label for="display_number" class="prod_browser-nav-display-label">Wyświetl</label>
                 <select name="display_number" id="display_number" class="prod_browser-nav-display-display_number">
                     <?php
                     foreach ($limitOptions as $option) {
@@ -52,8 +57,12 @@ function genProdBrowser()
         </div>
         <ul class="prod_browser-list">
             <?php {
-                foreach (range($start, $end) as $id) {
-                    genTile($id);
+                // foreach (range($start, $end) as $id) {
+                //     genTile($id);
+                // }
+                foreach ($browserData as $item) {
+
+                    genTile($item['product_id']);
                 }
             }
             ?>

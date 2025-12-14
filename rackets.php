@@ -42,6 +42,8 @@ include './php/api/reviewing.php';
 //api
 require './php/api/get_tile_data.php';
 require './php/api/connection.php';
+require './php/api/get_prod_browser_data.php';
+
 // require './php/api/get_tile_data.php';
 
 //new products

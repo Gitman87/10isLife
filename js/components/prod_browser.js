@@ -17,16 +17,12 @@ function prodBrowser(currentPage, totalPages) {
   const countNext = browser.querySelector(
     ".prod_browser-nav-button_wrapper-left_button-count_next"
   );
-  sortInput.addEventListener("change", () => {
-    updateUrlParameter("sort_option", sortInput.value);
-  });
 
   displayInput.addEventListener("change", () => {
     updateUrlParameter("limit", displayInput.value);
   });
 
   //pagination
-  console.log("window.currentPage is: ", currentPage);
   if (currentPage <= 1) {
     prevButton.disabled = true;
     prevButton.style.opacity = "0.5";
@@ -46,6 +42,12 @@ function prodBrowser(currentPage, totalPages) {
       console.log("next button cliked and newPage is: ", newPage);
     });
   }
+  //sorting
+  //default sort
+  // updateUrlParameter("sort_option", "name");
+  sortInput.addEventListener("change", () => {
+    updateUrlParameter("sort_option", sortInput.value);
+  });
 
   function updateUrlParameter(key, value) {
     const url = new URL(location.href);
