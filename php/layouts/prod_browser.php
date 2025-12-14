@@ -17,6 +17,7 @@ function genProdBrowser()
     $start = (($page - 1) * $limit) + 1;
     $end   = min($page * $limit,  $totalNumberOfProducts);
     $page = min($page, $numberOfPages);
+    $pageLeft = $numberOfPages - $page;
     $limitOptions = [5, 10, 25, 50];
 
 ?>
@@ -44,8 +45,10 @@ function genProdBrowser()
 
                 </select>
             </div>
-            <button class="prod_browser-nav-left_button"><img src="./res/icon/ball_button.svg" alt="" class="prod_browser-nav-left_button-ball"></button>
-            <button class="prod_browser-right_button"><img src="./res/icon/ball_button.svg" class="prod_browser-right_button-ball" alt=""></button>
+            <div class="prod_browser-nav-button_wrapper">
+                <button class="prod_browser-nav-button_wrapper-left_button"><img src="./res/icon/ball_button.svg" alt="" class="prod_browser-nav-button_wrapper-left_button-ball"><span class="prod_browser-nav-button_wrapper-left_button-count_prev"><?= $page ?></span></button>
+                <button class="prod_browser-nav-button_wrapper-right_button"><img src="./res/icon/ball_button.svg" class="prod_browser-nav-button_wrapper-right_button-ball" alt=""><span class="prod_browser-nav-button_wrapper-right_button-count_next"><?= $pageLeft ?></span></button>
+            </div>
         </div>
         <ul class="prod_browser-list">
             <?php {

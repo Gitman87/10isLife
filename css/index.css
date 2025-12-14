@@ -1271,6 +1271,7 @@ button {
   margin-top: 4rem;
   max-width: 152rem;
   padding: 0rem 4rem;
+  height: calc(100vh - 32rem);
 }
 
 .basket_content {
@@ -2522,20 +2523,41 @@ hr {
   justify-content: end;
   gap: 1.6rem;
 }
-.prod_browser-nav button {
-  scale: 0.8;
+.prod_browser-nav-button_wrapper {
+  display: flex;
+  gap: 2rem;
 }
-.prod_browser-nav button img {
+.prod_browser-nav-button_wrapper button {
+  width: 3.68rem;
+  position: relative;
+}
+.prod_browser-nav-button_wrapper button img {
   border-radius: 50%;
   box-shadow: 0rem 0rem 0.6rem 0.1rem rgba(0, 0, 0, 0.3882352941);
 }
-.prod_browser-nav-left_button-ball {
+.prod_browser-nav-button_wrapper-left_button-ball {
   transform: rotate(-180deg);
 }
-.prod_browser-nav-left_button:hover {
+.prod_browser-nav-button_wrapper-left_button-count_prev {
+  position: absolute;
+  color: #002b5b;
+  font-size: 2rem;
+  font-weight: 600;
+  transform: translate(-50%, -110%);
+  z-index: 4;
+}
+.prod_browser-nav-button_wrapper-right_button-count_next {
+  position: absolute;
+  color: #002b5b;
+  font-size: 2rem;
+  font-weight: 600;
+  transform: translate(-50%, -110%);
+  z-index: 4;
+}
+.prod_browser-nav-button_wrapper-left_button:hover {
   transform: rotate(-180deg);
 }
-.prod_browser-nav button:hover {
+.prod_browser-nav-button_wrapper button:hover {
   animation: bounce 0.5s;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;

@@ -5,9 +5,18 @@ function prodBrowser(currentPage, totalPages) {
     ".prod_browser-nav-display-display_number"
   );
   const browserList = browser.querySelector(".prod_browser-list");
-  const prevButton = browser.querySelector(".prod_browser-nav-left_button");
-  const nextButton = browser.querySelector(".prod_browser-right_button");
-
+  const prevButton = browser.querySelector(
+    ".prod_browser-nav-button_wrapper-left_button"
+  );
+  const nextButton = browser.querySelector(
+    ".prod_browser-nav-button_wrapper-right_button"
+  );
+  const countPrev = browser.querySelector(
+    ".prod_browser-nav-button_wrapper-left_button-count_prev"
+  );
+  const countNext = browser.querySelector(
+    ".prod_browser-nav-button_wrapper-left_button-count_next"
+  );
   sortInput.addEventListener("change", () => {
     updateUrlParameter("sort_option", sortInput.value);
   });

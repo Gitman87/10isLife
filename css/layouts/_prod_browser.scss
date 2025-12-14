@@ -11,25 +11,52 @@
     display: flex;
     justify-content: end;
     gap: 1.6rem;
-    button {
-      scale: 0.8;
-      img {
-        border-radius: 50%;
-        box-shadow: $box-shadow;
+    &-button_wrapper {
+      display: flex;
+      gap: 2rem;
+      button {
+        width: 3.68rem;
+        position: relative;
+        img {
+          border-radius: 50%;
+          box-shadow: $box-shadow;
+        }
       }
-    }
-    &-left_button {
-      &-ball {
+      &-left_button {
+        &-ball {
+          transform: rotate(-180deg);
+        }
+        &-count_prev {
+          position: absolute;
+          color: $granat;
+          font-size: $font-large;
+          font-weight: $font-weight-thick;
+
+          // top: 0rem;
+          // left: 0rem;
+          transform: translate(-50%, -110%);
+          z-index: 4;
+        }
+      }
+      &-right_button {
+        &-count_next {
+          position: absolute;
+
+          color: $granat;
+          font-size: $font-large;
+          font-weight: $font-weight-thick;
+          transform: translate(-50%, -110%);
+          z-index: 4;
+        }
+      }
+      &-left_button:hover {
         transform: rotate(-180deg);
       }
-    }
-    &-left_button:hover {
-      transform: rotate(-180deg);
-    }
-    button:hover {
-      animation: bounce 0.5s;
-      animation-iteration-count: infinite;
-      animation-timing-function: ease-in-out;
+      button:hover {
+        animation: bounce 0.5s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in-out;
+      }
     }
   }
 
