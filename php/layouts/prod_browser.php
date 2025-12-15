@@ -13,8 +13,9 @@ function genProdBrowser()
         $page = (int)$rawPage;
     }
     $sortOption = isset($_GET['sort_option']) ? $_GET['sort_option'] : "name";
+    $brandOption = isset($_GET['brand_option']) ? $_GET['brand_option'] : "all";
 
-    $totalNumberOfProducts = getTotalProductCount($sortOption);
+    $totalNumberOfProducts = getTotalProductCount($sortOption, $brandOption);
 
     $numberOfPages = ceil($totalNumberOfProducts / $limit);
     $start = (($page - 1) * $limit);
@@ -23,17 +24,21 @@ function genProdBrowser()
     $pageLeft = $numberOfPages - $page;
     $limitOptions = [5, 10, 25, 50];
     //sorting
-    $browserData = getProdBrowserData($sortOption, $limit, $start);
-    print_r($browserData['bestsellers_length']);
+    $browserData = getProdBrowserData($sortOption, $limit, $start, $brandOption);
     echo 'sortOption is: ' . $sortOption . ' limit is: ' . $limit . ' start is: ' . $start . ' bestsellers number is ' .  $totalNumberOfProducts;
     $sortOptionsMap = [
         'name' => 'Nazwa',
         'price_asc' => 'Cena: rosnąco',
         'price_desc' => 'Cena: malejąco',
-        'brand' => 'Marka',
         'bestsellers' => 'Bestsellery'
     ];
-
+    $brandData = getManufacturersData();
+    $brandsMap = ['all' => 'Wszystkie marki'];
+    foreach ($brandData as $brandRow) {
+        $brandName = $brandRow['name'];
+        $brandId = $brandRow['manufacturer_id'];
+        $brandsMap[$brandId] = $brandName;
+    }
 ?>
     <div class="prod_browser">
         <div class="prod_browser-nav">
@@ -44,7 +49,6 @@ function genProdBrowser()
                     $selected = '';
                     foreach ($sortOptionsMap as $value => $displayName) {
                         if ($value === $sortOption) {
-
                             $selected = 'selected';
                         } else {
                             $selected = '';
@@ -52,7 +56,22 @@ function genProdBrowser()
                         echo "<option value='{$value}' class='prod_browser-nav-sorting-sort_by-option' {$selected}>{$displayName}</option>";
                     }
                     ?>
-
+                </select>
+            </div>
+            <div class="prod_browser-nav-brands">
+                <label for="brands" class="prod_browser-nav-brands-label">Marki</label>
+                <select name='brands' id='brands' class="prod_browser-nav-brands-select">
+                    <?php
+                    $selectedBrand = '';
+                    foreach ($brandsMap as $value => $brandName) {
+                        if ($value == $brandOption) {
+                            $selectedBrand = 'selected';
+                        } else {
+                            $selectedBrand = '';
+                        }
+                        echo "<option value='{$value}' class='prod_browser-nav-brands-select-option' {$selectedBrand}>{$brandName}</option>";
+                    }
+                    ?>
                 </select>
             </div>
             <div class="prod_browser-nav-display">
@@ -73,12 +92,8 @@ function genProdBrowser()
         </div>
         <ul class="prod_browser-list">
             <?php {
-                // foreach (range($start, $end) as $id) {
-                //     genTile($id);
-                // }
-                // echo count($browserData);
-                foreach ($browserData as $item) {
 
+                foreach ($browserData as $item) {
                     genTile($item['product_id']);
                 }
             }

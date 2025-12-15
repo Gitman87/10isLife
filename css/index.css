@@ -2530,6 +2530,13 @@ hr {
   color: #002b5b;
   border-radius: 0;
 }
+.prod_browser-nav-brands-label {
+  color: #002b5b;
+}
+.prod_browser-nav-brands-select {
+  color: #002b5b;
+  border-radius: 0;
+}
 .prod_browser-nav-display-label {
   color: #002b5b;
 }

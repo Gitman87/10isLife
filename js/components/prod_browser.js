@@ -4,6 +4,7 @@ function prodBrowser(currentPage, totalPages) {
   const displayInput = browser.querySelector(
     ".prod_browser-nav-display-display_number"
   );
+  const brandsInput = browser.querySelector(".prod_browser-nav-brands-select");
   const browserList = browser.querySelector(".prod_browser-list");
   const prevButton = browser.querySelector(
     ".prod_browser-nav-button_wrapper-left_button"
@@ -45,16 +46,18 @@ function prodBrowser(currentPage, totalPages) {
     });
   }
   //sorting
-  //default sort
   // updateUrlParameter("sort_option", "name");
   sortInput.addEventListener("change", () => {
     updateUrlParameter("sort_option", sortInput.value);
   });
-
+  //brands
+  brandsInput.addEventListener("change", () => {
+    updateUrlParameter("brand_option", brandsInput.value);
+  });
   function updateUrlParameter(key, value) {
     const url = new URL(location.href);
     url.searchParams.set(key, value);
-    if (key === "limit" || key === "sort") {
+    if (key === "limit" || key === "sort_option" || key === "brand_option") {
       url.searchParams.set("page", 1);
     }
     location.href = url.toString();
