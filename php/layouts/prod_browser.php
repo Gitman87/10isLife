@@ -15,7 +15,7 @@ function genProdBrowser()
 
     $totalNumberOfProducts = 100;
     $numberOfPages = ceil($totalNumberOfProducts / $limit);
-    $start = (($page - 1) * $limit) + 1;
+    $start = (($page - 1) * $limit);
     $end   = min($page * $limit,  $totalNumberOfProducts);
     $page = min($page, $numberOfPages);
     $pageLeft = $numberOfPages - $page;
@@ -24,6 +24,14 @@ function genProdBrowser()
     $sortOption = isset($_GET['sort_option']) ? $_GET['sort_option'] : "name";
     $browserData = getProdBrowserData($sortOption, $limit, $start);
     echo 'sortOption is: ' . $sortOption . ' limit is: ' . $limit . ' start is: ' . $start;
+    $sortOptionsMap = [
+        'name' => 'Nazwa',
+        'price_asc' => 'Cena: rosnąco',
+        'price_desc' => 'Cena: malejąco',
+        'brand' => 'Marka',
+        'bestsellers' => 'Bestsellery'
+    ];
+
     // print_r($browserData);
 
 ?>
@@ -32,11 +40,25 @@ function genProdBrowser()
             <div class="prod_browser-nav-sorting">
                 <label for="sort_by" class="prod_browser-nav-sorting-label">Sortuj</label>
                 <select name="sort_by" id="sort_by" class="prod_browser-nav-sorting-sort_by">
+                    <?php
+                    $selected = '';
+                    foreach ($sortOptionsMap as $value => $displayName) {
+                        if ($value === $sortOption) {
+
+                            $selected = 'selected';
+                        } else {
+                            $selected = '';
+                        }
+
+                        echo "<option value='{$value}' class='prod_browser-nav-sorting-sort_by-option' {$selected}>{$displayName}</option>";
+                    }
+                    ?>
+                    <!-- <option value="" class="prod_browser-nav-sorting-sort_by-option" selected disabled hidden>Wybierz</option>
                     <option value="name" class="prod_browser-nav-sorting-sort_by-option">Nazwa</option>
                     <option value="price_asc" class="prod_browser-nav-sorting-sort_by-option">Cena: rosnąco</option>
                     <option value="price_desc" class="prod_browser-nav-sorting-sort_by-option">Cena: malejąco</option>
                     <option value="brand" class="prod_browser-nav-sorting-sort_by-option">Marka</option>
-                    <option value="bestsellers" class="prod_browser-nav-sorting-sort_by-option">Bestsellery</option>
+                    <option value="bestsellers" class="prod_browser-nav-sorting-sort_by-option">Bestsellery</option> -->
                 </select>
             </div>
             <div class="prod_browser-nav-display">
@@ -61,6 +83,7 @@ function genProdBrowser()
                 // foreach (range($start, $end) as $id) {
                 //     genTile($id);
                 // }
+                // echo count($browserData);
                 foreach ($browserData as $item) {
 
                     genTile($item['product_id']);
