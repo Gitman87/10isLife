@@ -60,6 +60,7 @@ function genProdBrowser()
                 // foreach (range($start, $end) as $id) {
                 //     genTile($id);
                 // }
+                echo count($browserData);
                 foreach ($browserData as $item) {
 
                     genTile($item['product_id']);

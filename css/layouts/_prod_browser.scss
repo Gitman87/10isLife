@@ -68,8 +68,18 @@
           z-index: 4;
         }
       }
+      &-right_button:disabled {
+        opacity: 0.5;
+        cursor: default;
+        pointer-events: none;
+      }
       &-left_button:hover {
         transform: rotate(-180deg);
+      }
+      &-left_button:disabled {
+        opacity: 0.5;
+        cursor: default;
+        pointer-events: none;
       }
       button:hover {
         animation: bounce 0.5s;

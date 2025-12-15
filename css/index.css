@@ -2568,8 +2568,18 @@ hr {
   transform: translate(-50%, -100%);
   z-index: 4;
 }
+.prod_browser-nav-button_wrapper-right_button:disabled {
+  opacity: 0.5;
+  cursor: default;
+  pointer-events: none;
+}
 .prod_browser-nav-button_wrapper-left_button:hover {
   transform: rotate(-180deg);
+}
+.prod_browser-nav-button_wrapper-left_button:disabled {
+  opacity: 0.5;
+  cursor: default;
+  pointer-events: none;
 }
 .prod_browser-nav-button_wrapper button:hover {
   animation: bounce 0.5s;

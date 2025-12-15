@@ -25,6 +25,7 @@ function prodBrowser(currentPage, totalPages) {
   //pagination
   if (currentPage <= 1) {
     prevButton.disabled = true;
+    nextButton.pointerEvents = "none";
     prevButton.style.opacity = "0.5";
   } else {
     prevButton.addEventListener("click", () => {
@@ -34,6 +35,7 @@ function prodBrowser(currentPage, totalPages) {
   }
   if (currentPage >= totalPages) {
     nextButton.disabled = true;
+    nextButton.pointerEvents = "none";
     nextButton.style.opacity = "0.5";
   } else {
     nextButton.addEventListener("click", () => {
