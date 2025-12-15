@@ -12,8 +12,10 @@ function genProdBrowser()
     } else {
         $page = (int)$rawPage;
     }
+    $sortOption = isset($_GET['sort_option']) ? $_GET['sort_option'] : "name";
 
-    $totalNumberOfProducts = 100;
+    $totalNumberOfProducts = getTotalProductCount($sortOption);
+
     $numberOfPages = ceil($totalNumberOfProducts / $limit);
     $start = (($page - 1) * $limit);
     $end   = min($page * $limit,  $totalNumberOfProducts);
@@ -21,9 +23,9 @@ function genProdBrowser()
     $pageLeft = $numberOfPages - $page;
     $limitOptions = [5, 10, 25, 50];
     //sorting
-    $sortOption = isset($_GET['sort_option']) ? $_GET['sort_option'] : "name";
     $browserData = getProdBrowserData($sortOption, $limit, $start);
-    echo 'sortOption is: ' . $sortOption . ' limit is: ' . $limit . ' start is: ' . $start;
+    print_r($browserData['bestsellers_length']);
+    echo 'sortOption is: ' . $sortOption . ' limit is: ' . $limit . ' start is: ' . $start . ' bestsellers number is ' .  $totalNumberOfProducts;
     $sortOptionsMap = [
         'name' => 'Nazwa',
         'price_asc' => 'Cena: rosnąco',
@@ -31,8 +33,6 @@ function genProdBrowser()
         'brand' => 'Marka',
         'bestsellers' => 'Bestsellery'
     ];
-
-    // print_r($browserData);
 
 ?>
     <div class="prod_browser">
@@ -49,16 +49,10 @@ function genProdBrowser()
                         } else {
                             $selected = '';
                         }
-
                         echo "<option value='{$value}' class='prod_browser-nav-sorting-sort_by-option' {$selected}>{$displayName}</option>";
                     }
                     ?>
-                    <!-- <option value="" class="prod_browser-nav-sorting-sort_by-option" selected disabled hidden>Wybierz</option>
-                    <option value="name" class="prod_browser-nav-sorting-sort_by-option">Nazwa</option>
-                    <option value="price_asc" class="prod_browser-nav-sorting-sort_by-option">Cena: rosnąco</option>
-                    <option value="price_desc" class="prod_browser-nav-sorting-sort_by-option">Cena: malejąco</option>
-                    <option value="brand" class="prod_browser-nav-sorting-sort_by-option">Marka</option>
-                    <option value="bestsellers" class="prod_browser-nav-sorting-sort_by-option">Bestsellery</option> -->
+
                 </select>
             </div>
             <div class="prod_browser-nav-display">
@@ -70,7 +64,6 @@ function genProdBrowser()
                         echo "<option value='{$option}' class='prod_browser-nav-display-display_number-option' {$selected}>{$option}</option>";
                     }
                     ?>
-
                 </select>
             </div>
             <div class="prod_browser-nav-button_wrapper">
