@@ -21,12 +21,13 @@ function getProdBrowserData($sortOption, $limit, $start)
         $stmt->bind_param("ii",  $limit, $offset);
         $stmt->execute();
         $result = $stmt->get_result();
-        if (!$row = $result->fetch_assoc()) {
-            echo "No data";
-            return [];
-        }
+
         while ($row = $result->fetch_assoc()) {
             $prodArray[] = $row;
+        }
+        if (empty($prodArray)) {
+            echo "No data";
+            return [];
         }
     } elseif ($sortOption === 'price_asc') {
         $stmt = $conn->prepare("SELECT products.product_id, products.name, products.price, products.last_price, products.is_discount FROM products WHERE products.product_id < 101 ORDER BY products.price ASC LIMIT ? OFFSET ?;");
@@ -36,12 +37,13 @@ function getProdBrowserData($sortOption, $limit, $start)
         $stmt->bind_param("ii",  $limit, $offset);
         $stmt->execute();
         $result = $stmt->get_result();
-        if (!$row = $result->fetch_assoc()) {
-            echo "No data";
-            return [];
-        }
+
         while ($row = $result->fetch_assoc()) {
             $prodArray[] = $row;
+        }
+        if (empty($prodArray)) {
+            echo "No data";
+            return [];
         }
     } elseif ($sortOption === 'price_desc') {
         $stmt = $conn->prepare("SELECT products.product_id, products.name, products.price, products.last_price, products.is_discount FROM products WHERE products.product_id < 101 ORDER BY products.price DESC LIMIT ? OFFSET ?;");
@@ -51,12 +53,13 @@ function getProdBrowserData($sortOption, $limit, $start)
         $stmt->bind_param("ii",  $limit, $offset);
         $stmt->execute();
         $result = $stmt->get_result();
-        if (!$row = $result->fetch_assoc()) {
-            echo "No data";
-            return [];
-        }
+
         while ($row = $result->fetch_assoc()) {
             $prodArray[] = $row;
+        }
+        if (empty($prodArray)) {
+            echo "No data";
+            return [];
         }
     } elseif ($sortOption === 'bestsellers') {
         $stmt = $conn->prepare("SELECT products.product_id, products.name, products.price, products.last_price, products.is_discount FROM products WHERE products.is_bestseller = 1 AND products.product_id < 101 ORDER BY products.name LIMIT ? OFFSET ?;");
@@ -66,12 +69,13 @@ function getProdBrowserData($sortOption, $limit, $start)
         $stmt->bind_param("ii",  $limit, $offset);
         $stmt->execute();
         $result = $stmt->get_result();
-        if (!$row = $result->fetch_assoc()) {
-            echo "No data";
-            return [];
-        }
+
         while ($row = $result->fetch_assoc()) {
             $prodArray[] = $row;
+        }
+        if (empty($prodArray)) {
+            echo "No data";
+            return [];
         }
     }
 

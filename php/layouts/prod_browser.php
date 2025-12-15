@@ -12,6 +12,7 @@ function genProdBrowser()
     } else {
         $page = (int)$rawPage;
     }
+
     $totalNumberOfProducts = 100;
     $numberOfPages = ceil($totalNumberOfProducts / $limit);
     $start = (($page - 1) * $limit) + 1;
@@ -60,7 +61,6 @@ function genProdBrowser()
                 // foreach (range($start, $end) as $id) {
                 //     genTile($id);
                 // }
-                echo count($browserData);
                 foreach ($browserData as $item) {
 
                     genTile($item['product_id']);
