@@ -1,5 +1,4 @@
 .prod_browser {
-  background-color: turquoise;
   margin-top: 1.6rem;
   padding-top: 1rem;
   width: 100%;
@@ -97,9 +96,7 @@
       }
     }
   }
-
   &-list {
-    background-color: yellow;
     display: flex;
     gap: 1.6rem;
     justify-content: center;
@@ -107,7 +104,6 @@
     flex-wrap: wrap;
   }
 }
-
 @keyframes bounce {
   0% {
     transform: translate(0, 0.5rem);

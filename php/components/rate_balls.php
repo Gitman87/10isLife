@@ -14,7 +14,6 @@ function genRateBalls($rate, $numberOfOpinions, $isReview = false, $url)
                 </li>
             <?php
             };
-
             // gray balls
             for ($i = 0; $i < $grayBallsNumber; $i++) {
             ?>
@@ -51,7 +50,7 @@ function genRateBalls($rate, $numberOfOpinions, $isReview = false, $url)
                 <div class="rate-opinions">
                     <p class="rate-opinions-score">
                         <span class="rate-opinions-score-average"><?= $rate ?></span><span class="rate-opinions-score-of">/5</span>
-                        <span class="rate-opinions-score-number">(<?= $numberOfOpinions ?><a href="" class="rate-opinions-score-number-link"> opinii</a>)</span>
+                        <span class="rate-opinions-score-number">(<?= $numberOfOpinions ?> opinii)</span>
                     </p>
                 </div>
         <?php

@@ -25,7 +25,6 @@ function genProdBrowser()
     $limitOptions = [5, 10, 25, 50];
     //sorting
     $browserData = getProdBrowserData($sortOption, $limit, $start, $brandOption);
-    echo 'sortOption is: ' . $sortOption . ' limit is: ' . $limit . ' start is: ' . $start . ' bestsellers number is ' .  $totalNumberOfProducts;
     $sortOptionsMap = [
         'name' => 'Nazwa',
         'price_asc' => 'Cena: rosnąco',

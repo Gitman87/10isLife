@@ -825,6 +825,11 @@ button {
     top: 14rem;
   }
 }
+@media (max-width: 641px) {
+  .breadcrumbs {
+    top: 22rem;
+  }
+}
 .product_preview {
   background-color: white;
   width: 60%;
@@ -2352,6 +2357,11 @@ button {
     top: 14rem;
   }
 }
+@media (max-width: 641px) {
+  .breadcrumbs {
+    top: 22rem;
+  }
+}
 .product_preview {
   background-color: white;
   width: 60%;
@@ -2508,7 +2518,6 @@ hr {
 }
 
 .prod_browser {
-  background-color: turquoise;
   margin-top: 1.6rem;
   padding-top: 1rem;
   width: 100%;
@@ -2594,7 +2603,6 @@ hr {
   animation-timing-function: ease-in-out;
 }
 .prod_browser-list {
-  background-color: yellow;
   display: flex;
   gap: 1.6rem;
   justify-content: center;
