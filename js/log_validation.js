@@ -23,7 +23,7 @@ function validateLogging() {
           console.log("User should be redirected now");
         }
       } else {
-        errorContainer.innerHTML = errorMessages.join("<br>");
+        errorContainer.innerHTML = result["message"];
         // errorContainer.innerHTML = errorMessages.join("<br>");
       }
       // console.log("result is ", result);

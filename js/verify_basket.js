@@ -25,10 +25,13 @@ function verifyBasket() {
       if (result["success"]) {
         console.log("stored cart data correct");
         errorContainer.innerHTML = "";
-
         //go to checkout page
         if (result["redirect"]) {
-          window.location.href = result["redirect"];
+          // window.location.href = result["redirect"];
+          openModal();
+          setStartForm("logging");
+          toCheckoutButton.disabled = false;
+          toCheckoutButton.innerText = "Do kasy";
           console.log("User should be redirected now");
         }
       } else {

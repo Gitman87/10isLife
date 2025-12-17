@@ -56,5 +56,6 @@ session_start();
     <script src="./js/cart_manager.js"></script>
     <script src="./js/basket_manager.js"></script>
     <script src="./js/verify_basket.js"></script>
+    <script src="./js/components/toggle_log_modal.js"></script>
 </main>
 <?php genFooter() ?>
