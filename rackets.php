@@ -50,6 +50,7 @@ require './php/api/get_prod_browser_data.php';
 require './php/layouts/new_products.php';
 //browser
 require './php/layouts/prod_browser.php';
+require './php/api/verify_basket.php';
 session_start();
 ?>
 <?php genHeader() ?>
