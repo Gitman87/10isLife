@@ -15,14 +15,8 @@ function genLogModal()
                 <button class="log_modal-wrapper-nav-log">Logowanie</button>
 
             </nav> -->
-
-
-
             <?php genLogging() ?>
             <?php genRegister() ?>
-
-
-
 
             <!-- cancel button component -->
             <?php genUglyButton("Anuluj", TRUE, '', 'closeModal()') ?>

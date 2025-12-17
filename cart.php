@@ -26,6 +26,7 @@ require './php/api/get_product_data.php';
 require './php/api/verify_basket.php';
 
 //cart
+require './php/components/bakset_modal.php';
 
 session_start();
 
@@ -49,6 +50,7 @@ session_start();
         <div class="basket_summary-buttons">
             <?php genLightButton("Kontynuuj zakupy", $is_button = FALSE, $url = './last_visited_site') ?>
             <?php genStandardButton("Do kasy", $is_button = true, '', '') ?>
+            <?php genBasketModal() ?>
         </div>
         <p class="basket_summary-error_container"></p>
     </aside>
