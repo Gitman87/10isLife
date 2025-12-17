@@ -28,8 +28,11 @@ function verifyBasket() {
         //go to checkout page
         if (result["redirect"]) {
           // window.location.href = result["redirect"];
-          openModal();
-          setStartForm("logging");
+          if (!result["isLogged"]) {
+            openModal();
+            setStartForm("logging");
+          }
+
           toCheckoutButton.disabled = false;
           toCheckoutButton.innerText = "Do kasy";
           console.log("User should be redirected now");
@@ -57,4 +60,5 @@ function verifyBasket() {
     }
   });
 }
+function regOrLog() {}
 verifyBasket();

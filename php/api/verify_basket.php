@@ -87,9 +87,12 @@ function verifyBasket()
         session_regenerate_id(true); //for security???
         //for passing the correct cart to cjeckout page
         $_SESSION['verified_cart'] = $verifiedCart;
-
+        //check if user is logged
+        $isLogged = false;
+        $isLogged = isset($_SESSION['user_id']);
         echo json_encode([
             "success" => true,
+            "isLogged" => $isLogged,
             "redirect" => "checkout.php"
         ]);
     } else {

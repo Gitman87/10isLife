@@ -19,7 +19,9 @@ function validateLogging() {
         console.log("cart has been verified successfully");
         if (result["redirect"]) {
           form.reset();
-          window.location.href = result["redirect"];
+          closeModal();
+          window.location.reload();
+          // window.location.href = result["redirect"];
           console.log("User should be redirected now");
         }
       } else {

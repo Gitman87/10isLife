@@ -215,8 +215,9 @@ function submitForm() {
         if (result["success"]) {
           console.log("zalogowao");
           if (result["redirect"]) {
-            window.location.href = result["redirect"];
-            console.log("User should be redirected now");
+            form.reset();
+            closeModal();
+            window.location.reload();
           }
         } else {
           let errorMessages = [];
