@@ -1,6 +1,7 @@
 function basketManager(cartKey) {
   const localStorageManagerBasket = new LocalStorageManager();
   const cartData = localStorageManagerBasket.read(cartKey);
+  console.log("cartData is: ", cartData);
   const cartListContainer = document.querySelector(".basket_content-list");
   // empty basket info
   const basketSummaryContainer = document.querySelector(".basket_summary");

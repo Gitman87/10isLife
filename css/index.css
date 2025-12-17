@@ -423,6 +423,7 @@ button {
   }
 }
 .footer {
+  clear: both;
   position: relative;
   bottom: 0;
   margin: 1.6rem auto;
@@ -1566,6 +1567,7 @@ button {
   }
 }
 .footer {
+  clear: both;
   position: relative;
   bottom: 0;
   margin: 1.6rem auto;

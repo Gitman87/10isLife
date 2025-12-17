@@ -15,14 +15,15 @@ function validateLogging() {
       }
       const result = await response.json();
       if (result["success"]) {
-        console.log("zalogowao");
+        errorContainer.innerHTML = "";
+        console.log("cart has been verified successfully");
         if (result["redirect"]) {
           form.reset();
           window.location.href = result["redirect"];
           console.log("User should be redirected now");
         }
       } else {
-        errorContainer.innerHTML = result["message"];
+        errorContainer.innerHTML = errorMessages.join("<br>");
         // errorContainer.innerHTML = errorMessages.join("<br>");
       }
       // console.log("result is ", result);

@@ -27,10 +27,7 @@ function setCustomerData()
     if (!empty($_POST['tax_number'])) {
       $taxNumber = sanitizeInputValue($_POST['tax_number']);
     }
-
-
     $stmt->bind_param("ssssss",  $sanitizedFirstName, $sanitizedLastName, $sanitizedEmail, $hashedPassword, $sanitizedGender, $taxNumber);
-
     try {
       if ($stmt->execute()) {
         //       echo '
@@ -69,16 +66,9 @@ function setCustomerData()
       exit;
     };
   } else {
-
     header('Content-Type: application/json; charset=utf-8');
-
     $stmt->close();
     $conn->close();
-    //read the errorMessages array??? put to message json...
-    // $errors = [];
-    // foreach ($errorMessages as $error) {
-    //   $errors[] = $error;
-    // }
     echo json_encode([
 
       "success" => false,

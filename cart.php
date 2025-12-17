@@ -23,6 +23,7 @@ require './php/components/profile.php';
 // api
 require './php/api/connection.php';
 require './php/api/get_product_data.php';
+require './php/api/verify_basket.php';
 
 //cart
 
@@ -47,8 +48,9 @@ session_start();
         </dl>
         <div class="basket_summary-buttons">
             <?php genLightButton("Kontynuuj zakupy", $is_button = FALSE, $url = './last_visited_site') ?>
-            <?php genStandardButton("Do kasy", $is_button = false, $url = './kasa', $callback = '') ?>
+            <?php genStandardButton("Do kasy", $is_button = true, '', '') ?>
         </div>
+        <p class="basket_summary-error_container"></p>
     </aside>
     <!-- <script src="./js/local_storage_manager.js"></script> -->
     <script src="./js/cart_manager.js"></script>
