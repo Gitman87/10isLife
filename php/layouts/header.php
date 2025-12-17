@@ -73,6 +73,8 @@ function genHeader()
         <script src="./js/components/breadcrumbs_move.js"></script>
         <script src="./js/save_address.js"></script>
         <script src='./js/log_validation.js'></script>
+        <script src="./js/cart_manager.js"></script>
+        <!-- <script src="./js/basket_manager.js"></script> -->
 
     <?php
 }

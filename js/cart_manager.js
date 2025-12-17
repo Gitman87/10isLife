@@ -51,7 +51,7 @@ function addProductToCart(cartItem) {
     return;
   }
   //need to check if already exist the same product with the same config
-  cart.forEach;
+
   const isTheSameId = (item) => item.id === cartItem.id;
   const indexOfTheSameItem = cart.findIndex(isTheSameId);
   if (indexOfTheSameItem === -1) {
