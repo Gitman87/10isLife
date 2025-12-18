@@ -31,7 +31,7 @@ function verifyBasket() {
         //go to checkout page
         if (result["redirect"]) {
           if (!result["isLogged"]) {
-            toggleBasketModal(toCheckoutButtonText);
+            toggleBasketModal(toCheckoutButton);
           } else {
             window.location.href = result["redirect"];
             toCheckoutButton.disabled = false;

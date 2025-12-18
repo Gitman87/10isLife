@@ -213,8 +213,11 @@ function submitForm() {
 
         const result = await response.json();
         if (result["success"]) {
-          console.log("zalogowao");
-          if (result["redirect"]) {
+          if (result["redirect"] === "checkout.php") {
+            form.reset();
+            closeModal();
+            window.location.href = result["redirect"];
+          } else {
             form.reset();
             closeModal();
             window.location.reload();

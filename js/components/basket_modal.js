@@ -3,6 +3,7 @@ function toggleBasketModal(toCheckoutButton) {
   const logRegButton = basketModal.querySelector(".standard_button");
   const guestButton = basketModal.querySelector(".light_button");
   const cancelButton = basketModal.querySelector(".ugly_button");
+  const toCheckoutButtonText = toCheckoutButton.querySelector("span");
 
   basketModal.showModal();
   logRegButton.addEventListener("click", () => {
@@ -15,6 +16,6 @@ function toggleBasketModal(toCheckoutButton) {
   cancelButton.addEventListener("click", () => {
     basketModal.close();
     toCheckoutButton.disabled = false;
-    toCheckoutButton.textContent = "Do kasy";
+    toCheckoutButtonText.textContent = "Do kasy";
   });
 }

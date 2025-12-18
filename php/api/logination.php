@@ -13,6 +13,15 @@ function logIn()
         http_response_code(500);
         die(json_encode(["success" => false, "message" => "Database connection failed: " . $conn->connect_error]));
     }
+    //check if function is in cart.php so to redirect userto checkout
+    // $isInBasket = str_ends_with($_SERVER['PHP_SELF'], 'cart.php');
+    $referer = $_SERVER['HTTP_REFERER'] ?? '';
+    $path = parse_url($referer, PHP_URL_PATH);
+    $filename = basename($path);
+    $isInBasket = ($filename === 'cart.php');
+    $toTarget = $isInBasket ? 'checkout.php' : 'not_cart';
+
+
     $sanitizedInputEmail = sanitizeInputValue($_POST['email']);
     $inputPassword = trim($_POST['log_password']);
     // prepare and bind
@@ -33,15 +42,15 @@ function logIn()
                 $_SESSION['user_last_name'] = $userData['last_name'];
                 $_SESSION['user_email'] = $userData['email'];
 
-
                 $stmt->close();
                 $conn->close();
+                // $toBasket = $isInBasket ? 'checkout.php' : 'not_cart';
                 //redirect to main page
                 header('Content-Type: application/json; charset=utf-8');
                 echo json_encode([
                     "success" => true,
                     "message" => "logged",
-                    "redirect" => "index.php"
+                    "redirect" =>  $toTarget
                 ]);
                 // header('Location: /index.php');
                 exit;
@@ -52,7 +61,6 @@ function logIn()
                 echo json_encode(["success" => false, "message" => "Nieprawidłowy email lub hasło."]); //for security purposes
                 exit;
                 // Invalid email or password - for security reason
-
             }
         }
     } catch (mysqli_sql_exception $e) {

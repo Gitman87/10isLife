@@ -12,7 +12,13 @@ function setCustomerData()
     http_response_code(500);
     die(json_encode(["success" => false, "message" => "Database connection failed: " . $conn->connect_error]));
   }
-
+  //check if function is in cart.php so to redirect userto checkout
+  // $isInBasket = str_ends_with($_SERVER['PHP_SELF'], 'cart.php');
+  $referer = $_SERVER['HTTP_REFERER'] ?? '';
+  $path = parse_url($referer, PHP_URL_PATH);
+  $filename = basename($path);
+  $isInBasket = ($filename === 'cart.php');
+  $toTarget = $isInBasket ? 'checkout.php' : 'not_cart';
   // prepare and bind
   $stmt = $conn->prepare("INSERT INTO customers(first_name, last_name, email, password_hash,gender,  tax_number,is_registered) VALUES (?, ?, ?,?,?,?,1)");
 
@@ -40,12 +46,13 @@ function setCustomerData()
         $_SESSION['user_name'] = $sanitizedFirstName;
         $stmt->close();
         $conn->close();
+        // $toBasket = $isInBasket ? 'cart.php' : 'not_cart';
         // header('Location: registered.php'); //redirect to my congratulations page
         header('Content-Type: application/json; charset=utf-8');
         echo json_encode([
           "success" => true,
           "message" => "registered",
-          "redirect" => "registered.php"
+          "redirect" =>  $toTarget
         ]);
         exit; //close reg form
       }
