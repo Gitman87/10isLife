@@ -44,6 +44,8 @@
 @import "_rackets.scss";
 @import "layouts/_prod_browser.scss";
 // @import "product";
+//basket
+@import "components/basket_modal";
 
 body {
   position: relative;

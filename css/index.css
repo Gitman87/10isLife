@@ -2622,6 +2622,28 @@ hr {
     transform: translate(0, 1rem);
   }
 }
+.basket_modal {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40rem;
+  border: none;
+  padding: 2rem 4rem;
+  box-shadow: 0rem 0rem 0.6rem 0.1rem rgba(0, 0, 0, 0.3882352941);
+}
+.basket_modal-wrapper {
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  overflow: hidden;
+}
+
+.basket_modal::backdrop {
+  background: rgba(255, 234, 223, 0.5);
+}
+
 body {
   position: relative;
   bottom: 0;

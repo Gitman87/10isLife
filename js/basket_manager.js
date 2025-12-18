@@ -14,11 +14,9 @@ function basketManager(cartKey) {
   const emptyBasketInfo = document.createElement("h3");
   emptyBasketInfo.classList.add("basket_content-list-empty");
   emptyBasketInfo.textContent = "Twój koszyk jest pusty";
-
   //cart item html
   const cartListItem = document.createElement("li");
   cartListItem.classList.add("basket_content-list");
-
   function updateBasket(cartData) {
     //for checking if the cartitems has 'options" property -is config or basic
     const isEmpty = (obj) => Object.keys(obj).length === 0;
@@ -71,7 +69,6 @@ function basketManager(cartKey) {
         }
         cartListContainer.addEventListener("change", (event) => {
           const target = event.target;
-
           if (
             target.classList.contains(
               "basket_content-list-row_container-quantity-input"

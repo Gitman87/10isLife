@@ -4,6 +4,7 @@ require __DIR__ . '/connection.php';
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
+    unset($_SESSION['verified_cart']);
 }
 function verifyBasket()
 {

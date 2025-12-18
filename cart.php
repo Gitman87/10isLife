@@ -48,8 +48,8 @@ session_start();
             <dd class="basket_summary-details-sum"></dd>
         </dl>
         <div class="basket_summary-buttons">
-            <?php genLightButton("Kontynuuj zakupy", $is_button = FALSE, $url = './last_visited_site') ?>
-            <?php genStandardButton("Do kasy", $is_button = true, '', '') ?>
+            <?php genLightButton("Kontynuuj zakupy", FALSE, $url = './last_visited_site') ?>
+            <?php genStandardButton("Do kasy", true, '', '') ?>
             <?php genBasketModal() ?>
         </div>
         <p class="basket_summary-error_container"></p>
@@ -59,5 +59,7 @@ session_start();
     <script src="./js/basket_manager.js"></script>
     <script src="./js/verify_basket.js"></script>
     <script src="./js/components/toggle_log_modal.js"></script>
+    <script src="./js/components/basket_modal.js"></script>
+
 </main>
 <?php genFooter() ?>

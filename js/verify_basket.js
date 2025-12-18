@@ -27,15 +27,13 @@ function verifyBasket() {
         errorContainer.innerHTML = "";
         //go to checkout page
         if (result["redirect"]) {
-          // window.location.href = result["redirect"];
           if (!result["isLogged"]) {
-            openModal();
-            setStartForm("logging");
+            toggleBasketModal(toCheckoutButton);
+          } else {
+            window.location.href = result["redirect"];
+            toCheckoutButton.disabled = false;
+            toCheckoutButton.innerText = "Do kasy";
           }
-
-          toCheckoutButton.disabled = false;
-          toCheckoutButton.innerText = "Do kasy";
-          console.log("User should be redirected now");
         }
       } else {
         let errorMessages = [];
@@ -52,13 +50,11 @@ function verifyBasket() {
         setTimeout(() => {
           window.location.reload();
         }, 10000);
-        // toCheckoutButton.disabled = false;
-        // toCheckoutButton.innerText = "Przejdź do zamówienia";
       }
     } catch (error) {
       console.error(error);
     }
   });
 }
-function regOrLog() {}
+
 verifyBasket();
