@@ -2,6 +2,9 @@ function verifyBasket() {
   const localStorageManagerBasket = new LocalStorageManager();
   const summary = document.querySelector(".basket_summary");
   const toCheckoutButton = summary.querySelector(".standard_button");
+  const toCheckoutButtonText = toCheckoutButton.querySelector(
+    ".standard_button-wrapper-link"
+  );
   const errorContainer = summary.querySelector(
     ".basket_summary-error_container"
   );
@@ -9,7 +12,7 @@ function verifyBasket() {
   toCheckoutButton.addEventListener("click", async (e) => {
     e.preventDefault();
     toCheckoutButton.disabled = true;
-    toCheckoutButton.innerText = "Weryfikowanie...";
+    toCheckoutButtonText.textContent = "Weryfikowanie...";
     try {
       const storedCart = localStorageManagerBasket.read("cart");
       console.log("stored cart is ", storedCart);
@@ -28,11 +31,11 @@ function verifyBasket() {
         //go to checkout page
         if (result["redirect"]) {
           if (!result["isLogged"]) {
-            toggleBasketModal(toCheckoutButton);
+            toggleBasketModal(toCheckoutButtonText);
           } else {
             window.location.href = result["redirect"];
             toCheckoutButton.disabled = false;
-            toCheckoutButton.innerText = "Do kasy";
+            toCheckoutButtonText.textContent = "Do kasy";
           }
         }
       } else {

@@ -15,6 +15,6 @@ function toggleBasketModal(toCheckoutButton) {
   cancelButton.addEventListener("click", () => {
     basketModal.close();
     toCheckoutButton.disabled = false;
-    toCheckoutButton.innerText = "Do kasy";
+    toCheckoutButton.textContent = "Do kasy";
   });
 }
