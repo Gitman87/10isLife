@@ -1,18 +1,18 @@
 <?php
-include './php/layouts/head.php';
+require './php/layouts/head.php';
 
-include './php/layouts/header.php';
-include './php/layouts/footer.php';
+require './php/layouts/header.php';
+require './php/layouts/footer.php';
 
-include './php/components/header_link.php';
-include './php/components/log_modal.php';
-include './php/components/tab_nav.php';
+require './php/components/header_link.php';
+require './php/components/log_modal.php';
+require './php/components/tab_nav.php';
 
-include './php/components/standard_button.php';
+require './php/components/standard_button.php';
 require './php/components/light_button.php';
-include './php/components/wide_button.php';
-include './php/components/ugly_button.php';
-include './php/components/show.php';
+require './php/components/wide_button.php';
+require './php/components/ugly_button.php';
+require './php/components/show.php';
 //logging /registration
 require './php/layouts/register.php';
 require './php/components/input.php';

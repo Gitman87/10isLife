@@ -46,6 +46,9 @@
 // @import "product";
 //basket
 @import "components/basket_modal";
+//checkout
+@import "_checkout.scss";
+@import "layouts/checkout_list";
 
 body {
   position: relative;

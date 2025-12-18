@@ -20,8 +20,6 @@ function logIn()
     $filename = basename($path);
     $isInBasket = ($filename === 'cart.php');
     $toTarget = $isInBasket ? 'checkout.php' : 'not_cart';
-
-
     $sanitizedInputEmail = sanitizeInputValue($_POST['email']);
     $inputPassword = trim($_POST['log_password']);
     // prepare and bind
