@@ -116,25 +116,25 @@ function basketManager(cartKey) {
     continueShoppingButton
   );
 }
-// function calcRowSum(cartListContainer, totalNumberOfItems, totalSumContainer) {
-//   const thisRow = cartListContainer.querySelector(
-//     `[data-row_id='${cartItem["id"]}']`
-//   );
-//   const rowPriceContainer = thisRow.querySelector(
-//     ".basket_content-list-row_container-row_price-price"
-//   );
-//   rowPriceContainer.innerText = "dupa";
-//   const quantityInput = thisRow.querySelector(
-//     ".basket_content-list-row_container-quantity-input"
-//   );
-//   quantityInput.addEventListener("change", () => {
-//     rowPriceContainer.textContent = "";
-//     const newRowPrice = parseFloat(quantityInput.value) * cartItem["price"];
-//     rowPriceContainer.textContent = newRowPrice.toFixed(2);
-//     calcNumberOfItems(cartListContainer, totalNumberOfItems);
-//     calcTotalSum(cartListContainer, totalSumContainer);
-//   });
-// }
+function calcRowSum(cartListContainer, totalNumberOfItems, totalSumContainer) {
+  const thisRow = cartListContainer.querySelector(
+    `[data-row_id='${cartItem["id"]}']`
+  );
+  const rowPriceContainer = thisRow.querySelector(
+    ".basket_content-list-row_container-row_price-price"
+  );
+  rowPriceContainer.innerText = "dupa";
+  const quantityInput = thisRow.querySelector(
+    ".basket_content-list-row_container-quantity-input"
+  );
+  quantityInput.addEventListener("change", () => {
+    rowPriceContainer.textContent = "";
+    const newRowPrice = parseFloat(quantityInput.value) * cartItem["price"];
+    rowPriceContainer.textContent = newRowPrice.toFixed(2);
+    calcNumberOfItems(cartListContainer, totalNumberOfItems);
+    calcTotalSum(cartListContainer, totalSumContainer);
+  });
+}
 function calcTotalSum(cartListContainer, totalSumContainer) {
   totalSumContainer.innerText = "";
   const sumContainers = cartListContainer.querySelectorAll(

@@ -44,7 +44,14 @@ function verifyBasket() {
         }
       } else {
         let errorMessages = [];
+        let quantityErrorMessages = [];
+        let priceErrorMessages = [];
         const errorMessagesObject = result["message"];
+        const quantityErrorMessagesObject = result["quantity"];
+        console.log("result[quantity is]", result["quantity"]);
+        const priceErrorMessagesObject = result["price"];
+        console.log("result[price]", result["price"]);
+        //for general error
         for (const message in errorMessagesObject) {
           if (errorMessagesObject.hasOwnProperty(message)) {
             errorMessages.push(errorMessagesObject[message]);
@@ -77,6 +84,84 @@ function verifyBasket() {
             window.location.reload();
           });
         });
+        // for quantity errors
+        for (const message in quantityErrorMessagesObject) {
+          if (quantityErrorMessagesObject.hasOwnProperty(message)) {
+            quantityErrorMessages.push(quantityErrorMessagesObject[message]);
+            console.log(quantityErrorMessagesObject[message]);
+          }
+        }
+        //selecting list item according to error id with dataset
+        quantityErrorMessages.forEach((item) => {
+          console.log(
+            `Id of error is ${item["id"]} and message is ${item["errorMessage"]}`
+          );
+          const listItem = basketList.querySelector(
+            `[data-row_id = "${item["id"]}"]`
+          );
+          listItem.classList.add("error_blinking");
+          const errorMessageElement = document.createElement("p");
+          errorMessageElement.classList.add(
+            "basket_content-list-row_container-error_para"
+          );
+          errorMessageElement.innerHTML =
+            "&#32;" + " &#9660" + "&#32;" + item["errorMessage"];
+          listItem.before(errorMessageElement);
+          const reloadButton = document.createElement("button");
+          reloadButton.classList.add(
+            "basket_content-list-row_container-error_para-reload_button"
+          );
+
+          errorMessageElement.appendChild(reloadButton);
+          reloadButton.innerText = "OK";
+          reloadButton.addEventListener("click", () => {
+            //upadte cart with correct quantity
+            updateCartItemStockQuantity(
+              "cart",
+              item["id"],
+              item["correctQuantity"]
+            );
+            updateCartItemQuantity("cart", item["id"], item["correctQuantity"]);
+            window.location.reload();
+          });
+        });
+        // for price errors
+        for (const message in priceErrorMessagesObject) {
+          if (priceErrorMessagesObject.hasOwnProperty(message)) {
+            priceErrorMessages.push(priceErrorMessagesObject[message]);
+            console.log(priceErrorMessagesObject[message]);
+          }
+        }
+        //selecting list item according to error id with dataset
+        priceErrorMessages.forEach((item) => {
+          console.log(
+            `Id of error is ${item["id"]} and message is ${item["errorMessage"]}`
+          );
+          const listItem = basketList.querySelector(
+            `[data-row_id = "${item["id"]}"]`
+          );
+          listItem.classList.add("error_blinking");
+          const errorMessageElement = document.createElement("p");
+          errorMessageElement.classList.add(
+            "basket_content-list-row_container-error_para"
+          );
+          errorMessageElement.innerHTML =
+            "&#32;" + " &#9660" + "&#32;" + item["errorMessage"];
+          listItem.before(errorMessageElement);
+          const reloadButton = document.createElement("button");
+          reloadButton.classList.add(
+            "basket_content-list-row_container-error_para-reload_button"
+          );
+          errorMessageElement.appendChild(reloadButton);
+          reloadButton.innerText = "OK";
+          reloadButton.addEventListener("click", () => {
+            updateCartItemPrice("cart", item["id"], item["correctPrice"]);
+            window.location.reload();
+          });
+        });
+        console.log("quantity error array is", quantityErrorMessages);
+        console.log("price error array is", priceErrorMessages);
+
         // errorContainer.innerHTML =
         //   errorMessages.join("<br>") +
         //   "<br>" +

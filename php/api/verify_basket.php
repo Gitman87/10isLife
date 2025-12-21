@@ -29,6 +29,8 @@ function verifyBasket()
     }
 
     $errorMessages = [];
+    $quantityErrorMessages = [];
+    $priceErrorMessages = [];
     //extract ids of the items drom the cart
     $ids = array_map(function ($item) {
         return (int)$item['id'];
@@ -37,7 +39,6 @@ function verifyBasket()
 
     //get actual data from db
     $result = $conn->query("SELECT products.product_id,products.name, products.price,  products.quantity FROM products WHERE products.product_id IN ({$idList});");
-
 
     $realProducts = [];
     $verifiedCart = [];
@@ -64,15 +65,15 @@ function verifyBasket()
         if ($product['quantity'] < $requestedQuantity) {
             $isValid = false;
             if ($product['quantity'] <= 0) {
-                $errorMessages[] = ['id' => $product['product_id'], 'errorMessage' => "Produkt '" . $product['name'] . "' jest wyprzedany. Usuń go z listy zakupów i kliknij: "];
+                $quantityErrorMessages[] = ['id' => $product['product_id'], 'errorMessage' => "Produkt '" . $product['name'] . "' jest wyprzedany. Usuń go z listy zakupów i kliknij: ", 'correctQuantity' => $product['quantity']];
             } else {
-                $errorMessages[] = ['id' => $product['product_id'], 'errorMessage' => "Produkt '" . $product['name'] . "' ma tylko " . $product['quantity'] . " szt. na stanie. Zmień ilość i kliknij: "];
+                $quantityErrorMessages[] = ['id' => $product['product_id'], 'errorMessage' => "Produkt '" . $product['name'] . "' ma tylko " . $product['quantity'] . " szt. na stanie. Zmień ilość klikając: ", 'correctQuantity' => $product['quantity']];
             }
         }
         //check the price
         if (abs($actualPrice - $clientPrice) > 0.01) {
             $isValid = false;
-            $errorMessages[] = ['id' => $product['product_id'], 'errorMessage' => "Cena produktu '" . $product['name'] . "' uległa zmianie. Aktualna cena to: " . number_format($actualPrice, 2) . " zł. Kliknij: "];
+            $priceErrorMessages[] = ['id' => $product['product_id'], 'errorMessage' => "Cena produktu '" . $product['name'] . "' uległa zmianie. Aktualna cena to: " . $actualPrice . " zł. Kliknij aby uaktualnić: ", 'correctPrice' => $actualPrice];
         }
         $verifiedCart[] = [
             "id" => $id,
@@ -100,6 +101,8 @@ function verifyBasket()
         echo json_encode([
             "success" => false,
             "message" => $errorMessages,
+            "quantity" => $quantityErrorMessages,
+            "price" => $priceErrorMessages
 
 
         ]);

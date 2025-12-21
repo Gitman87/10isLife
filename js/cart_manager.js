@@ -101,6 +101,32 @@ function updateCartItemQuantity(cartKey, id, newQuantity) {
   //wrtite modified cart back to storage
   cartManager.update(cartKey, cart);
 }
+function updateCartItemStockQuantity(cartKey, id, newQuantity) {
+  const cartManager = new LocalStorageManager();
+  let cart = cartManager.read(cartKey);
+  const isTheSameId = (item) => item.id == id;
+  const indexOfItemToUpdate = cart.findIndex(isTheSameId);
+  if (indexOfItemToUpdate === -1) {
+    console.warn("Could find item to update its quantity");
+  } else {
+    cart[indexOfItemToUpdate]["stockQuantity"] = newQuantity;
+  }
+  //wrtite modified cart back to storage
+  cartManager.update(cartKey, cart);
+}
+function updateCartItemPrice(cartKey, id, newPrice) {
+  const cartManager = new LocalStorageManager();
+  let cart = cartManager.read(cartKey);
+  const isTheSameId = (item) => item.id == id;
+  const indexOfItemToUpdate = cart.findIndex(isTheSameId);
+  if (indexOfItemToUpdate === -1) {
+    console.warn("Could find item to update its quantity");
+  } else {
+    cart[indexOfItemToUpdate]["price"] = newPrice;
+  }
+  //wrtite modified cart back to storage
+  cartManager.update(cartKey, cart);
+}
 function updateBasketNumber(cartKey) {
   const basketNumberContainer = document.querySelector(
     ".header-content-account-shopping-basket_link-number"
