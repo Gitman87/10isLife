@@ -91,6 +91,25 @@
       &-remove_button:hover {
         color: $orange;
       }
+      &-error_para {
+        color: $error-color;
+        width: fit-content;
+        background-color: none;
+        &-reload_button {
+          margin-left: 1.6rem;
+          color: $white;
+          background-color: #ff6600;
+          font-size: 1.6rem;
+          padding: 0.2em 1em;
+          max-height: 3.5em;
+          transform: skewX(-10deg);
+          box-shadow: 0rem 0rem 0.6rem 0.1rem rgba(0, 0, 0, 0.3882352941);
+          transition: transform 0.4s ease-in-out;
+        }
+        &-reload_button:hover {
+          transform: skewX(0deg);
+        }
+      }
     }
   }
   &-list > *:nth-child(even) {

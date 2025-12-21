@@ -1362,6 +1362,26 @@ button {
 .basket_content-list-row_container-remove_button:hover {
   color: #ff6600;
 }
+.basket_content-list-row_container-error_para {
+  color: #b51818;
+  width: -moz-fit-content;
+  width: fit-content;
+  background-color: none;
+}
+.basket_content-list-row_container-error_para-reload_button {
+  margin-left: 1.6rem;
+  color: white;
+  background-color: #ff6600;
+  font-size: 1.6rem;
+  padding: 0.2em 1em;
+  max-height: 3.5em;
+  transform: skewX(-10deg);
+  box-shadow: 0rem 0rem 0.6rem 0.1rem rgba(0, 0, 0, 0.3882352941);
+  transition: transform 0.4s ease-in-out;
+}
+.basket_content-list-row_container-error_para-reload_button:hover {
+  transform: skewX(0deg);
+}
 .basket_content-list > *:nth-child(even) {
   background-color: rgb(201, 201, 201);
 }

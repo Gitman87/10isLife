@@ -64,15 +64,15 @@ function verifyBasket()
         if ($product['quantity'] < $requestedQuantity) {
             $isValid = false;
             if ($product['quantity'] <= 0) {
-                $errorMessages[] = ['id' => $product['product_id'], 'errorMessage' => "Produkt '" . $product['name'] . "' jest wyprzedany. Usuń go z listy zakupów."];
+                $errorMessages[] = ['id' => $product['product_id'], 'errorMessage' => "Produkt '" . $product['name'] . "' jest wyprzedany. Usuń go z listy zakupów i kliknij: "];
             } else {
-                $errorMessages[] = ['id' => $product['product_id'], 'errorMessage' => "Produkt '" . $product['name'] . "' ma tylko " . $product['quantity'] . " szt. na stanie."];
+                $errorMessages[] = ['id' => $product['product_id'], 'errorMessage' => "Produkt '" . $product['name'] . "' ma tylko " . $product['quantity'] . " szt. na stanie. Zmień ilość i kliknij: "];
             }
         }
         //check the price
         if (abs($actualPrice - $clientPrice) > 0.01) {
             $isValid = false;
-            $errorMessages[] = ['id' => $product['product_id'], 'errorMessage' => "Cena produktu '" . $product['name'] . "' uległa zmianie. Aktualna cena to: " . number_format($actualPrice, 2) . " zł."];
+            $errorMessages[] = ['id' => $product['product_id'], 'errorMessage' => "Cena produktu '" . $product['name'] . "' uległa zmianie. Aktualna cena to: " . number_format($actualPrice, 2) . " zł. Kliknij: "];
         }
         $verifiedCart[] = [
             "id" => $id,
