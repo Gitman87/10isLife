@@ -5,10 +5,14 @@ function verifyBasket() {
   const toCheckoutButtonText = toCheckoutButton.querySelector(
     ".standard_button-wrapper-link"
   );
-  const errorContainer = summary.querySelector(
-    ".basket_summary-error_container"
-  );
 
+  const basketContentContainer = document.querySelector(".basket_content");
+  const basketList = basketContentContainer.querySelector(
+    ".basket_content-list"
+  );
+  const errorContainer = basketContentContainer.querySelector(
+    ".basket_content-error_container"
+  );
   toCheckoutButton.addEventListener("click", async (e) => {
     e.preventDefault();
     toCheckoutButton.disabled = true;
@@ -44,15 +48,25 @@ function verifyBasket() {
         for (const message in errorMessagesObject) {
           if (errorMessagesObject.hasOwnProperty(message)) {
             errorMessages.push(errorMessagesObject[message]);
+            console.log(errorMessagesObject[message]);
           }
         }
-        errorContainer.innerHTML =
-          errorMessages.join("<br>") +
-          "<br>" +
-          "<strong style='color:#b51818'>Dostosuj produkt albo go usuń.Świeże dane zobaczysz stronie kasy. Strona zostanie odświeżona za 10 sekund...</strong>";
-        setTimeout(() => {
-          window.location.reload();
-        }, 10000);
+        //selecting list item according to error id with dataset
+        errorMessages.forEach((item) => {
+          console.log(
+            `Id of error is ${item["id"]} and message is ${item["errorMessage"]}`
+          );
+          basketList.querySelector(
+            `[data-row_id = "${item["id"]}"]`
+          ).style.border = "solid 2rem #ff0000ff";
+        });
+        // errorContainer.innerHTML =
+        //   errorMessages.join("<br>") +
+        //   "<br>" +
+        //   "<strong style='color:#b51818'>Dostosuj produkt albo go usuń.Świeże dane zobaczysz stronie kasy. Strona zostanie odświeżona za 10 sekund...</strong>";
+        // setTimeout(() => {
+        //   window.location.reload();
+        // }, 10000);
       }
     } catch (error) {
       console.error(error);

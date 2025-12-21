@@ -55,7 +55,7 @@ function verifyBasket()
 
         if (!isset($realProducts[$id])) {
             $isValid = false;
-            $errorMessages[] = "Produkt o id $id nie istnieje.";
+            echo json_encode(["success" => false, "message" => ["cart" => "Produkt o id $id nie istnieje."]]);
             continue;
         }
         // if exists
@@ -64,15 +64,15 @@ function verifyBasket()
         if ($product['quantity'] < $requestedQuantity) {
             $isValid = false;
             if ($product['quantity'] <= 0) {
-                $errorMessages[] = "Produkt '" . $product['name'] . "' jest wyprzedany.Usu";
+                $errorMessages[] = ['id' => $product['product_id'], 'errorMessage' => "Produkt '" . $product['name'] . "' jest wyprzedany. Usuń go z listy zakupów."];
             } else {
-                $errorMessages[] = "Produkt '" . $product['name'] . "' ma tylko " . $product['quantity'] . " szt. na stanie.";
+                $errorMessages[] = ['id' => $product['product_id'], 'errorMessage' => "Produkt '" . $product['name'] . "' ma tylko " . $product['quantity'] . " szt. na stanie."];
             }
         }
         //check the price
         if (abs($actualPrice - $clientPrice) > 0.01) {
             $isValid = false;
-            $errorMessages[] = "Cena produktu '" . $product['name'] . "' uległa zmianie. Aktualna cena to: " . number_format($actualPrice, 2) . " zł.";
+            $errorMessages[] = ['id' => $product['product_id'], 'errorMessage' => "Cena produktu '" . $product['name'] . "' uległa zmianie. Aktualna cena to: " . number_format($actualPrice, 2) . " zł."];
         }
         $verifiedCart[] = [
             "id" => $id,
@@ -100,6 +100,7 @@ function verifyBasket()
         echo json_encode([
             "success" => false,
             "message" => $errorMessages,
+
 
         ]);
     }
