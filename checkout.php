@@ -39,13 +39,31 @@ foreach ($cart as $item) {
 }
 // ------------------------page---------------------------------
 ?>
-<?php genHeader() ?>
-<main class="main_checkout">
-    <h1 class="main_checkout-title">Złóż zamówienie</h1>
-    <section class="main_checkout-products">
-        <h3 class="main_checkout-products-title">Lista produktów</h3>
-        <?php genCheckoutList($cart) ?>
-        <strong class="main_checkout-products-sum">Suma: &nbsp<?= $totalSum ?>&nbsp;zł</stron>
-    </section>
-</main>
-<?php genFooter() ?>
+<?php genHead('10isLife') ?>
+
+<body>
+
+
+    <main class="main_checkout">
+        <section class="main_checkout-products">
+            <h1 class="main_checkout-products-title">Złóż &nbsp zamówienie</h1>
+            <h3 class="main_checkout-products-list_title">Lista produktów</h3>
+            <?php genCheckoutList($cart) ?>
+        </section>
+        <aside class="main_checkout-summary">
+            <h2 class="main_checkout-summary-title">Kasa</h2>
+            <dl class="main_checkout-summary-details">
+                <dt class="main_checkout-summary-details-term">Ilość produktów:</dt>
+                <dd class="main_checkout-summary-details-quantity"></dd>
+                <dt class="main_checkout-summary-details-term">Suma:</dt>
+                <dd class="main_checkout-summary-details-sum"></dd>
+            </dl>
+            <div class="main_checkout-summary-buttons">
+                <?php genStandardButton("Zapłać", true, '', '') ?>
+                <?php genBasketModal() ?>
+            </div>
+        </aside>
+    </main>
+
+
+</body>

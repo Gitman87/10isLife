@@ -58,31 +58,9 @@ function verifyBasket() {
             console.log(errorMessagesObject[message]);
           }
         }
-        //selecting list item according to error id with dataset
+        //other error like no existing items
         errorMessages.forEach((item) => {
-          console.log(
-            `Id of error is ${item["id"]} and message is ${item["errorMessage"]}`
-          );
-          const listItem = basketList.querySelector(
-            `[data-row_id = "${item["id"]}"]`
-          );
-          listItem.classList.add("error_blinking");
-          const errorMessageElement = document.createElement("p");
-          errorMessageElement.classList.add(
-            "basket_content-list-row_container-error_para"
-          );
-          errorMessageElement.innerHTML =
-            "&#32;" + " &#9660" + "&#32;" + item["errorMessage"];
-          listItem.before(errorMessageElement);
-          const reloadButton = document.createElement("button");
-          reloadButton.classList.add(
-            "basket_content-list-row_container-error_para-reload_button"
-          );
-          errorMessageElement.appendChild(reloadButton);
-          reloadButton.innerText = "OK";
-          reloadButton.addEventListener("click", () => {
-            window.location.reload();
-          });
+          errorContainer.innerHTML += item["message"] + "<br>";
         });
         // for quantity errors
         for (const message in quantityErrorMessagesObject) {

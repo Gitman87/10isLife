@@ -50,7 +50,7 @@ session_start();
             <dd class="basket_summary-details-sum"></dd>
         </dl>
         <div class="basket_summary-buttons">
-            <?php genLightButton("Kontynuuj zakupy", FALSE, $url = './last_visited_site') ?>
+            <?php genLightButton("Kontynuuj zakupy", FALSE, './last_visited_site') ?>
             <?php genStandardButton("Do kasy", true, '', '') ?>
             <?php genBasketModal() ?>
         </div>

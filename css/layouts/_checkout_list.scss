@@ -1,0 +1,21 @@
+.checkout_list_wrapper {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+
+  &-checkout_list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    &-sum {
+      color: $granat;
+    }
+  }
+  &-checkout_list > *:nth-child(even) {
+    background-color: rgb(201, 201, 201);
+  }
+  &-checkout_list > *:nth-child(odd) {
+    background-color: $faded-orange;
+  }
+}
