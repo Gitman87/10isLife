@@ -31,7 +31,7 @@ function genCheckoutList($cart)
             <?php
             }
             ?>
-            <strong class="checkout_list_wrapper-checkout_list-sum">Suma: &nbsp<?= $totalSum ?>&nbsp;zł</strong>
+            <strong class="checkout_list_wrapper-checkout_list-sum">Suma: &nbsp<?= $totalSum ?>&nbsp;zł brutto</strong>
         </ol>
     </div>
 

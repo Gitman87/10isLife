@@ -9,8 +9,6 @@ function genRegister()
     <script src="./js/components/show_hide.js" defer></script>
     <script src="./js/components/reg_validation.js" defer></script>
 
-
-
     <form action="./php/api/registration.php" class="register" id="register" method='POST'>
         <div class="register-email_wrapper">
             <!-- dummy button to prevent Enter from submitting the form -->
@@ -44,8 +42,6 @@ function genRegister()
 
                 <?php genPasswordInput('Hasło *', 'password', 'password', 'password') ?>
                 <p class="register-summary-inputs-output error_output"></p>
-
-
 
             </div>
             <div class="register-summary-sex">

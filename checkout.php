@@ -32,6 +32,11 @@ if (!isset($_SESSION['verified_cart']) || empty($_SESSION['verified_cart'])) {
     header("Location: basket.php?error=not_verified");
     exit();
 }
+//checks if user logged
+$isLogged = !empty($_SESSION['user_name']);
+
+
+
 $cart = $_SESSION['verified_cart'];
 $totalSum = 0;
 foreach ($cart as $item) {
@@ -49,6 +54,13 @@ foreach ($cart as $item) {
             <h1 class="main_checkout-products-title">Złóż &nbsp zamówienie</h1>
             <h3 class="main_checkout-products-list_title">Lista produktów</h3>
             <?php genCheckoutList($cart) ?>
+        </section>
+        <section class="main_checkout-register">
+            <?php
+            genRegister();
+
+
+            ?>
         </section>
         <aside class="main_checkout-summary">
             <h2 class="main_checkout-summary-title">Kasa</h2>
