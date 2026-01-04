@@ -58,8 +58,6 @@ foreach ($cart as $item) {
         <section class="main_checkout-register">
             <?php
             genRegister();
-
-
             ?>
         </section>
         <aside class="main_checkout-summary">

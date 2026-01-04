@@ -41,6 +41,7 @@ require './php/components/review_tiles.php';
 
 session_start();
 $prodId = $_GET['id'];
+echo 'id of the pproduct is: ' . $prodId;
 $prodData = getProductData($prodId);
 $prodName = $prodData['name'];
 $reviewData = getReviews($prodId);

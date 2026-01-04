@@ -3,6 +3,7 @@
 
 function genTile($id)
 {
+    // echo "tutaj musi byc tile";
     $tileData = getTileData($id);
     // print_r($tileData);
 ?>

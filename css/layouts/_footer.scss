@@ -5,10 +5,19 @@
   margin: 1.6rem auto;
   width: $main-view-max-width;
   padding: $main-view-padding;
-  background-color: rgba(127.5, 127.5, 127.5, 0.8);
+
+  -webkit-backdrop-filter: blur(10rem);
+  backdrop-filter: blur(1rem);
+  box-shadow: 0 0.4rem 3rem rgba(0, 0, 0, 0.1);
+  border-bottom: 0.1rem solid rgba(255, 255, 255, 0.3);
 
   &-wrapper {
+    width: 100%;
     color: $white;
+    // background-color: $gray;
+    filter: invert(100%);
+    opacity: 0.5;
+    padding: 1rem 0;
     &-address {
       font-size: $font-small;
       text-align: right;
