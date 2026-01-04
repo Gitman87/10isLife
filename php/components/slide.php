@@ -8,7 +8,7 @@ function genSlide($slide)
             <h3><?php echo $slide['header'] ?></h3>
             <p><?php echo $slide['details'] ?></p>
             <?php
-            genStandardButton('Sprawdź', true, './123');
+            genStandardButton('Sprawdź', false, $slide['url']);
             ?>
         </div>
     </li>
