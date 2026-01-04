@@ -7,11 +7,11 @@ function genHeader()
 {
     $headerConf = array(
         array('Rakiety', './rackets.php'),
-        array('Odzież', './123'),
-        array('Buty', './123'),
-        array('Piłki', './123'),
-        array('Akcesoria', './123'),
-        array('Marki', './123'),
+        array('Odzież', './clothes.php'),
+        array('Buty', './shoes.php'),
+        array('Piłki', './balls.php'),
+        array('Akcesoria', './accessories.php'),
+        array('Marki', './brands.php'),
     )
 ?>
     <?php genHead('10isLife') ?>

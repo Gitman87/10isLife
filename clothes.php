@@ -42,61 +42,19 @@ include './php/api/reviewing.php';
 //api
 require './php/api/get_tile_data.php';
 require './php/api/connection.php';
+require './php/api/get_prod_browser_data.php';
+
 // require './php/api/get_tile_data.php';
+
+//new products
+require './php/layouts/new_products.php';
+//browser
+require './php/layouts/prod_browser.php';
 session_start();
-
 ?>
-
-
 <?php genHeader() ?>
 <main class="main">
-
-  <?php
-
-  $slideShowData = array(
-
-    array(
-      'header' => 'Najlepsza odzież!',
-      'details' => 'Stylowe i funkcjonalne ciuchy.',
-      'img' => '../res/img/odziez.jpg',
-      'url' => './clothes.php'
-    ),
-    array(
-      'header' => 'Najlepsze rakiety!',
-      'details' => 'Unikatowe modele renomowanych producentów',
-      'img' => '../res/img/rakiety.jpg',
-      'url' => './rackets.php'
-
-    ),
-    array(
-      'header' => 'Najlepsze buty!',
-      'details' => 'Na każdy rodzaj nawierzchni.',
-      'img' => '../res/img/buty.jpg',
-      'url' => './shoes.php'
-
-    ),
-    array(
-      'header' => 'Najlepsze piłki!',
-      'details' => 'Żeby było co podkręcać.',
-      'img' => '../res/img/pilki.jpg',
-      'url' => './balls.php'
-
-    ),
-    array(
-      'header' => 'Najlepsze akcesoria',
-      'details' => 'Zbyś mógł skupić się tylko  na grze',
-      'img' => '../res/img/akcesoria.jpg',
-      'url' => './accessories.php'
-
-    ),
-
-  );
-
-  genHero($slideShowData) ?>
-  <?php genRecommendation() ?>
-  <?php genDiscounts() ?>
-
+    <h1 style="color:gray">Wypełnij bazę danych o nowe produkty</h1>
 
 </main>
-
 <?php genFooter() ?>
