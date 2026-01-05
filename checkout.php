@@ -21,7 +21,10 @@ require './php/components/logging.php';
 require './php/components/reg_policy.php';
 require './php/components/profile.php';
 
+
+require './php/api/checkouting_address_data.php';
 require './php/layouts/checkout_list.php';
+require './php/layouts/checkout_address_data.php';
 session_start();
 if (!isset($_SESSION['verified_cart'])) {
     header("Location: cart.php");
@@ -36,7 +39,6 @@ if (!isset($_SESSION['verified_cart']) || empty($_SESSION['verified_cart'])) {
 $isLogged = !empty($_SESSION['user_name']);
 
 
-
 $cart = $_SESSION['verified_cart'];
 $totalSum = 0;
 foreach ($cart as $item) {
@@ -48,18 +50,20 @@ foreach ($cart as $item) {
 
 <body>
 
-
     <main class="main_checkout">
-        <section class="main_checkout-products">
-            <h1 class="main_checkout-products-title">Złóż &nbsp zamówienie</h1>
-            <h3 class="main_checkout-products-list_title">Lista produktów</h3>
-            <?php genCheckoutList($cart) ?>
-        </section>
-        <section class="main_checkout-register">
-            <?php
-            genRegister();
-            ?>
-        </section>
+        <div class="main_checkout-content">
+            <h1 class="main_checkout-title">Złóż &nbsp zamówienie</h1>
+            <section class="main_checkout-content-products">
+                <h3 class="main_checkout-content-products-list_title">Lista produktów</h3>
+                <?php genCheckoutList($cart) ?>
+            </section>
+            <section class="main_checkout-content-register">
+                <?php
+                genCheckoutForm($isLogged, $isAddress);
+
+                ?>
+            </section>
+        </div>
         <aside class="main_checkout-summary">
             <h2 class="main_checkout-summary-title">Kasa</h2>
             <dl class="main_checkout-summary-details">

@@ -1,11 +1,11 @@
 <?php
-function genInput($label, $type, $id, $name)
+function genInput($label, $type, $id, $name, $value = '')
 {
 ?>
 
     <div class="input_wrapper">
         <label for="<?= $id ?>"><?= $label ?></label>
-        <input type="<?= $type ?>" id="<?= $id ?>" name="<?= $name ?>" />
+        <input type="<?= $type ?>" id="<?= $id ?>" name="<?= $name ?>" value=" <?= $value ?>" />
     </div>
 
 <?php

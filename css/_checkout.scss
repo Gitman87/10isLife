@@ -3,6 +3,7 @@
 
   height: 90vh;
   display: flex;
+  // flex-direction: column;
   padding: 1rem;
   margin: 1.6rem auto;
   margin-top: 4rem;
@@ -14,29 +15,35 @@
     margin: 0 auto;
     background-color: $white;
   }
-  &-products {
-    background-color: $white;
+  &-content {
     display: flex;
     flex-direction: column;
     width: 80%;
-    padding: $main-view-padding;
-    &-title {
-      text-align: center;
-      color: $gray;
-    }
-    &-list_title {
-      margin-top: 1.6rem;
-      margin-bottom: 1.6rem;
-      color: $granat;
-    }
-    &-sum {
-      text-align: right;
+    &-products {
+      background-color: $white;
+      display: flex;
+      flex-direction: column;
+      width: 80%;
+      padding: $main-view-padding;
+      &-title {
+        text-align: center;
+        color: $gray;
+      }
+      &-list_title {
+        margin-top: 1.6rem;
+        margin-bottom: 1.6rem;
+        color: $granat;
+      }
+      &-sum {
+        text-align: right;
+      }
     }
   }
+
   &-summary {
     width: 20%;
     position: sticky;
-    align-self: flex-start;
+    // align-self: flex-start;
     display: flex;
     flex-direction: column;
     top: 40%;
