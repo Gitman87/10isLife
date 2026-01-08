@@ -7,17 +7,17 @@ function genCheckoutForm($isLogged, $isAddress)
     if ($isLogged) {
         $customer = getCustomerData($_SESSION['user_id']);
     }
+    // print_r($customer);
 
 ?>
     <script src="./js/components/collapse_chain.js" defer></script>
     <script src="./js/components/move_input_value.js" defer></script>
     <script src="./js/components/toggle_password.js" defer></script>
     <script src="./js/components/show_hide.js" defer></script>
-    <script src="./js/components/reg_validation.js" defer></script>
+    <!-- <script src="./js/components/reg_validation.js" defer></script> -->
     <script src="./js/components/collapse_chain.js" defer></script>
 
     <form action="./php/api/checkouting_address_data.php" class="checkout_form" id="checkout_form" method='POST'>
-        <h3 class="checkout_form-personal_data_title">Dane dostawy:</h3>
         <?php
 
         ?>
@@ -49,6 +49,8 @@ function genCheckoutForm($isLogged, $isAddress)
             ?>
         </section>
         <section class="checkout_form-address_data">
+            <h4 class="checkout_form-address_data-title">Dane adresowe:</h4>
+
             <div class="checkout_form-address_data-street_wrapper">
                 <?php
                 if ($isLogged) {
@@ -60,6 +62,7 @@ function genCheckoutForm($isLogged, $isAddress)
                 }
 
                 ?>
+                <p class="checkout_form-address_data-street_wrapper-error_output"></p>
             </div>
             <div class="checkout_form-address_data-postal_wrapper">
                 <?php
@@ -71,6 +74,8 @@ function genCheckoutForm($isLogged, $isAddress)
                     genInput('Kraj *', 'text', 'country', 'country');
                 }
                 ?>
+                <p class="checkout_form-address_data-postal_wrapper-error_output"></p>
+
             </div>
 
         </section>

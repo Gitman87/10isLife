@@ -50,9 +50,10 @@ foreach ($cart as $item) {
 
 <body>
 
+    <h1 class="checkout_title">Złóż &nbsp zamówienie</h1>
     <main class="main_checkout">
         <div class="main_checkout-content">
-            <h1 class="main_checkout-title">Złóż &nbsp zamówienie</h1>
+
             <section class="main_checkout-content-products">
                 <h3 class="main_checkout-content-products-list_title">Lista produktów</h3>
                 <?php genCheckoutList($cart) ?>
@@ -65,6 +66,8 @@ foreach ($cart as $item) {
             </section>
         </div>
         <aside class="main_checkout-summary">
+            <img src="./res/icon/Logo 1.0.svg" class="main_checkout-summary-logo" alt="10islife" title="10isLife logo">
+
             <h2 class="main_checkout-summary-title">Kasa</h2>
             <dl class="main_checkout-summary-details">
                 <dt class="main_checkout-summary-details-term">Ilość produktów:</dt>

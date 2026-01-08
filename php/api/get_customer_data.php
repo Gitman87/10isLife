@@ -15,7 +15,7 @@ function getCustomerData($id)
 
   // prepare and bind
   // prepare and bind
-  $customerData = [];
+  $customerData = NULL;
   $stmt = $conn->prepare("SELECT  *  FROM customers JOIN  customer_address ON customers.customer_id = customer_address.customer_id  WHERE customers.customer_id = ? ");
   if (!$stmt) {
     error_log("statement error" . $conn->error);
@@ -23,15 +23,14 @@ function getCustomerData($id)
   $stmt->bind_param("i",  $id);
   $stmt->execute();
   $result = $stmt->get_result();
-
-  while ($row = $result->fetch_assoc()) {
-    $customerData[] = $row;
-  }
+  $customerData = $result->fetch_assoc();
+  // while ($row = $result->fetch_assoc()) {
+  //   $customerData[] = $row;
+  // }
   if (empty($customerData)) {
     echo "No data";
     return [];
   }
-  print_r($customerData);
+  // print_r($customerData);
   return $customerData;
 }
-// funkcja ma zwracac tablice asocjacyjną no elo
