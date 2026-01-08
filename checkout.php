@@ -21,7 +21,7 @@ require './php/components/logging.php';
 require './php/components/reg_policy.php';
 require './php/components/profile.php';
 
-
+require './php/api/get_customer_data.php';
 require './php/api/checkouting_address_data.php';
 require './php/layouts/checkout_list.php';
 require './php/layouts/checkout_address_data.php';

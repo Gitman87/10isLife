@@ -2704,7 +2704,6 @@ hr {
   display: flex;
   flex-direction: column;
   width: 80%;
-  padding: 0rem 4rem;
 }
 .main_checkout-content-products-title {
   text-align: center;
@@ -2721,6 +2720,7 @@ hr {
 .main_checkout-summary {
   width: 20%;
   position: sticky;
+  align-self: flex-start;
   display: flex;
   flex-direction: column;
   top: 40%;
@@ -2769,6 +2769,28 @@ hr {
 }
 .checkout_list_wrapper-checkout_list > *:nth-child(odd) {
   background-color: #ffeadf;
+}
+
+.register {
+  max-width: 50rem;
+  gap: 2rem;
+}
+.register-summary-inputs {
+  display: flex;
+  flex-direction: column;
+  height: 27rem;
+  background-color: aquamarine;
+}
+.register-email_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.register-name_wrapper, .register-password_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  visibility: collapse;
 }
 
 body {

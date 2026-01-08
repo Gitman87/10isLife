@@ -1,0 +1,27 @@
+.register {
+  max-width: 50rem;
+  gap: 2rem;
+  &-summary-inputs {
+    display: flex;
+    flex-direction: column;
+    height: 27rem;
+    background-color: aquamarine;
+  }
+  //   &-summary-inputs * :not(:first-child) {
+  //     display: flex;
+  //     flex-direction: column;
+  //     gap: 2rem;
+  //   }
+  &-email_wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  &-name_wrapper,
+  &-password_wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    visibility: collapse;
+  }
+}
