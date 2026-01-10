@@ -1,15 +1,26 @@
 .input_wrapper {
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
+  // gap: 0.6rem;
   label {
     font-size: $font-medium;
     color: $granat;
   }
   input {
+    color: $granat;
     padding: 0.1rem 0.5rem;
     border: 0.2rem solid $gray;
     transition: all 0.3s ease-in-out;
+    outline: none;
+  }
+  input:focus {
+    outline: 0.2rem solid $orange;
+  }
+  input:checked {
+    outline: 0.2rem solid $orange;
+    background-color: $orange;
+    accent-color: $orange;
+    outline: none;
   }
 }
 .error_blinking {

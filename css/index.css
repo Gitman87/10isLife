@@ -1796,16 +1796,26 @@ button {
 .input_wrapper {
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
 }
 .input_wrapper label {
   font-size: 1.6rem;
   color: #002b5b;
 }
 .input_wrapper input {
+  color: #002b5b;
   padding: 0.1rem 0.5rem;
   border: 0.2rem solid #808080;
   transition: all 0.3s ease-in-out;
+  outline: none;
+}
+.input_wrapper input:focus {
+  outline: 0.2rem solid #ff6600;
+}
+.input_wrapper input:checked {
+  outline: 0.2rem solid #ff6600;
+  background-color: #ff6600;
+  accent-color: #ff6600;
+  outline: none;
 }
 
 .error_blinking {
@@ -2687,8 +2697,6 @@ hr {
 }
 
 .main_checkout {
-  background-color: green;
-  background-color: white;
   height: 90vh;
   display: flex;
   margin: 1.6rem auto;
@@ -2707,6 +2715,7 @@ hr {
 }
 .main_checkout-content {
   display: flex;
+  background-color: white;
   width: 80%;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -2787,9 +2796,52 @@ hr {
   background-color: #ffeadf;
 }
 
-.checkout_form {
+.checkout_address_form {
   display: flex;
   flex-direction: column;
+  padding: 1rem 0;
+  color: #002b5b;
+  gap: 1.6rem;
+}
+.checkout_address_form-address_data {
+  display: flex;
+  flex-direction: column;
+}
+.checkout_address_form-address_data-postal_wrapper .input_wrapper:last-child {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.checkout_address_form-address_data-point_wrapper {
+  margin-top: 1.6rem;
+}
+.checkout_address_form-address_data-point_wrapper button {
+  border: 0.1rem solid #808080;
+  padding: 0.3rem 0.6rem;
+}
+.checkout_address_form-address_data-point_wrapper button:hover {
+  border: 0.1rem solid #002b5b;
+}
+.checkout_address_form-address_data-point_wrapper-input {
+  display: none;
+}
+
+.hide_passwords {
+  display: none;
+}
+
+.input_wrapper:has(#set_account) {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.input_wrapper:has(#set_account:checked) + .hide_passwords {
+  display: block;
 }
 
 body {

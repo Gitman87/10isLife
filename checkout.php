@@ -48,6 +48,7 @@ foreach ($cart as $item) {
 ?>
 <?php genHead('10isLife') ?>
 
+
 <body>
 
     <h1 class="checkout_title">Złóż &nbsp zamówienie</h1>
@@ -60,7 +61,7 @@ foreach ($cart as $item) {
             </section>
             <section class="main_checkout-content-register">
                 <?php
-                genCheckoutForm($isLogged, $isAddress);
+                genCheckoutForm($isLogged);
 
                 ?>
             </section>

@@ -6,8 +6,6 @@
   margin: 2rem auto;
 }
 .main_checkout {
-  background-color: green;
-  background-color: $white;
   height: 90vh;
   display: flex;
   // flex-direction: column;
@@ -26,11 +24,10 @@
   }
   &-content {
     display: flex;
-    // flex-direction: column;
+    background-color: $white;
     width: 80%;
     flex-wrap: wrap;
     justify-content: space-between;
-
     padding-right: 2rem;
     &-products {
       background-color: $white;

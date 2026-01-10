@@ -1,4 +1,47 @@
-.checkout_form {
+.checkout_address_form {
   display: flex;
   flex-direction: column;
+  padding: 1rem 0;
+  color: $granat;
+  gap: 1.6rem;
+  &-address_data {
+    display: flex;
+    flex-direction: column;
+    &-postal_wrapper {
+      .input_wrapper:last-child {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+    }
+    // gap: 0.8rem;
+    &-point_wrapper {
+      margin-top: 1.6rem;
+      button {
+        border: 0.1rem solid $gray;
+        padding: 0.3rem 0.6rem;
+      }
+      button:hover {
+        border: 0.1rem solid $granat;
+      }
+      &-input {
+        display: none;
+      }
+    }
+  }
+}
+.hide_passwords {
+  display: none;
+}
+.input_wrapper:has(#set_account) {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.input_wrapper:has(#set_account:checked) + .hide_passwords {
+  display: block;
 }
