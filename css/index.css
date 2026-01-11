@@ -129,6 +129,10 @@ button {
   margin: auto;
 }
 
+input:focus {
+  outline: 0.2rem solid #ff6600;
+}
+
 /* 1. Use a more-intuitive box-sizing model */
 *,
 *::before,
@@ -256,6 +260,10 @@ button {
 .breakpoint {
   width: 1280px;
   margin: auto;
+}
+
+input:focus {
+  outline: 0.2rem solid #ff6600;
 }
 
 .header {
@@ -1139,6 +1147,9 @@ button {
   overflow: scroll;
   resize: none;
 }
+.opinions-write-review_wrapper-new_review:focus {
+  outline: 0.2rem solid #ff6600;
+}
 .opinions-write-review_wrapper-new_review:focus + .hide_textarea {
   display: block !important;
 }
@@ -1844,13 +1855,11 @@ button {
   position: relative;
 }
 .password_input-wrapper input {
+  color: #002b5b;
   border: 0.2rem solid #808080;
   padding: 0.1rem 0.5rem;
   padding-right: 6rem;
   width: 100%;
-}
-.password_input-wrapper input:focus {
-  outline: 0.2rem solid #ff6600;
 }
 .password_input-wrapper .show {
   position: absolute;

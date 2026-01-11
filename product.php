@@ -239,7 +239,7 @@ $prodDataJson = json_encode($prodData);
       <div class="opinions-write-rate_wrapper">
         <label for="" class="opinions-write-rate_wrapper-new_rate_label">Twoja ocena</label>
         <!-- <input type="number" name="new_rate" id='new_rate' class="opinions-write-rate_wrapper-new_rate" min=1 max=5 value=5> -->
-        <?php genNumberInput("Twoja ocena", 'new_rate', 'new_rate', 5) ?>
+        <?php genNumberInput("Twoja ocena", 'new_rate', 'new_rate', 5, 5) ?>
         <script src="./js/components/number_input_handle.js"></script>
       </div>
       <div class="opinions-write-review_wrapper">

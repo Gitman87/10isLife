@@ -121,6 +121,9 @@ button {
   width: 1280px;
   margin: auto;
 }
+input:focus {
+  outline: 0.2rem solid $orange;
+}
 // .breakpoint{
 //     width: calc(100% - 80px);
 //     margin:auto;

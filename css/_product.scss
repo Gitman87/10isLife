@@ -271,6 +271,9 @@
         overflow: scroll;
         resize: none;
       }
+      &-new_review:focus {
+        outline: 0.2rem solid $orange;
+      }
       &-new_review:focus + .hide_textarea {
         display: block !important;
       }
