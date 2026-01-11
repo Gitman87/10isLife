@@ -1842,6 +1842,52 @@ input:focus {
     box-shadow: 0rem 0rem 0.6rem 0.1rem rgba(121, 1, 1, 0.3882352941);
   }
 }
+.number_input_wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 1.6rem;
+}
+.number_input_wrapper-label {
+  color: #002b5b;
+}
+.number_input_wrapper-number_input {
+  transform: skewX(-10deg);
+  border: 0.2rem solid #808080;
+  display: flex;
+  flex-direction: row;
+  height: 2.4rem;
+}
+.number_input_wrapper-number_input:has(.number_input_wrapper-number_input-plus_button:active), .number_input_wrapper-number_input:has(.number_input_wrapper-number_input-minus_button:active) {
+  border: 0.2rem solid #ff6600;
+}
+.number_input_wrapper-number_input-minus_button, .number_input_wrapper-number_input-plus_button {
+  padding: 0.2rem 0.6rem;
+  color: white;
+  background-color: #808080;
+  transition: background-color 0.2s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.number_input_wrapper-number_input-minus_button:hover, .number_input_wrapper-number_input-plus_button:hover {
+  background-color: #002b5b;
+  color: white;
+}
+.number_input_wrapper-number_input-value_wrapper {
+  width: 3.2rem;
+  display: flex;
+  justify-content: center;
+}
+.number_input_wrapper-number_input-value_wrapper-value {
+  position: relative;
+  top: -0.1rem;
+  width: 100%;
+  text-align: center;
+}
+.number_input_wrapper-number_input:focus {
+  border: 0.2rem solid #ff6600;
+}
+
 .password_input {
   display: flex;
   flex-direction: column;

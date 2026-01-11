@@ -19,7 +19,7 @@ function numberInputHandle() {
 
       if (
         e.target.classList.contains(
-          "number_input_wrapper-number_input-minus_button-minus"
+          "number_input_wrapper-number_input-minus_button"
         )
       ) {
         console.log("Minus clicked");
@@ -36,7 +36,7 @@ function numberInputHandle() {
         console.log("inputs value attribute misuesd 1 is ", input.value);
       } else if (
         e.target.classList.contains(
-          "number_input_wrapper-number_input-plus_button-plus"
+          "number_input_wrapper-number_input-plus_button"
         )
       ) {
         console.log("Plus clicked");

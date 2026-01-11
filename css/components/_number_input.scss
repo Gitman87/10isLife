@@ -1,0 +1,49 @@
+.number_input_wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 1.6rem;
+  &-label {
+    color: $granat;
+  }
+  &-number_input {
+    transform: skewX(-10deg);
+    border: 0.2rem solid $gray;
+    display: flex;
+    flex-direction: row;
+    height: 2.4rem;
+    &:has(.number_input_wrapper-number_input-plus_button:active),
+    &:has(.number_input_wrapper-number_input-minus_button:active) {
+      border: 0.2rem solid $orange;
+    }
+    &-minus_button,
+    &-plus_button {
+      padding: 0.2rem 0.6rem;
+      color: $white;
+      background-color: $gray;
+      transition: background-color 0.2s ease-in-out;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    &-minus_button:hover,
+    &-plus_button:hover {
+      background-color: $granat;
+      color: $white;
+    }
+
+    &-value_wrapper {
+      width: 3.2rem;
+      display: flex;
+      justify-content: center;
+      &-value {
+        position: relative;
+        top: -0.1rem;
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+  &-number_input:focus {
+    border: 0.2rem solid $orange;
+  }
+}
