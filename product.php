@@ -25,6 +25,7 @@ require './php/components/logging.php';
 require './php/components/reg_policy.php';
 require './php/components/profile.php';
 
+require  './php/components/number_input.php';
 include './php/components/tile_browser.php';
 include './php/components/tile.php';
 include './php/components/rate_balls.php';
@@ -237,7 +238,9 @@ $prodDataJson = json_encode($prodData);
     <form action="/php/api/reviewing.php" method="POST" class="opinions-write">
       <div class="opinions-write-rate_wrapper">
         <label for="" class="opinions-write-rate_wrapper-new_rate_label">Twoja ocena</label>
-        <input type="number" name="new_rate" id='new_rate' class="opinions-write-rate_wrapper-new_rate" min=1 max=5 value=5>
+        <!-- <input type="number" name="new_rate" id='new_rate' class="opinions-write-rate_wrapper-new_rate" min=1 max=5 value=5> -->
+        <?php genNumberInput("Twoja ocena", 'new_rate', 'new_rate', 5) ?>
+        <script src="./js/components/number_input_handle.js"></script>
       </div>
       <div class="opinions-write-review_wrapper">
         <label for="new_review" class="opinions-write-review_wrapper-new_review_label">Napisz recencję</label>

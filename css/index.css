@@ -1849,6 +1849,9 @@ button {
   padding-right: 6rem;
   width: 100%;
 }
+.password_input-wrapper input:focus {
+  outline: 0.2rem solid #ff6600;
+}
 .password_input-wrapper .show {
   position: absolute;
   top: 50%;
