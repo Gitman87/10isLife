@@ -6,7 +6,7 @@
     color: $granat;
   }
   &-number_input {
-    transform: skewX(-10deg);
+    // transform: skewX(-10deg);
     border: 0.2rem solid $granat;
     display: flex;
     flex-direction: row;
@@ -19,7 +19,7 @@
     &-plus_button {
       padding: 0.2rem 0.6rem;
       color: $granat;
-      background-color: $white;
+      background-color: transparent;
       transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
       display: flex;
       justify-content: center;
@@ -41,13 +41,14 @@
       width: 3.2rem;
       display: flex;
       justify-content: center;
+      background-color: $white;
       &-value {
         color: $granat;
         position: relative;
         top: -0.1rem;
         width: 100%;
         text-align: center;
-        transform: skewX(10deg);
+        // transform: skewX(10deg);
       }
     }
   }

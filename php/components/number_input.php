@@ -8,7 +8,7 @@ function genNumberInput($label, $id, $name, $value = 1, $max = 5)
         <label class="number_input_wrapper-label" for="<?= $id ?>"><?= $label ?></label>
 
         <div class="number_input_wrapper-number_input">
-            <input type="hidden" class="number_input_wrapper-number_input-input" min="1" max="<?= $max ?>" step="1" name="<?= $name ?>" id="<?= $id ?>" value="<?= $value ?>">
+            <input type="hidden" class="number_input_wrapper-number_input-input" min="1" max="<?= $max ?>" step="1" name="<?= $name ?>" id="<?= $id ?>" value="<?= $value ?>" />
             <button type="button" class="number_input_wrapper-number_input-minus_button">
                 -
             </button>

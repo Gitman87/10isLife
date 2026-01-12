@@ -17,6 +17,7 @@ function basketManager(cartKey) {
   //cart item html
   const cartListItem = document.createElement("li");
   cartListItem.classList.add("basket_content-list");
+
   function updateBasket(cartData) {
     //for checking if the cartitems has 'options" property -is config or basic
     const isEmpty = (obj) => Object.keys(obj).length === 0;
@@ -32,72 +33,111 @@ function basketManager(cartKey) {
         );
         if (isEmpty(cartItem["options"])) {
           cartListContainer.innerHTML += `
-          <li class="basket_content-list-row_container" data-row_id=${cartItem["id"]}>
+          <li class="basket_content-list-row_container" data-row_id=${
+            cartItem["id"]
+          }>
             <p class="basket_content-list-row_container-order">${i}.</p>
             <img
               src="${cartItem["thumbnail"]}"
               class="basket_content-list-row_container-thumbnail"
             />
-            <p class="basket_content-list-row_container-name"><a href="./product.php?id=${cartItem["id"]}">${cartItem["fullName"]}</a></p>
-            <p class="basket_content-list-row_container-price">${cartItem["price"]}&#32;zł</p>
+            <p class="basket_content-list-row_container-name"><a href="./product.php?id=${
+              cartItem["id"]
+            }">${cartItem["fullName"]}</a></p>
+            <p class="basket_content-list-row_container-price">${
+              cartItem["price"]
+            }&#32;zł</p>
             <div class="basket_content-list-row_container-quantity">
-            <label for="basket_unit_quantity" class="basket_content-list-row_container-quantity-label">Ilość:</label>
-            <input type = 'number' id='basket_unit_quantity' class="basket_content-list-row_container-quantity-input"  name = 'basket_unit_quantity' min=1 max=${cartItem["stockQuantity"]} value=${cartItem["quantity"]}>
+
+            ${genNumberInput(
+              "Ilość:",
+              "basket_unit_quantity",
+              "basket_unit_quantity",
+              `${cartItem["quantity"]}`,
+              `${cartItem["stockQuantity"]}`
+            )}
             </div>
             <p class="basket_content-list-row_container-row_price">Suma:&#32; <span class="basket_content-list-row_container-row_price-price">${rowPrice}</span>&#32;zł</p>
-            <button class="basket_content-list-row_container-remove_button" onclick="removeBasketRow('cart', ${cartItem["id"]})">Usuń</button>
+            <button class="basket_content-list-row_container-remove_button" onclick="removeBasketRow('cart', ${
+              cartItem["id"]
+            })">Usuń</button>
           </li>
         `;
         } else {
           cartListContainer.innerHTML += `
-          <li class="basket_content-list-row_container" data-row_id=${cartItem["id"]}>
+          <li class="basket_content-list-row_container" data-row_id=${
+            cartItem["id"]
+          }>
             <p class="basket_content-list-row_container-order">${i}.</p>
             <img
               src="${cartItem["thumbnail"]}"
               class="basket_content-list-row_container-thumbnail"
             />
-            <p class="basket_content-list-row_container-name"><a href="./product.php?id=${cartItem["parentId"]}">${cartItem["fullName"]}</a></p>
-            <p class="basket_content-list-row_container-grip">Uchwyt: &#32; ${cartItem["options"]["grip_size"]}</p>
-            <p class="basket_content-list-row_container-length">Długość: &#32; ${cartItem["options"]["length"]}</p>
-            <p class="basket_content-list-row_container-price">  ${cartItem["price"]}&#32;zł</p>
+            <p class="basket_content-list-row_container-name"><a href="./product.php?id=${
+              cartItem["parentId"]
+            }">${cartItem["fullName"]}</a></p>
+            <p class="basket_content-list-row_container-grip">Uchwyt: &#32; ${
+              cartItem["options"]["grip_size"]
+            }</p>
+            <p class="basket_content-list-row_container-length">Długość: &#32; ${
+              cartItem["options"]["length"]
+            }</p>
+            <p class="basket_content-list-row_container-price">  ${
+              cartItem["price"]
+            }&#32;zł</p>
             <div class="basket_content-list-row_container-quantity">
-            <label for="basket_unit_quantity" class="basket_content-list-row_container-quantity-label">Ilość:</label>
-            <input type = 'number' id='basket_unit_quantity' class="basket_content-list-row_container-quantity-input" name = 'basket_unit_quantity' min=1 max=${cartItem["stockQuantity"]} value=${cartItem["quantity"]}>
+
+
+
+             ${genNumberInput(
+               "Ilość:",
+               "basket_unit_quantity",
+               "basket_unit_quantity",
+               `${cartItem["quantity"]}`,
+               `${cartItem["stockQuantity"]}`
+             )}
+
             </div>
             <p class="basket_content-list-row_container-row_price">Suma:&#32; <span class="basket_content-list-row_container-row_price-price">${rowPrice}</span>&#32;zł</p>
-            <button class="basket_content-list-row_container-remove_button" onclick="removeBasketRow('cart', ${cartItem["id"]})">Usuń</button>
+            <button class="basket_content-list-row_container-remove_button" onclick="removeBasketRow('cart', ${
+              cartItem["id"]
+            })">Usuń</button>
           </li>
         `;
         }
-        cartListContainer.addEventListener("change", (event) => {
-          const target = event.target;
-          if (
-            target.classList.contains(
-              "basket_content-list-row_container-quantity-input"
-            )
-          ) {
-            const quantityInput = target;
-            const thisRow = quantityInput.closest("[data-row_id]");
-            const itemId = thisRow.dataset.row_id;
-            const newQuantity = parseFloat(quantityInput.value);
-            const cartData = localStorageManagerBasket.read(cartKey);
-            const cartItem = cartData.find((item) => item.id == itemId);
-            if (cartItem) {
-              updateCartItemQuantity("cart", itemId, newQuantity);
-              // cartItem["quantity"] = newQuantity;
-              // localStorageManager.update("cart", cartItem);
-              const rowPriceContainer = thisRow.querySelector(
-                ".basket_content-list-row_container-row_price-price"
-              );
-              const newRowPrice = newQuantity * cartItem.price;
-              rowPriceContainer.textContent = newRowPrice.toFixed(2);
-              calcNumberOfItems(
-                cartListContainer,
-                totalNumberOfItems,
-                totalSumContainer
-              );
-              calcTotalSum(cartListContainer, totalSumContainer);
-            }
+        cartListContainer.addEventListener("click", (event) => {
+          const inputWrapper = event.target.closest(
+            ".number_input_wrapper-number_input"
+          );
+          // const target = event.target;
+
+          // target.classList.contains(
+          //   "basket_content-list-row_container-quantity-input"
+          // )
+
+          const quantityInput = inputWrapper.querySelector(
+            ".number_input_wrapper-number_input-input"
+          );
+          const thisRow = quantityInput.closest("[data-row_id]");
+          const itemId = thisRow.dataset.row_id;
+          const newQuantity = parseInt(quantityInput.value);
+          const cartData = localStorageManagerBasket.read(cartKey);
+          const cartItem = cartData.find((item) => item.id == itemId);
+          if (cartItem) {
+            updateCartItemQuantity("cart", itemId, newQuantity);
+            // cartItem["quantity"] = newQuantity;
+            // localStorageManager.update("cart", cartItem);
+            const rowPriceContainer = thisRow.querySelector(
+              ".basket_content-list-row_container-row_price-price"
+            );
+            const newRowPrice = newQuantity * cartItem.price;
+            rowPriceContainer.textContent = newRowPrice.toFixed(2);
+            calcNumberOfItems(
+              cartListContainer,
+              totalNumberOfItems,
+              totalSumContainer
+            );
+            calcTotalSum(cartListContainer, totalSumContainer);
           }
         });
         i++;
@@ -182,4 +222,43 @@ function addAddressToButton(storageManager, key, button) {
   const address = storageManager.read(key);
   button.href = address;
 }
+function genNumberInput(label, id, name, value = 1, max = 5) {
+  return `
+  <div class="number_input_wrapper">
+    <label class="number_input_wrapper-label" for=${id}>
+      ${label}
+    </label>
+
+    <div class="number_input_wrapper-number_input">
+      <input
+        type="hidden"
+        class="number_input_wrapper-number_input-input"
+        min="1"
+        max=${max}
+        step="1"
+        name=${name}
+        id=${id}
+        value=${value}
+      />
+      <button
+        type="button"
+        class="number_input_wrapper-number_input-minus_button"
+      >
+        -
+      </button>
+      <div class="number_input_wrapper-number_input-value_wrapper">
+        <span class="number_input_wrapper-number_input-value_wrapper-value">
+          ${value}
+        </span>
+      </div>
+      <button
+        type="button"
+        class="number_input_wrapper-number_input-plus_button"
+      >
+        +
+      </button>
+    </div>
+  </div>`;
+}
+
 basketManager("cart");

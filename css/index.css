@@ -1357,7 +1357,7 @@ input:focus {
   width: 11rem;
 }
 .basket_content-list-row_container-quantity {
-  width: 10rem;
+  width: 14rem;
 }
 .basket_content-list-row_container-quantity-label {
   width: 4rem;
@@ -1851,7 +1851,6 @@ input:focus {
   color: #002b5b;
 }
 .number_input_wrapper-number_input {
-  transform: skewX(-10deg);
   border: 0.2rem solid #002b5b;
   display: flex;
   flex-direction: row;
@@ -1863,7 +1862,7 @@ input:focus {
 .number_input_wrapper-number_input-minus_button, .number_input_wrapper-number_input-plus_button {
   padding: 0.2rem 0.6rem;
   color: #002b5b;
-  background-color: white;
+  background-color: transparent;
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
   display: flex;
   justify-content: center;
@@ -1883,6 +1882,7 @@ input:focus {
   width: 3.2rem;
   display: flex;
   justify-content: center;
+  background-color: white;
 }
 .number_input_wrapper-number_input-value_wrapper-value {
   color: #002b5b;
@@ -1890,7 +1890,6 @@ input:focus {
   top: -0.1rem;
   width: 100%;
   text-align: center;
-  transform: skewX(10deg);
 }
 .number_input_wrapper-number_input:focus {
   border: 0.2rem solid #ff6600;

@@ -9,7 +9,7 @@ function makeCartItem(
 ) {
   const productDetailsContainer = document.querySelector(".dashboard-pulpit");
   const quantity = productDetailsContainer.querySelector(
-    ".dashboard-pulpit-add-amount-quantifier"
+    ".number_input_wrapper-number_input-input"
   ).value;
   const options = {};
   productDetailsContainer
@@ -35,12 +35,13 @@ function makeCartItem(
 function addProductToCart(cartItem) {
   const cartManager = new LocalStorageManager();
   const cartKey = "cart";
-  const addButton = document.querySelector(".standard_button");
+  const addContainer = document.querySelector(".dashboard-pulpit-add");
+  const addButton = addContainer.querySelector(".standard_button");
   const stockQuantityInputValue = parseInt(
-    document.querySelector(".dashboard-pulpit-add-amount-stock_quantity_input")
-      .value
+    addContainer.querySelector(".number_input_wrapper-number_input-input").value
   );
-  const messageContainer = document.querySelector(
+  console.log("stockQuantityInputValue is ", stockQuantityInputValue);
+  const messageContainer = addContainer.querySelector(
     ".dashboard-pulpit-add-availability-message"
   );
   let cart = cartManager.read(cartKey);

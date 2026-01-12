@@ -20,6 +20,8 @@ require './php/components/password_input.php';
 require './php/components/logging.php';
 require './php/components/reg_policy.php';
 require './php/components/profile.php';
+require  './php/components/number_input.php';
+
 // api
 require './php/api/connection.php';
 require './php/api/get_product_data.php';
@@ -61,6 +63,8 @@ session_start();
     <script src="./js/verify_basket.js"></script>
     <script src="./js/components/toggle_log_modal.js"></script>
     <script src="./js/components/basket_modal.js"></script>
+    <script src="./js/components/number_input_handle.js"></script>
+
 
 </main>
 <?php genFooter() ?>
