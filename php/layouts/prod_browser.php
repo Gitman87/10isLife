@@ -44,6 +44,7 @@ function genProdBrowser()
             <div class="prod_browser-nav-sorting">
                 <label for="sort_by" class="prod_browser-nav-sorting-label">Sortuj</label>
                 <select name="sort_by" id="sort_by" class="prod_browser-nav-sorting-sort_by">
+
                     <?php
                     $selected = '';
                     foreach ($sortOptionsMap as $value => $displayName) {
@@ -60,6 +61,7 @@ function genProdBrowser()
             <div class="prod_browser-nav-brands">
                 <label for="brands" class="prod_browser-nav-brands-label">Marki</label>
                 <select name='brands' id='brands' class="prod_browser-nav-brands-select">
+
                     <?php
                     $selectedBrand = '';
                     foreach ($brandsMap as $value => $brandName) {
@@ -76,6 +78,7 @@ function genProdBrowser()
             <div class="prod_browser-nav-display">
                 <label for="display_number" class="prod_browser-nav-display-label">Wyświetl</label>
                 <select name="display_number" id="display_number" class="prod_browser-nav-display-display_number">
+
                     <?php
                     foreach ($limitOptions as $option) {
                         $selected = ($option == $limit) ? 'selected' : '';

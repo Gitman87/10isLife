@@ -133,6 +133,45 @@ input:focus {
   outline: 0.2rem solid #ff6600;
 }
 
+select {
+  -webkit-appearance: base-select;
+     -moz-appearance: base-select;
+          appearance: base-select;
+  border: 0.1rem solid #002b5b;
+  color: #002b5b;
+  outline: 0.1rem solid #002b5b;
+  height: 2.8rem;
+  padding: 0.1rem 0.4rem;
+  background-color: white;
+  transition: background-color 0.25s ease-in-out;
+}
+
+select:hover {
+  background-color: #ffeadf;
+}
+
+select > *:nth-child(odd) {
+  background-color: rgb(201, 201, 201);
+  color: #002b5b !important;
+}
+
+select > *:nth-child(even) {
+  background-color: #ffeadf;
+  color: #002b5b !important;
+}
+
+select option:hover {
+  background-color: #002b5b !important;
+  color: rgb(0, 255, 13) !important;
+}
+
+::picker(select) option:hover,
+option:hover {
+  background-color: #002b5b !important;
+  color: rgb(0, 255, 13) !important;
+  cursor: pointer;
+}
+
 /* 1. Use a more-intuitive box-sizing model */
 *,
 *::before,
@@ -264,6 +303,45 @@ button {
 
 input:focus {
   outline: 0.2rem solid #ff6600;
+}
+
+select {
+  -webkit-appearance: base-select;
+     -moz-appearance: base-select;
+          appearance: base-select;
+  border: 0.1rem solid #002b5b;
+  color: #002b5b;
+  outline: 0.1rem solid #002b5b;
+  height: 2.8rem;
+  padding: 0.1rem 0.4rem;
+  background-color: white;
+  transition: background-color 0.25s ease-in-out;
+}
+
+select:hover {
+  background-color: #ffeadf;
+}
+
+select > *:nth-child(odd) {
+  background-color: rgb(201, 201, 201);
+  color: #002b5b !important;
+}
+
+select > *:nth-child(even) {
+  background-color: #ffeadf;
+  color: #002b5b !important;
+}
+
+select option:hover {
+  background-color: #002b5b !important;
+  color: rgb(0, 255, 13) !important;
+}
+
+::picker(select) option:hover,
+option:hover {
+  background-color: #002b5b !important;
+  color: rgb(0, 255, 13) !important;
+  cursor: pointer;
 }
 
 .header {
