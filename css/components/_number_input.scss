@@ -7,7 +7,7 @@
   }
   &-number_input {
     transform: skewX(-10deg);
-    border: 0.2rem solid $gray;
+    border: 0.2rem solid $granat;
     display: flex;
     flex-direction: row;
     height: 2.4rem;
@@ -18,12 +18,18 @@
     &-minus_button,
     &-plus_button {
       padding: 0.2rem 0.6rem;
-      color: $white;
-      background-color: $gray;
-      transition: background-color 0.2s ease-in-out;
+      color: $granat;
+      background-color: $white;
+      transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
       display: flex;
       justify-content: center;
       align-items: center;
+    }
+    &-minus_button {
+      border-right: 0.2rem solid $granat;
+    }
+    &-plus_button {
+      border-left: 0.2rem solid $granat;
     }
     &-minus_button:hover,
     &-plus_button:hover {
@@ -36,10 +42,12 @@
       display: flex;
       justify-content: center;
       &-value {
+        color: $granat;
         position: relative;
         top: -0.1rem;
         width: 100%;
         text-align: center;
+        transform: skewX(10deg);
       }
     }
   }

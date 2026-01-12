@@ -180,12 +180,16 @@ $prodDataJson = json_encode($prodData);
           <?php
           if ($prodData['variant_type'] === 'basic') {
           ?>
-            <input type="number" class="dashboard-pulpit-add-amount-quantifier" name="quantifier" id="quantifier" value=1 min=1 max=<?= $prodData['quantity'] ?>>
+            <!-- <input type="number" class="dashboard-pulpit-add-amount-quantifier" name="quantifier" id="quantifier" value=1 min=1 max=<?= $prodData['quantity'] ?>> -->
+            <?php genNumberInput('Ilość:', 'quantifier', 'quantifier', 1, $prodData['quantity']) ?>
+
           <?php
           } else {
           ?>
-            <label for="quantifier" class="dashboard-pulpit-add-amount-label">Ilość:</label>
-            <input type="number" class="dashboard-pulpit-add-amount-quantifier" name="quantifier" id="quantifier" value=0 min=0 max=0>
+            <!-- <label for="quantifier" class="dashboard-pulpit-add-amount-label">Ilość:</label>
+            <input type="number" class="dashboard-pulpit-add-amount-quantifier" name="quantifier" id="quantifier" value=0 min=0 max=0> -->
+            <?php genNumberInput('Ilość:', 'quantifier', 'quantifier', 0, 0) ?>
+
           <?php
           }
           ?>
@@ -237,7 +241,7 @@ $prodDataJson = json_encode($prodData);
     <h3 class="opinions-head">Recenzje klientów</h3>
     <form action="/php/api/reviewing.php" method="POST" class="opinions-write">
       <div class="opinions-write-rate_wrapper">
-        <label for="" class="opinions-write-rate_wrapper-new_rate_label">Twoja ocena</label>
+        <!-- <label for="" class="opinions-write-rate_wrapper-new_rate_label">Twoja ocena</label> -->
         <!-- <input type="number" name="new_rate" id='new_rate' class="opinions-write-rate_wrapper-new_rate" min=1 max=5 value=5> -->
         <?php genNumberInput("Twoja ocena", 'new_rate', 'new_rate', 5, 5) ?>
         <script src="./js/components/number_input_handle.js"></script>

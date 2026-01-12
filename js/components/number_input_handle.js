@@ -15,14 +15,16 @@ function numberInputHandle() {
       let number = wrapper.querySelector(
         ".number_input_wrapper-number_input-value_wrapper-value"
       );
-      number.innerHTML = value;
-
+      // number.innerHTML = value;
+      // input.value.addEventListener("change", () => {
+      //   number.innerHTML = Number(input.getAttribute("value") || 0);
+      // });
       if (
         e.target.classList.contains(
           "number_input_wrapper-number_input-minus_button"
         )
       ) {
-        console.log("Minus clicked");
+        // console.log("Minus clicked");
         if (min) {
           if (value > min && value - step >= min) {
             value -= step;
@@ -33,13 +35,13 @@ function numberInputHandle() {
         number.innerHTML = value;
         input.value = value;
         input.setAttribute("value", value);
-        console.log("inputs value attribute misuesd 1 is ", input.value);
+        // console.log("inputs value attribute misuesd 1 is ", input.value);
       } else if (
         e.target.classList.contains(
           "number_input_wrapper-number_input-plus_button"
         )
       ) {
-        console.log("Plus clicked");
+        // console.log("Plus clicked");
         if (max) {
           if (value < max && value + step <= max) {
             value += step;
@@ -49,10 +51,10 @@ function numberInputHandle() {
         }
         number.innerHTML = value;
         input.setAttribute("value", value);
-        console.log(
-          "inputs value attribute plused  1 is ",
-          Number(input.getAttribute("value"))
-        );
+        // console.log(
+        //   "inputs value attribute plused  1 is ",
+        //   Number(input.getAttribute("value"))
+        // );
       }
     });
   });

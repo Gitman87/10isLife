@@ -19,7 +19,10 @@ function genBalls(prodDataJson) {
   //containers for updating amount
   const addContainer = document.querySelector(".dashboard-pulpit-add");
   const quantitiyInput = addContainer.querySelector(
-    ".dashboard-pulpit-add-amount-quantifier"
+    ".number_input_wrapper-number_input-input"
+  );
+  const quantitiyInputDisplayValue = addContainer.querySelector(
+    ".number_input_wrapper-number_input-value_wrapper-value"
   );
   const availabilityContainer = addContainer.querySelector(
     ".dashboard-pulpit-add-availability-message"
@@ -98,6 +101,7 @@ function genBalls(prodDataJson) {
     ).value;
     stockQuantityInput.value = newQuantity;
     quantitiyInput.value = "1";
+    quantitiyInputDisplayValue.innerHTML = 1;
     quantitiyInput.min = "1";
     quantitiyInput.max = newQuantity;
     if (newQuantity > 5) {

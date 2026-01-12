@@ -1852,7 +1852,7 @@ input:focus {
 }
 .number_input_wrapper-number_input {
   transform: skewX(-10deg);
-  border: 0.2rem solid #808080;
+  border: 0.2rem solid #002b5b;
   display: flex;
   flex-direction: row;
   height: 2.4rem;
@@ -1862,12 +1862,18 @@ input:focus {
 }
 .number_input_wrapper-number_input-minus_button, .number_input_wrapper-number_input-plus_button {
   padding: 0.2rem 0.6rem;
-  color: white;
-  background-color: #808080;
-  transition: background-color 0.2s ease-in-out;
+  color: #002b5b;
+  background-color: white;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.number_input_wrapper-number_input-minus_button {
+  border-right: 0.2rem solid #002b5b;
+}
+.number_input_wrapper-number_input-plus_button {
+  border-left: 0.2rem solid #002b5b;
 }
 .number_input_wrapper-number_input-minus_button:hover, .number_input_wrapper-number_input-plus_button:hover {
   background-color: #002b5b;
@@ -1879,10 +1885,12 @@ input:focus {
   justify-content: center;
 }
 .number_input_wrapper-number_input-value_wrapper-value {
+  color: #002b5b;
   position: relative;
   top: -0.1rem;
   width: 100%;
   text-align: center;
+  transform: skewX(10deg);
 }
 .number_input_wrapper-number_input:focus {
   border: 0.2rem solid #ff6600;
