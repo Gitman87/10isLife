@@ -73,6 +73,12 @@ WHERE
     // print_r($prodArray['images'][2]);
     // ---------------------% discount calc-------------------------
     $prodArray['discount'] = round(($prodArray['price'] * 100) / $prodArray['last_price']);
+    if ($prodArray['price'] > $prodArray['last_price']) {
+        $prodArray['discount'] = NULL;
+    } else {
+
+        $prodArray['discount'] = round((($prodArray['last_price'] - $prodArray['price']) * 100) / $prodArray['last_price']);
+    }
 
 
     // ----------------manufacturers and man.photos----------------

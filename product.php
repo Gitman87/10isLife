@@ -54,6 +54,7 @@ foreach ($prodData['images'] as $image) {
     break;
   };
 };
+
 // echo 'prodThumbnailUrl is' . $prodThumbnailUrl;
 $prodDataJson = json_encode($prodData);
 ?>
