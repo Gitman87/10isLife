@@ -53,7 +53,7 @@ require './php/layouts/prod_browser.php';
 session_start();
 ?>
 <?php genHeader() ?>
-<main class="main">
+<main class="main_rackets">
     <?php genNewProducts() ?>
     <hr>
     <?php

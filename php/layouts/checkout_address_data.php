@@ -84,12 +84,17 @@ function genCheckoutForm($isLogged)
             </div>
             <div class="checkout_address_form-address_data-postal_wrapper">
                 <?php
+                $countries = ["Poland", "Germany", "Czech Republic", "Slovakia"];
                 if ($customer['street']) {
+                    $customerCountry = $customer['country'];
+                    array_unshift($countries, $customerCountry);
                     genInput('Kod pocztowy *', 'text', 'postal_code', 'postal_code',  $customer['postal_code']);
-                    genInput('Kraj *', 'text', 'country', 'country',  $customer['country']);
+                    genSelectInput('select_country', 'Kraj:', $countries);
+                ?>
+                <?php
                 } else {
                     genInput('Kod pocztowy *', 'text', 'postal_code', 'postal_code');
-                    genInput('Kraj *', 'text', 'country', 'country');
+                    genSelectInput('select_country', 'Kraj:', $countries);
                 }
                 ?>
                 <p class="checkout_address_form-address_data-postal_wrapper-error_output"></p>

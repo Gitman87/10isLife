@@ -2701,12 +2701,23 @@ option:hover {
   color: #002b5b;
 }
 
+.main_rackets {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  margin: 1.6rem auto;
+  margin-top: 4rem;
+  max-width: 152rem;
+  padding: 0rem 4rem;
+}
+
 hr {
   margin-top: 2rem;
   width: 100%;
 }
 
 .prod_browser {
+  background-color: white;
   margin-top: 1.6rem;
   padding-top: 1rem;
   width: 100%;
