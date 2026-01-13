@@ -7,8 +7,8 @@ function genSelectInput($id, $label, $contentArray)
         <select class="select_wrapper-select_input" id="<?= $id ?>">
             <?php
             foreach ($contentArray as $option) {
-                $value = explode("_", strtolower($option));
-                echo 'exploded value is ' . $value;
+                $value = str_replace(" ", "_", strtolower($option));
+                // echo  $value;
             ?>
                 <option value="<?= $value ?>" class="select_wrapper-select_input-option"><?= $option ?></option>
             <?php

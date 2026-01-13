@@ -74,7 +74,6 @@ foreach ($cart as $item) {
             </dl>
             <div class="main_checkout-summary-buttons">
                 <?php genStandardButton("Zapłać", true, '', '') ?>
-                <?php genBasketModal() ?>
             </div>
         </aside>
     </main>

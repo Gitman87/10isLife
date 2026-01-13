@@ -19,6 +19,9 @@ function genCheckoutForm($isLogged)
     <script src="./js/components/collapse_chain.js" defer></script>
     <script src="./js/components/geo_widget.js" defer></script>
     <script src="./js/utilities/toggle_visibility.js" defer></script>
+    <script src="./js/set_input_value.js"></script>
+
+
 
 
 
@@ -77,14 +80,15 @@ function genCheckoutForm($isLogged)
                     genInput('Ulica *', 'text', 'street', 'street');
                     genInput('Numer domu *', 'text', 'house_nr', 'house_nr');
                 }
-
                 ?>
-
                 <p class="checkout_address_form-address_data-street_wrapper-error_output"></p>
             </div>
             <div class="checkout_address_form-address_data-postal_wrapper">
                 <?php
                 $countries = ["Poland", "Germany", "Czech Republic", "Slovakia"];
+                ?>
+                <input type="hidden" id="set_address_check" name="set_address_check" value="">
+                <?php
                 if ($customer['street']) {
                     $customerCountry = $customer['country'];
                     array_unshift($countries, $customerCountry);
@@ -97,9 +101,11 @@ function genCheckoutForm($isLogged)
                     genSelectInput('select_country', 'Kraj:', $countries);
                 }
                 ?>
+                <script>
+                    setInputValue("set_address_check", "select_country");
+                </script>
                 <p class="checkout_address_form-address_data-postal_wrapper-error_output"></p>
                 <?php genInput('Ustaw jako adres domowy ', 'checkbox', 'set_address', 'set_address') ?>
-
             </div>
             <div class="checkout_address_form-address_data-point_wrapper">
                 <?php genShow('Wybierz paczkomat', "openGeoWidget();toggleVisibility('parcel_point_div')") ?>
@@ -108,25 +114,10 @@ function genCheckoutForm($isLogged)
                 </div>
                 <p class="checkout_address_form-address_data-point_wrapper-error-output"></p>
             </div>
-
         </section>
-
-
-
         <?php
-
         ?>
     </form>
-    <script>
-        document.addEventListener('inpost.geowidget.init', function(event) {
-            const widget = event.detail.api;
 
-            // Reagowanie na kliknięcie paczkomatu
-            widget.subscribe('point:select', (point) => {
-                document.getElementById('point-name').innerText = point.name;
-                console.log("Pełne dane punktu:", point);
-            });
-        });
-    </script>
 <?php
 }
