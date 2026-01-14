@@ -207,9 +207,7 @@ function removeBasketRow(cartKey, id) {
 }
 
 function calcNumberOfItems(cartListContainer, totalNumberOfItems) {
-  const inputs = cartListContainer.querySelectorAll(
-    ".basket_content-list-row_container-quantity-input"
-  );
+  const inputs = cartListContainer.querySelectorAll("#basket_unit_quantity");
   let sum = 0;
   inputs.forEach((input) => {
     sum += parseInt(input.value);

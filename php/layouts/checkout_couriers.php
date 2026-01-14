@@ -24,7 +24,6 @@ function genCouriersSelect($label, $totalWeight, $isAbroad = false, $couriersDat
             }
             ?>
         </select>
-        <?php echo 'totalFee is : ' . $totalFee; ?>
 
 
     </section>

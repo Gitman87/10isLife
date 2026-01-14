@@ -114,7 +114,7 @@ function genCheckoutForm($isLogged, $totalWeight, $totalVolume)
                 <?php
                 // '100 000 cm3 is the biggest volume of InPost parcel closet'
                 if ($totalVolume < 100000) {
-                    echo 'volume is ' . $totalVolume;
+                    // echo 'volume is ' . $totalVolume;
                     genShow('Wybierz paczkomat', "openGeoWidget();toggleVisibility('parcel_point_div')");
                 ?>
 
