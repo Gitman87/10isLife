@@ -38,7 +38,7 @@ function verifyBasket()
     $idList = implode(',', $ids);
 
     //get actual data from db
-    $result = $conn->query("SELECT products.product_id,products.name, products.price,  products.quantity FROM products WHERE products.product_id IN ({$idList});");
+    $result = $conn->query("SELECT products.product_id,products.name, products.price,  products.quantity, products.weight_kg, products.width_cm, products.height_cm, products.length_cm FROM products WHERE products.product_id IN ({$idList});");
 
     $realProducts = [];
     $verifiedCart = [];
@@ -75,11 +75,16 @@ function verifyBasket()
             $isValid = false;
             $priceErrorMessages[] = ['id' => $product['product_id'], 'errorMessage' => "Cena produktu '" . $product['name'] . "' uległa zmianie. Aktualna cena to: " . $actualPrice . " zł. Kliknij aby uaktualnić: ", 'correctPrice' => $actualPrice];
         }
+        // $volume = round((float)$product['width_cm'] * (float)$product['length_cm'] * (float)$product['heigth_cm'], 2);
+        $volume = 100;
+        // echo "volume is" . $volume;
         $verifiedCart[] = [
             "id" => $id,
             "name" => $product['name'],
             "price" => (float)$product['price'],
             "quantity" => $requestedQuantity,
+            "weight_kg" => (float)$product['weight_kg'],
+            "volume" => (float)$product['length_cm'],
             "total" => (float)$product['price'] * $requestedQuantity
         ];
     }
@@ -110,7 +115,7 @@ function verifyBasket()
 
     $conn->close();
     exit;
-    echo 'VerfifiedCart is ' . $verifiedCart;
+    // echo 'VerfifiedCart is ' . $verifiedCart;
 }
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     verifyBasket();

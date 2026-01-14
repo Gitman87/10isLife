@@ -1373,13 +1373,15 @@ option:hover {
   margin-top: 4rem;
   max-width: 152rem;
   padding: 0rem 4rem;
-  height: calc(100vh - 32rem);
+  height: calc(100vh - 36rem);
 }
 
 .basket_content {
   width: 80%;
   flex-grow: 1;
   background-color: white;
+  box-shadow: 0rem -1rem 1rem -1rem rgba(0, 0, 0, 0.3882352941) inset;
+  overflow-y: scroll;
 }
 .basket_content-title {
   text-align: center;

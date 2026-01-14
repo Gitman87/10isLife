@@ -1,8 +1,11 @@
 <?php
 require './php/layouts/head.php';
 
-require './php/layouts/header.php';
-require './php/layouts/footer.php';
+// require './php/layouts/header.php';
+// require './php/layouts/footer.php';
+require './php/layouts/checkout_list.php';
+require './php/layouts/checkout_address_data.php';
+require './php/layouts/checkout_couriers.php';
 
 require './php/components/header_link.php';
 require './php/components/log_modal.php';
@@ -14,7 +17,7 @@ require './php/components/wide_button.php';
 require './php/components/ugly_button.php';
 require './php/components/show.php';
 //logging /registration
-require './php/layouts/register.php';
+// require './php/layouts/register.php';
 require './php/components/input.php';
 require './php/components/select_input.php';
 require './php/components/password_input.php';
@@ -24,8 +27,9 @@ require './php/components/profile.php';
 
 require './php/api/get_customer_data.php';
 require './php/api/checkouting_address_data.php';
-require './php/layouts/checkout_list.php';
-require './php/layouts/checkout_address_data.php';
+require './php/api/get_couriers_data.php';
+
+
 session_start();
 if (!isset($_SESSION['verified_cart'])) {
     header("Location: cart.php");
@@ -40,8 +44,12 @@ if (!isset($_SESSION['verified_cart']) || empty($_SESSION['verified_cart'])) {
 $isLogged = !empty($_SESSION['user_name']);
 $cart = $_SESSION['verified_cart'];
 $totalSum = 0;
+$totalWeight = 0;
+$totalVolume = 0;
 foreach ($cart as $item) {
     $totalSum += $item['total'];
+    $totalWeight += $item['weight_kg'];
+    $totalVolume += $item['volume'];
 }
 // ------------------------page---------------------------------
 ?>
@@ -58,7 +66,7 @@ foreach ($cart as $item) {
             </section>
             <section class="main_checkout-content-register">
                 <?php
-                genCheckoutForm($isLogged);
+                genCheckoutForm($isLogged, $totalWeight, $totalVolume);
 
                 ?>
             </section>

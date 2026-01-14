@@ -1,14 +1,17 @@
 <?php
 
 
-function genCheckoutForm($isLogged)
+function genCheckoutForm($isLogged, $totalWeight, $totalVolume)
 {
     $customer = [];
     if ($isLogged) {
         $customer = getCustomerData($_SESSION['user_id']);
     }
     // print_r($customer);
+    $couriersData = getCouriersData();
+    // print_r($couriersData);
 
+    // echo $couriersData[1]['name'];
 ?>
 
     <script src="./js/components/collapse_chain.js" defer></script>
@@ -108,14 +111,30 @@ function genCheckoutForm($isLogged)
                 <?php genInput('Ustaw jako adres domowy ', 'checkbox', 'set_address', 'set_address') ?>
             </div>
             <div class="checkout_address_form-address_data-point_wrapper">
-                <?php genShow('Wybierz paczkomat', "openGeoWidget();toggleVisibility('parcel_point_div')") ?>
-                <div class="checkout_address_form-address_data-point_wrapper-input" id='parcel_point_div'>
-                    <?php genInput('Podaj kod paczkomatu', 'text', 'parcel_point', 'parcel_point'); ?>
-                </div>
-                <p class="checkout_address_form-address_data-point_wrapper-error-output"></p>
+                <?php
+                // '100 000 cm3 is the biggest volume of InPost parcel closet'
+                if ($totalVolume < 100000) {
+                    echo 'volume is ' . $totalVolume;
+                    genShow('Wybierz paczkomat', "openGeoWidget();toggleVisibility('parcel_point_div')");
+                ?>
+
+                    <div class="checkout_address_form-address_data-point_wrapper-input" id='parcel_point_div'>
+
+                        <?php genInput('Podaj kod paczkomatu', 'text', 'parcel_point', 'parcel_point'); ?>
+                    </div>
+                    <p class="checkout_address_form-address_data-point_wrapper-error_output"></p>
+                <?php
+                } else {
+                ?>
+                    <p class="checkout_address_form-address_data-point_wrapper-volume_warning">Objętość <?= $totalVolume ?>cm3 zamówienia wyklucza paczkomat.</p>
+                <?php
+                } ?>
+
             </div>
         </section>
+
         <?php
+        genCouriersSelect('Wybierz kuriera: ', $totalWeight, $isAbroad = false, $couriersData);
         ?>
     </form>
 

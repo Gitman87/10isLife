@@ -6,12 +6,15 @@
   margin-top: 4rem;
   max-width: $main-view-max-width;
   padding: $main-view-padding;
-  height: calc(100vh - 32rem);
+  height: calc(100vh - 36rem);
 }
 .basket_content {
   width: 80%;
   flex-grow: 1;
   background-color: $white;
+  box-shadow: 0rem -1rem 1rem -1rem rgba(0, 0, 0, 0.3882352941) inset;
+  overflow-y: scroll;
+
   &-title {
     text-align: center;
     color: $gray;
@@ -23,6 +26,7 @@
     flex-direction: column;
     padding: 1.5rem;
     gap: 1.5rem;
+
     &-empty {
       color: $gray;
       margin: 0 auto;

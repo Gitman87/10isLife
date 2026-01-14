@@ -1,15 +1,9 @@
 <?php
-// passed object shoud look like:
-// $verifiedCart[] = [
-//             "id" => $id,
-//             "name" => $product['name'],
-//             "price" => (float)$product['price'],
-//             "quantity" => $requestedQuantity,
-//             "total" => (float)$product['price'] * $requestedQuantity
-//         ];
+
 function genCheckoutList($cart)
 {
     $totalSum = 0;
+
     foreach ($cart as $item) {
         $totalSum += $item['total'];
     }
@@ -37,4 +31,5 @@ function genCheckoutList($cart)
     </div>
 
 <?php
+
 }

@@ -22,7 +22,8 @@ function getProductData($id)
     products.is_bestseller,
     products.is_new,
     products.is_discount,
-    products.variant_type
+    products.variant_type,
+    products.weight_kg
 FROM
     products
 
