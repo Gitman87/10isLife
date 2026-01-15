@@ -1,5 +1,8 @@
 function breadcrumbsMove() {
   const breadcrumbsWrapper = document.querySelector(".breadcrumbs");
+  if (!breadcrumbsWrapper) {
+    return;
+  }
   const latencyDown = 120;
   const latencyUp = 200;
 
@@ -27,3 +30,17 @@ function breadcrumbsMove() {
   });
 }
 breadcrumbsMove();
+function autoBreadcrumbs() {
+  const header = document.querySelector(".header");
+  const breadcrumbs = document.querySelector(".breadcrumbs");
+
+  if (!header || !breadcrumbs) return;
+
+  const headerHeight = header.offsetHeight;
+
+  breadcrumbs.style.top = `${headerHeight}px`;
+}
+
+window.addEventListener("load", autoBreadcrumbs);
+
+window.addEventListener("resize", autoBreadcrumbs);

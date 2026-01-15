@@ -22,7 +22,7 @@ function genHeader()
         <script src="./js/components/profile.js"></script>
         <header class="header">
             <div class="header-content breakpoint">
-                <img src="./res/icon/Logo 1.0.svg" class="header-content-logo" alt="10islife" title="10isLife logo">
+                <a href='index.php'><img src="./res/icon/Logo 1.0.svg" class="header-content-logo" alt="10islife" title="10isLife logo"></a>
                 <form action='/search' method='get' class="header-content-search">
                     <label for="search" class="header-content-search-label hidden">Szukaj</label>
                     <input type="search" name="search" id="search" class="header-content-search-input" placeholder="Szukaj...">
@@ -68,7 +68,7 @@ function genHeader()
                 </div>
             </div>
         </header>
-        <?php echo  genBreadcrumbs() ?>
+        <?php echo genBreadcrumbs() ?>
         <script src="./js/local_storage_manager.js"></script>
         <script src="./js/components/breadcrumbs_move.js"></script>
         <script src="./js/save_address.js"></script>

@@ -42,8 +42,8 @@ function genFooter()
                 </li>
             </ul>
 
-
             <p class="footer-wrapper-address">&copy; 2026 Piotr Jóźwik. Wszelkie prawa zastrzeżone</p>
+
         </div>
     </footer>
 

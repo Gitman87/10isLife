@@ -1,25 +1,20 @@
 .footer {
-  clear: both;
-  position: relative;
-  bottom: 0;
-  max-width: $main-view-max-width;
+  // clear: both;
+  // position: relative;
+  // bottom: 0;
+  // max-width: $main-view-max-width;
+  width: min($main-view-max-width, 95%);
+  // width: 90%;
   padding: $main-view-padding;
-
-  padding: 0.8rem 0;
   margin: 1.6rem auto;
-
   -webkit-backdrop-filter: blur(10rem);
   backdrop-filter: blur(1rem);
   box-shadow: 0 0.4rem 3rem rgba(0, 0, 0, 0.1);
   border-bottom: 0.1rem solid rgba(255, 255, 255, 0.3);
-
   &-wrapper {
-    max-width: $main-view-max-width;
-    padding: $main-view-padding;
     width: 100%;
     color: $white;
     display: flex;
-    // background-color: $gray;
     filter: invert(100%);
     opacity: 0.5;
     padding: 1rem 0;
@@ -46,6 +41,8 @@
         flex-direction: column;
         &-list {
           &-row {
+            display: flex;
+            flex-wrap: wrap;
             &-link {
               color: $white;
               &-image {

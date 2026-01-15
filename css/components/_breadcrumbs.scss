@@ -1,20 +1,30 @@
 .breadcrumbs {
-  width: 100%;
+  // width: min($main-view-max-width, 95%);
+  max-width: $main-view-max-width;
+  padding: $main-view-padding;
   position: fixed;
-  top: 10rem;
-  transition: transform 0.3s ease-out;
+  top: 0;
+  transition: transform 0.3s ease-out, opacity 0.35s ease-in-out;
   z-index: 10;
+  opacity: 1;
+  margin-top: 0.6rem;
+  // inset: 0;
+  margin: 0 auto;
+  // margin-left: auto;
+  // margin-right: auto;
+
+  backdrop-filter: blur(1rem);
+  -webkit-backdrop-filter: blur(10rem);
+
+  box-shadow: 0 0.4rem 3rem rgba(0, 0, 0, 0.1);
+  // transition: opacity 0.35s ease-in-out;
   &-breadcrumbs_list {
     // background-color: orange;
     display: flex;
+    flex-wrap: wrap;
     gap: 0.5rem;
-    max-width: $main-view-max-width;
-    padding: $main-view-padding;
     width: 100%;
-    margin: 0.8rem auto 0 auto;
-    -webkit-backdrop-filter: blur(10rem);
-    backdrop-filter: blur(1rem);
-    box-shadow: 0 0.4rem 3rem rgba(0, 0, 0, 0.1);
+    // margin: 0.8rem auto 0 auto;
     color: $gray;
     &-crumb {
       &-link {
@@ -44,16 +54,27 @@
   }
 }
 .hidden_crumb {
-  // visibility: hidden;
+  opacity: 0;
   transform: translateY(-110%);
+  transition: opacity 0.35s ease-in-out, transform 0.3s ease-out;
 }
-@media (max-width: 128em) {
-  .breadcrumbs {
-    top: 14rem;
-  }
-}
-@media (max-width: 641px) {
-  .breadcrumbs {
-    top: 22rem;
-  }
-}
+// @media (max-width: 1900px) {
+//   .breadcrumbs {
+//     top: 40rem;
+//   }
+// }
+// @media (max-width: 128em) {
+//   .breadcrumbs {
+//     top: 14rem;
+//   }
+// }
+// // @media (max-width: 710px) {
+// //   .breadcrumbs {
+// //     top: 40rem;
+// //   }
+// // }
+// @media (max-width: 128em) {
+//   .breadcrumbs {
+//     top: 14rem;
+//   }
+// }
