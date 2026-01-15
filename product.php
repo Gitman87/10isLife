@@ -50,7 +50,9 @@ $stockQuantity = $prodData['quantity'];
 $prodThumbnailUrl = '';
 foreach ($prodData['images'] as $image) {
   if (isset($image['is_thumbnail']) && $image['is_thumbnail'] === 1) {
-    $prodThumbnailUrl  = $image['url'];
+    $absolutePath = $image['url'];
+    $relativePath =  str_replace("http://localhost/", "../", $absolutePath);
+    $prodThumbnailUrl  = $relativePath;
     break;
   };
 };
@@ -63,7 +65,8 @@ $prodDataJson = json_encode($prodData);
   <!-- <script src="/js/components/magnifier.js"></script> -->
   <script src="/js/cart_manager.js" defer></script>
   <section class="dashboard">
-    <?php genProductPreview($prodData['images'], $prodThumbnailUrl) ?>
+    <?php
+    genProductPreview($prodData['images'], $prodThumbnailUrl) ?>
     <div class="dashboard-pulpit">
       <div class="dashboard-pulpit-header">
         <div class="dashboard-pulpit-header-new_best">

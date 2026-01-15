@@ -133,11 +133,16 @@ input:focus {
   outline: 0.2rem solid #ff6600;
 }
 
+input {
+  border-radius: 0;
+}
+
 select {
   -webkit-appearance: base-select;
      -moz-appearance: base-select;
           appearance: base-select;
   border: 0.1rem solid #808080;
+  border-radius: 0;
   color: #002b5b;
   outline: 0.1rem solid #808080;
   height: 2.8rem;
@@ -305,11 +310,16 @@ input:focus {
   outline: 0.2rem solid #ff6600;
 }
 
+input {
+  border-radius: 0;
+}
+
 select {
   -webkit-appearance: base-select;
      -moz-appearance: base-select;
           appearance: base-select;
   border: 0.1rem solid #808080;
+  border-radius: 0;
   color: #002b5b;
   outline: 0.1rem solid #808080;
   height: 2.8rem;
@@ -415,6 +425,7 @@ option:hover {
 }
 .header-content-nav-list {
   display: flex;
+  flex-wrap: wrap;
 }
 .header-content-account {
   display: flex;
@@ -439,7 +450,7 @@ option:hover {
   position: relative;
   bottom: 0.4rem;
   max-width: 100%;
-  overflow-x: scroll;
+  overflow-x: auto;
   transition: color 0.4s ease-in-out;
 }
 .header-content-account-user-login:hover {
@@ -512,29 +523,45 @@ option:hover {
   clear: both;
   position: relative;
   bottom: 0;
-  margin: 1.6rem auto;
-  width: 152rem;
+  max-width: 152rem;
   padding: 0rem 4rem;
+  padding: 0.8rem 0;
+  margin: 1.6rem auto;
   -webkit-backdrop-filter: blur(10rem);
   backdrop-filter: blur(1rem);
   box-shadow: 0 0.4rem 3rem rgba(0, 0, 0, 0.1);
   border-bottom: 0.1rem solid rgba(255, 255, 255, 0.3);
 }
 .footer-wrapper {
+  max-width: 152rem;
+  padding: 0rem 4rem;
   width: 100%;
   color: white;
+  display: flex;
   filter: invert(100%);
   opacity: 0.5;
   padding: 1rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
 }
 .footer-wrapper-address {
   font-size: 1.4rem;
   text-align: right;
+  display: flex;
+  flex-wrap: wrap;
+  align-self: flex-end;
 }
 .footer-wrapper-categories {
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
+}
+.footer-wrapper-categories-category {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
 }
 .footer-wrapper-categories-category-list-row-link {
   color: white;
@@ -782,7 +809,7 @@ option:hover {
 .tile-link-details-name {
   color: #002b5b;
   font-size: 1.6rem;
-  overflow-x: scroll;
+  overflow-x: auto;
   margin-bottom: 0.8rem;
 }
 .tile-link-details-price {
@@ -1381,7 +1408,7 @@ option:hover {
   flex-grow: 1;
   background-color: white;
   box-shadow: 0rem -1rem 1rem -1rem rgba(0, 0, 0, 0.3882352941) inset;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 .basket_content-title {
   text-align: center;
@@ -1407,7 +1434,7 @@ option:hover {
 }
 .basket_content-list-row_container-order {
   width: 2.4rem;
-  overflow-x: scroll;
+  overflow-x: auto;
 }
 .basket_content-list-row_container-thumbnail {
   width: 4rem;
@@ -1416,7 +1443,7 @@ option:hover {
   color: #002b5b;
   min-width: 30rem;
   max-width: 35rem;
-  overflow-x: scroll;
+  overflow-x: auto;
 }
 .basket_content-list-row_container-name a {
   color: #002b5b;
@@ -1591,6 +1618,7 @@ option:hover {
 }
 .header-content-nav-list {
   display: flex;
+  flex-wrap: wrap;
 }
 .header-content-account {
   display: flex;
@@ -1615,7 +1643,7 @@ option:hover {
   position: relative;
   bottom: 0.4rem;
   max-width: 100%;
-  overflow-x: scroll;
+  overflow-x: auto;
   transition: color 0.4s ease-in-out;
 }
 .header-content-account-user-login:hover {
@@ -1688,29 +1716,45 @@ option:hover {
   clear: both;
   position: relative;
   bottom: 0;
-  margin: 1.6rem auto;
-  width: 152rem;
+  max-width: 152rem;
   padding: 0rem 4rem;
+  padding: 0.8rem 0;
+  margin: 1.6rem auto;
   -webkit-backdrop-filter: blur(10rem);
   backdrop-filter: blur(1rem);
   box-shadow: 0 0.4rem 3rem rgba(0, 0, 0, 0.1);
   border-bottom: 0.1rem solid rgba(255, 255, 255, 0.3);
 }
 .footer-wrapper {
+  max-width: 152rem;
+  padding: 0rem 4rem;
   width: 100%;
   color: white;
+  display: flex;
   filter: invert(100%);
   opacity: 0.5;
   padding: 1rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
 }
 .footer-wrapper-address {
   font-size: 1.4rem;
   text-align: right;
+  display: flex;
+  flex-wrap: wrap;
+  align-self: flex-end;
 }
 .footer-wrapper-categories {
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
+}
+.footer-wrapper-categories-category {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
 }
 .footer-wrapper-categories-category-list-row-link {
   color: white;
@@ -2323,7 +2367,7 @@ option:hover {
 .tile-link-details-name {
   color: #002b5b;
   font-size: 1.6rem;
-  overflow-x: scroll;
+  overflow-x: auto;
   margin-bottom: 0.8rem;
 }
 .tile-link-details-price {
@@ -2683,7 +2727,7 @@ option:hover {
 .review-text {
   width: 100%;
   color: #002b5b;
-  overflow-y: scroll;
+  overflow-y: auto;
   box-shadow: 0rem -1rem 1rem -1rem rgba(0, 0, 0, 0.3882352941) inset;
   max-height: 10rem;
 }
@@ -2698,7 +2742,7 @@ option:hover {
   color: #002b5b;
 }
 .review-stamp-full_name {
-  overflow-x: scroll;
+  overflow-x: auto;
   text-align: right;
   color: #002b5b;
 }
@@ -2859,7 +2903,7 @@ hr {
   margin-top: 4rem;
   max-width: 152rem;
   padding: 0rem 4rem;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 .main_checkout-logo {
   width: 10rem;
@@ -2933,7 +2977,7 @@ hr {
   flex-direction: column;
   gap: 0.8rem;
   height: 20rem;
-  overflow-y: scroll;
+  overflow-y: auto;
   box-shadow: 0rem -1rem 1rem -1rem rgba(0, 0, 0, 0.3882352941) inset;
   z-index: 2;
 }

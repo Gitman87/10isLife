@@ -13,7 +13,7 @@
   margin-top: 4rem;
   max-width: $main-view-max-width;
   padding: $main-view-padding;
-  overflow-y: scroll;
+  overflow-y: auto;
   &-logo {
     width: 10rem;
   }

@@ -9,9 +9,10 @@ function productPreview() {
   );
   slideshowImages.forEach((slide) => {
     slide.addEventListener("click", () => {
-      console.log("clicked");
+      console.log("mainPreviewImage.src before change is ", mainPreviewImage);
+      console.log("slide.src is ", slide.src);
       mainPreviewImage.src = slide.src;
-
+      console.log("mainPreviewImage.src after change is ", mainPreviewImage);
       magnify(".product_preview-preview", 2, 80);
     });
   });

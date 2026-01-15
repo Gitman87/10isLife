@@ -2,10 +2,12 @@
 function genProductPreview($images, $thumbnailUrl)
 {
   $safeThumbnailUrl = htmlspecialchars($thumbnailUrl, ENT_QUOTES, 'UTF-8');
+  // echo $safeThumbnailUrl;
 ?>
   <div class="product_preview">
     <div class="product_preview-preview">
-      <!-- <img src="res/img/products/rackets/Babolat/100_babolat_01.webp" alt="" class="product_preview-preview-image"> -->
+
+
       <img src="<?= $safeThumbnailUrl ?>" alt="product preview" class="product_preview-preview-image" id="magnified_image">
     </div>
     <div class="product_preview-slideshow">
@@ -13,7 +15,15 @@ function genProductPreview($images, $thumbnailUrl)
         <?php
         foreach ($images as $image) {
         ?>
-          <li class="product_preview-slideshow-list-slide"><button class="product_preview-slideshow-list-slide-button"><img src="<?= $image['url'] ?>" alt="product image" class="product_preview-slideshow-list-slide-button-image"></button></li>
+          <li class="product_preview-slideshow-list-slide"><button
+              class="product_preview-slideshow-list-slide-button">
+              <?php
+              $absolutePath = $image['url'];
+              $relativePath =  str_replace("http://localhost/", "../", $absolutePath);
+
+
+              ?>
+              <img src="<?= $relativePath ?>" alt="product image" class="product_preview-slideshow-list-slide-button-image"></button></li>
 
         <?php
         }

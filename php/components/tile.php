@@ -10,7 +10,12 @@ function genTile($id)
     <li class="tile">
         <a href="./product.php?id=<?php echo $tileData['product_id'] ?>" class="tile-link">
             <div class="tile-link-img_wrapper">
-                <img src="<?php echo $tileData['thumbnail']['url'] ?>" class="tile-link-img_wrapper-img" alt="product photo">
+
+                <?php
+                $absolutePath = $tileData['thumbnail']['url'];
+                $relativePath =  str_replace("http://localhost/", "../", $absolutePath);
+                ?>
+                <img src="<?php echo $relativePath ?>" class="tile-link-img_wrapper-img" alt="product photo">
             </div>
             <?php
             if ($tileData['discount'] != NULL) {

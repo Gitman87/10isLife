@@ -124,10 +124,13 @@ button {
 input:focus {
   outline: 0.2rem solid $orange;
 }
-
+input {
+  border-radius: 0;
+}
 select {
   appearance: base-select;
   border: 0.1rem solid $gray;
+  border-radius: 0;
   color: $granat;
   outline: 0.1rem solid $gray;
   height: 2.8rem;

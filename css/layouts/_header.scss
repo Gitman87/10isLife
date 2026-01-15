@@ -73,6 +73,7 @@
     &-nav {
       &-list {
         display: flex;
+        flex-wrap: wrap;
       }
     }
     &-account {
@@ -96,7 +97,7 @@
           position: relative;
           bottom: 0.4rem;
           max-width: 100%;
-          overflow-x: scroll;
+          overflow-x: auto;
           transition: color 0.4s ease-in-out;
         }
         &-login:hover {

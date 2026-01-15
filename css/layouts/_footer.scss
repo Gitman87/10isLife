@@ -2,9 +2,11 @@
   clear: both;
   position: relative;
   bottom: 0;
-  margin: 1.6rem auto;
-  width: $main-view-max-width;
+  max-width: $main-view-max-width;
   padding: $main-view-padding;
+
+  padding: 0.8rem 0;
+  margin: 1.6rem auto;
 
   -webkit-backdrop-filter: blur(10rem);
   backdrop-filter: blur(1rem);
@@ -12,22 +14,36 @@
   border-bottom: 0.1rem solid rgba(255, 255, 255, 0.3);
 
   &-wrapper {
+    max-width: $main-view-max-width;
+    padding: $main-view-padding;
     width: 100%;
     color: $white;
+    display: flex;
     // background-color: $gray;
     filter: invert(100%);
     opacity: 0.5;
     padding: 1rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+
     &-address {
       font-size: $font-small;
       text-align: right;
+      display: flex;
+      flex-wrap: wrap;
+      align-self: flex-end;
     }
     &-categories {
       width: 100%;
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
 
       &-category {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
         &-list {
           &-row {
             &-link {
