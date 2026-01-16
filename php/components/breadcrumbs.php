@@ -2,7 +2,7 @@
 
 
 
-function genBreadcrumbs($separator = " <li class='breadcrumbs-breadcrumbs_list-separator'> &#62</li> ", $home = 'Stona główna')
+function genBreadcrumbs($separator = " <li class='breadcrumbs-breadcrumbs_list-separator'> &#62</li> ", $home = 'Strona główna')
 {
     $path = array_filter(explode('/', parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)));
 

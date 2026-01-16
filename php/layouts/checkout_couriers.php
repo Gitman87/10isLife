@@ -11,15 +11,26 @@ function genCouriersSelect($label, $totalWeight, $isAbroad = false, $couriersDat
             foreach ($couriersData as $courier) {
                 // $value = str_replace(" ", "_", strtolower($courier['']));
                 $totalFee = 0;
-                if (!$isAbroad) {
-                    $totalFee = round(($totalWeight / $courier['limit_kg']) * $courier['limit_fee'], 2);
-                    echo 'totalFee is : ' . $totalFee;
-                } else {
-                    $totalFee = round($courier['fee'] + (($totalWeight / $courier['limit_kg']) * $courier['limit_fee']), 2);
-                }
 
+                if (!$isAbroad) {
+                    if ($totalWeight > (float)$courier['limit_kg']) {
+                        $limit = (float)$courier['limit_kg'];
+                        $numberOfExeededLimit = floor($totalWeight / $limit) * (float)$courier['limit_fee'];
+                        $totalFee = round(((float)$courier['fee'] + $numberOfExeededLimit), 2);
+                    } else {
+                        $totalFee = (float)$courier['fee'];
+                    }
+                } else {
+                    if ($totalWeight > (float)$courier['limit_kg']) {
+                        $limit = (float)$courier['limit_kg'];
+                        $numberOfExeededLimit = floor($totalWeight / $limit) * (float)$courier['limit_fee'];
+                        $totalFee = round(((float)$courier['fee'] + $numberOfExeededLimit), 2);
+                    } else {
+                        $totalFee = (float)$courier['fee'];
+                    }
+                }
             ?>
-                <option class="select_courier-courier" value="<?= $courier['courier_id'] ?>"><?= $courier['name'] ?><span class="select_courier-courier-fee">&nbsp;+&nbsp;<?= $totalFee ?>&nbsp;zł</span></option>
+                <option class="select_courier-courier" value="<?= $courier['courier_id'] ?>"><?= $courier['name'] ?><span class="select_courier-courier-fee">&nbsp;+&nbsp;<?= $totalFee ?>&nbsp;zł</span> <?php echo $totalFee, gettype((float)$courier[$totalFee]); ?></option>
             <?php
             }
             ?>

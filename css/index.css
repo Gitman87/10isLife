@@ -23,10 +23,6 @@ body {
   background-image: url(../res/icon/square-tile.svg);
   background-repeat: repeat;
   background-attachment: fixed;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
 
 /* 3. Enable keyword animations */
@@ -204,10 +200,6 @@ body {
   background-image: url(../res/icon/square-tile.svg);
   background-repeat: repeat;
   background-attachment: fixed;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
 
 /* 3. Enable keyword animations */
@@ -915,7 +907,7 @@ option:hover {
   z-index: 10;
   opacity: 1;
   margin-top: 0.6rem;
-  margin: 0 auto;
+  margin-left: 45%;
   backdrop-filter: blur(1rem);
   -webkit-backdrop-filter: blur(10rem);
   box-shadow: 0 0.4rem 3rem rgba(0, 0, 0, 0.1);
@@ -2556,7 +2548,7 @@ option:hover {
   z-index: 10;
   opacity: 1;
   margin-top: 0.6rem;
-  margin: 0 auto;
+  margin-left: 45%;
   backdrop-filter: blur(1rem);
   -webkit-backdrop-filter: blur(10rem);
   box-shadow: 0 0.4rem 3rem rgba(0, 0, 0, 0.1);
