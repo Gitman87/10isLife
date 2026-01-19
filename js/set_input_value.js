@@ -1,3 +1,5 @@
+//this i s for checkout address form
+
 function setInputValue(checkId, sourceInputId) {
   const checkInput = document.getElementById(checkId);
   const sourceInput = document.getElementById(sourceInputId);
@@ -12,5 +14,6 @@ function setInputValue(checkId, sourceInputId) {
     checkInput.setAttribute("value", newValue);
   });
 }
+
 // setInputValue(checkId, sourceInputId);
 // setInputValue("set_address_check", "select_country");

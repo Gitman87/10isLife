@@ -23,6 +23,8 @@ function genCheckoutForm($isLogged, $totalWeight, $totalVolume)
     <script src="./js/components/geo_widget.js" defer></script>
     <script src="./js/utilities/toggle_visibility.js" defer></script>
     <script src="./js/set_input_value.js"></script>
+    <script src="./js/is_abroad.js" defer></script>
+
 
 
 
@@ -117,9 +119,7 @@ function genCheckoutForm($isLogged, $totalWeight, $totalVolume)
                     // echo 'volume is ' . $totalVolume;
                     genShow('Wybierz paczkomat', "openGeoWidget();toggleVisibility('parcel_point_div')");
                 ?>
-
                     <div class="checkout_address_form-address_data-point_wrapper-input" id='parcel_point_div'>
-
                         <?php genInput('Podaj kod paczkomatu', 'text', 'parcel_point', 'parcel_point'); ?>
                     </div>
                     <p class="checkout_address_form-address_data-point_wrapper-error_output"></p>
@@ -129,13 +129,26 @@ function genCheckoutForm($isLogged, $totalWeight, $totalVolume)
                     <p class="checkout_address_form-address_data-point_wrapper-volume_warning">Objętość <?= $totalVolume ?>cm3 zamówienia wyklucza paczkomat.</p>
                 <?php
                 } ?>
-
             </div>
         </section>
+        <section class="checkout_address_form-courier_data">
+            <input type="hidden" class="checkout_address_form-courier_data-is_abroad" id="courier_total_fee" name="courier_total_fee" value=''></input>
+            <?php
+            foreach ($couriersData as $courier) {
+                $courierName =  strtolower($courier['name']);
+            ?>
+                <input type="hidden" class="checkout_address_form-courier_data-courier_abroad_fee" id="<?= $courierName ?>" name="<?= $courier['name'] ?>" value='<?= $courier['abroad_fee'] ?>'></input>
+            <?php
+            }
 
-        <?php
-        genCouriersSelect('Wybierz kuriera: ', $totalWeight, $isAbroad = false, $couriersData);
-        ?>
+            ?>
+
+            <?php
+            genCouriersSelect('Wybierz kuriera: ', $totalWeight, $couriersData);
+            ?>
+            <p class="checkout_address_form-courier_data-fee_message"></p>
+            <p class="checkout_address_form-courier_data-error_output"></p>
+        </section>
     </form>
 
 <?php

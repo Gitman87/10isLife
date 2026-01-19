@@ -48,7 +48,7 @@ $totalWeight = 0;
 $totalVolume = 0;
 foreach ($cart as $item) {
     $totalSum += $item['total'];
-    $totalWeight += $item['weight_kg'];
+    $totalWeight += ($item['weight_kg'] * $item['quantity']);
     $totalVolume += $item['volume'];
 }
 // ------------------------page---------------------------------
