@@ -29,9 +29,7 @@ function genRegister()
         <div class="register-name_wrapper">
             <?php genInput('Imię *', 'text', 'pre_first_name', 'pre_first_name') ?>
             <?php genInput('Nazwisko *', 'text', 'pre_last_name', 'pre_last_name') ?>
-            <?php genPasswordInput('Hasło *', 'password', 'pre_password', 'pre_password') ?>
-            <?php genPasswordInput('Potwierdź hasło *', 'password', 'pre_confirm_password', 'confirm_password') ?>
-            <p class="register-email_wrapper-password_output error_output"></p>
+            <p class="register-email_wrapper-name_output error_output"></p>
 
             <?php genWideButton("Przejdź dalej", "pre_name_button", "button", "validateName('#pre_first_name', '#pre_last_name','.register-email_wrapper-name_output') && collapseChain(this, 'register') && inputMoveValue('#register', '#pre_first_name', '#first_name');inputMoveValue('#register', '#pre_last_name', '#last_name')") ?>
         </div>

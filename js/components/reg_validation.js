@@ -213,7 +213,7 @@ function submitForm() {
 
         const result = await response.json();
         if (result["success"]) {
-          if (result["redirect"] === "checkout.php") {
+          if (result["redirect"]) {
             form.reset();
             closeModal();
             window.location.href = result["redirect"];

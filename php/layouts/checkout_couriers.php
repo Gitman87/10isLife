@@ -21,7 +21,7 @@ function genCouriersSelect($label, $totalWeight, $couriersData)
                 }
 
             ?>
-                <option class="select_courier-courier" value="<?= $courierName ?>" data-courier-fee='<?= $totalFee  ?>'><?= $courier['name'] ?>&nbsp;+&nbsp;<span class="select_courier-courier-fee"><?= $totalFee ?></span>&nbsp;zł</option>
+                <option class="select_courier-courier" value="<?= $courierName ?>" data-courier-fee='<?= $totalFee ?>'><?= $courier['name'] ?>&nbsp;+&nbsp;<span class="select_courier-courier-fee"><?= $totalFee ?></span>&nbsp;zł</option>
             <?php
             }
             ?>

@@ -18,7 +18,7 @@ function setCustomerData()
   $path = parse_url($referer, PHP_URL_PATH);
   $filename = basename($path);
   $isInBasket = ($filename === 'cart.php');
-  $toTarget = $isInBasket ? 'checkout.php' : 'not_cart';
+  $toTarget = $isInBasket ? 'checkout.php' : 'registered.php';
   // prepare and bind
   $stmt = $conn->prepare("INSERT INTO customers(first_name, last_name, email, password_hash,gender,  tax_number,is_registered) VALUES (?, ?, ?,?,?,?,1)");
 
@@ -126,7 +126,7 @@ function validate()
     $errorMessages['firstNameError'] = "Imię jest wymagane.";
   } else {
     $firstName = trim($_POST['first_name']);
-    if (!preg_match("/^\p{Lu}\p{Ll}+$/u", $firstName)) {
+    if (!preg_match("/^\p{Lu}\p{Ll}+( \p{Lu}\p{Ll}+)*$/u", $firstName)) {
       $errorMessages['firstNameError'] = "Podaj poprawną formę swojego imienia (np. Piotr, Łukasz, Anna)";
     }
   }
@@ -135,7 +135,7 @@ function validate()
     $errorMessages['lastNameError'] = "Nazwisko jest wymagane.";
   } else {
     $lastName = trim($_POST['last_name']);
-    if (!preg_match("/^\p{Lu}\p{Ll}+(-\p{Lu}\p{Ll}+)?$/u", $lastName)) {
+    if (!preg_match("/^\p{Lu}\p{Ll}+([\s-]\p{Lu}\p{Ll}+)*$/u", $lastName)) {
       $errorMessages['lastNameError'] = "Podaj poprawną forme swojego nazwiska";
     }
   }
