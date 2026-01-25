@@ -46,11 +46,19 @@ $cart = $_SESSION['verified_cart'];
 $totalSum = 0;
 $totalWeight = 0;
 $totalVolume = 0;
+$totalQuantity = 0;
+
+
 foreach ($cart as $item) {
     $totalSum += $item['total'];
     $totalWeight += ($item['weight_kg'] * $item['quantity']);
     $totalVolume += $item['volume'];
+    $totalQuantity += $item['quantity'];
 }
+$_SESSION['totalSum'] = $totalSum;
+$_SESSION['totalWeight'] = $totalWeight;
+$_SESSION['totalVolume'] = $totalVolume;
+$_SESSION['totalQuantity'] = $totalQuantity;
 // ------------------------page---------------------------------
 ?>
 <?php genHead('10isLife') ?>
@@ -66,22 +74,23 @@ foreach ($cart as $item) {
             </section>
             <section class="main_checkout-content-register">
                 <?php
-                genCheckoutForm($isLogged, $totalWeight, $totalVolume);
+                genCheckoutForm($isLogged, $totalWeight, $totalVolume, $totalSum);
 
                 ?>
             </section>
         </div>
         <aside class="main_checkout-summary">
+
             <img src="./res/icon/Logo 1.0.svg" class="main_checkout-summary-logo" alt="10islife" title="10isLife logo">
             <h2 class="main_checkout-summary-title">Kasa</h2>
             <dl class="main_checkout-summary-details">
-                <dt class="main_checkout-summary-details-term">Ilość produktów:</dt>
-                <dd class="main_checkout-summary-details-quantity"></dd>
-                <dt class="main_checkout-summary-details-term">Suma:</dt>
-                <dd class="main_checkout-summary-details-sum"></dd>
+                <dt class="main_checkout-summary-details-term">Ilość produktów: </dt>
+                <dd class="main_checkout-summary-details-quantity"><strong><?= $totalQuantity ?></strong></dd>
+                <dt class="main_checkout-summary-details-term">Suma: </dt>
+                <dd class="main_checkout-summary-details-sum"><strong> <?= $totalSum ?></strong> zł brutto</dd>
             </dl>
             <div class="main_checkout-summary-buttons">
-                <?php genStandardButton("Zapłać", true, '', '') ?>
+                <?php genStandardButton("Przejdź do płatności", true, '', '') ?>
             </div>
         </aside>
     </main>

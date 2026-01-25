@@ -20,11 +20,13 @@ function isAbroad() {
       const selectedOptionFee = selectedOption.dataset.courierFee;
       courierTotalFee = parseFloat(abroadFee) + parseFloat(selectedOptionFee);
       courierTotalFeeHiddenInput.value = courierTotalFee;
+      courierTotalFeeHiddenInput.dispatchEvent(new Event("change"));
       messagePara.innerHTML = `Dodatkowa opłata za wysyłkę za granicę: ${abroadFee} zł`;
     } else {
       const selectedOption = selectCourier.options[selectCourier.selectedIndex];
       const selectedOptionFee = selectedOption.dataset.courierFee;
       courierTotalFeeHiddenInput.value = selectedOptionFee;
+      courierTotalFeeHiddenInput.dispatchEvent(new Event("change"));
       messagePara.innerHTML = "";
     }
   });
@@ -37,11 +39,13 @@ function isAbroad() {
       const selectedOptionFee = selectedOption.dataset.courierFee;
       courierTotalFee = parseFloat(abroadFee) + parseFloat(selectedOptionFee);
       courierTotalFeeHiddenInput.value = courierTotalFee;
+      courierTotalFeeHiddenInput.dispatchEvent(new Event("change"));
       messagePara.innerHTML = `Dodatkowa opłata za wysyłkę za granicę: ${abroadFee} zł`;
     } else {
       const selectedOption = selectCourier.options[selectCourier.selectedIndex];
       const selectedOptionFee = selectedOption.dataset.courierFee;
       courierTotalFeeHiddenInput.value = selectedOptionFee;
+      courierTotalFeeHiddenInput.dispatchEvent(new Event("change"));
       messagePara.innerHTML = "";
     }
   });

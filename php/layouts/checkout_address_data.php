@@ -1,7 +1,7 @@
 <?php
 
 
-function genCheckoutForm($isLogged, $totalWeight, $totalVolume)
+function genCheckoutForm($isLogged, $totalWeight, $totalVolume, $totalSum)
 {
     $customer = [];
     if ($isLogged) {
@@ -24,6 +24,8 @@ function genCheckoutForm($isLogged, $totalWeight, $totalVolume)
     <script src="./js/utilities/toggle_visibility.js" defer></script>
     <script src="./js/set_input_value.js"></script>
     <script src="./js/is_abroad.js" defer></script>
+    <script src="./js/update_total_sum.js" defer></script>
+
 
 
 
@@ -132,6 +134,10 @@ function genCheckoutForm($isLogged, $totalWeight, $totalVolume)
         </section>
         <section class="checkout_address_form-courier_data">
             <input type="hidden" class="checkout_address_form-courier_data-is_abroad" id="courier_total_fee" name="courier_total_fee" value=''></input>
+            <!-- this on is important -->
+            <input type="hidden" value='<?= $totalSum ?>' class="checkout_address_form-courier_data-passed_total_sum" name='passed_total_sum' id="passed_total_sum">
+            <input type="hidden" value='' class="checkout_address_form-courier_data-pass_total_sum" name='pass_total_sum' id="pass_total_sum">
+
             <?php
             foreach ($couriersData as $courier) {
                 $courierName =  strtolower($courier['name']);
@@ -162,17 +168,6 @@ function genCheckoutForm($isLogged, $totalWeight, $totalVolume)
                 ?>
             </div>
             <p class="checkout_address_form-invoice_data-error_output"></p>
-
-        </section>
-        <section class="checkout_address_form-payment_data">
-            <h3 class="checkout_address_form-payment_data-title">Dane płatności:</h3>
-            <input type="hidden" class="checkout_address_form-payment_data-payment_value" value='' name='payment_value' id="payment_value">
-            <?php
-            genShow('Zwykłay przelew', "toggleVisibility('tax_number_div')"); ?>
-            <div class="checkout_address_form-payment_data">
-
-            </div>
-
 
         </section>
 
