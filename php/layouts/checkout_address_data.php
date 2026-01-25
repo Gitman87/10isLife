@@ -74,7 +74,6 @@ function genCheckoutForm($isLogged, $totalWeight, $totalVolume)
         </section>
         <section class="checkout_address_form-address_data">
             <h3 class="checkout_address_form-address_data-title">Dane adresowe:</h3>
-
             <div class="checkout_address_form-address_data-street_wrapper">
                 <?php
                 //chek if customer has address in db
@@ -149,6 +148,35 @@ function genCheckoutForm($isLogged, $totalWeight, $totalVolume)
             <p class="checkout_address_form-courier_data-fee_message"></p>
             <p class="checkout_address_form-courier_data-error_output"></p>
         </section>
+        <section class="checkout_address_form-invoice_data">
+            <input type="hidden" class="checkout_address_form-invoice_data" value='' name='tax_number_value' id="tax_number_value">
+            <?php
+            genShow('Wystaw fakturę', "toggleVisibility('tax_number_div')"); ?>
+            <div class="checkout_address_form-address_data-point_wrapper-input" id='tax_number_div'>
+                <?php
+                if ($isLogged) {
+                    genInput('Podaj numer NIP', 'text', 'tax_number', 'tax_number', $customer['tax_number']);
+                } else {
+                    genInput('Podaj numer NIP', 'text', 'tax_number', 'tax_number');
+                }
+                ?>
+            </div>
+            <p class="checkout_address_form-invoice_data-error_output"></p>
+
+        </section>
+        <section class="checkout_address_form-payment_data">
+            <h3 class="checkout_address_form-payment_data-title">Dane płatności:</h3>
+            <input type="hidden" class="checkout_address_form-payment_data-payment_value" value='' name='payment_value' id="payment_value">
+            <?php
+            genShow('Zwykłay przelew', "toggleVisibility('tax_number_div')"); ?>
+            <div class="checkout_address_form-payment_data">
+
+            </div>
+
+
+        </section>
+
+
     </form>
 
 <?php

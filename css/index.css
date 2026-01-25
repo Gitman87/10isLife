@@ -3022,6 +3022,10 @@ hr {
 .checkout_address_form-address_data-point_wrapper-input {
   display: none;
 }
+.checkout_address_form-invoice_data button {
+  border: 0.1rem solid #808080;
+  padding: 0.3rem 0.6rem;
+}
 
 .hide_passwords {
   display: none;
