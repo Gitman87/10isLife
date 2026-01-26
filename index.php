@@ -58,34 +58,34 @@ session_start();
     array(
       'header' => 'Najlepsza odzież!',
       'details' => 'Stylowe i funkcjonalne ciuchy.',
-      'img' => '../res/img/odziez.jpg',
+      'img' => '../res/img/odziez.webp',
       'url' => './clothes.php'
     ),
     array(
       'header' => 'Najlepsze rakiety!',
       'details' => 'Unikatowe modele renomowanych producentów',
-      'img' => '../res/img/rakiety.jpg',
+      'img' => '../res/img/rakiety.webp',
       'url' => './rackets.php'
 
     ),
     array(
       'header' => 'Najlepsze buty!',
       'details' => 'Na każdy rodzaj nawierzchni.',
-      'img' => '../res/img/buty.jpg',
+      'img' => '../res/img/buty.webp',
       'url' => './shoes.php'
 
     ),
     array(
       'header' => 'Najlepsze piłki!',
       'details' => 'Żeby było co podkręcać.',
-      'img' => '../res/img/pilki.jpg',
+      'img' => '../res/img/pilki.webp',
       'url' => './balls.php'
 
     ),
     array(
       'header' => 'Najlepsze akcesoria',
       'details' => 'Zbyś mógł skupić się tylko  na grze',
-      'img' => '../res/img/akcesoria.jpg',
+      'img' => '../res/img/akcesoria.webp',
       'url' => './accessories.php'
 
     ),
