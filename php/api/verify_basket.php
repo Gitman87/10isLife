@@ -9,9 +9,9 @@ if (session_status() === PHP_SESSION_NONE) {
 function verifyBasket()
 {
     global $user, $host, $password, $db_name;
-    // Create connection
+
     $conn = new mysqli($host, $user, $password, $db_name);
-    // Check connection
+
     if ($conn->connect_error) {
         http_response_code(500);
         die(json_encode(["success" => false, "message" => "Database connection failed: " . $conn->connect_error]));
@@ -108,11 +108,8 @@ function verifyBasket()
             "message" => $errorMessages,
             "quantity" => $quantityErrorMessages,
             "price" => $priceErrorMessages
-
-
         ]);
     }
-
     $conn->close();
     exit;
     // echo 'VerfifiedCart is ' . $verifiedCart;

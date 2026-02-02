@@ -1,6 +1,5 @@
 <?php
 require './php/layouts/head.php';
-
 // require './php/layouts/header.php';
 // require './php/layouts/footer.php';
 require './php/layouts/checkout_list.php';
@@ -48,7 +47,6 @@ $totalWeight = 0;
 $totalVolume = 0;
 $totalQuantity = 0;
 
-
 foreach ($cart as $item) {
     $totalSum += $item['total'];
     $totalWeight += ($item['weight_kg'] * $item['quantity']);
@@ -82,7 +80,6 @@ $_SESSION['totalQuantity'] = $totalQuantity;
         <aside class="main_checkout-summary">
 
             <img src="./res/icon/Logo 1.0.svg" class="main_checkout-summary-logo" alt="10islife" title="10isLife logo">
-            <h2 class="main_checkout-summary-title">Kasa</h2>
             <dl class="main_checkout-summary-details">
                 <dt class="main_checkout-summary-details-term">Ilość produktów: </dt>
                 <dd class="main_checkout-summary-details-quantity"><strong><?= $totalQuantity ?></strong></dd>
