@@ -26,12 +26,6 @@ function genCheckoutForm($isLogged, $totalWeight, $totalVolume, $totalSum)
     <script src="./js/is_abroad.js" defer></script>
     <script src="./js/update_total_sum.js" defer></script>
 
-
-
-
-
-
-
     <form action="./php/api/checkouting_address_data.php" class="checkout_address_form" id="checkout_address_form" method='POST'>
         <?php
 
