@@ -8,6 +8,8 @@ Tech Stack and Architecture
   The Backend was written in a PHP 8.x (Vanilla) environment, which includes a custom routing and API handling system without the use of external frameworks.
 
   The MySQL database was designed based on the EAV (Entity-Attribute-Value) model, allowing for flexible management of complex product variants and attributes.
+  
+  SQL file and screenshot of the database scheme is located in ./db folder.
 
   The Frontend relies on Vanilla JavaScript (ES6+) and the SCSS preprocessor, utilizing a custom component architecture and event delegation mechanism to optimize performance.
 
@@ -63,6 +65,8 @@ Stos technologiczny i architektura
   Backend został napisany w środowisku PHP 8.x (Vanilla), co obejmuje autorski system routingu i obsługi API bez wykorzystania zewnętrznych frameworków.
 
   Baza danych MySQL została zaprojektowana w oparciu o model EAV (Entity-Attribute-Value), co pozwala na elastyczne zarządzanie skomplikowanymi wariantami i atrybutami produktów.
+
+  Plik SQL i zrzut schamatu bazy danych jest w folderzee ./db.
 
   Frontend opiera się na języku Vanilla JavaScript (ES6+) oraz preprocesorze SCSS, wykorzystując własną architekturę komponentów i mechanizm delegacji zdarzeń w celu optymalizacji wydajności.
 
