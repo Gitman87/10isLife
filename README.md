@@ -1,4 +1,4 @@
-The prject is available at www.piotrjozwik.pl
+The project is available at www.piotrjozwik.pl
 
 ENG
 
