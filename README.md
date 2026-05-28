@@ -104,6 +104,6 @@ Stan realizacji i roadmapa
 
   Wyszukiwarka produktów znajduje się obecnie w fazie mockupu wizualnego – interfejs frontendowy nie został jeszcze zintegrowany z logiką wyszukiwania w bazie danych.
 
-    W procesie zakupowym brakuje ostatecznej weryfikacji koszyka i dostępności bezpośrednio przed autoryzacją transakcji.
+  W procesie zakupowym brakuje ostatecznej weryfikacji koszyka i dostępności bezpośrednio przed autoryzacją transakcji.
 
-    System nie posiada obecnie fizycznie podpiętej bramki płatniczej. Docelowo planowana jest integracja z platformą Stripe.
+  System nie posiada obecnie fizycznie podpiętej bramki płatniczej. Docelowo planowana jest integracja z platformą Stripe.
