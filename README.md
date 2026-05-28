@@ -1,3 +1,5 @@
+The prject is available at www.piotrjozwik.pl
+
 ENG
 
 10isLife is a custom e-commerce project that I created to deepen my knowledge of backend programming, SQL database design, and writing in pure PHP. The main goal was to create a "vertical slice" – a fully functional, vertical cross-section of the most important e-commerce mechanisms. The entire visual identity, including the logo and user interface, was conceived and designed by me from scratch using Figma and Adobe Illustrator.
